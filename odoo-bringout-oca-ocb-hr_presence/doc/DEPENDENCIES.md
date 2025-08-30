@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [hr](https://github.com/bringout/oca-ocb-hr/tree/eb4b035c2ae30a52ff9d18cecd2b898328021028/odoo-bringout-oca-ocb-hr)
-- [hr_holidays](https://github.com/bringout/oca-ocb-hr/tree/eb4b035c2ae30a52ff9d18cecd2b898328021028/odoo-bringout-oca-ocb-hr_holidays)
-- [sms](https://github.com/bringout/oca-ocb-mail/tree/4ece4b53301be495feccc3ec0a5f37b61ab120db/odoo-bringout-oca-ocb-sms)
+- [hr](https://github.com/bringout/oca-ocb-hr/tree/fd0ec9fb231394028ae822d432cba192b5602deb/odoo-bringout-oca-ocb-hr)
+- [hr_holidays](https://github.com/bringout/oca-ocb-hr/tree/fd0ec9fb231394028ae822d432cba192b5602deb/odoo-bringout-oca-ocb-hr_holidays)
+- [sms](https://github.com/bringout/oca-ocb-mail/tree/23498205c67330c50a91031576e33fdf36f2beac/odoo-bringout-oca-ocb-sms)
