@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [hr_contract](https://github.com/bringout/oca-ocb-hr/tree/7056a6865f6bd273a5c4cfc973b3c7a819ee6af0/odoo-bringout-oca-ocb-hr_contract)
-- [account](https://github.com/bringout/oca-ocb-accounting/tree/6e99f2e941ecad12aceb9b1f887fbe526940de95/odoo-bringout-oca-ocb-account)
-- [web_tour](https://github.com/bringout/oca-ocb-web/tree/00a6994d033e4c605f58b875d71530d9614d9bab/odoo-bringout-oca-ocb-web_tour)
+- [hr_contract](https://github.com/bringout/oca-ocb-hr/tree/7fb3fb6283239c624dcbacc56df725f7a52d28aa/odoo-bringout-oca-ocb-hr_contract)
+- [account](https://github.com/bringout/oca-ocb-accounting/tree/3bdbee2033c3989f108204c90af9cf1db37bf0a0/odoo-bringout-oca-ocb-account)
+- [web_tour](https://github.com/bringout/oca-ocb-web/tree/573c5dd25aad276b803e5238d2bca395e0599023/odoo-bringout-oca-ocb-web_tour)
