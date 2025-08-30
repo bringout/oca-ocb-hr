@@ -2,9 +2,9 @@
 
 This addon depends on:
 
-- [hr](https://github.com/bringout/oca-ocb-hr/tree/93e1948189b86e895a0e69df02014248afcec99d/odoo-bringout-oca-ocb-hr)
-- [calendar](https://github.com/bringout/oca-ocb-technical/tree/8fcba78f213552797a003ba001cde6c4c59e6785/odoo-bringout-oca-ocb-calendar)
-- [utm](https://github.com/bringout/oca-ocb-core/tree/680f309d65868a57afe7e3be0f9905cc2a7043fb/odoo-bringout-oca-ocb-utm)
-- [attachment_indexation](https://github.com/bringout/oca-ocb-core/tree/680f309d65868a57afe7e3be0f9905cc2a7043fb/odoo-bringout-oca-ocb-attachment_indexation)
-- [web_tour](https://github.com/bringout/oca-ocb-web/tree/390af320269d12935b357759c1589e8a2fc80f93/odoo-bringout-oca-ocb-web_tour)
-- [digest](https://github.com/bringout/oca-ocb-core/tree/680f309d65868a57afe7e3be0f9905cc2a7043fb/odoo-bringout-oca-ocb-digest)
+- [hr](https://github.com/bringout/oca-ocb-hr/tree/7056a6865f6bd273a5c4cfc973b3c7a819ee6af0/odoo-bringout-oca-ocb-hr)
+- [calendar](https://github.com/bringout/oca-ocb-technical/tree/b2a91e3b975dae4980028dc64efeda7a6a77a647/odoo-bringout-oca-ocb-calendar)
+- [utm](https://github.com/bringout/oca-ocb-core/tree/156bd325ef4782b980ca23175711c453db07528e/odoo-bringout-oca-ocb-utm)
+- [attachment_indexation](https://github.com/bringout/oca-ocb-core/tree/156bd325ef4782b980ca23175711c453db07528e/odoo-bringout-oca-ocb-attachment_indexation)
+- [web_tour](https://github.com/bringout/oca-ocb-web/tree/00a6994d033e4c605f58b875d71530d9614d9bab/odoo-bringout-oca-ocb-web_tour)
+- [digest](https://github.com/bringout/oca-ocb-core/tree/156bd325ef4782b980ca23175711c453db07528e/odoo-bringout-oca-ocb-digest)
