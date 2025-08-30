@@ -2,7 +2,7 @@
 
 This addon depends on:
 
-- [base_setup](../../odoo-bringout-oca-ocb-base_setup)
-- [mail](../../odoo-bringout-oca-ocb-mail)
-- [resource](../../odoo-bringout-oca-ocb-resource)
-- [web](../../odoo-bringout-oca-ocb-web)
+- [base_setup](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-base_setup)
+- [mail](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-mail)
+- [resource](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-resource)
+- [web](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-web)

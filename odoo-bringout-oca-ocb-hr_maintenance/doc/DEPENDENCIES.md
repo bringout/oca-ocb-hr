@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [hr](../../odoo-bringout-oca-ocb-hr)
-- [maintenance](../../odoo-bringout-oca-ocb-maintenance)
+- [hr](../../../../odoo-bringout-oca-ocb-hr)
+- [maintenance](../../../../../oca-ocb-vertical-industry/odoo-bringout-oca-ocb-maintenance)
