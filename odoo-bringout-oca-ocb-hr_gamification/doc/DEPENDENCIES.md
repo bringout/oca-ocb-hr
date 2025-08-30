@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [gamification](https://github.com/bringout/oca-ocb-vertical-industry/tree/ceb28cbd494cf78988dff69778c4e3c938a40f59/odoo-bringout-oca-ocb-gamification)
-- [hr](https://github.com/bringout/oca-ocb-hr/tree/f98b49b539eee9e50a57b2cbab9546577b4c3681/odoo-bringout-oca-ocb-hr)
+- [gamification](https://github.com/bringout/oca-ocb-vertical-industry/tree/b20a71aa887f097f835c1d9682be635a67653ad9/odoo-bringout-oca-ocb-gamification)
+- [hr](https://github.com/bringout/oca-ocb-hr/tree/f288f1185aa474d2fbc3385a757b169c442c3acf/odoo-bringout-oca-ocb-hr)
