@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [survey](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-survey)
-- [hr_recruitment](../../../../odoo-bringout-oca-ocb-hr_recruitment)
+- [survey](https://github.com/bringout/oca-ocb-core)
+- [hr_recruitment](https://github.com/bringout/oca-ocb-hr)

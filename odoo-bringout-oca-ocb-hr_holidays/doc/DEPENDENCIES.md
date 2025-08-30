@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [hr](../../../../odoo-bringout-oca-ocb-hr)
-- [calendar](../../../../../oca-ocb-technical/odoo-bringout-oca-ocb-calendar)
-- [resource](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-resource)
+- [hr](https://github.com/bringout/oca-ocb-hr)
+- [calendar](https://github.com/bringout/oca-ocb-technical)
+- [resource](https://github.com/bringout/oca-ocb-core)

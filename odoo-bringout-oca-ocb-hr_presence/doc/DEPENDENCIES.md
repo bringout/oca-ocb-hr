@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [hr](../../../../odoo-bringout-oca-ocb-hr)
-- [hr_holidays](../../../../odoo-bringout-oca-ocb-hr_holidays)
-- [sms](../../../../../oca-ocb-mail/odoo-bringout-oca-ocb-sms)
+- [hr](https://github.com/bringout/oca-ocb-hr)
+- [hr_holidays](https://github.com/bringout/oca-ocb-hr)
+- [sms](https://github.com/bringout/oca-ocb-mail)

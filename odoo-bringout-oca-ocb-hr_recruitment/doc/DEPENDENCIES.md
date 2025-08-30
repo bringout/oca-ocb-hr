@@ -2,9 +2,9 @@
 
 This addon depends on:
 
-- [hr](../../../../odoo-bringout-oca-ocb-hr)
-- [calendar](../../../../../oca-ocb-technical/odoo-bringout-oca-ocb-calendar)
-- [utm](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-utm)
-- [attachment_indexation](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-attachment_indexation)
-- [web_tour](../../../../../oca-ocb-web/odoo-bringout-oca-ocb-web_tour)
-- [digest](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-digest)
+- [hr](https://github.com/bringout/oca-ocb-hr)
+- [calendar](https://github.com/bringout/oca-ocb-technical)
+- [utm](https://github.com/bringout/oca-ocb-core)
+- [attachment_indexation](https://github.com/bringout/oca-ocb-core)
+- [web_tour](https://github.com/bringout/oca-ocb-web)
+- [digest](https://github.com/bringout/oca-ocb-core)

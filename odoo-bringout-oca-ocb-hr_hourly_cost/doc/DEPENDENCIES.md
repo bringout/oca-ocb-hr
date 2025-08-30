@@ -2,4 +2,4 @@
 
 This addon depends on:
 
-- [hr](../../../../odoo-bringout-oca-ocb-hr)
+- [hr](https://github.com/bringout/oca-ocb-hr)

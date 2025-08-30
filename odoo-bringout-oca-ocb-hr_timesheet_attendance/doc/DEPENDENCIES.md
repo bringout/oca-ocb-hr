@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [hr_timesheet](../../../../odoo-bringout-oca-ocb-hr_timesheet)
-- [hr_attendance](../../../../odoo-bringout-oca-ocb-hr_attendance)
+- [hr_timesheet](https://github.com/bringout/oca-ocb-hr)
+- [hr_attendance](https://github.com/bringout/oca-ocb-hr)

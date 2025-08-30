@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [hr_contract](../../../../odoo-bringout-oca-ocb-hr_contract)
-- [account](../../../../../oca-ocb-accounting/odoo-bringout-oca-ocb-account)
-- [web_tour](../../../../../oca-ocb-web/odoo-bringout-oca-ocb-web_tour)
+- [hr_contract](https://github.com/bringout/oca-ocb-hr)
+- [account](https://github.com/bringout/oca-ocb-accounting)
+- [web_tour](https://github.com/bringout/oca-ocb-web)

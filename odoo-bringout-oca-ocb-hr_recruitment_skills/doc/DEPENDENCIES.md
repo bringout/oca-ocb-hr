@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [hr_skills](../../../../odoo-bringout-oca-ocb-hr_skills)
-- [hr_recruitment](../../../../odoo-bringout-oca-ocb-hr_recruitment)
+- [hr_skills](https://github.com/bringout/oca-ocb-hr)
+- [hr_recruitment](https://github.com/bringout/oca-ocb-hr)

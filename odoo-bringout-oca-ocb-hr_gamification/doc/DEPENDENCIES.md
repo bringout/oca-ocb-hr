@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [gamification](../../../../../oca-ocb-vertical-industry/odoo-bringout-oca-ocb-gamification)
-- [hr](../../../../odoo-bringout-oca-ocb-hr)
+- [gamification](https://github.com/bringout/oca-ocb-vertical-industry)
+- [hr](https://github.com/bringout/oca-ocb-hr)
