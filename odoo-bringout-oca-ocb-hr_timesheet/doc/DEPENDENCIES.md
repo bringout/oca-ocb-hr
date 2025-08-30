@@ -2,8 +2,8 @@
 
 This addon depends on:
 
-- [hr](https://github.com/bringout/oca-ocb-hr)
-- [hr_hourly_cost](https://github.com/bringout/oca-ocb-hr)
-- [analytic](https://github.com/bringout/oca-ocb-core)
-- [project](https://github.com/bringout/oca-ocb-project)
-- [uom](https://github.com/bringout/oca-ocb-core)
+- [hr](https://github.com/bringout/oca-ocb-hr/tree/dc1405e12dbe76ffb119a0feb323b56ae2c58522/odoo-bringout-oca-ocb-hr)
+- [hr_hourly_cost](https://github.com/bringout/oca-ocb-hr/tree/dc1405e12dbe76ffb119a0feb323b56ae2c58522/odoo-bringout-oca-ocb-hr_hourly_cost)
+- [analytic](https://github.com/bringout/oca-ocb-core/tree/b3e6fb998e53b9eb1bc9669d992017616c2bd7b3/odoo-bringout-oca-ocb-analytic)
+- [project](https://github.com/bringout/oca-ocb-project/tree/5bbf7d0517a5706a48472bdf6a077a4467d11869/odoo-bringout-oca-ocb-project)
+- [uom](https://github.com/bringout/oca-ocb-core/tree/b3e6fb998e53b9eb1bc9669d992017616c2bd7b3/odoo-bringout-oca-ocb-uom)
