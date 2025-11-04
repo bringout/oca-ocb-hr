@@ -15,11 +15,13 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_hourly_cost
 #: model:ir.model,name:hr_hourly_cost.model_hr_employee
 msgid "Employee"
 msgstr "Zaposlenik"
 
+# taken from hr.po
 #. module: hr_hourly_cost
 #: model:ir.model.fields,field_description:hr_hourly_cost.field_hr_employee__hourly_cost
 msgid "Hourly Cost"

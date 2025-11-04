@@ -15,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:mail.template,body_html:hr_presence.mail_template_presence
 msgid ""
@@ -27,84 +28,101 @@ msgid ""
 "                </div>\n"
 "            "
 msgstr ""
+"<div>\n"
+"                    Draga <t t-out=\"object.name or ''\">Abigail Peterson</t>,<br><br>\n"
+"                    Ovo je iznimka ukoliko je došlo do naše pogreške, izgleda da niste u uredu a od vas nije zaprimljen zahtjev za korištenje odsustva.<br>\n"
+"                    Molimo vas da izvršite odgovarajuće aktivnosti biste riješili ovo odsustvo.<br>\n"
+"                    Nemojte se ustručavati kontaktirati vašeg nadređenog ili Odjel za ljudske resurse.\n"
+"                    <br>Lijepi pozdrav,<br><br>\n"
+"                </div>\n"
+"            "
 
+# taken from hr.po
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_presence_search
 msgid "Absence/Presence"
 msgstr "Odsustvo/Prisustvo"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__absent
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_base__hr_presence_state_display__absent
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__absent
 msgid "Absent"
 msgstr "Odsutan"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_hr_employee_base
 msgid "Basic Employee"
 msgstr "Obični zaposlenik"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_res_company
 msgid "Companies"
 msgstr "Tvrtke"
 
+# taken from hr.po
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid "Compose Email"
 msgstr "Sastavi e-poštu"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.actions.server,name:hr_presence.ir_actions_server_action_open_presence_view
 msgid "Compute presence and open presence view"
 msgstr "Izračunaj prisutnost i otvori pogled"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_res_users_log__create_uid
 msgid "Create Uid"
 msgstr "Kreirao"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_hr_employee__email_sent
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_base__email_sent
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_public__email_sent
 msgid "Email Sent"
 msgstr "Poslan e-mail"
 
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid "Employee's Presence to Define"
 msgstr "Prisustvo zaposlenika za definiranje"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:sms.template,name:hr_presence.sms_template_data_hr_presence
 msgid "Employee: Presence Reminder"
 msgstr "Zaposlenik: Podsjetnik na prisutnost"
 
+# taken from hr.po
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_presence_search
 msgid "Employees"
 msgstr "Zaposlenici"
 
+# taken from hr.po
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
-#: model:sms.template,body:hr_presence.sms_template_data_hr_presence
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid ""
 "Exception made if there was a mistake of ours, it seems that you are not at your office and there is not request of time off from you.\n"
 "Please, take appropriate measures in order to carry out this work absence.\n"
 "Do not hesitate to contact your manager or the human resource department."
 msgstr ""
+"Ovo je iznimka ukoliko je došlo do naše pogreške, izgleda da niste u uredu a"
+" od vas nije zaprimljen zahtjev za korištenje odsustva. Molimo vas da "
+"izvršite odgovarajuće aktivnosti biste riješili ovo odsustvo. Nemojte se "
+"ustručavati kontaktirati vašeg nadređenog ili Odjel za ljudske resurse"
 
 #. module: hr_presence
 #: model:ir.actions.server,name:hr_presence.ir_cron_presence_control_ir_actions_server
-#: model:ir.cron,cron_name:hr_presence.ir_cron_presence_control
 msgid "HR Presence: cron"
 msgstr "HR Prisustvo: cron"
 
@@ -120,46 +138,42 @@ msgstr "Posljednji datum računanja HR prisustva"
 
 #. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_hr_employee__hr_presence_state_display
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_base__hr_presence_state_display
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_public__hr_presence_state_display
 msgid "Hr Presence State Display"
 msgstr "Prikaz stanja HR prisustva"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_res_users_log__ip
 msgid "IP Address"
 msgstr "IP adresa"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_hr_employee__ip_connected
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_base__ip_connected
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_public__ip_connected
 msgid "Ip Connected"
 msgstr "IP Povezan"
 
+# taken from hr.po
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_kanban
 msgid "Log"
 msgstr "Zapisnik"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_hr_employee__manually_set_present
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_base__manually_set_present
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_public__manually_set_present
 msgid "Manually Set Present"
 msgstr "Ručno postavi prisustvo"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.ui.menu,name:hr_presence.menu_hr_presence_view
-#: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_presence_search
-#: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_search
 msgid "Presence"
 msgstr "Prisustvo"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__present
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_base__hr_presence_state_display__present
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__present
 msgid "Present"
 msgstr "Prisutan"
 
@@ -168,9 +182,10 @@ msgstr "Prisutan"
 msgid "SMS"
 msgstr "SMS"
 
+# taken from hr.po
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid "Send SMS Text Message"
 msgstr "Pošalji SMS poruku"
@@ -181,62 +196,70 @@ msgid ""
 "Sent manually in presence module when an employee wasn't working despite not"
 " being off"
 msgstr ""
+"Poslano ručno u modulu prisustva kada zaposlenik nije radio unatoč tome što "
+"nije bio odsutan"
 
+# taken from hr.po
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_kanban
 msgid "Set as absent"
 msgstr "Postavi kao odsutan"
 
+# taken from hr.po
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_kanban
 msgid "Set as present"
 msgstr "Postavi kao prisutan"
 
+# taken from hr.po
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid "There is no professional email address for this employee."
 msgstr "Nema poslovnog emaila za ovog djelatnika."
 
+# taken from hr.po
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid "There is no professional mobile for this employee."
 msgstr "Nema poslovnog mobitela za ovog djelatnika."
 
+# taken from hr.po
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_kanban
 msgid "Time Off"
 msgstr "Odsustva"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__to_define
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_base__hr_presence_state_display__to_define
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__to_define
 msgid "To Define"
 msgstr "Definirati"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:mail.template,subject:hr_presence.mail_template_presence
 msgid "Unexpected Absence"
 msgstr "Neočekivano odsustvo"
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_res_users_log
 msgid "Users Log"
 msgstr "Zapisnik korisnika"
 
+# taken from hr.po
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
-#: code:addons/hr_presence/models/hr_employee.py:0
-#: code:addons/hr_presence/models/hr_employee.py:0
+#: code:addons/hr_presence/models/hr_employee.py
 #, python-format
 msgid "You don't have the right to do this. Please contact an Administrator."
 msgstr "Nemate potrebne ovlasti. Molimo kontaktirajte administratora sustava."
 
+# taken from hr.po
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_ir_websocket
 msgid "websocket message handling"

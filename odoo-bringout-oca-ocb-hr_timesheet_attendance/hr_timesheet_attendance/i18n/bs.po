@@ -15,47 +15,57 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__attendance_cost
 msgid "Attendance Cost"
 msgstr "Trošak prisustva"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__total_attendance
 msgid "Attendance Hours"
 msgstr "Sati utrošeni na prisustvo"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__company_id
 msgid "Company"
 msgstr "Tvrtka"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.actions.act_window,help:hr_timesheet_attendance.action_hr_timesheet_attendance_report
 msgid "Compare the time recorded by your employees with their attendance."
-msgstr "Usporedite vrijeme koje su zabilježili vaši zaposlenici s prisustvom koje je evidentirano za njih."
+msgstr ""
+"Usporedite vrijeme koje su zabilježili vaši zaposlenici s prisustvom koje je"
+" evidentirano za njih."
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__cost_difference
 msgid "Cost Difference"
 msgstr "Razlika u iznosu troška"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__date
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
 msgid "Date"
 msgstr "Datum"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__display_name
 msgid "Display Name"
 msgstr "Prikazani naziv"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
 msgid "Employee"
 msgstr "Zaposlenik"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__total_difference
 msgid "Hours Difference"
@@ -66,65 +76,73 @@ msgstr "Razlika u broju utrošenih sati"
 msgid "ID"
 msgstr "ID"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report____last_update
 msgid "Last Modified on"
 msgstr "HR izveštaj evidencije vremena/prisustva"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model,name:hr_timesheet_attendance.model_ir_ui_menu
 msgid "Menu"
 msgstr "evidencija vremena prisustva"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.actions.act_window,help:hr_timesheet_attendance.action_hr_timesheet_attendance_report
 msgid "No data yet!"
 msgstr "Nema još podataka!"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
 msgid "Sum of Total Attendance"
 msgstr "Ukupna suma prisustava"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
 msgid "Sum of Total Difference"
 msgstr "Ukupna suma razlike"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
 msgid "Sum of Total Timesheet"
 msgstr "Suma ukupno utrošenog vremena zabilježenog na kontrolnim karticama"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.actions.act_window,name:hr_timesheet_attendance.action_hr_timesheet_attendance_report
-#: model:ir.ui.menu,name:hr_timesheet_attendance.menu_hr_timesheet_attendance_report
 msgid "Timesheet / Attendance"
 msgstr "Evidencija rada / Prisutnost"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_graph
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_pivot
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
 msgid "Timesheet Attendance"
 msgstr "Prisustva zabilježena na kontrolnim karticama"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model,name:hr_timesheet_attendance.model_hr_timesheet_attendance_report
 msgid "Timesheet Attendance Report"
 msgstr "Izvještaj prisustva"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__timesheets_cost
 msgid "Timesheet Cost"
 msgstr "Trošak kontrolnih kartica"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__total_timesheet
 msgid "Timesheets Hours"
 msgstr "Sati zabilježeni na kontrolnim karticama"
 
+# taken from hr.po
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__user_id
 msgid "User"

@@ -15,22 +15,25 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model,name:hr_recruitment_skills.model_hr_applicant
-#: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__applicant_id
 msgid "Applicant"
 msgstr "Kandidat"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__display_name
 msgid "Display Name"
@@ -46,42 +49,49 @@ msgstr "ID"
 msgid "Is Interviewer"
 msgstr "Je li intervjuer"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill____last_update
 msgid "Last Modified on"
 msgstr "Zadnja promjena"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__write_uid
 msgid "Last Updated by"
 msgstr "Promijenio"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__write_date
 msgid "Last Updated on"
 msgstr "Vrijeme promjene"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__level_progress
 msgid "Progress"
 msgstr "Napredak"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,help:hr_recruitment_skills.field_hr_applicant_skill__level_progress
 msgid "Progress from zero knowledge (0%) to fully mastered (100%)."
 msgstr "Napredak od nula znanja (0%) do potpuno savladanog (100%)."
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant__skill_ids
-#: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__skill_id
 msgid "Skill"
 msgstr "Vještina"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__skill_level_id
 msgid "Skill Level"
 msgstr "Razina vještine"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__skill_type_id
 msgid "Skill Type"
@@ -92,29 +102,29 @@ msgstr "Tip vještine"
 msgid "Skill level for an applicant"
 msgstr "Nivo vještine za podnositelja prijave"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant__applicant_skill_ids
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_skill_view_form
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_view_form
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_view_search
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_view_search_bis
 msgid "Skills"
 msgstr "Vještine"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #. odoo-python
-#: code:addons/hr_recruitment_skills/models/hr_applicant_skill.py:0
+#: code:addons/hr_recruitment_skills/models/hr_applicant_skill.py
 #, python-format
 msgid "The skill %(name)s and skill type %(type)s doesn't match"
 msgstr "Vještina %(name)s i vrsta vještine %(type)s ne odgovaraju"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #. odoo-python
-#: code:addons/hr_recruitment_skills/models/hr_applicant_skill.py:0
+#: code:addons/hr_recruitment_skills/models/hr_applicant_skill.py
 #, python-format
 msgid "The skill level %(level)s is not valid for skill type: %(type)s"
 msgstr "Razina vještine %(level)s nije ispravna za vrstu vještine: %(type)s"
 
+# taken from hr.po
 #. module: hr_recruitment_skills
 #: model:ir.model.constraint,message:hr_recruitment_skills.constraint_hr_applicant_skill__unique_skill
 msgid "Two levels for the same skill is not allowed"

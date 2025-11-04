@@ -15,78 +15,85 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_view_form_inherit_hr
 msgid ""
 "<span class=\"o_stat_value\">1</span>\n"
 "                        <span class=\"o_stat_text\">Employee</span>"
 msgstr ""
+"<span class=\"o_stat_value\">1</span>\n"
+"                        <span class=\"o_stat_text\">Zaposlenik</span>"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_assignation_log_employee_view_list
-#: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_assignation_log_view_list
 msgid "Attachments"
 msgstr "Privitci"
 
+# taken from hr.po
 #. module: hr_fleet
 #. odoo-python
-#: code:addons/hr_fleet/models/employee.py:0
+#: code:addons/hr_fleet/models/employee.py
 #, python-format
 msgid "Cannot remove address from employees with linked cars."
 msgstr "Ne može se ukloniti adresa zaposlenika kojem je pridruženo vozilo"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_hr_employee__employee_cars_count
-#: model:ir.model.fields,field_description:hr_fleet.field_res_users__employee_cars_count
 msgid "Cars"
 msgstr "Vozila"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.hr_departure_wizard_view_form
 msgid "Company Car"
 msgstr "Službeno vozilo"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_assignation_log_employee_view_list
 msgid "Current Driver"
 msgstr "Trenutni vozač"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_view_search_inherit_hr
 msgid "Current Driver (Employee)"
 msgstr "Trenutačni vozač (zaposlenik)"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_hr_departure_wizard
 msgid "Departure Wizard"
 msgstr "Čarobnjak odlaska"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_log_contract_view_form_inherit_hr
 msgid "Driver"
 msgstr "Vozač"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle__driver_employee_id
-#: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle_assignation_log__driver_employee_id
-#: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle_log_contract__purchaser_employee_id
-#: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle_log_services__purchaser_employee_id
-#: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle_odometer__driver_employee_id
-#: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_log_services_view_form_inherit_hr
 msgid "Driver (Employee)"
 msgstr "Vozač (zaposlenik)"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_fleet_vehicle_assignation_log
 msgid "Drivers history on a vehicle"
 msgstr "Povijest vozača na vozilu"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_hr_employee
-#: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_log_contract_view_search_inherit_hr
 msgid "Employee"
 msgstr "Zaposlenik"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle__driver_employee_name
 msgid "Employee Name"
@@ -97,6 +104,7 @@ msgstr "Naziv zaposlenika"
 msgid "Fleet Mobility Card"
 msgstr "Kartica flote mobilnosti"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle__future_driver_employee_id
 msgid "Future Driver (Employee)"
@@ -104,11 +112,12 @@ msgstr "Budući vozač (zaposlenik)"
 
 #. module: hr_fleet
 #. odoo-python
-#: code:addons/hr_fleet/models/employee.py:0
+#: code:addons/hr_fleet/models/employee.py
 #, python-format
 msgid "History Employee Cars"
 msgstr "Istorijat vozila radnika"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model_terms:ir.ui.view,arch_db:hr_fleet.view_employee_filter
 msgid "License Plate"
@@ -116,65 +125,74 @@ msgstr "Registracija"
 
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle__mobility_card
-#: model:ir.model.fields,field_description:hr_fleet.field_hr_employee__mobility_card
-#: model:ir.model.fields,field_description:hr_fleet.field_hr_employee_public__mobility_card
 msgid "Mobility Card"
 msgstr "Kartica mobilnosti"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle_assignation_log__attachment_number
 msgid "Number of Attachments"
 msgstr "Broj privitaka"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_fleet_vehicle_odometer
 msgid "Odometer log for a vehicle"
 msgstr "Dnevnik kilometraže za vozilo"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_hr_employee_public
 msgid "Public Employee"
 msgstr "Javni djelatnik"
 
+# taken from hr.po
 #. module: hr_fleet
 #. odoo-python
-#: code:addons/hr_fleet/models/fleet_vehicle.py:0
+#: code:addons/hr_fleet/models/fleet_vehicle.py
 #, python-format
 msgid "Related Employee"
 msgstr "Povezani zaposlenik"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_hr_departure_wizard__release_campany_car
 msgid "Release Company Car"
 msgstr "Oslobodite službeni automobil"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_fleet_vehicle_log_services
 msgid "Services for vehicles"
 msgstr "Servisi za vozila"
 
+# taken from hr.po
 #. module: hr_fleet
 #. odoo-javascript
-#: code:addons/hr_fleet/static/src/views/hr_fleet_kanban/hr_fleet_kanban_controller.xml:0
+#: code:addons/hr_fleet/static/src/views/hr_fleet_kanban/hr_fleet_kanban_controller.xml
 #, python-format
 msgid "Upload"
 msgstr "Učitaj"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_res_users
 msgid "User"
 msgstr "Korisnik"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_fleet_vehicle
 msgid "Vehicle"
 msgstr "Vozilo"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model,name:hr_fleet.model_fleet_vehicle_log_contract
 msgid "Vehicle Contract"
 msgstr "Ugovor o vozilu"
 
+# taken from hr.po
 #. module: hr_fleet
 #: model:ir.model.fields,field_description:hr_fleet.field_hr_employee__car_ids
 msgid "Vehicles (private)"

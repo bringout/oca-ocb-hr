@@ -15,106 +15,115 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__assign_date
 msgid "Assigned Date"
 msgstr "Datum dodjeljivanja"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__department_id
 msgid "Assigned Department"
 msgstr "Dodjeljeni odjel"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__employee_id
 msgid "Assigned Employee"
 msgstr "Dodijeljeni djelatnik"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_res_users__equipment_count
 msgid "Assigned Equipments"
 msgstr "Dodeljeno zaposlenom"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_request_view_form_inherit_hr
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_request_view_search_inherit_hr
 msgid "Created By"
 msgstr "Kreirao"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__owner_user_id
 msgid "Created by User"
 msgstr "Kreirao korisnik"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields.selection,name:hr_maintenance.selection__maintenance_equipment__equipment_assign_to__department
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_form_inherit_hr
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_search_inherit_hr
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_tree_inherit_hr
 msgid "Department"
 msgstr "Odjeljenje"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_hr_employee
-#: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__employee_id
-#: model:ir.model.fields.selection,name:hr_maintenance.selection__maintenance_equipment__equipment_assign_to__employee
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_form_inherit_hr
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_search_inherit_hr
-#: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_tree_inherit_hr
 msgid "Employee"
 msgstr "Zaposleni"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__equipment_ids
-#: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__equipment_id
 msgid "Equipment"
 msgstr "Oprema"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__equipment_count
 msgid "Equipments"
 msgstr "Oprema"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_maintenance_equipment
 msgid "Maintenance Equipment"
 msgstr "Oprema za održavanje"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_maintenance_request
 msgid "Maintenance Request"
 msgstr "Zahtjev za održavanje"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_res_users__equipment_ids
 msgid "Managed Equipments"
 msgstr "Održavana oprema"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_request_view_search_inherit_hr
 msgid "My Maintenances"
 msgstr "Moja održavanja"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields.selection,name:hr_maintenance.selection__maintenance_equipment__equipment_assign_to__other
 msgid "Other"
 msgstr "Drugo"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__owner_user_id
 msgid "Owner"
-msgstr "Dodeljeno odeljenju"
+msgstr "Vlasnik"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_kanban_inherit_hr
 msgid "Unassigned"
 msgstr "Nedodeljen"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__equipment_assign_to
 msgid "Used By"
 msgstr "Koristio"
 
+# taken from hr.po
 #. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_res_users
 msgid "User"

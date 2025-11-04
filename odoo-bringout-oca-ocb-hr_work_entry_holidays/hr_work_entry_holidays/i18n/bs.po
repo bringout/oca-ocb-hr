@@ -15,16 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #. odoo-python
-#: code:addons/hr_work_entry_holidays/models/hr_leave.py:0
+#: code:addons/hr_work_entry_holidays/models/hr_leave.py
 #, python-format
 msgid "%s: Time Off"
 msgstr "%s: slobodan"
 
 #. module: hr_work_entry_holidays
 #. odoo-python
-#: code:addons/hr_work_entry_holidays/models/hr_leave.py:0
+#: code:addons/hr_work_entry_holidays/models/hr_leave.py
 #, python-format
 msgid ""
 "A leave cannot be set across multiple contracts with different working schedules.\n"
@@ -37,7 +38,14 @@ msgid ""
 "Contracts:\n"
 "%s"
 msgstr ""
+"Odsustvo se ne može postaviti preko više ugovora sa različitim radnim rasporedima.\n"
+"Molimo kreirajte jedno odsustvo za svaki ugovor.\n"
+"Odsustvo:\n"
+"%s\n"
+"Ugovori:\n"
+"%s"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model:ir.model,name:hr_work_entry_holidays.model_hr_contract
 msgid "Employee Contract"
@@ -53,6 +61,7 @@ msgstr "HR Unos Rada"
 msgid "HR Work Entry Type"
 msgstr "HR Tip Unosa Rada"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_holidays.work_entry_type_leave_form_inherit
 msgid "Payroll"
@@ -63,6 +72,7 @@ msgstr "Obračun plaće"
 msgid "Status"
 msgstr "Status"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model:ir.model.fields,help:hr_work_entry_holidays.field_hr_work_entry__leave_state
 msgid ""
@@ -71,33 +81,41 @@ msgid ""
 "The status is 'Refused', when time off request is refused by manager.\n"
 "The status is 'Approved', when time off request is approved by manager."
 msgstr ""
+"Status je 'Za slanje' kada je zahtjev kreiran.\n"
+"Status je 'Za odobriti' kada je zahtjev potvrđen od strane zaposlenika.\n"
+"Status je 'Odbijen' kada je zahtjev odbijen od strane menadžera.\n"
+"Status je 'Odobren' kada je zahtjev odobren od strane menadžera."
 
 #. module: hr_work_entry_holidays
 #. odoo-python
-#: code:addons/hr_work_entry_holidays/models/hr_leave.py:0
+#: code:addons/hr_work_entry_holidays/models/hr_leave.py
 #, python-format
 msgid ""
 "There is no employee set on the time off. Please make sure you're logged in "
 "the correct company."
 msgstr ""
+"Nema postavljenog zaposlenog na odsustvu. Molimo uvjerite se da ste "
+"prijavljeni u ispravnoj kompaniji."
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model:ir.model,name:hr_work_entry_holidays.model_hr_leave
-#: model:ir.model.fields,field_description:hr_work_entry_holidays.field_hr_work_entry__leave_id
 msgid "Time Off"
 msgstr "Odsustva"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model:ir.model,name:hr_work_entry_holidays.model_hr_leave_type
-#: model:ir.model.fields,field_description:hr_work_entry_holidays.field_hr_work_entry_type__leave_type_ids
 msgid "Time Off Type"
 msgstr "Vrsta odsustva"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model:ir.model.fields,field_description:hr_work_entry_holidays.field_hr_leave_type__work_entry_type_id
 msgid "Work Entry Type"
 msgstr "Vrsta radnih sati"
 
+# taken from hr.po
 #. module: hr_work_entry_holidays
 #: model:ir.model.fields,help:hr_work_entry_holidays.field_hr_work_entry_type__leave_type_ids
 msgid "Work entry used in the payslip."

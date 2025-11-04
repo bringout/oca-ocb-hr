@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/hr_employee.py:0
+#: code:addons/hr_skills_slides/models/hr_employee.py
 #, python-format
 msgid "%(completed)s / %(total)s"
 msgstr "%(completed)s / %(total)s"
@@ -27,18 +27,19 @@ msgstr "%(completed)s / %(total)s"
 msgid "Channel / Partners (Members)"
 msgstr "Kanal / Partneri (Članovi)"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model:ir.model,name:hr_skills_slides.model_slide_channel
-#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__channel_id
-#: model:ir.model.fields.selection,name:hr_skills_slides.selection__hr_resume_line__display_type__course
 msgid "Course"
 msgstr "Tečaj"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__course_url
 msgid "Course Url"
 msgstr "URL tečaja"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model_terms:ir.ui.view,arch_db:hr_skills_slides.hr_employee_view_form
 msgid "Courses"
@@ -49,42 +50,49 @@ msgstr "Tečajevi"
 msgid "Courses Completion Text"
 msgstr "Tekst završetka kurseva"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__display_type
 msgid "Display Type"
 msgstr "Vrsta prikaza"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model:ir.model,name:hr_skills_slides.model_hr_employee
 msgid "Employee"
 msgstr "Zaposlenik"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model:ir.model,name:hr_skills_slides.model_hr_resume_line
 msgid "Resume line of an employee"
 msgstr "Stavka životopisa djelatnika"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/slide_channel.py:0
+#: code:addons/hr_skills_slides/models/slide_channel.py
 #, python-format
 msgid "The employee has completed the course <a href=\"%(link)s\">%(course)s</a>"
 msgstr "Zaposlenik je završio tečaj<a href=\"%(link)s\">%(course)s</a>"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/slide_channel.py:0
+#: code:addons/hr_skills_slides/models/slide_channel.py
 #, python-format
 msgid "The employee left the course <a href=\"%(link)s\">%(course)s</a>"
 msgstr "Zaposlenik je odustao od tečaja <a href=\"%(link)s\">%(course)s</a>"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/slide_channel.py:0
+#: code:addons/hr_skills_slides/models/slide_channel.py
 #, python-format
 msgid "The employee subscribed to the course <a href=\"%(link)s\">%(course)s</a>"
 msgstr "Zaposlenik se pretplatio na tečaj <a href=\"%(link)s\">%(course)s</a>"
 
+# taken from hr.po
 #. module: hr_skills_slides
 #: model:ir.model.fields,field_description:hr_skills_slides.field_hr_employee__subscribed_courses
 msgid "eLearning Courses"

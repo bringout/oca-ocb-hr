@@ -15,115 +15,124 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model,name:hr_org_chart.model_hr_employee_base
 msgid "Basic Employee"
 msgstr "Obični zaposlenik"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model.fields,help:hr_org_chart.field_hr_employee__subordinate_ids
-#: model:ir.model.fields,help:hr_org_chart.field_hr_employee_public__subordinate_ids
 msgid "Direct and indirect subordinates"
 msgstr "Direktni i indirektni podređeni"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "Direct subordinates"
 msgstr "Direktno podređeni"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model,name:hr_org_chart.model_hr_employee
 msgid "Employee"
-msgstr "Podređeni od %s"
+msgstr "Zaposleni"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "In order to get an organigram, set a manager and save the record."
 msgstr "kako bi dobili organigram, postavite voditelja i snimite zapis."
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__child_all_count
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_base__child_all_count
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__child_all_count
 msgid "Indirect Subordinates Count"
 msgstr "Broj indirektnih podređenih"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "Indirect subordinates"
 msgstr "Direktni podređeni od %s"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "More managers"
 msgstr "Više voditelja"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "No hierarchy position."
 msgstr "Nema strukturnu poziciju"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_public_view_form_inherit_org_chart
-#: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_view_form_inherit_org_chart
-#: model_terms:ir.ui.view,arch_db:hr_org_chart.res_users_view_form
 msgid "Organization Chart"
 msgstr "Indirektni podređeni od %s"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model,name:hr_org_chart.model_hr_employee_public
 msgid "Public Employee"
 msgstr "Javni djelatnik"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "Redirect"
 msgstr "Preusmjeri"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "See All"
 msgstr "Vidi sve"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__subordinate_ids
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__subordinate_ids
 msgid "Subordinates"
 msgstr "Podređeni djelatnici"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hooks.js:0
+#: code:addons/hr_org_chart/static/src/fields/hooks.js
 #, python-format
 msgid "Team"
 msgstr "Tim"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "This employee has no manager or subordinate."
 msgstr "Ovaj djelatnik nema voditelja ili podređenih."
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
-#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "Total"
 msgstr "Ukupno"
