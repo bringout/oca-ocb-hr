@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [hr](https://github.com/bringout/oca-ocb-hr/tree/8ba7c48b948434a6e0f007fa4a42b2c2404b816a/odoo-bringout-oca-ocb-hr)
-- [barcodes](https://github.com/bringout/oca-ocb-technical/tree/4694b2a7718eea6743646f61d172cd8cd8c0896b/odoo-bringout-oca-ocb-barcodes)
+- [hr](https://github.com/bringout/oca-ocb-hr/tree/dc4d96d97a2407971c6e29466115e665faf965ac/odoo-bringout-oca-ocb-hr)
+- [barcodes](https://github.com/bringout/oca-ocb-warehouse/tree/c945b84263caf64889385d3735546b1fd94a8271/odoo-bringout-oca-ocb-barcodes)

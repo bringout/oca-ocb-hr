@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [hr](https://github.com/bringout/oca-ocb-hr/tree/8ba7c48b948434a6e0f007fa4a42b2c2404b816a/odoo-bringout-oca-ocb-hr)
-- [fleet](https://github.com/bringout/oca-ocb-vertical-industry/tree/6d2de194fb6942c53f4c2858f1e032ed076bdb65/odoo-bringout-oca-ocb-fleet)
+- [hr](https://github.com/bringout/oca-ocb-hr/tree/dc4d96d97a2407971c6e29466115e665faf965ac/odoo-bringout-oca-ocb-hr)
+- [fleet](https://github.com/bringout/oca-ocb-vertical-industry/tree/7809d052e8f68cb6f3c7abe7e16f6bb30e5e3e64/odoo-bringout-oca-ocb-fleet)
