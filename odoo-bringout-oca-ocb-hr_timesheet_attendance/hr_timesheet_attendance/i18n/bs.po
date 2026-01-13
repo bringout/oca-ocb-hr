@@ -31,7 +31,7 @@ msgstr "Sati utrošeni na prisustvo"
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__company_id
 msgid "Company"
-msgstr "Kompanija"
+msgstr "Tvrtka"
 
 # taken from hr.po
 #. module: hr_timesheet_attendance
@@ -80,7 +80,7 @@ msgstr "ID"
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "HR izveštaj evidencije vremena/prisustva"
 
 # taken from hr.po
 #. module: hr_timesheet_attendance

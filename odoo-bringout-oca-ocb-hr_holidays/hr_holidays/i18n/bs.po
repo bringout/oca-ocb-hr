@@ -844,7 +844,7 @@ msgstr "Broj prirasta"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna radnja"
+msgstr "Potrebna akcija"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -886,7 +886,7 @@ msgstr "Aktivnosti"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Dekoracija izuzetka aktivnosti"
+msgstr "Dekoracija izuzetka za aktivnost"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -1199,7 +1199,7 @@ msgstr "Odobri alokacije"
 #: code:addons/hr_holidays/report/holidays_summary_report.py
 #, python-format
 msgid "Approved"
-msgstr "Odobreno"
+msgstr "Odobren"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -1461,7 +1461,9 @@ msgstr "Otkazano"
 #. module: hr_holidays
 #: model:ir.model.fields.selection,name:hr_holidays.selection__hr_employee__current_leave_state__cancel
 msgid "Cancelled"
-msgstr "Otkazano"
+msgstr ""
+"Dodavanje valjanosti tipovima odsustva tako da ne mogu biti izabrani van "
+"ovog vremenskog perioda"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -1628,7 +1630,7 @@ msgstr "Kreiraj novi zahtjev za alokaciju za odsustvo"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_cancel_leave__create_uid
 msgid "Created by"
-msgstr "Kreirao"
+msgstr "Može videti preostalo odsustvo"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2014,13 +2016,13 @@ msgstr "Prikaz svih dana u tekućem mjesecu"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_follower_ids
 msgid "Followers"
-msgstr "Pratitelji"
+msgstr "Pratioci"
 
 # taken from hr.po
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratitelji (partneri)"
+msgstr "Pratioci (partneri)"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2084,7 +2086,7 @@ msgstr "Buduće aktivnosti"
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_filter
 msgid "Group By"
-msgstr "Grupiši po..."
+msgstr "Grupiši po"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2213,7 +2215,10 @@ msgstr "Ikona"
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr "Ikona za prikaz iznimki."
+msgstr ""
+"Ukupan broj zakonskih odsustva dodeljenih ovom zaposlenom, promenite ovu "
+"vrednost za kreiranje zahteva za dodelu/odsustvo. Ukupno na osnovu svih "
+"tipova odsustva bez prevazilaženja limita."
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave_allocation__number_of_days_display
@@ -2234,7 +2239,7 @@ msgstr ""
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Ako je zakačeno, nove poruke će zahtjevati vašu pažnju"
+msgstr "Ako je potvrđeno, nove poruke će zahtjevati vašu pažnju."
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2311,7 +2316,7 @@ msgstr "HR službenik"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_is_follower
 msgid "Is Follower"
-msgstr "Pratilac"
+msgstr "Je pratilac"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2377,19 +2382,19 @@ msgstr "Vrsta odsustva"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_cancel_leave____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Preostalo zakonsko odsustvo"
 
 # taken from hr.po
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_cancel_leave__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_cancel_leave__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažurirano"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2590,7 +2595,7 @@ msgstr "Ljubičasta"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_main_attachment_id
 msgid "Main Attachment"
-msgstr "Glavna zakačka"
+msgstr "Glavni prilog"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2689,7 +2694,7 @@ msgstr "Podtipovi poruka"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_ids
 msgid "Messages"
-msgstr "Nepročitane poruke"
+msgstr "Poruke"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2731,7 +2736,7 @@ msgstr "Više zaposlenih"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr "Rok za moju aktivnost"
+msgstr "Rok izvršenja aktivnosti"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2781,7 +2786,9 @@ msgstr "Treba dodatno odobrenje"
 #: code:addons/hr_holidays/static/src/views/calendar/calendar_controller.xml
 #, python-format
 msgid "New"
-msgstr "Novi"
+msgstr ""
+"Maksimalno odsustvo dozvoljeno - Odsustva već uzeta - Odsustva čekaju "
+"odobravanje"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2975,7 +2982,9 @@ msgstr "Broj poruka koje zahtijevaju aktivnost"
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Broj poruka sa greškama pri isporuci"
+msgstr ""
+"Ova oblast se automatski popunjava od strane korisnika koji validira "
+"odsustvo"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -3598,7 +3607,7 @@ msgstr "Status je sada potvrđeno. Možete se vratiti nazad na lalendar"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__state
 msgid "Status"
-msgstr "Status"
+msgstr "Prilagođeni sati višednevni"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -4225,7 +4234,7 @@ msgstr "Za"
 #: code:addons/hr_holidays/static/src/views/calendar/filter_panel/calendar_filter_panel.xml
 #, python-format
 msgid "To Approve"
-msgstr "Odobriti"
+msgstr "Za odobriti"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -4374,7 +4383,7 @@ msgstr "Neplaćeno odsustvo"
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.view_hr_leave_allocation_filter
 msgid "Unread Messages"
-msgstr "Nepročitane poruke"
+msgstr "Ukupno odmora"
 
 # taken from hr.po
 #. module: hr_holidays
