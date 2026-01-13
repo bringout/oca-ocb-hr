@@ -115,7 +115,7 @@ msgstr "Vlasnik"
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_kanban_inherit_hr
 msgid "Unassigned"
-msgstr "Nedodeljen"
+msgstr "Nedodjeljeno"
 
 # taken from hr.po
 #. module: hr_maintenance

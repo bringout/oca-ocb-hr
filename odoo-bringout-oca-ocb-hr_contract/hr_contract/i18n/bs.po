@@ -87,7 +87,7 @@ msgstr ""
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna akcija"
+msgstr "Potrebna radnja"
 
 # taken from hr.po
 #. module: hr_contract
@@ -117,7 +117,7 @@ msgstr "Aktivnosti"
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Dekoracija iznimke aktivnosti"
+msgstr "Dekoracija izuzetka aktivnosti"
 
 # taken from hr.po
 #. module: hr_contract
@@ -160,7 +160,7 @@ msgstr "Arhivirano"
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__message_attachment_count
 msgid "Attachment Count"
-msgstr "Broj zakački"
+msgstr "Broj priloga"
 
 # taken from hr.po
 #. module: hr_contract
@@ -178,13 +178,13 @@ msgstr "Nesukladnost kalendara"
 #. module: hr_contract
 #: model:ir.model.fields.selection,name:hr_contract.selection__hr_contract__state__cancel
 msgid "Cancelled"
-msgstr "Otkazan"
+msgstr "Otkazano"
 
 # taken from hr.po
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__company_id
 msgid "Company"
-msgstr "Preduzeće"
+msgstr "Kompanija"
 
 # taken from hr.po
 #. module: hr_contract
@@ -528,13 +528,13 @@ msgstr "Datum prvog ugovora"
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__message_follower_ids
 msgid "Followers"
-msgstr "Pratioci"
+msgstr "Pratitelji"
 
 # taken from hr.po
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratioci (Partneri)"
+msgstr "Pratitelji (partneri)"
 
 # taken from hr.po
 #. module: hr_contract
@@ -564,7 +564,7 @@ msgstr "Sivo"
 #. module: hr_contract
 #: model_terms:ir.ui.view,arch_db:hr_contract.hr_contract_history_view_search
 msgid "Group By"
-msgstr "Grupiši po"
+msgstr "Grupiši po..."
 
 # taken from hr.po
 #. module: hr_contract
@@ -630,7 +630,7 @@ msgstr "Trenutno pod ugovorom"
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__message_is_follower
 msgid "Is Follower"
-msgstr "Je pratilac"
+msgstr "Pratilac"
 
 # taken from hr.po
 #. module: hr_contract
@@ -648,19 +648,19 @@ msgstr "Kanban stanje"
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract____last_update
 msgid "Last Modified on"
-msgstr "Zadnje mijenjano"
+msgstr "Zadnja izmjena na"
 
 # taken from hr.po
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnje ažuriranje izvršio"
 
 # taken from hr.po
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnje ažuriranje na"
 
 # taken from hr.po
 #. module: hr_contract
@@ -684,7 +684,7 @@ msgstr "Greška pri isporuci poruke"
 #. module: hr_contract
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract__message_ids
 msgid "Messages"
-msgstr "Poruke"
+msgstr "Nepročitane poruke"
 
 # taken from hr.po
 #. module: hr_contract

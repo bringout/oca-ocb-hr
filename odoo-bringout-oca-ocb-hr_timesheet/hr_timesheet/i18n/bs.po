@@ -347,13 +347,13 @@ msgstr "Preduzeća"
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_timesheets_analysis_report__company_id
 msgid "Company"
-msgstr "Preduzeće"
+msgstr "Kompanija"
 
 # taken from hr.po
 #. module: hr_timesheet
 #: model:ir.model,name:hr_timesheet.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: hr_timesheet
@@ -420,7 +420,7 @@ msgstr "Opis"
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_timesheets_analysis_report__display_name
 msgid "Display Name"
-msgstr "Naziv"
+msgstr "Prikazani naziv"
 
 # taken from hr.po
 #. module: hr_timesheet
@@ -490,7 +490,7 @@ msgstr "Trajanje (%s)"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_search
 msgid "Group By"
-msgstr "Grupiši po"
+msgstr "Grupiši po..."
 
 # taken from hr.po
 #. module: hr_timesheet
@@ -527,7 +527,7 @@ msgstr "ID"
 #. module: hr_timesheet
 #: model:project.task.type,legend_normal:hr_timesheet.internal_project_default_stage
 msgid "In Progress"
-msgstr "U tijeku"
+msgstr "U Toku"
 
 # taken from hr.po
 #. module: hr_timesheet
@@ -595,7 +595,7 @@ msgstr ""
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_timesheets_analysis_report____last_update
 msgid "Last Modified on"
-msgstr "Zadnja promjena"
+msgstr "Zadnja izmjena na"
 
 # taken from hr.po
 #. module: hr_timesheet

@@ -159,7 +159,7 @@ msgstr "Odgovoran za trošak"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna akcija"
+msgstr "Potrebna radnja"
 
 # taken from hr.po
 #. module: hr_expense
@@ -171,7 +171,7 @@ msgstr "Aktivnosti"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Dekoracija iznimke aktivnosti"
+msgstr "Dekoracija izuzetka aktivnosti"
 
 # taken from hr.po
 #. module: hr_expense
@@ -284,7 +284,7 @@ msgstr "Primjenjivost analitičkog plana"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__analytic_precision
 msgid "Analytic Precision"
-msgstr "Preciznost analitike"
+msgstr "Analitička preciznost"
 
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_my_all
@@ -317,7 +317,7 @@ msgstr "Odobri izvještaj"
 #. module: hr_expense
 #: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__approved
 msgid "Approved"
-msgstr "Odobren"
+msgstr "Odobreno"
 
 # taken from hr.po
 #. module: hr_expense
@@ -363,7 +363,7 @@ msgstr "Prilog"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_attachment_count
 msgid "Attachment Count"
-msgstr "Broj zakački"
+msgstr "Broj priloga"
 
 # taken from hr.po
 #. module: hr_expense
@@ -468,13 +468,13 @@ msgstr "Tvrtke"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__company_id
 msgid "Company"
-msgstr "Preduzeće"
+msgstr "Kompanija"
 
 # taken from hr.po
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: hr_expense
@@ -665,7 +665,7 @@ msgstr "Domena"
 #. module: hr_expense
 #: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__done
 msgid "Done"
-msgstr "Riješeno"
+msgstr "Dovršeno"
 
 # taken from hr.po
 #. module: hr_expense
@@ -968,13 +968,13 @@ msgstr "Izričito odbijeno od strane menadžera ili računovođe"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_follower_ids
 msgid "Followers"
-msgstr "Pratioci"
+msgstr "Pratitelji"
 
 # taken from hr.po
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratioci (Partneri)"
+msgstr "Pratitelji (partneri)"
 
 # taken from hr.po
 #. module: hr_expense
@@ -1030,7 +1030,7 @@ msgstr "Trgovina Play"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_view_search
 msgid "Group By"
-msgstr "Grupiši po"
+msgstr "Grupiši po..."
 
 # taken from hr.po
 #. module: hr_expense
@@ -1141,7 +1141,7 @@ msgstr "Je editabilan od trenutnog korisnika"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_is_follower
 msgid "Is Follower"
-msgstr "Je pratilac"
+msgstr "Pratilac"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__same_currency
@@ -1189,19 +1189,19 @@ msgstr "Oznaka stope konverzije"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense____last_update
 msgid "Last Modified on"
-msgstr "Zadnje mijenjano"
+msgstr "Zadnja izmjena na"
 
 # taken from hr.po
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnje ažuriranje izvršio"
 
 # taken from hr.po
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnje ažuriranje na"
 
 # taken from hr.po
 #. module: hr_expense
@@ -1276,7 +1276,7 @@ msgstr "Greška pri isporuci poruke"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_ids
 msgid "Messages"
-msgstr "Poruke"
+msgstr "Nepročitane poruke"
 
 # taken from hr.po
 #. module: hr_expense
@@ -2321,7 +2321,7 @@ msgstr ""
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__website_message_ids
 msgid "Website Messages"
-msgstr "Poruke sa website-a"
+msgstr "Nepročitane poruke"
 
 # taken from hr.po
 #. module: hr_expense
@@ -2353,7 +2353,7 @@ msgstr "Da li je definiran porez na odabranom proizvodu"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__wizard_id
 msgid "Wizard"
-msgstr "Čarobnjak"
+msgstr "ID čarobnjaka"
 
 # taken from hr.po
 #. module: hr_expense
