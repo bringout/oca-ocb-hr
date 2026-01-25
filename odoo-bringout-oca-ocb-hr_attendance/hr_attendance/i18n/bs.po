@@ -918,7 +918,7 @@ msgstr "Molimo kontaktirajte administratora vašeg poslovnog sustava."
 #: code:addons/hr_attendance/static/src/xml/attendance.xml
 #, python-format
 msgid "Please enter your PIN to"
-msgstr "Nema zaposlenog odgovarajućeg bar kodu %(barcode)s"
+msgstr "Please enter your PIN to"
 
 # taken from hr.po
 #. module: hr_attendance

@@ -21,7 +21,7 @@ msgstr ""
 #: code:addons/hr_holidays_attendance/models/hr_leave_type.py
 #, python-format
 msgid "%s hours available"
-msgstr "Odsustva odbačena"
+msgstr "%s hours available"
 
 # taken from hr.po
 #. module: hr_holidays_attendance

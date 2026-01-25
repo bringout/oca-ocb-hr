@@ -61,7 +61,7 @@ msgstr "Broj indirektnih podređenih"
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml
 #, python-format
 msgid "Indirect subordinates"
-msgstr "Direktni podređeni od %s"
+msgstr "Indirect subordinates"
 
 # taken from hr.po
 #. module: hr_org_chart
@@ -83,7 +83,7 @@ msgstr "Nema strukturnu poziciju"
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_public_view_form_inherit_org_chart
 msgid "Organization Chart"
-msgstr "Indirektni podređeni od %s"
+msgstr "Organization Chart"
 
 # taken from hr.po
 #. module: hr_org_chart

@@ -736,7 +736,7 @@ msgstr "Adrese gdje zaposlenici rade"
 #. module: hr_recruitment
 #: model:res.groups,name:hr_recruitment.group_hr_recruitment_manager
 msgid "Administrator"
-msgstr "Vaša aplikacija za posao: ${object.job_id.name | safe}"
+msgstr "Administrator"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_job__alias_id
@@ -1400,7 +1400,7 @@ msgstr ""
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__email_cc
 msgid "Email cc"
-msgstr "Email cc"
+msgstr "Email CC"
 
 #. module: hr_recruitment
 #. odoo-python
@@ -2186,7 +2186,7 @@ msgstr "Tip sljedeće aktivnosti"
 #: code:addons/hr_recruitment/models/hr_recruitment.py
 #, python-format
 msgid "Next Meeting"
-msgstr "Novi zaposleni %s zaposlen"
+msgstr "Next Meeting"
 
 # taken from hr.po
 #. module: hr_recruitment
@@ -2966,7 +2966,7 @@ msgstr ""
 #: code:addons/hr_recruitment/wizard/applicant_send_mail.py
 #, python-format
 msgid "The following applicants are missing an email address: %s."
-msgstr "Počni zapošljavanje"
+msgstr "The following applicants are missing an email address: %s."
 
 # taken from hr.po
 #. module: hr_recruitment

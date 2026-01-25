@@ -113,9 +113,7 @@ msgstr "obrazac razgovora za posao"
 #: code:addons/hr_recruitment_survey/models/hr_job.py
 #, python-format
 msgid "Interview Form : %s"
-msgstr ""
-"<span class=\"o_stat_text\">Štampaj</span>\n"
-"                        <span class=\"o_stat_text\">Intervju</span>"
+msgstr "Interview Form : %s"
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.res_config_settings_view_form
@@ -249,7 +247,7 @@ msgstr "Hvala vam što ste odgovorili na ovu anketu. Javit ćemo vam se uskoro."
 #: code:addons/hr_recruitment_survey/models/survey_invite.py
 #, python-format
 msgid "The applicant \"%s\" has finished the survey."
-msgstr "Štampaj izveštaj intervjua"
+msgstr "The applicant \"%s\" has finished the survey."
 
 #. module: hr_recruitment_survey
 #. odoo-python

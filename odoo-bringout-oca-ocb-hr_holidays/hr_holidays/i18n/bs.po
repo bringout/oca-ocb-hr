@@ -947,7 +947,7 @@ msgstr "Dodaci"
 #. module: hr_holidays
 #: model:res.groups,name:hr_holidays.group_hr_holidays_manager
 msgid "Administrator"
-msgstr "Dodela odobrena"
+msgstr "Administrator"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -2062,7 +2062,7 @@ msgstr "Od"
 #: code:addons/hr_holidays/models/hr_leave.py
 #, python-format
 msgid "From %(date_from)s To %(date_to)s - %(state)s"
-msgstr "Fiksiran od HR"
+msgstr "From %(date_from)s To %(date_to)s - %(state)s"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -3124,8 +3124,7 @@ msgstr "Van ureda"
 #: code:addons/hr_holidays/static/src/models/partner.js
 #, python-format
 msgid "Out of office until %s"
-msgstr ""
-"Samo menadžer odmora može primeniti drugo odobrenje na zahtevima za odmorom."
+msgstr "Out of office until %s"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -3607,7 +3606,7 @@ msgstr "Status je sada potvrđeno. Možete se vratiti nazad na lalendar"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__state
 msgid "Status"
-msgstr "Prilagođeni sati višednevni"
+msgstr "Status"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -3877,9 +3876,7 @@ msgstr "Broj dana mora biti veći od 0."
 #: code:addons/hr_holidays/models/hr_leave.py
 #, python-format
 msgid "The time off has been canceled: %s"
-msgstr ""
-"Broj preostalih odmora nije dovoljn za ovaj tip odmora.\n"
-"Molimo takođe proverite odmor koji čekaju validaciju."
+msgstr "The time off has been canceled: %s"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -4673,7 +4670,7 @@ msgstr ""
 #: code:addons/hr_holidays/models/hr_leave.py
 #, python-format
 msgid "You cannot delete a time off assigned to several employees"
-msgstr "Možete uzeti %s samo između %s i %s"
+msgstr "You cannot delete a time off assigned to several employees"
 
 # taken from hr.po
 #. module: hr_holidays
@@ -4796,8 +4793,7 @@ msgstr ""
 #: code:addons/hr_holidays/models/hr_leave.py
 #, python-format
 msgid "Your %(leave_type)s planned on %(date)s has been accepted"
-msgstr ""
-"Morate biti ili %s-ov menadžer ili menadžer odmora da odobrite ovaj odmor"
+msgstr "Your %(leave_type)s planned on %(date)s has been accepted"
 
 # taken from hr.po
 #. module: hr_holidays

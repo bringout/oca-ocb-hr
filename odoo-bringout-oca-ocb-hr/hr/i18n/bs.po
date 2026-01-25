@@ -1930,7 +1930,7 @@ msgstr "Upravitelj"
 #: code:addons/hr/models/hr_plan_activity_type.py
 #, python-format
 msgid "Manager of employee %s is not set."
-msgstr "Pokreni nove proizvode, marketing kampanje i ponude"
+msgstr "Manager of employee %s is not set."
 
 # taken from hr.po
 #. module: hr
@@ -3004,7 +3004,7 @@ msgstr "PIN mora biti slijed znamenki."
 #: code:addons/hr/models/hr_plan_activity_type.py
 #, python-format
 msgid "The employee %s should be linked to a user."
-msgstr "Učestvuj u konsalting uslugama"
+msgstr "The employee %s should be linked to a user."
 
 # taken from hr.po
 #. module: hr

@@ -484,7 +484,7 @@ msgstr "Google Chrome Store"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
 msgid "Google Play Store"
-msgstr "Trajanje (%s)"
+msgstr "Google Play Store"
 
 # taken from hr.po
 #. module: hr_timesheet
@@ -1291,9 +1291,7 @@ msgstr ""
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.portal_my_timesheets
 msgid "Total:"
-msgstr ""
-"Da omogućite evidenciju vremena, vaš projekt %s treba da ima postavljen "
-"analitički račun."
+msgstr "Total:"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form

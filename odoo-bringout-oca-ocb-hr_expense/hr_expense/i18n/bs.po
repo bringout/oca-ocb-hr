@@ -231,9 +231,7 @@ msgstr "Dospjeli iznos"
 #: code:addons/hr_expense/static/src/mixins/document_upload.js
 #, python-format
 msgid "An error occurred during the upload"
-msgstr ""
-"Izvršeno je plaćanje od %s %s sa referencom <a href='/mail/view?%s'>%s</a> "
-"povezano sa vašim troškom %s."
+msgstr "An error occurred during the upload"
 
 # taken from hr.po
 #. module: hr_expense
@@ -2619,4 +2617,4 @@ msgstr "u validaciji"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
 msgid "use OCR to fill data from a picture of the bill"
-msgstr "ili pošaljite račune email-om na %s."
+msgstr "use OCR to fill data from a picture of the bill"
