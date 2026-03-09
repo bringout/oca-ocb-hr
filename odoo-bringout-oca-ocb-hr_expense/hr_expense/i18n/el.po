@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_expense
-# 
+#
 # Translators:
 # Martin Trigaux, 2018
 # Kostas Goutoudis <goutoudis@gmail.com>, 2018
@@ -9,111 +9,155 @@
 # Stefanos Nikou <stefanos.nikou@gmail.com>, 2018
 # Timos Zacharatos <kokkinopioupiou@hotmail.com>, 2018
 # George Tarasidis <george_tarasidis@yahoo.com>, 2018
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
+# Panagiotis karampaglis <panosdotk@gmail.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 06:48+0000\n"
-"PO-Revision-Date: 2018-10-08 06:48+0000\n"
-"Last-Translator: George Tarasidis <george_tarasidis@yahoo.com>, 2018\n"
-"Language-Team: Greek (https://www.transifex.com/odoo/teams/41243/el/)\n"
+"POT-Creation-Date: 2026-02-20 18:35+0000\n"
+"PO-Revision-Date: 2025-11-15 11:28+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Greek <https://translate.odoo.com/projects/odoo-19/hr_expense/"
+"el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: el\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "$100.00"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "$120.00"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "$500.00"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "$600.00"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "%(employee_name)s: %(expense_name)s"
+msgstr "%(employee_name)s: %(expense_name)s"
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "%(expense_name)s: It is not from your department"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "%(expense_name)s: It is your own expense"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "%(expense_name)s: You are neither a Manager nor a HR Officer"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
 msgid ""
-"<i class=\"text-muted oe_edit_only\">Use [Reference] as a subject prefix for"
-" incoming receipts</i>"
+"%(expense_name)s: Your are neither a Manager nor a HR Officer of this "
+"expense's company"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:49
-#, python-format
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "%(user)s confirms this expense is not a duplicate with similar expense."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.actions.report,print_report_name:hr_expense.action_report_hr_expense
 msgid ""
-"<p>Approve the report here.</p><p>Tip: if you refuse, don’t forget to give "
-"the reason thanks to the hereunder message tool</p>"
+"'Expense - %s - %s' % (object.employee_id.name, (object.name).replace('/', "
+"''))"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:41
-#, python-format
-msgid ""
-"<p>Click on <b> Action Create Report </b> to submit selected expenses to "
-"your manager</p>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "(incl"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:32
-#, python-format
-msgid "<p>Click on <b> Create Report </b> to create the report.</p>"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "1 %(exp_cur)s = %(rate)s %(comp_cur)s"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:23
-#, python-format
-msgid "<p>Once your <b> Expense </b> is ready, you can save it.</p>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "2023-08-11"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:36
-#, python-format
-msgid "<p>Select expenses to submit them to your manager</p>"
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "<b>Wasting time recording your receipts?</b> Let’s try a better way."
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:53
-#, python-format
-msgid ""
-"<p>The accountant receive approved expense reports.</p><p>He can post "
-"journal entries in one click if taxes and accounts are right.</p>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "<i class=\"oi oi-arrow-right\"/> Setup your alias domain"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "<strong>Date:</strong>"
-msgstr "<strong>Ημερομηνία:</strong>"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "<strong>Description:</strong>"
-msgstr "<strong>Περιγραφή:</strong>"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "<strong>Employee:</strong>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_payment_form_inherit_expense
+msgid "<span class=\"o_stat_text\">Expense</span>"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "<strong>Payment By:</strong>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "<span class=\"o_stat_text\">Journal Entry</span>"
+msgstr "<span class=\"o_stat_text\">Λογιστική εγγραφή</span>"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "<span>@</span>"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "<strong>Total</strong>"
-msgstr "<strong>Σύνολο</strong>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "<span>Date:</span>"
+msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "<strong>Validated By:</strong>"
-msgstr "<strong>Επικυρώθηκε από:</strong>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "<span>Employee:</span>"
+msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/wizard/hr_expense_sheet_register_payment.py:104
-#, python-format
-msgid ""
-"A payment of %s %s with the reference <a href='/mail/view?%s'>%s</a> related"
-" to your expense %s has been made."
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "<span>Manager:</span>"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "<span>Paid by:</span>"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_split
+msgid "<span>The total amount doesn't match the original amount.</span>"
 msgstr ""
 
 #. module: hr_expense
@@ -122,27 +166,45 @@ msgid "Account"
 msgstr "Λογαριασμός"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
 msgid "Accounting"
 msgstr "Λογιστική"
 
 #. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__accounting_date
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
+msgid "Accounting Date"
+msgstr "Ημερ. Λογιστικής"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_post_wizard_view
+msgid "Accounting date"
+msgstr ""
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_needaction
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_needaction
 msgid "Action Needed"
 msgstr "Απαιτείται ενέργεια"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_ids
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__activity_ids
 msgid "Activities"
 msgstr "Δραστηριότητες"
 
 #. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Δραστηριότητα Εξαίρεσης Διακόσμησης"
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_state
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__activity_state
 msgid "Activity State"
 msgstr "Κατάσταση Δραστηριότητας"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Εικονίδιο Τύπου Δραστηριότητας"
 
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.mail_activity_type_action_config_hr_expense
@@ -151,31 +213,56 @@ msgid "Activity Types"
 msgstr "Τύποι Δραστηριότητας"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "Actual expense sheets, not the refused ones"
+#: model:res.groups,name:hr_expense.group_hr_expense_manager
+msgid "Administrator"
+msgstr "Διαχειριστής"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Alias"
+msgstr "Ψευδώνυμο"
+
+#. module: hr_expense
+#: model:res.groups,name:hr_expense.group_hr_expense_user
+msgid "All Approver"
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:158
-#, python-format
-msgid "Add a new expense,"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "All Paid"
 msgstr ""
 
 #. module: hr_expense
-#: model:product.product,name:hr_expense.air_ticket
-#: model:product.template,name:hr_expense.air_ticket_product_template
-msgid "Air Flight"
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "All payment methods allowed"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_all
-msgid "All Expense Reports"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "All to Pay"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.hr_expense_actions_all
-msgid "All Expenses"
-msgstr "Όλες οι Δαπάνες"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "All to Post"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__amount_residual
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
+msgid "Amount Due"
+msgstr "Οφειλόμενο Ποσό"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "An"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/mixins/document_upload.js:0
+msgid "An error occurred during the upload"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__account_id
@@ -183,107 +270,177 @@ msgid "An expense account is expected"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__analytic_account_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/views/expense_form_view.js:0
+msgid "An expense of same category, amount and date already exists."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_account_analytic_account
 msgid "Analytic Account"
 msgstr "Αναλυτικός Λογαριασμός"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__analytic_tag_ids
-msgid "Analytic Tags"
-msgstr "Ετικέτες Αναλυτικής"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__analytic_distribution
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__analytic_distribution
+msgid "Analytic Distribution"
+msgstr "Αναλυτική Κατανομή"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
+#: model:ir.model,name:hr_expense.model_account_analytic_applicability
+msgid "Analytic Plan's Applicabilities"
+msgstr "Εφαρμογές Αναλυτικού Πλάνου"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__analytic_precision
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__analytic_precision
+msgid "Analytic Precision"
+msgstr "Αναλυτική Ακρίβεια"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__approval_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__approval_date
+msgid "Approval Date"
+msgstr "Ημερομηνία Έγκρισης"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__approval_state
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__approval_state
+msgid "Approval State"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+#: code:addons/hr_expense/static/src/views/list.xml:0
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_approve_duplicate_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
 msgid "Approve"
 msgstr "Έγκριση"
 
 #. module: hr_expense
-#: selection:hr.expense,state:0 selection:hr.expense.sheet,state:0
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__approval_state__approved
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__approved
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense_split__approval_state__approved
 #: model:mail.message.subtype,name:hr_expense.mt_expense_approved
 msgid "Approved"
 msgstr "Εγκρίθηκε"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Approved Expenses"
-msgstr "Εγκεκριμένα Έξοδα"
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+msgid "Archived"
+msgstr "Αρχειοθετημένα"
 
 #. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
-msgid "Attach Document"
+msgid "Attach Receipt"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:27
-#, python-format
-msgid "Attach your receipt here."
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "Attach a receipt - usually an image or a PDF file."
 msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_attachment_count
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_attachment_count
 msgid "Attachment Count"
+msgstr "Αριθμός Συνημμένων"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_img
+msgid "Attachment Name"
+msgstr "Όνομα Συνημμένου"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__attachment_ids
+msgid "Attachments"
+msgstr "Συνημμένα"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_employee_view_form_inherit_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_employee_tree_inherit_expense
+msgid "Auto-validation"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__bank_journal_id
-msgid "Bank Journal"
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__tax_ids
+msgid ""
+"Both price-included and price-excluded taxes will behave as price-included "
+"taxes for expenses."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__reference
-msgid "Bill Reference"
-msgstr "Αναφορά Χρέωσης"
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Business Trip"
+msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__can_reset
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__can_approve
+msgid "Can Approve"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__can_reset
 msgid "Can Reset"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_product_template__can_be_expensed
-msgid "Can be Expensed"
-msgstr "Μπορεί να Δαπανηθεί"
-
-#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_approve_duplicate_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_post_wizard_view
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_register_payment_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_split
 msgid "Cancel"
 msgstr "Ακύρωση"
 
 #. module: hr_expense
-#: model:product.product,name:hr_expense.car_travel
-#: model:product.template,name:hr_expense.car_travel_product_template
-msgid "Car Travel Expenses"
-msgstr "Οδοιπορικά"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+msgid "Category"
+msgstr "Κατηγορία"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "Certified honest and conform,<br/>(Date and signature).<br/><br/>"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid "Category:"
 msgstr ""
 
 #. module: hr_expense
-#: selection:hr.expense,payment_mode:0
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid "Category: not found"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_main_attachment_checksum
+msgid "Checksum/SHA1"
+msgstr "Άθροισμα/SHA1"
+
+#. module: hr_expense
+#: model:product.template,name:hr_expense.expense_product_communication_product_template
+msgid "Communication"
+msgstr "Επικοινωνία"
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_res_company
+msgid "Companies"
+msgstr "Εταιρίες"
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__company_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__company_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__company_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__company_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__company_id
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__payment_mode__company_account
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Company"
 msgstr "Εταιρία"
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet_register_payment_wizard__company_id
-msgid "Company related to this journal"
-msgstr "Η εταιρία που σχετίζεται με το ημερολόγιο"
-
-#. module: hr_expense
 #: model:ir.model,name:hr_expense.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Ρυθμίσεις διαμόρφωσης"
 
 #. module: hr_expense
 #: model:ir.ui.menu,name:hr_expense.menu_hr_expense_configuration
@@ -291,180 +448,282 @@ msgid "Configuration"
 msgstr "Διαμόρφωση"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Confirmed Expenses"
-msgstr "Επιβεβαιωμένα Έξοδα"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
-msgid "Create Report"
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_kanban_view
+msgid "Cost:"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_request_approve_expense_sheet
-#: model_terms:ir.actions.act_window,help:hr_expense.action_request_to_pay_expense_sheet
-#: model_terms:ir.actions.act_window,help:hr_expense.action_request_to_post_expense_sheet
-#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_all
-#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_my_unsubmitted
+#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_account
 msgid "Create a new expense"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_product
-msgid "Create a new expense category"
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Create expenses from incoming emails"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_all
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_pay
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_post
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_my_all
-msgid "Create a new expense report"
+#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_all
+msgid "Create new expenses to get statistics."
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid ""
+"Create prepaid virtual and physical cards for both one-time and recurring "
+"expenses, integrated into Odoo through Stripe Issuing."
 msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__create_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__create_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__create_uid
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__create_uid
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__create_uid
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__create_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__create_uid
 msgid "Created by"
 msgstr "Δημιουργήθηκε από"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__create_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__create_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__create_date
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__create_date
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__create_date
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__create_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__create_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__create_date
 msgid "Created on"
 msgstr "Δημιουργήθηκε στις"
 
 #. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Credit Card"
+msgstr "Πιστωτική Κάρτα"
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__currency_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__currency_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__currency_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__currency_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__currency_id
 msgid "Currency"
 msgstr "Νόμισμα"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__date
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__accounting_date
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Date"
-msgstr "Ημερομηνία"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__currency_rate
+msgid "Currency Rate"
+msgstr "Ισοτιμία"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__expense_alias_prefix
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
+msgid "Dear"
+msgstr "Αγαπητέ/η"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__hr_expense_alias_prefix
 msgid "Default Alias Name for Expenses"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__department_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model:ir.model.fields,field_description:hr_expense.field_res_company__expense_journal_id
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__expense_journal_id
+msgid "Default Expense Journal"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Default accounting journal for expenses paid by employees."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_hr_department
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__department_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Department"
 msgstr "Τμήμα"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__name
 msgid "Description"
 msgstr "Περιγραφή"
 
 #. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Digitalize your receipts with OCR and Artificial Intelligence"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_account_analytic_account__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_account_analytic_applicability__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_account_move__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_account_payment__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_account_payment_register__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_account_tax__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_department__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__display_name
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__display_name
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__display_name
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_ir_actions_report__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_product_product__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_product_template__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_res_company__display_name
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr "Εμφάνιση Ονόματος"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-msgid "Documents"
-msgstr "Έγγραφα"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__distribution_analytic_account_ids
+msgid "Distribution Analytic Account"
+msgstr ""
 
 #. module: hr_expense
-#: selection:hr.expense.sheet,state:0
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model_terms:digest.tip,tip_description:hr_expense.digest_tip_hr_expense_0
+msgid ""
+"Do not keep your expense tickets in your pockets any longer. Just snap a "
+"picture of your receipt and let Odoo digitalizes it for you. The OCR and "
+"Artificial Intelligence will fill the data automatically."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_account_analytic_applicability__business_domain
+msgid "Domain"
+msgstr "Τομέας"
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/mixins/qrcode.js:0
+msgid "Download our App"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__draft
+#: model:mail.message.subtype,name:hr_expense.mt_expense_reset
 msgid "Draft"
 msgstr "Προσχέδιο"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_register_payment_view_form
-msgid "Draft Payment"
-msgstr "Προσχέδιο Πληρωμής"
+#. odoo-python
+#: code:addons/hr_expense/wizard/hr_expense_approve_duplicate.py:0
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__duplicate_expense_ids
+msgid "Duplicate Expense"
+msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
-msgid "Email Alias"
-msgstr "Ψευδώνυμο Email"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
-msgid "Emails"
-msgstr "Email"
+#. odoo-python
+#: code:addons/hr_expense/models/account_move.py:0
+msgid ""
+"Each expense paid by the company must have a distinct and dedicated journal "
+"entry."
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_hr_employee
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__employee_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__employee_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Employee"
 msgstr "Υπάλληλος"
 
 #. module: hr_expense
-#: selection:hr.expense,payment_mode:0
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__payment_mode__own_account
 msgid "Employee (to reimburse)"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_approved_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Employee Expense Journal"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_account
+#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_account_employee_expenses
 msgid "Employee Expenses"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__address_id
-msgid "Employee Home Address"
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid ""
+"Enter a name then choose a category and configure the amount of your expense."
 msgstr ""
 
 #. module: hr_expense
+#: model:account.journal,name:hr_expense.hr_expense_account_journal
 #: model:ir.model,name:hr_expense.model_hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_account_bank_statement_line__expense_ids
+#: model:ir.model.fields,field_description:hr_expense.field_account_move__expense_ids
 #: model:ir.model.fields,field_description:hr_expense.field_account_move_line__expense_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
+#: model:ir.model.fields,field_description:hr_expense.field_account_payment__expense_ids
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__expense_ids
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__expense_ids
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__expense_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__expense_id
+#: model:ir.model.fields.selection,name:hr_expense.selection__account_analytic_applicability__business_domain__expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_employee_view_form_inherit_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Expense"
 msgstr "Έξοδα"
 
 #. module: hr_expense
+#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_department_filtered
+msgid "Expense Analysis"
+msgstr ""
+
+#. module: hr_expense
 #: model:mail.activity.type,name:hr_expense.mail_act_expense_approval
+#: model:mail.activity.type,summary:hr_expense.mail_act_expense_approval
 msgid "Expense Approval"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "Expense Date"
+#: model:ir.model,name:hr_expense.model_hr_expense_approve_duplicate
+msgid "Expense Approve Duplicate"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__journal_id
-msgid "Expense Journal"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee__expense_manager_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_employee_search_view
+msgid "Expense Approver"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__expense_line_ids
-msgid "Expense Lines"
-msgstr "Γραμμές Εξόδων"
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Expense Card"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.hr_expense_product
 #: model:ir.ui.menu,name:hr_expense.menu_hr_product
 #: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
-msgid "Expense Products"
-msgstr "Είδη Εξόδων"
+msgid "Expense Categories"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__date
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "Expense Date"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Expense Digitalization (OCR)"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee_public__expense_manager_id
+msgid "Expense Manager"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_hr_expense_post_wizard
+msgid "Expense Posting Wizard"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_hr_expense_refuse_wizard
@@ -472,59 +731,49 @@ msgid "Expense Refuse Reason Wizard"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model,name:hr_expense.model_hr_expense_sheet_register_payment_wizard
-msgid "Expense Register Payment Wizard"
+#: model:ir.actions.report,name:hr_expense.action_report_expense_img
+msgid "Expense Report Image"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model,name:hr_expense.model_hr_expense_sheet
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__sheet_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_tree
-msgid "Expense Report"
+#: model:ir.model,name:hr_expense.model_hr_expense_split
+msgid "Expense Split"
+msgstr "Επιμερισμός Εξόδων"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__expense_split_line_ids
+msgid "Expense Split Line"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__state
-msgid "Expense Report State"
+#: model:ir.model,name:hr_expense.model_hr_expense_split_wizard
+msgid "Expense Split Wizard"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__name
-msgid "Expense Report Summary"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_approve_duplicate_view_form
+msgid "Expense Validate Duplicate"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_report
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_department_view_kanban
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_tree
-msgid "Expense Reports"
+#: model:mail.message.subtype,description:hr_expense.mt_expense_approved
+msgid "Expense approved"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_department_filtered
-msgid "Expense Reports Analysis"
+#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_product
+msgid "Expense categories can be reinvoiced to your customers."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_to_pay
-msgid "Expense Reports To Pay"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Expense created from a split."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_to_post
-msgid "Expense Reports To Post"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_to_approve
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_department_to_approve
-msgid "Expense Reports to Approve"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_employee__expense_manager_id
-msgid "Expense Responsible"
+#: model:mail.message.subtype,description:hr_expense.mt_expense_paid
+msgid "Expense paid"
 msgstr ""
 
 #. module: hr_expense
@@ -533,219 +782,302 @@ msgid "Expense refuse reason"
 msgstr ""
 
 #. module: hr_expense
-#: model:mail.message.subtype,description:hr_expense.mt_expense_approved
-msgid "Expense report approved"
-msgstr ""
-
-#. module: hr_expense
-#: model:mail.message.subtype,description:hr_expense.mt_expense_paid
-msgid "Expense report paid"
-msgstr ""
-
-#. module: hr_expense
 #: model:mail.message.subtype,description:hr_expense.mt_expense_refused
-msgid "Expense report refused"
+msgid "Expense refused"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_account_move_line__expense_id
-msgid "Expense where the move line come from"
+#: model:mail.message.subtype,description:hr_expense.mt_expense_reset
+msgid "Expense reset to Draft"
 msgstr ""
 
 #. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Expense split"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_department_to_approve
+msgid "Expense to Approve"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/account_move.py:0
+#: model:ir.model.fields,field_description:hr_expense.field_product_product__can_be_expensed
+#: model:ir.model.fields,field_description:hr_expense.field_product_template__can_be_expensed
 #: model:ir.ui.menu,name:hr_expense.menu_hr_expense_root
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_employee_view_form_inherit_expense
+#: model:product.template,name:hr_expense.product_product_no_cost_product_template
+#: model:res.groups.privilege,name:hr_expense.res_groups_privilege_expenses
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_department_view_kanban
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_activity
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_expenses_analysis_tree
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_template_search_view_inherit_hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_expenses_tree
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-#: model:product.product,name:hr_expense.product_product_fixed_cost
-#: model:product.template,name:hr_expense.product_product_fixed_cost_product_template
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_form_inherit_expense
 msgid "Expenses"
 msgstr "Έξοδα"
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.hr_expense_action
+#: model:ir.actions.act_window,name:hr_expense.hr_expense_actions_all
 #: model:ir.ui.menu,name:hr_expense.menu_hr_expense_all_expenses
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_graph
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_pivot
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_graph
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_pivot
 msgid "Expenses Analysis"
 msgstr "Ανάλυση Εξόδων"
 
 #. module: hr_expense
-#: model:ir.actions.report,name:hr_expense.action_report_hr_expense_sheet
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
+#: model:ir.actions.report,name:hr_expense.action_report_hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
 msgid "Expenses Report"
 msgstr "Αναφορά Εξόδων"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_department__expense_sheets_to_approve_count
-msgid "Expenses Reports to Approve"
-msgstr "Αναφορά Εξόδων προς Έγκριση"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Expenses by Date"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
+msgid "Expenses approval"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Expenses in Draft"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Expenses of %(employee)s"
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:568
-#, python-format
-msgid "Expenses must be paid by the same entity (Company or employee)."
-msgstr ""
-
-#. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:623
-#, python-format
-msgid ""
-"Expenses must have an expense journal specified to generate accounting "
-"entries."
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Expenses of Your Team Member"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Expenses to Invoice"
-msgstr "Έξοδα προς Τιμολόγηση"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_department__expenses_to_approve_count
+msgid "Expenses to Approve"
+msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.account_journal_dashboard_kanban_view_inherit_hr_expense
+#: model:ir.actions.act_window,name:hr_expense.hr_expense_actions_to_process
+#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_expenses_to_process
 msgid "Expenses to Process"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__is_refused
-msgid "Explicitely Refused by manager or acccountant"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Expenses with a similar receipt to %(other_expense_name)s"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"Failed to send mails for submitted expenses. No valid email was found for "
+"the company"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee__filter_for_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee_public__filter_for_expense
+msgid "Filter For Expense"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Flight Ticket"
 msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_follower_ids
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_follower_ids
 msgid "Followers"
 msgstr "Ακόλουθοι"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_channel_ids
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Ακόλουθοι (Κανάλια)"
-
-#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_partner_ids
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Ακόλουθοι (Συνεργάτες)"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Former Employees"
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Γραμματοσειρά awesome π.χ. fa-tasks"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__former_sheet_id
+msgid "Former Report"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_approved_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_unsubmitted_expense
-msgid ""
-"From here the accountant will be able to approve as well as refuse the "
-"expenses which are verified by the HR Manager."
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Future Activities"
 msgstr "Μελλοντικές Δραστηριότητες"
 
 #. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/mixins/document_upload.js:0
+msgid "Generate Expenses"
+msgstr ""
+
+#. module: hr_expense
+#: model:product.template,name:hr_expense.expense_product_gift_product_template
+msgid "Gifts"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:product.template,description:hr_expense.expense_product_gift_product_template
+msgid "Gifts to customers or vendors"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Go to Account"
+msgstr ""
+
+#. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
-msgid "General Information"
-msgstr "Γενικές Πληροφορίες"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Group By"
-msgstr "Ομαδοποίηση κατά"
-
-#. module: hr_expense
-#: model:ir.model,name:hr_expense.model_hr_department
-msgid "HR Department"
+msgid "Guideline"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__is_multiple_currency
-msgid "Handle lines with different currencies"
+#: model:ir.actions.server,name:hr_expense.ir_cron_send_submitted_expenses_mail_ir_actions_server
+msgid "HR Expense: Send Submitted Expenses Mail"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__hide_payment_method
-msgid "Hide Payment Method"
-msgstr "Απόκρυψη Τρόπου Πληρωμής"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__has_message
+msgid "Has Message"
+msgstr "Έχει Μήνυμα"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__hr_expense_ids
-msgid "Hr Expense"
+#: model_terms:product.template,description:hr_expense.expense_product_travel_accommodation_product_template
+msgid "Hotel, plane ticket, taxi, etc."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__hr_expense_sheet_id
-msgid "Hr Expense Sheet"
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__hr_expense_alias_domain_id
+msgid "Hr Expense Alias Domain"
 msgstr ""
 
 #. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_account_analytic_account__id
+#: model:ir.model.fields,field_description:hr_expense.field_account_analytic_applicability__id
+#: model:ir.model.fields,field_description:hr_expense.field_account_move__id
+#: model:ir.model.fields,field_description:hr_expense.field_account_move_line__id
+#: model:ir.model.fields,field_description:hr_expense.field_account_payment__id
+#: model:ir.model.fields,field_description:hr_expense.field_account_payment_register__id
+#: model:ir.model.fields,field_description:hr_expense.field_account_tax__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_department__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__id
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__id
+#: model:ir.model.fields,field_description:hr_expense.field_ir_actions_report__id
+#: model:ir.model.fields,field_description:hr_expense.field_product_product__id
+#: model:ir.model.fields,field_description:hr_expense.field_product_template__id
+#: model:ir.model.fields,field_description:hr_expense.field_res_company__id
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__id
 msgid "ID"
 msgstr "Κωδικός"
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense__message_unread
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__message_unread
-msgid "If checked new messages require your attention."
-msgstr "Εάν επιλεγεί τα νέα μηνύματα χρειάζονται την προσοχή σας"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_exception_icon
+msgid "Icon"
+msgstr "Εικονίδιο"
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Εικονίδιο που υποδεικνύει μια δραστηριότητα εξαίρεσης."
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__message_needaction
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "Εάν επιλεγεί τα νέα μηνύματα χρειάζονται την προσοχή σας."
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__message_has_error
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__message_has_error
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
+msgstr "Αν επιλεγεί, κάποια μηνύματα έχουν σφάλμα παράδοσης."
+
+#. module: hr_expense
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__in_payment
+msgid "In Payment"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__tax_ids
+msgid "Included taxes"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Incoming Emails"
+msgstr "Εισερχόμενα emails"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__description
+msgid "Internal Notes"
+msgstr "Εσωτερικά Σημειώματα"
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Invalid attachments!"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__is_editable
+msgid "Is Editable By Current User"
 msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_is_follower
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_is_follower
 msgid "Is Follower"
 msgstr "Είναι Ακόλουθος"
 
 #. module: hr_expense
-#: model:ir.model,name:hr_expense.model_account_journal
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__is_multiple_currency
+msgid "Is currency_id different from the company_currency_id"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__product_has_cost
+msgid "Is product with non zero cost selected"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "It all begins here - let's go!"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__journal_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__employee_journal_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_post_wizard_view
 msgid "Journal"
 msgstr "Ημερολόγιο"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__account_move_id
+#: model:ir.model,name:hr_expense.model_account_move
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__account_move_id
 msgid "Journal Entry"
 msgstr "Εγγραφή Ημερολογίου"
+
+#. module: hr_expense
+#: model:mail.message.subtype,name:hr_expense.mt_expense_entry_delete
+msgid "Journal Entry Deleted"
+msgstr ""
+
+#. module: hr_expense
+#: model:mail.message.subtype,name:hr_expense.mt_expense_entry_draft
+msgid "Journal Entry Reset to Draft"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_account_move_line
@@ -753,340 +1085,490 @@ msgid "Journal Item"
 msgstr "Στοιχείο Ημερολογίου"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense____last_update
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard____last_update
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet____last_update
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard____last_update
-msgid "Last Modified on"
-msgstr "Τελευταία τροποποίηση στις"
+#. odoo-python
+#: code:addons/hr_expense/models/account_move.py:0
+msgid "Journal entry created from these expenses: %(links)s"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/account_move.py:0
+msgid "Journal entry created from this expense: %(link)s"
+msgstr ""
+
+#. module: hr_expense
+#: model:mail.message.subtype,description:hr_expense.mt_expense_entry_delete
+msgid "Journal entry deleted"
+msgstr ""
+
+#. module: hr_expense
+#: model:mail.message.subtype,description:hr_expense.mt_expense_entry_draft
+msgid "Journal entry reset to draft"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__label_currency_rate
+msgid "Label Currency Rate"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__write_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__write_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__write_uid
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__write_uid
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__write_uid
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__write_uid
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Τελευταία Ενημέρωση από"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__write_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_approve_duplicate__write_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_post_wizard__write_date
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__write_date
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__write_date
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__write_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__write_date
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__write_date
 msgid "Last Updated on"
 msgstr "Τελευταία Ενημέρωση στις"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Late Activities"
 msgstr "Καθυστερημένες Δραστηριότητες"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__use_mailgateway
-#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__hr_expense_use_mailgateway
 msgid "Let your employees record expenses by email"
 msgstr ""
 
 #. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "Let's check out where you can manage all your employees expenses"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "Let's go back to your expenses."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__module_hr_expense_stripe
+msgid ""
+"Link your stripe issuing account to manage company credit cards for your "
+"employees through Odoo"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Lunch with customer $12.32"
+msgstr ""
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_main_attachment_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_main_attachment_id
 msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__user_id
-#: model:res.groups,name:hr_expense.group_hr_expense_manager
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__manager_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__manager_id
 msgid "Manager"
 msgstr "Διευθυντής"
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:61
-#, python-format
-msgid "Managers can get all reports to approve from this menu."
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid ""
+"Managers can approve the expense here, then an accountant can post the "
+"accounting entries."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__communication
-msgid "Memo"
-msgstr "Σχετικά "
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "Managers can inspect all expenses from here."
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Marc Demo"
+msgstr "Marc Demo"
+
+#. module: hr_expense
+#: model:product.template,name:hr_expense.expense_product_meal_product_template
+msgid "Meals"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_has_error
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Σφάλμα παράδοσης μηνύματος"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_ids
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_ids
 msgid "Messages"
 msgstr "Μηνύματα"
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_my_all
-#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_sheet_my_reports
-msgid "My Expense Reports"
+#: model:product.template,name:hr_expense.expense_product_mileage_product_template
+msgid "Mileage"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.hr_expense_actions_my_unsubmitted
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Mitchell Admin"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "My Activities"
+msgstr "Οι Δραστηριότητες μου"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Η Προθεσμία της Δραστηριότητάς Μου"
+
+#. module: hr_expense
+#: model:ir.actions.act_window,name:hr_expense.hr_expense_actions_my_all
 #: model:ir.ui.menu,name:hr_expense.menu_hr_expense_my_expenses
-#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_my_expenses_to_submit
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
+#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_my_expenses_all
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "My Expenses"
 msgstr "Τα Έξοδά μου"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "My Reports"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "My Team"
+msgstr "Η Ομάδα μου"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "My Team Expenses"
-msgstr "Τα Έξοδα της Ομάδας μου"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "My Team Reports"
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
 msgid "Name"
 msgstr "Περιγραφή"
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:186
-#, python-format
-msgid "New Expense Report"
+#. odoo-python
+#: code:addons/hr_expense/wizard/hr_expense_post_wizard.py:0
+msgid "New expense entries"
 msgstr ""
 
 #. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
+msgid ""
+"New expenses are waiting for your approval. You can Review them by following "
+"this link."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "New expenses waiting for your approval"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Επόμενο Γεγονός Δραστηριότητας στο Ημερολόγιο"
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_date_deadline
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Επόμενη Προθεσμία Δραστηριότητας"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_summary
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__activity_summary
 msgid "Next Activity Summary"
 msgstr "Σύνοψη Επόμενης Δραστηριότητας"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_type_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__activity_type_id
 msgid "Next Activity Type"
 msgstr "Επόμενος Τύπος Δραστηριότητας"
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:244
-#, python-format
-msgid ""
-"No Expense account found for the product %s (or for its category), please "
-"configure one."
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "No attachment was provided"
+msgstr "Δεν παρασχέθηκε κανένα συνημμένο"
+
+#. module: hr_expense
+#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_department_filtered
+#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_all
+msgid "No data yet!"
+msgstr "Δεν υπάρχουν δεδομένα ακόμη!"
+
+#. module: hr_expense
+#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_product
+msgid "No expense categories found. Let's create one!"
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:261
-#, python-format
-msgid "No Home Address found for the employee %s, please configure one."
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "No work contact found for the employee %(name)s, please configure one."
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_approved_expense
-msgid "No approved employee expenses"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_categories_tree_view
+msgid "Note"
+msgstr "Σημείωση"
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:257
-#: code:addons/hr_expense/models/hr_expense.py:368
-#, python-format
-msgid "No credit account found for the %s journal, please configure one."
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_approve
-msgid "No expense reports to approve"
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_unsubmitted_expense
-msgid "No unreported employee expenses"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__description
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
 msgid "Notes..."
 msgstr "Σημειώσεις..."
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_needaction_counter
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Πλήθος ενεργειών"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__attachment_number
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__attachment_number
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__nb_attachment
 msgid "Number of Attachments"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_has_error_counter
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_has_error_counter
-msgid "Number of error"
+#: model:ir.model.fields,field_description:hr_expense.field_account_bank_statement_line__nb_expenses
+#: model:ir.model.fields,field_description:hr_expense.field_account_move__nb_expenses
+msgid "Number of Expenses"
 msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_has_error_counter
+msgid "Number of errors"
+msgstr "Αριθμός σφαλμάτων"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__message_needaction_counter
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Πλήθος μηνυμάτων που απαιτούν ενέργεια"
+msgid "Number of messages requiring action"
+msgstr "Αριθμός μηνυμάτων που απαιτούν ενέργεια"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__message_has_error_counter
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__message_has_error_counter
 msgid "Number of messages with delivery error"
+msgstr "Αριθμός μηνυμάτων με σφάλμα παράδοσης"
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/components/expense_dashboard.xml:0
+msgid "Numbers computed from your personal expenses."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense__message_unread_counter
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Πλήθος μη αναγνωσμένων μηνυμάτων"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register_no_user
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
+msgid "Odoo"
+msgstr "Odoo"
 
 #. module: hr_expense
-#: model:res.groups,name:hr_expense.group_hr_expense_user
-msgid "Officer"
-msgstr "Προιστάμενος"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"Odoo had a look at your expense, its product, your company and the journal "
+"but came back with empty hands.\n"
+"Give Odoo a hand to find an account by setting up an expense account.\n"
+"%(expense)s %(expense_name)s.\n"
+msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_all
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_pay
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_post
-#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_my_all
-#: model_terms:ir.actions.act_window,help:hr_expense.action_request_approve_expense_sheet
-#: model_terms:ir.actions.act_window,help:hr_expense.action_request_to_pay_expense_sheet
-#: model_terms:ir.actions.act_window,help:hr_expense.action_request_to_post_expense_sheet
+#: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_account
 msgid ""
 "Once you have created your expense, submit it to your manager who will "
 "validate it."
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:45
-#, python-format
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
 msgid ""
-"Once your <b>Expense report</b> is ready, you can submit it to your manager "
-"and wait for the approval from your manager."
+"Once your <b>Expense</b> is ready, you can submit it to your manager and "
+"wait for approval."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:706
-#, python-format
-msgid "Only HR Officers or the concerned employee can reset to draft."
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"Only HR Officers, accountants, or the concerned employee can reset to draft."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:667
-#: code:addons/hr_expense/models/hr_expense.py:688
-#, python-format
-msgid "Only Managers and HR Officers can approve expenses"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Only draft expenses can have a total of 0."
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-msgid "Other Info"
-msgstr "Λοιπές Πληροφορίες"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Only expense paid by the employee can be posted with the wizard"
+msgstr ""
 
 #. module: hr_expense
-#: selection:hr.expense,activity_state:0
-#: selection:hr.expense.sheet,activity_state:0
-msgid "Overdue"
-msgstr "Εκπρόθεσμο"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Only one expense can be linked to a particular payment"
+msgstr ""
 
 #. module: hr_expense
-#: selection:hr.expense,state:0 selection:hr.expense.sheet,state:0
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "Open bugger menu."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__split_expense_origin_id
+msgid "Origin Split Expense"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_split
+msgid "Original Amount"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__split_expense_origin_id
+msgid "Original expense from a split."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__paid
 #: model:mail.message.subtype,name:hr_expense.mt_expense_paid
 msgid "Paid"
 msgstr "Εξοφλημένη"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__payment_mode
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__payment_mode
 msgid "Paid By"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__partner_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "Paid by Company"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "Paid by Employee"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
 msgid "Partner"
 msgstr "Συναλλασόμενος"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__amount
-msgid "Payment Amount"
-msgstr "Ποσό Πληρωμής"
+#: model:ir.model,name:hr_expense.model_account_payment_register
+msgid "Pay"
+msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__payment_date
-msgid "Payment Date"
-msgstr "Ημερ. Πληρωμής"
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__journal_id
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__payment_method_line_id
 msgid "Payment Method"
 msgstr "Μέθοδος Πληρωμής"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__payment_method_id
-msgid "Payment Type"
-msgstr "Τύπος Συναλλαγής"
-
-#. module: hr_expense
-#: selection:hr.expense,activity_state:0
-#: selection:hr.expense.sheet,activity_state:0
-msgid "Planned"
-msgstr "Προγραμματισμένη"
-
-#. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:248
-#, python-format
-msgid ""
-"Please configure Default Expense account for Product expense: "
-"`property_account_expense_categ_id`."
+#. odoo-python
+#: code:addons/hr_expense/models/account_payment.py:0
+msgid "Payment created for: %s"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Payment method allowed for expenses paid by company."
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Payment methods"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_res_company__company_expense_allowed_payment_method_line_ids
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__company_expense_allowed_payment_method_line_ids
+msgid "Payment methods available for expenses paid by company"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_account_payment
+msgid "Payments"
+msgstr "Συναλλαγές"
+
+#. module: hr_expense
+#: model_terms:product.template,description:hr_expense.expense_product_communication_product_template
+msgid "Phone bills, postage, etc."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"Please specify if the expenses were paid by the company, or the employee."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/views/list.xml:0
+msgid "Post Entries"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_post_wizard_view
+msgid "Post Expenses"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
 msgid "Post Journal Entries"
 msgstr "Καταχώριση Ημερολογιακών Εγγραφών"
 
 #. module: hr_expense
-#: selection:hr.expense.sheet,state:0
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Post expenses"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Post expenses paid by the employee"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__posted
 msgid "Posted"
 msgstr "Καταχωρημένη"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "Price"
-msgstr "ΤΙΜΗ"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register_no_user
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
+msgid "Powered by"
+msgstr "Δημιουργήθηκε με"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "Price in Company Currency"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid "Price:"
+msgstr "Τιμή:"
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_product_template
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__product_id
+msgid "Product"
+msgstr "Είδος"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_description
+msgid "Product Description"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_id
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "Product"
-msgstr "Είδος"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_has_cost
+msgid "Product Has Cost"
+msgstr ""
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
@@ -1094,53 +1576,66 @@ msgid "Product Name"
 msgstr "Περιγραφή Είδους"
 
 #. module: hr_expense
-#: model:ir.model,name:hr_expense.model_product_template
-msgid "Product Template"
-msgstr "Πρότυπο Είδους "
+#: model:ir.model,name:hr_expense.model_product_product
+msgid "Product Variant"
+msgstr "Μεταβλητή Είδους"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "Qty"
-msgstr "ΤΕΜ"
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_tree_view
+msgid "Product Variants"
+msgstr "Παραλλαγές του Είδους"
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__quantity
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
 msgid "Quantity"
 msgstr "Ποσότητα"
 
 #. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__rating_ids
+msgid "Ratings"
+msgstr "Αξιολογήσεις"
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid ""
+"Ready? You can save it manually or discard modifications from here. You "
+"don't <em>need to save</em> - Odoo will save eveyrthing for you when you "
+"navigate."
+msgstr ""
+
+#. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_refuse_wizard__reason
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
 msgid "Reason"
 msgstr "Αιτία"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_refuse_reason
-msgid "Reason :"
-msgstr ""
+msgid "Reason:"
+msgstr "Αιτία:"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
-msgid "Reason to refuse Expense"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__partner_bank_account_id
-msgid "Recipient Bank Account"
-msgstr "Τραπεζικός Λογαριασμός Παραλήπτη"
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_categories_tree_view
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+msgid "Reference"
+msgstr "Σχετικό"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
-msgid "Recording"
+msgid "Refund employees via their payslips."
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
-msgid "Ref."
-msgstr "Παρ."
-
-#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_approve_duplicate_view_form
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
 msgid "Refuse"
 msgstr "Άρνηση"
 
@@ -1150,39 +1645,31 @@ msgid "Refuse Expense"
 msgstr ""
 
 #. module: hr_expense
-#: selection:hr.expense,state:0 selection:hr.expense.sheet,state:0
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__approval_state__refused
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__refused
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense_split__approval_state__refused
 #: model:mail.message.subtype,name:hr_expense.mt_expense_refused
 msgid "Refused"
 msgstr "Απορριφθέντα"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "Refused Expenses"
-msgstr "Απορριφθέντα Έξοδα"
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__module_hr_payroll_expense
+msgid "Reimburse Expenses in Payslip"
+msgstr ""
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.hr_expense_sheet_register_payment_wizard_action
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_register_payment_view_form
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-msgid "Register Payment"
-msgstr "Καταχώρηση Πληρωμής"
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Reimburse in Payslip"
+msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_refuse_reason
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "Report"
-msgstr "Αναφορά"
+#: model:ir.model,name:hr_expense.model_ir_actions_report
+msgid "Report Action"
+msgstr "Αναφορά δράσης"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__company_currency_id
 msgid "Report Company Currency"
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "Reported"
 msgstr ""
 
 #. module: hr_expense
@@ -1191,37 +1678,81 @@ msgid "Reporting"
 msgstr "Αναφορές"
 
 #. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_request_approve_expense_sheet
-msgid "Reports to Approve"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_request_to_pay_expense_sheet
-msgid "Reports to Pay"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_request_to_post_expense_sheet
-msgid "Reports to Post"
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-msgid "Reset to Draft"
-msgstr "Επαναφορά σε Προσχέδιο"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "Reset"
+msgstr "Επαναφορά"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__activity_user_id
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__activity_user_id
 msgid "Responsible User"
 msgstr "Υπεύθυνος Χρήστης"
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:135
-#, python-format
+#: model_terms:product.template,description:hr_expense.expense_product_meal_product_template
+msgid "Restaurants, business lunches, etc."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Σφάλμα παράδοσης SMS"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_categories_tree_view
+msgid "Sales Price"
+msgstr "Τιμή Πώλησης"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__same_receipt_expense_ids
+msgid "Same Receipt Expense"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "Save this page and come back here to set up the feature."
+msgstr ""
+"Αποθηκεύστε αυτήν την σελίδα και επιστρέψτε εδώ για να ρυθμίσετε αυτό το "
+"χαρακτηριστικό."
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/views/kanban.xml:0
+#: code:addons/hr_expense/static/src/views/list.xml:0
+msgid "Scan"
+msgstr "Σάρωση"
+
+#. module: hr_expense
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/components/qrcode_action.xml:0
+msgid "Scan this QR code to get the Odoo app:"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_employee__expense_manager_id
 msgid ""
-"Selected Unit of Measure does not belong to the same category as the product"
-" Unit of Measure."
+"Select the user responsible for approving \"Expenses\" of this employee.\n"
+"If empty, the approval is done by an Administrator or Approver (determined "
+"in settings/users)."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__selectable_payment_method_line_ids
+msgid "Selectable Payment Method Line"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid ""
+"Send an email to this email alias with the receipt in attachment to create "
+"an expense in one click. If the first word of the mail subject contains the "
+"category's internal reference or the category name, the corresponding "
+"category will automatically be set. Type the expense amount in the mail "
+"subject to set it on the expense too."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__module_hr_expense_extract
+msgid "Send bills to OCR to generate expenses"
 msgstr ""
 
 #. module: hr_expense
@@ -1231,43 +1762,65 @@ msgid "Settings"
 msgstr "Ρυθμίσεις"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
-msgid "Setup your domain alias"
-msgstr "Ρύθμιση το ψευδώνυμο του τομέα σας"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "Show all records whose next activity date is past"
+msgstr ""
+"Εμφάνιση όλων των καταγραφών των οποίων η επόμενη δραστηριότητα είναι "
+"προγενέστερη"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__show_partner_bank_account
-msgid "Show Partner Bank Account"
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
+msgid "Source Document"
+msgstr "Έγγραφο Πηγή"
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense_post_wizard__accounting_date
+msgid "Specify the bill date of the related vendor bill."
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "Show all records which has next action date is before today"
-msgstr ""
-"Εμφάνιση όλων των εγγραφών όπου η ημερομηνία επόμενης δράσης είναι πριν από "
-"σήμερα"
-
-#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_product_product__can_be_expensed
 #: model:ir.model.fields,help:hr_expense.field_product_template__can_be_expensed
 msgid "Specify whether the product can be selected in an expense."
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "State"
-msgstr "Νομός/Πολιτεία"
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "Split"
+msgstr "Διαχωρισμός"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_split
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "Split Expense"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+#: code:addons/hr_expense/wizard/hr_expense_split_wizard.py:0
+msgid "Split Expenses"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__split_possible
+msgid "Split Possible"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_product_product__standard_price_update_warning
+msgid "Standard Price Update Warning"
+msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__state
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__state
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
 msgid "Status"
 msgstr "Κατάσταση"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__activity_state
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__activity_state
 msgid ""
 "Status based on activities\n"
 "Overdue: Due date is already passed\n"
@@ -1280,286 +1833,504 @@ msgstr ""
 "Προγραμματισμένες: Μελλοντικές δραστηριότητες."
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense__state
-msgid "Status of the expense."
-msgstr ""
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/views/list.xml:0
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "Submit"
+msgstr "Υποβολή"
 
 #. module: hr_expense
-#: model:ir.actions.server,name:hr_expense.hr_expense_submit_action_server
-msgid "Submit Report"
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
 msgid "Submit to Manager"
 msgstr "Υποβολή στον διαχειριστή"
 
 #. module: hr_expense
-#: selection:hr.expense,state:0 selection:hr.expense.sheet,state:0
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__approval_state__submitted
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense__state__submitted
+#: model:ir.model.fields.selection,name:hr_expense.selection__hr_expense_split__approval_state__submitted
 msgid "Submitted"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__untaxed_amount
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
 msgid "Subtotal"
 msgstr "Μερικό σύνολο"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__tax_ids
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Subtotal in currency"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model,name:hr_expense.model_account_tax
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__tax_ids
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
+msgid "Tax"
+msgstr "Φόρος"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Tax 15%"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
+msgid "Tax Excluded"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__tax_amount
+msgid "Tax amount"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__tax_amount_currency
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__tax_amount_currency
+msgid "Tax amount in Currency"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__tax_amount
+msgid "Tax amount in company currency"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__tax_amount_currency
+msgid "Tax amount in currency"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__tax_amount_currency
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_split
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
 msgid "Taxes"
 msgstr "Φόροι"
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet_register_payment_wizard__hide_payment_method
-msgid ""
-"Technical field used to hide the payment method if the selected journal has "
-"only one available which is 'manual'"
+#: model:res.groups,name:hr_expense.group_hr_expense_team_approver
+msgid "Team Approver"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet_register_payment_wizard__show_partner_bank_account
-msgid ""
-"Technical field used to know whether the field `partner_bank_account_id` "
-"needs to be displayed or not in the payments form views"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "The account %(name)s (%(code)s) is archived. Activate it to continue"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:57
-#, python-format
+#. odoo-python
+#: code:addons/hr_expense/models/ir_actions_report.py:0
 msgid ""
-"The accountant can register a payment to reimburse the employee directly."
+"The attachment (%(attachment_name)s) has not been added to the report due to "
+"the following error: '%(error)s'"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__journal_id
-msgid "The journal used when the expense is done."
-msgstr "Το ημερολόγιο που χρησιμοποιείται όταν πραγματοποιείται το έξοδο."
+#: model:ir.model.fields,help:hr_expense.field_res_company__expense_journal_id
+#: model:ir.model.fields,help:hr_expense.field_res_config_settings__expense_journal_id
+msgid "The company's default journal used when an employee expense is created."
+msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/wizard/hr_expense_sheet_register_payment.py:48
-#, python-format
-msgid "The payment amount must be strictly positive."
-msgstr "Το ποσό της πληρωμής πρέπει να είναι αυστηρά θετικό."
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "The current user has no related employee. Please, create one."
+msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__bank_journal_id
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid ""
+"The first word of the email subject did not correspond to any category code. "
+"You'll have to set the category manually on the expense."
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_approve_duplicate_view_form
+msgid ""
+"The following approved expenses have similar employee, amount and category "
+"than some expenses of this report. Please verify this report does not "
+"contain duplicates."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"The following expenses payment method leads to several accounts payable and "
+"this isn't supported:\n"
+"%(expenses)s"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense_post_wizard__employee_journal_id
+msgid "The journal used when the expense is paid by employee."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__payment_method_line_id
 msgid "The payment method used when the expense is paid by the company."
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_sheet_all_to_approve
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "To Approve"
-msgstr "Προς Έγκριση"
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "The status of all your current expenses is visible from here."
+msgstr ""
 
 #. module: hr_expense
-#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_sheet_all_to_pay
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
-msgid "To Pay"
-msgstr "Προς Πληρωμή"
+#: model:ir.model.fields,help:hr_expense.field_hr_expense_split_wizard__split_possible
+msgid "The sum of after split shut remain the same"
+msgstr ""
 
 #. module: hr_expense
-#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_sheet_all_to_post
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#. odoo-python
+#: code:addons/hr_expense/models/product_product.py:0
+msgid ""
+"There are unsubmitted expenses linked to this category. Updating the "
+"category cost will change expense amounts. Make sure it is what you want to "
+"do."
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:web_tour.tour,rainbow_man_message:hr_expense.hr_expense_tour
+msgid "There you go - expense management in a nutshell!"
+msgstr ""
+
+#. module: hr_expense
+#: model:digest.tip,name:hr_expense.digest_tip_hr_expense_0
+#: model_terms:digest.tip,tip_description:hr_expense.digest_tip_hr_expense_0
+msgid "Tip: Snap pictures of your receipts with the remote app"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Tip: try sending receipts by email"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "To Post"
 msgstr ""
 
 #. module: hr_expense
-#: selection:hr.expense,state:0
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "To Submit"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-msgid "To report"
-msgstr ""
-
-#. module: hr_expense
-#: selection:hr.expense,activity_state:0
-#: selection:hr.expense.sheet,activity_state:0
-msgid "Today"
-msgstr "Σήμερα"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
 msgid "Today Activities"
 msgstr "Σημερινές Δραστηριότητες"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__total_amount
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.view_move_list_expense
 msgid "Total"
 msgstr "Σύνολο"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__total_amount_company
-msgid "Total (Company Currency)"
-msgstr ""
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__total_amount
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_expenses_tree
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_tree
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__total_amount_currency
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_expenses_analysis_tree
 msgid "Total Amount"
 msgstr "Σύνολο"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__unit_amount
-#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__total_amount_currency
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__total_amount_currency
+msgid "Total In Currency"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_expenses_analysis_tree
+msgid "Total Taxes"
+msgstr "Σύνολο Φόρων"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__untaxed_amount
+msgid "Total Untaxed Amount"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__untaxed_amount_currency
+msgid "Total Untaxed Amount In Currency"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense_split_wizard__total_amount_currency_original
+msgid "Total amount of the original Expense that we are splitting"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split_wizard__total_amount_currency_original
+msgid "Total amount original"
+msgstr ""
+
+#. module: hr_expense
+#: model:product.template,name:hr_expense.expense_product_travel_accommodation_product_template
+msgid "Travel & Accommodation"
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,help:hr_expense.field_hr_expense__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Τύπος της καταγεγραμμένης δραστηριότητας εξαίρεσης."
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"Uh-oh! You can’t edit this expense.\n"
+"\n"
+"Reach out to the administrators, flash your best smile, and see if they'll "
+"grant you the magical access you seek."
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_uom_id
+msgid "Unit"
+msgstr "Μονάδα"
+
+#. module: hr_expense
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__price_unit
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_expenses_analysis_tree
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
 msgid "Unit Price"
 msgstr "Τιμή Μονάδας"
 
 #. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_uom_id
-msgid "Unit of Measure"
-msgstr "Μονάδα Μέτρησης"
+#: model_terms:ir.ui.view,arch_db:hr_expense.report_expense
+msgid "Untaxed Amount"
+msgstr "Αφορολόγητο Ποσό"
 
 #. module: hr_expense
-#: model:product.product,uom_name:hr_expense.air_ticket
-#: model:product.product,uom_name:hr_expense.product_product_fixed_cost
-#: model:product.template,uom_name:hr_expense.air_ticket_product_template
-#: model:product.template,uom_name:hr_expense.product_product_fixed_cost_product_template
-msgid "Unit(s)"
-msgstr "Μονάδες"
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_unread
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_unread
-msgid "Unread Messages"
-msgstr "Μη αναγνωσμένα μηνύματα"
-
-#. module: hr_expense
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_unread_counter
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Μετρητής μη αναγνωσμένων μηνυμάτων"
-
-#. module: hr_expense
-#: model:ir.actions.act_window,name:hr_expense.action_unsubmitted_expense
-msgid "Unreported Expenses"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "Untitled Expense %s"
 msgstr ""
 
 #. module: hr_expense
-#: model:ir.model.fields,help:hr_expense.field_hr_employee__expense_manager_id
-msgid "User responsible of expense approval. Should be Expense Manager."
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/views/kanban.xml:0
+#: code:addons/hr_expense/static/src/views/list.xml:0
+msgid "Upload"
+msgstr "Μεταφόρτωση"
+
+#. module: hr_expense
+#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_my_all
+#: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_actions_to_process
+msgid "Upload or drop an expense receipt"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_register_payment_view_form
-msgid "Validate"
-msgstr "Επικύρωση"
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_expenses_tree
-msgid "View Attached Documents"
+#. odoo-javascript
+#: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
+msgid "Use the breadcrumbs to go back to the list of expenses."
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-msgid "View Attachments"
+#: model:ir.actions.act_window,name:hr_expense.hr_expense_approve_duplicate_action
+msgid "Validate Duplicate Expenses"
 msgstr ""
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
-msgid "View Report"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__vendor_id
+msgid "Vendor"
+msgstr "Προμηθευτής"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid "View Expense"
 msgstr ""
 
 #. module: hr_expense
-#. openerp-web
-#: code:addons/hr_expense/static/src/js/tour.js:13
-#: code:addons/hr_expense/static/src/js/tour.js:18
-#, python-format
-msgid "Want to manage your expenses? It starts here."
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
+msgid "View expenses"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "Waiting Approval"
+msgstr "Αναμονή Έγκρισης"
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_search
+msgid "Waiting Reimbursement"
 msgstr ""
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__website_message_ids
-#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__website_message_ids
 msgid "Website Messages"
 msgstr "Μηνύματα Ιστότοπου"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__website_message_ids
-#: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__website_message_ids
 msgid "Website communication history"
 msgstr "Ιστορικό επικοινωνίας ιστότοπου"
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:675
-#, python-format
-msgid "You can only approve your department expenses"
-msgstr ""
-
-#. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:620
-#, python-format
-msgid "You can only generate accounting entry for approved expense(s)."
-msgstr ""
-
-#. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:696
-#, python-format
-msgid "You can only refuse your department expenses"
-msgstr ""
-
-#. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
 msgid ""
-"You can setup a generic email alias to create incoming expenses easily. "
-"Write an email with the receipt in attachment to create an expense line in "
-"one click. If the mail subject contains the product's internal reference "
-"between brackets, the product will be set automatically. Type the expense "
-"amount in the mail subject to set it on the expense too."
+"When the cost of an expense product is different than 0, then the "
+"user                                             using this product won't be "
+"able to change the amount of the "
+"expense,                                             only the quantity. Use "
+"a cost different than 0 for expense categories funded "
+"by                                             the company at fixed cost "
+"like allowances for mileage, per diem, "
+"accommodation                                             or meal."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:575
-#, python-format
-msgid "You cannot add expenses of another employee."
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense__product_has_tax
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__product_has_tax
+msgid "Whether tax is defined on a selected product"
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:672
-#, python-format
-msgid "You cannot approve your own expenses"
+#: model:ir.model.fields,field_description:hr_expense.field_hr_expense_split__wizard_id
+msgid "Wizard"
+msgstr "Αυτόματος Οδηγός"
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You can not submit an expense without a category."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:145
-#, python-format
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid "You can now submit it to the manager from the following link."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You can only generate an accounting entry for approved expense(s)."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"You can't post simultaneously employee-paid expenses belonging to different "
+"companies"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"You cannot approve:\n"
+" %(reasons)s"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You cannot cancel an expense linked to a posted journal entry"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
 msgid "You cannot delete a posted or approved expense."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:587
-#, python-format
-msgid "You cannot delete a posted or paid expense."
+#. odoo-python
+#: code:addons/hr_expense/models/analytic.py:0
+msgid "You cannot delete an analytic account that is used in an expense."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:693
-#, python-format
-msgid "You cannot refuse your own expenses"
+#. odoo-python
+#: code:addons/hr_expense/models/account_payment.py:0
+msgid ""
+"You cannot do this modification since the payment is linked to an expense."
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:182
-#, python-format
-msgid "You cannot report expenses for different employees in the same report."
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You cannot edit the security fields of an expense manually"
 msgstr ""
 
 #. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:180
-#, python-format
-msgid "You cannot report twice the same line!"
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"You cannot refuse:\n"
+" %(reasons)s"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You cannot reset to draft an expense linked to a posted journal entry."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You cannot split an expense that is already posted."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You do not have the required permission to submit this expense."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You do not have the rights to edit this expense."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/wizard/hr_expense_post_wizard.py:0
+msgid "You don't have the rights to create accounting entries."
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid "You need to add a manual payment method on the journal (%s)"
+msgstr ""
+
+#. module: hr_expense
+#. odoo-python
+#: code:addons/hr_expense/models/hr_expense.py:0
+msgid ""
+"You need to have at least one category that can be expensed in your database "
+"to proceed!"
 msgstr ""
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_refuse_reason
 msgid "Your Expense"
 msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register
+msgid "Your expense has been successfully registered."
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "alias"
+msgstr "Ψευδώνυμο"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
@@ -1572,9 +2343,19 @@ msgid "e.g. Lunch with Customer"
 msgstr "π.χ. Γεύμα με Πελάτη"
 
 #. module: hr_expense
-#: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
-msgid "e.g. Trip to NY"
-msgstr "e.g. Ταξίδι στην Αθήνα"
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+msgid "e.g. Restaurants: only week days, for lunch"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "e.g. mycompany.com"
+msgstr "π.χ. mycompany.com"
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "expense"
+msgstr ""
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_refuse_reason
@@ -1582,34 +2363,97 @@ msgid "has been refused"
 msgstr ""
 
 #. module: hr_expense
-#: model:product.product,weight_uom_name:hr_expense.air_ticket
-#: model:product.product,weight_uom_name:hr_expense.car_travel
-#: model:product.product,weight_uom_name:hr_expense.product_product_fixed_cost
-#: model:product.template,weight_uom_name:hr_expense.air_ticket_product_template
-#: model:product.template,weight_uom_name:hr_expense.car_travel_product_template
-#: model:product.template,weight_uom_name:hr_expense.product_product_fixed_cost_product_template
-msgid "kg"
-msgstr "κιλά"
-
-#. module: hr_expense
-#: model:product.product,uom_name:hr_expense.car_travel
-#: model:product.template,uom_name:hr_expense.car_travel_product_template
-msgid "km"
-msgstr "χλμ"
-
-#. module: hr_expense
-#: code:addons/hr_expense/models/hr_expense.py:159
-#, python-format
-msgid "or send receipts by email to %s."
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+msgid "no taxes"
 msgstr ""
 
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
+msgid "per"
+msgstr ""
 
 #. module: hr_expense
-#. odoo-python
-#: code:addons/hr_expense/models/hr_expense.py:0
-#, python-format
-msgid ""
-"The private address of the employee is required to post the expense report. "
-"Please add it on the employee form."
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "tax)"
 msgstr ""
-"Για την ανάρτηση της έκθεσης εξόδων απαιτείται η ιδιωτική διεύθυνση του υπαλλήλου. Προσθέστε το στη φόρμα υπαλλήλου."
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
+msgid "use OCR to fill data from a picture of the bill"
+msgstr ""
+
+#. module: hr_expense
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
+msgid "with the same receipt already exists."
+msgstr ""
+
+#~ msgid "Accounting Settings"
+#~ msgstr "Ρυθμίσεις Λογιστικής"
+
+#~ msgid "<strong>Date:</strong>"
+#~ msgstr "<strong>Ημερομηνία:</strong>"
+
+#~ msgid "<strong>Description:</strong>"
+#~ msgstr "<strong>Περιγραφή:</strong>"
+
+#~ msgid "<strong>Total</strong>"
+#~ msgstr "<strong>Σύνολο</strong>"
+
+#~ msgid "<strong>Validated By:</strong>"
+#~ msgstr "<strong>Επικυρώθηκε από:</strong>"
+
+#~ msgid "Bill Reference"
+#~ msgstr "Αναφορά Χρέωσης"
+
+#~ msgid "Can be Expensed"
+#~ msgstr "Μπορεί να Δαπανηθεί"
+
+#~ msgid "Date"
+#~ msgstr "Ημερομηνία"
+
+#~ msgid "Expense Lines"
+#~ msgstr "Γραμμές Εξόδων"
+
+#~ msgid "Expenses Reports to Approve"
+#~ msgstr "Αναφορά Εξόδων προς Έγκριση"
+
+#~ msgid "General Information"
+#~ msgstr "Γενικές Πληροφορίες"
+
+#~ msgid "Group By"
+#~ msgstr "Ομαδοποίηση κατά"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Πλήθος μηνυμάτων που απαιτούν ενέργεια"
+
+#~ msgid "Price"
+#~ msgstr "ΤΙΜΗ"
+
+#~ msgid "Qty"
+#~ msgstr "ΤΕΜ"
+
+#~ msgid "Ref."
+#~ msgstr "Παρ."
+
+#~ msgid "Refused Expenses"
+#~ msgstr "Απορριφθέντα Έξοδα"
+
+#~ msgid "Register Payment"
+#~ msgstr "Καταχώρηση Πληρωμής"
+
+#~ msgid "Reset to Draft"
+#~ msgstr "Επαναφορά σε Προσχέδιο"
+
+#~ msgid "Setup your domain alias"
+#~ msgstr "Ρύθμιση το ψευδώνυμο του τομέα σας"
+
+#~ msgid "Show all records which has next action date is before today"
+#~ msgstr ""
+#~ "Εμφάνιση όλων των εγγραφών όπου η ημερομηνία επόμενης δράσης είναι πριν "
+#~ "από σήμερα"
+
+#~ msgid "Unit of Measure"
+#~ msgstr "Μονάδα Μέτρησης"
+
+#~ msgid "e.g. Trip to NY"
+#~ msgstr "e.g. Ταξίδι στην Αθήνα"

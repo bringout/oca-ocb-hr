@@ -1,25 +1,27 @@
-/** @odoo-module */
-
 import { CalendarCommonPopover } from "@web/views/calendar/calendar_common/calendar_common_popover";
-
 import { useService } from "@web/core/utils/hooks";
 
 export class TimeOffCalendarCommonPopover extends CalendarCommonPopover {
+    static subTemplates = {
+        ...CalendarCommonPopover.subTemplates,
+        popover: "hr_holidays.TimeOffCalendarCommonPopover.popover",
+    };
+
     setup() {
         super.setup();
-
-        this.dialog = useService('dialog');
-        this.action = useService('action');
+        this.orm = useService("orm");
+        this.actionService = useService("action");
+        this.viewType = "calendar";
     }
 
-    get isEventDeletable() {
-        const record = this.props.record.rawRecord;
-        const state = record.state;
-        return record.can_cancel || state && !['validate', 'refuse'].includes(state);
-    }
-
-    get isEventEditable() {
-        const state = this.props.record.rawRecord.state;
-        return state !== undefined;
+    onEditEvent() {
+        this.props.close()
+        this.actionService.doAction({
+            name: this.record.display_name,
+            type: "ir.actions.act_window",
+            res_model: this.props.model.resModel,
+            res_id: this.record.id,
+            views: [[false, "form"]],
+        });
     }
 }

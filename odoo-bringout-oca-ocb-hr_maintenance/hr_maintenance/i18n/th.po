@@ -1,26 +1,28 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* hr_maintenance
-# 
+# * hr_maintenance
+#
 # Translators:
 # Krisa C, 2022
 # Martin Trigaux, 2022
 # Wichanon Jamwutthipreecha, 2022
-# Rasareeyar Lappiam, 2023
-# 
+#
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-20 09:02+0000\n"
-"PO-Revision-Date: 2022-09-22 05:52+0000\n"
-"Last-Translator: Rasareeyar Lappiam, 2023\n"
-"Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
+"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"PO-Revision-Date: 2025-09-16 21:23+0000\n"
+"Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
+"Language-Team: Thai <https://translate.odoo.com/projects/odoo-19/"
+"hr_maintenance/th/>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__assign_date
@@ -36,11 +38,6 @@ msgstr "แผนกที่ได้รับมอบหมาย"
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__employee_id
 msgid "Assigned Employee"
 msgstr "พนักงานที่ได้รับมอบหมาย"
-
-#. module: hr_maintenance
-#: model:ir.model.fields,field_description:hr_maintenance.field_res_users__equipment_count
-msgid "Assigned Equipments"
-msgstr ""
 
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_request_view_form_inherit_hr
@@ -62,6 +59,20 @@ msgid "Department"
 msgstr "แผนก"
 
 #. module: hr_maintenance
+#: model:ir.model,name:hr_maintenance.model_hr_departure_wizard
+msgid "Departure Wizard"
+msgstr "ตัวช่วยการออกกงาน"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_departure_wizard__display_name
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee_public__display_name
+#: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__display_name
+#: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__display_name
+msgid "Display Name"
+msgstr "แสดงชื่อ"
+
+#. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_hr_employee
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__employee_id
 #: model:ir.model.fields.selection,name:hr_maintenance.selection__maintenance_equipment__equipment_assign_to__employee
@@ -74,28 +85,41 @@ msgstr "พนักงาน"
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__equipment_ids
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__equipment_id
+#: model_terms:ir.ui.view,arch_db:hr_maintenance.hr_departure_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:hr_maintenance.hr_employee_public_view_form
+#: model_terms:ir.ui.view,arch_db:hr_maintenance.hr_employee_view_form
 msgid "Equipment"
 msgstr "อุปกรณ์"
 
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__equipment_count
-msgid "Equipments"
-msgstr "อุปกรณ์"
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee_public__equipment_count
+msgid "Equipment Count"
+msgstr "จำนวนอุปกรณ์"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_departure_wizard__unassign_equipment
+msgid "Free Equiments"
+msgstr "อุปกรณ์ฟรี"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_departure_wizard__id
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee_public__id
+#: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__id
+#: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_request__id
+msgid "ID"
+msgstr "ไอดี"
 
 #. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_maintenance_equipment
 msgid "Maintenance Equipment"
-msgstr "อุปกรณ์บำรุงรักษา"
+msgstr "อุปกรณ์การซ่อมบำรุง"
 
 #. module: hr_maintenance
 #: model:ir.model,name:hr_maintenance.model_maintenance_request
 msgid "Maintenance Request"
-msgstr "คำร้องขอบำรุงรักษา"
-
-#. module: hr_maintenance
-#: model:ir.model.fields,field_description:hr_maintenance.field_res_users__equipment_ids
-msgid "Managed Equipments"
-msgstr ""
+msgstr "คำร้องขอการซ่อมบำรุง"
 
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_request_view_search_inherit_hr
@@ -105,12 +129,22 @@ msgstr "การซ่อมบำรุงของฉัน"
 #. module: hr_maintenance
 #: model:ir.model.fields.selection,name:hr_maintenance.selection__maintenance_equipment__equipment_assign_to__other
 msgid "Other"
-msgstr "อื่น ๆ"
+msgstr "อื่นๆ"
 
 #. module: hr_maintenance
 #: model:ir.model.fields,field_description:hr_maintenance.field_maintenance_equipment__owner_user_id
 msgid "Owner"
 msgstr "เจ้าของ"
+
+#. module: hr_maintenance
+#: model:ir.model,name:hr_maintenance.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
+#. module: hr_maintenance
+#: model:ir.model.fields,help:hr_maintenance.field_hr_departure_wizard__unassign_equipment
+msgid "Unassign Employee from Equipments"
+msgstr "ยกเลิกการมอบหมายพนักงานจากอุปกรณ์"
 
 #. module: hr_maintenance
 #: model_terms:ir.ui.view,arch_db:hr_maintenance.maintenance_equipment_view_kanban_inherit_hr
@@ -122,7 +156,5 @@ msgstr "ไม่ได้มอบหมาย"
 msgid "Used By"
 msgstr "ใช้โดย"
 
-#. module: hr_maintenance
-#: model:ir.model,name:hr_maintenance.model_res_users
-msgid "User"
-msgstr "ผู้ใช้"
+#~ msgid "User"
+#~ msgstr "ผู้ใช้"

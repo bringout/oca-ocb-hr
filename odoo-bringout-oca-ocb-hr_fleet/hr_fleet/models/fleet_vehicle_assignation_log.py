@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models
@@ -12,17 +11,23 @@ class FleetVehicleAssignationLog(models.Model):
 
     @api.depends('driver_id')
     def _compute_driver_employee_id(self):
-        employees = self.env['hr.employee'].search([('address_home_id', 'in', self.driver_id.ids)])
-
+        employees_by_partner_id_and_company_id = self.env['hr.employee']._read_group(
+            domain=[('work_contact_id', 'in', self.driver_id.ids)],
+            groupby=['work_contact_id', 'company_id'],
+            aggregates=['id:recordset']
+        )
+        employees_by_partner_id_and_company_id = {
+            (partner, company): employee for partner, company, employee in employees_by_partner_id_and_company_id
+        }
         for log in self:
-            employee = employees.filtered(lambda e: e.address_home_id.id == log.driver_id.id)
-            log.driver_employee_id = employee and employee[0] or False
+            employees = employees_by_partner_id_and_company_id.get((log.driver_id, log.vehicle_id.company_id))
+            log.driver_employee_id = employees[0] if employees else False
 
     def _compute_attachment_number(self):
         attachment_data = self.env['ir.attachment']._read_group([
             ('res_model', '=', 'fleet.vehicle.assignation.log'),
-            ('res_id', 'in', self.ids)], ['res_id'], ['res_id'])
-        attachment = dict((data['res_id'], data['res_id_count']) for data in attachment_data)
+            ('res_id', 'in', self.ids)], ['res_id'], ['__count'])
+        attachment = dict(attachment_data)
         for doc in self:
             doc.attachment_number = attachment.get(doc.id, 0)
 

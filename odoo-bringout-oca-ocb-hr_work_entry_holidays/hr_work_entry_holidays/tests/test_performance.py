@@ -6,7 +6,7 @@ from odoo.addons.hr_work_entry_holidays.tests.common import TestWorkEntryHoliday
 from odoo.tests.common import users, warmup, tagged
 
 
-@tagged('work_entry_perf')
+@tagged('work_entry_holidays_perf')
 class TestWorkEntryHolidaysPerformance(TestWorkEntryHolidaysBase):
 
     @classmethod
@@ -15,16 +15,16 @@ class TestWorkEntryHolidaysPerformance(TestWorkEntryHolidaysBase):
         cls.jack = cls.env['hr.employee'].create({'name': 'Jack'})
         cls.employees = cls.richard_emp | cls.jack
 
-        cls.env['hr.contract'].create([{
-            'date_start': date(2018, 1, 1),
-            'date_end': date(2018, 2, 1),
-            'name': 'Contract for %s' % employee.name,
-            'wage': 5000.0,
-            'state': 'open',
-            'employee_id': employee.id,
-            'date_generated_from': datetime(2018, 1, 1, 0, 0),
-            'date_generated_to': datetime(2018, 1, 1, 0, 0),
-        } for employee in cls.employees])
+        for employee in cls.employees:
+            employee.version_id.write({
+                'date_version': date(2018, 1, 1),
+                'contract_date_start': date(2018, 1, 1),
+                'contract_date_end': date(2018, 2, 1),
+                'name': 'Contract for %s' % employee.name,
+                'wage': 5000.0,
+                'date_generated_from': datetime(2018, 1, 1, 0, 0),
+                'date_generated_to': datetime(2018, 1, 1, 0, 0),
+            })
 
     @users('__system__', 'admin')
     @warmup
@@ -32,8 +32,8 @@ class TestWorkEntryHolidaysPerformance(TestWorkEntryHolidaysBase):
         self.richard_emp.generate_work_entries(date(2018, 1, 1), date(2018, 1, 2))
         leave = self.create_leave(datetime(2018, 1, 1, 7, 0), datetime(2018, 1, 1, 18, 0))
 
-        with self.assertQueryCount(__system__=93, admin=94):
-            leave.action_validate()
+        with self.assertQueryCount(__system__=91, admin=92):
+            leave.action_approve()
         leave.action_refuse()
 
     @users('__system__', 'admin')
@@ -41,25 +41,16 @@ class TestWorkEntryHolidaysPerformance(TestWorkEntryHolidaysBase):
     def test_performance_leave_write(self):
         leave = self.create_leave(datetime(2018, 1, 1, 7, 0), datetime(2018, 1, 1, 18, 0))
 
-        with self.assertQueryCount(__system__=21, admin=30):
+        with self.assertQueryCount(__system__=16, admin=16):
             leave.date_to = datetime(2018, 1, 1, 19, 0)
         leave.action_refuse()
 
     @users('__system__', 'admin')
     @warmup
     def test_performance_leave_create(self):
-        with self.assertQueryCount(__system__=31, admin=32):  # 25/26 com
+        with self.assertQueryCount(__system__=60, admin=60):
             leave = self.create_leave(datetime(2018, 1, 1, 7, 0), datetime(2018, 1, 1, 18, 0))
         leave.action_refuse()
-
-    @users('__system__', 'admin')
-    @warmup
-    def test_performance_leave_confirm(self):
-        leave = self.create_leave(datetime(2018, 1, 1, 7, 0), datetime(2018, 1, 1, 18, 0))
-        leave.action_draft()
-        with self.assertQueryCount(__system__=28, admin=29):
-            leave.action_confirm()
-        leave.state = 'refuse'
 
 
 @tagged('work_entry_perf')
@@ -75,46 +66,38 @@ class TestWorkEntryHolidaysPerformancesBigData(TestWorkEntryHolidaysBase):
             'request_unit': 'day',
             'leave_validation_type': 'both',
             'company_id': cls.company.id,
-            'requires_allocation': 'no',
+            'requires_allocation': False,
         })
 
         cls.employees = cls.env['hr.employee'].create([{
             'name': 'Employee %s' % i,
-            'company_id': cls.company.id
-        } for i in range(100)])
-
-        cls.contracts = cls.env['hr.contract'].create([{
-            'date_start': date(2018, 1, 1),
-            'date_end': False,
-            'name': 'Contract for %s' % employee.name,
+            'company_id': cls.company.id,
+            'date_version': date(2018, 1, 1),
+            'contract_date_start': date(2018, 1, 1),
+            'contract_date_end': False,
             'wage': 5000.0,
-            'state': 'open',
-            'employee_id': employee.id,
             'date_generated_from': datetime(2018, 1, 1, 0, 0),
             'date_generated_to': datetime(2018, 1, 1, 0, 0),
-        } for employee in cls.employees])
+        } for i in range(100)])
+
+        cls.contracts = cls.employees.version_ids
 
         cls.leaves = cls.env['hr.leave'].create([{
             'name': 'Holiday - %s' % employee.name,
             'employee_id': employee.id,
             'holiday_status_id': cls.paid_time_off.id,
-            'date_from': date(2020, 8, 3),
             'request_date_from': date(2020, 8, 3),
-            'date_to': date(2020, 8, 7),
             'request_date_to': date(2020, 8, 7),
-            'number_of_days': 5,
         } for employee in cls.employees])
         cls.leaves._compute_date_from_to()
         cls.leaves.action_approve()
-        cls.leaves.action_validate()
-
 
     def test_work_entries_generation_perf(self):
         # Test Case 7: Try to generate work entries for
         # a hundred employees over a month
-        with self.assertQueryCount(__system__=2607, admin=2807):
+        with self.assertQueryCount(__system__=883, admin=2807):  # com: 402 / 2807
             work_entries = self.contracts.generate_work_entries(date(2020, 7, 1), date(2020, 8, 31))
 
         # Original work entries to generate when we don't adapt date_generated_from and
         # date_generated_to when they are equal for old contracts: 138300
-        self.assertEqual(len(work_entries), 8800)
+        self.assertEqual(len(work_entries), 4400)

@@ -1,16 +1,18 @@
 [project]
 name = "odoo-bringout-oca-ocb-hr_timesheet"
 version = "16.0.0"
-description = "Task Logs - Track employee time on tasks"
+description = "Task Logs - 
+        Track employee time on tasks
+        "
 authors = [
     { name = "Ernad Husremovic", email = "hernad@bring.out.ba" }
 ]
 dependencies = [
-    "odoo-bringout-oca-ocb-hr>=16.0.0",
-    "odoo-bringout-oca-ocb-hr_hourly_cost>=16.0.0",
-    "odoo-bringout-oca-ocb-analytic>=16.0.0",
-    "odoo-bringout-oca-ocb-project>=16.0.0",
-    "odoo-bringout-oca-ocb-uom>=16.0.0",
+    "odoo-bringout-oca-ocb-hr>=19.0.0",
+    "odoo-bringout-oca-ocb-hr_hourly_cost>=19.0.0",
+    "odoo-bringout-oca-ocb-analytic>=19.0.0",
+    "odoo-bringout-oca-ocb-project>=19.0.0",
+    "odoo-bringout-oca-ocb-uom>=19.0.0",
     "requests>=2.25.1"
 ]
 readme = "README.md"
@@ -20,7 +22,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11", 
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Office/Business",
 ]

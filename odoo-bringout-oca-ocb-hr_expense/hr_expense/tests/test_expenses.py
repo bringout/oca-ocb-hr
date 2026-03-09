@@ -1,737 +1,460 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-import base64
+
+from datetime import date
 
 from freezegun import freeze_time
 
-from odoo.addons.hr_expense.tests.common import TestExpenseCommon
-from odoo.tests import tagged, Form
-from odoo.tools.misc import formatLang, format_date
-from odoo import fields, Command
+from odoo import Command, fields
 from odoo.exceptions import UserError, ValidationError
+from odoo.tests import Form, tagged
+
+from odoo.addons.hr_expense.tests.common import TestExpenseCommon
 
 
 @tagged('-at_install', 'post_install')
 class TestExpenses(TestExpenseCommon):
+    #############################################
+    #  Test Expense flows
+    #############################################
+    def test_expense_main_flow(self):
+        """
+        Test the main flows of expense
+        This includes:
+            - Approval flows for expense paid by company and employee up to reconciliation
+            - price_unit, total_amount_currency and quantity computation
+            - Split payments into one payment per expense when paid by company
+            - Override account on expense
+            - Payment states and payment terms
+            - Unlinking payments reverts to approved state
+            - Cannot delete an analytic account if linked to an expense
+        """
 
-    def test_expense_sheet_changing_employee(self):
-        """ Test changing an employee on the expense that is linked with the sheet.
-            - In case sheet has only one expense linked with it, than changing an employee
-            on expense should trigger changing an employee on the sheet itself.
-            - In case sheet has more than one expense linked with it, than changing an employee
-            on one of the expenses, should cause unlinking the expense from the sheet."""
-
-        employee = self.env['hr.employee'].create({
-            'name': 'Gabriel Iglesias',
-        })
-
-        expense1 = self.env['hr.expense'].create({
-            'name': 'Dinner with client - Expenses',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_a.id,
-            'unit_amount': 350.00,
-        })
-
-        expense2 = self.env['hr.expense'].create({
-            'name': 'Team building at Huy',
-            'employee_id': employee.id,
-            'product_id': self.product_a.id,
-            'unit_amount': 2500.00,
-        })
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for Jannette',
-            'employee_id': self.expense_employee.id,
-            'expense_line_ids': expense1,
-        })
-
-        expense1.employee_id = employee
-        self.assertEqual(expense_sheet.employee_id, employee, 'Employee should have changed on the sheet')
-
-        expense_sheet.expense_line_ids |= expense2
-        expense2.employee_id = self.expense_employee.id
-        self.assertEqual(expense2.sheet_id.id, False, 'Sheet should be unlinked from the expense')
-
-    def test_expense_sheet_payment_state(self):
-        ''' Test expense sheet payment states when partially paid, in payment and paid. '''
-
-        def get_payment(expense_sheet, amount):
-            ctx = {'active_model': 'account.move', 'active_ids': expense_sheet.account_move_id.ids}
-            payment_register = self.env['account.payment.register'].with_context(**ctx).create({
-                'amount': amount,
-                'journal_id': self.company_data['default_journal_bank'].id,
-                'payment_method_line_id': self.inbound_payment_method_line.id,
-            })
-            return payment_register._create_payments()
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for John Smith',
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2021-01-01',
-            'expense_line_ids': [(0, 0, {
-                'name': 'Car Travel Expenses',
+        self.expense_employee.user_partner_id.property_supplier_payment_term_id = self.env.ref('account.account_payment_term_30days')
+        expenses_by_employee = self.create_expenses([
+            {
+                'name': 'Employee PA 2*800 + 15%',  # Taxes are included
                 'employee_id': self.expense_employee.id,
+                'account_id': self.expense_account.id,  # Test with a specific account override
                 'product_id': self.product_a.id,
-                'unit_amount': 350.00,
-            })]
-        })
+                'quantity': 2,
+                'payment_mode': 'own_account',
+                'company_id': self.company_data['company'].id,
+                'date': '2021-10-14',
+                'analytic_distribution': {self.analytic_account_1.id: 100},
+            }, {
+                'name': 'Employee PB 160 + 2*15%',  # Taxes are included
+                'employee_id': self.expense_employee.id,
+                'product_id': self.product_b.id,
+                'payment_mode': 'own_account',
+                'company_id': self.company_data['company'].id,
+                'date': '2021-10-13',
+                'analytic_distribution': {self.analytic_account_2.id: 100},
+            },
+        ])
+        expenses_by_company = self.create_expenses([
+            {
+                'name': 'Company PC 1000 + 15%',  # Taxes are included
+                'employee_id': self.expense_employee.id,
+                'product_id': self.product_c.id,
+                'total_amount_currency': 1000.00,
+                'date': '2021-10-12',
+                'payment_mode': 'company_account',
+                'company_id': self.company_data['company'].id,
+                'tax_ids': [Command.set(self.tax_purchase_a.ids)],
+            }, {
+                'name': 'Company PB 160 + 2*15%',  # Taxes are included
+                'employee_id': self.expense_employee.id,
+                'product_id': self.product_b.id,
+                'payment_mode': 'company_account',
+                'company_id': self.company_data['company'].id,
+                'date': '2021-10-11',
+            },
+        ])
+        all_expenses = expenses_by_employee | expenses_by_company
 
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
+        # Checking expense values at creation
+        self.assertRecordValues(all_expenses, [
+            {'name': 'Employee PA 2*800 + 15%', 'total_amount_currency': 1600.00, 'untaxed_amount_currency': 1391.30, 'price_unit':  800.00, 'tax_amount_currency': 208.70, 'state': 'draft'},
+            {'name': 'Employee PB 160 + 2*15%', 'total_amount_currency':  160.00, 'untaxed_amount_currency':  123.08, 'price_unit':  160.00, 'tax_amount_currency':  36.92, 'state': 'draft'},
+            {'name': 'Company PC 1000 + 15%',   'total_amount_currency': 1000.00, 'untaxed_amount_currency':  869.57, 'price_unit': 1000.00, 'tax_amount_currency': 130.43, 'state': 'draft'},
+            {'name': 'Company PB 160 + 2*15%',  'total_amount_currency':  160.00, 'untaxed_amount_currency':  123.08, 'price_unit':  160.00, 'tax_amount_currency':  36.92, 'state': 'draft'},
+        ])
 
-        payment = get_payment(expense_sheet, 100.0)
-        liquidity_lines1 = payment._seek_for_lines()[0]
+        # Submitting properly change states
+        all_expenses.action_submit()
+        self.assertRecordValues(all_expenses, [
+            {'state': 'submitted'},
+            {'state': 'submitted'},
+            {'state': 'submitted'},
+            {'state': 'submitted'},
+        ])
 
-        self.assertEqual(expense_sheet.payment_state, 'partial', 'payment_state should be partial')
+        # Approving properly change states & create moves & payments
+        all_expenses.action_approve()
+        self.assertRecordValues(all_expenses, [
+            {'state': 'approved', 'account_move_id': False},
+            {'state': 'approved', 'account_move_id': False},
+            {'state': 'approved', 'account_move_id': False},
+            {'state': 'approved', 'account_move_id': False},
+        ])
+        # Post a payment for 'company_account' (and its move(s)) and a receipt  for 'own_account'
+        expenses_by_company.action_post()
+        self.post_expenses_with_wizard(expenses_by_employee[0], date=date(2021, 10, 10))
+        self.post_expenses_with_wizard(expenses_by_employee[1], date=date(2021, 10, 31))
+        self.assertRecordValues(all_expenses, [
+            # As the payment is not done yet those are still in "posted"
+            {'payment_mode': 'own_account',     'state': 'posted'},
+            {'payment_mode': 'own_account',     'state': 'posted'},
+            # Expenses paid by company don't use accounting date since they are already paid and posted directly
+            {'payment_mode': 'company_account', 'state': 'paid'},
+            {'payment_mode': 'company_account', 'state': 'paid'},
+        ])
 
-        payment = get_payment(expense_sheet, 250.0)
-        liquidity_lines2 = payment._seek_for_lines()[0]
+        employee_partner_id = self.expense_user_employee.partner_id.id
+        self.assertRecordValues(expenses_by_employee.account_move_id, [
+            {'amount_total': 1600.00, 'ref': 'Employee PA 2*800 + 15%', 'state': 'posted', 'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 10), 'partner_id': employee_partner_id},
+            {'amount_total':  160.00, 'ref': 'Employee PB 160 + 2*15%', 'state': 'posted', 'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 31), 'partner_id': employee_partner_id},
+        ])
 
-        in_payment_state = expense_sheet.account_move_id._get_invoice_in_payment_state()
-        self.assertEqual(expense_sheet.payment_state, in_payment_state, 'payment_state should be ' + in_payment_state)
+        self.assertRecordValues(expenses_by_company.account_move_id, [
+            {'amount_total':  1000.00, 'ref': 'Company PC 1000 + 15%',  'state': 'posted', 'date': date(2021, 10, 12), 'invoice_date': False, 'partner_id': False},
+            {'amount_total':   160.00, 'ref': 'Company PB 160 + 2*15%', 'state': 'posted', 'date': date(2021, 10, 11), 'invoice_date': False, 'partner_id': False},
+        ])
 
+        tax_account_id = self.company_data['default_account_tax_purchase'].id
+        default_account_payable_id = self.company_data['default_account_payable'].id
+        product_b_account_id = self.product_b.property_account_expense_id.id
+        product_c_account_id = self.product_c.property_account_expense_id.id
+        company_payment_account_id = self.outbound_payment_method_line.payment_account_id.id
+        # One payment per expense
+        self.assertRecordValues(all_expenses.account_move_id.line_ids.sorted(lambda line: (line.move_id, line)), [
+            # own_account expense 1 move
+            {'balance':  1391.30, 'account_id': self.expense_account.id,    'name': 'expense_employee: Employee PA 2*800 + 15%', 'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 10)},
+            {'balance':   208.70, 'account_id': tax_account_id,             'name': '15%',                                       'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 10)},
+            {'balance': -1600.00, 'account_id': default_account_payable_id, 'name': False,                                       'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 10)},
+
+            # own_account expense 2 move
+            {'balance':   123.08, 'account_id': product_b_account_id,       'name': 'expense_employee: Employee PB 160 + 2*15%', 'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 31)},
+            {'balance':    18.46, 'account_id': tax_account_id,             'name': '15%',                                       'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 31)},
+            {'balance':    18.46, 'account_id': tax_account_id,             'name': '15% (copy)',                                'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 31)},
+            {'balance':  -160.00, 'account_id': default_account_payable_id, 'name': False,                                       'date': date(2021, 10, 31), 'invoice_date': date(2021, 10, 31)},
+
+            # company_account expense 1 move
+            {'balance':   869.57, 'account_id': product_c_account_id,       'name': 'expense_employee: Company PC 1000 + 15%',   'date': date(2021, 10, 12), 'invoice_date': False},
+            {'balance':   130.43, 'account_id': tax_account_id,             'name': '15%',                                       'date': date(2021, 10, 12), 'invoice_date': False},
+            {'balance': -1000.00, 'account_id': company_payment_account_id, 'name': 'expense_employee: Company PC 1000 + 15%',   'date': date(2021, 10, 12), 'invoice_date': False},
+
+            # company_account expense 2 move
+            {'balance':  123.08, 'account_id': product_b_account_id,        'name': 'expense_employee: Company PB 160 + 2*15%',  'date': date(2021, 10, 11), 'invoice_date': False},
+            {'balance':   18.46, 'account_id': tax_account_id,              'name': '15%',                                       'date': date(2021, 10, 11), 'invoice_date': False},
+            {'balance':   18.46, 'account_id': tax_account_id,              'name': '15% (copy)',                                'date': date(2021, 10, 11), 'invoice_date': False},
+            {'balance': -160.00, 'account_id': company_payment_account_id,  'name': 'expense_employee: Company PB 160 + 2*15%',  'date': date(2021, 10, 11), 'invoice_date': False},
+
+        ])
+
+        # Check lines partners:
+        self.assertRecordValues(expenses_by_employee.account_move_id.line_ids, [
+            # If the test fails, it is probably because the partner is the company's partner instead of the employee's one
+            {'partner_id': employee_partner_id},
+            {'partner_id': employee_partner_id},
+            {'partner_id': employee_partner_id},
+            {'partner_id': employee_partner_id},
+            {'partner_id': employee_partner_id},
+            {'partner_id': employee_partner_id},
+            {'partner_id': employee_partner_id},
+        ])
+
+        in_payment_state = expenses_by_employee.account_move_id._get_invoice_in_payment_state()
+        first_expense_by_employee = expenses_by_employee[0]
+        first_expense_by_company = expenses_by_company[0]
+
+        # Own_account partial payment
+        payment_1 = self.get_new_payment(first_expense_by_employee, 1000.0)
+        liquidity_lines1 = payment_1._seek_for_lines()[0]
+        self.assertEqual(first_expense_by_employee.state, in_payment_state)
+
+        # own_account remaining payment
+        payment_2 = self.get_new_payment(first_expense_by_employee, 600.0)
+        liquidity_lines2 = payment_2._seek_for_lines()[0]
+        self.assertEqual(first_expense_by_employee.state, in_payment_state)
+
+        # Reconciling own_account
         statement_line = self.env['account.bank.statement.line'].create({
             'journal_id': self.company_data['default_journal_bank'].id,
             'payment_ref': 'pay_ref',
-            'amount': -350.0,
-            'partner_id': self.expense_employee.address_home_id.id,
+            'amount': -1600.0,
+            'partner_id': self.expense_employee.work_contact_id.id,
         })
 
         # Reconcile without the bank reconciliation widget since the widget is in enterprise.
-        _st_liquidity_lines, st_suspense_lines, _st_other_lines = statement_line\
-            .with_context(skip_account_move_synchronization=True)\
-            ._seek_for_lines()
+        _trash, st_suspense_lines, _trash = statement_line.with_context(skip_account_move_synchronization=True)._seek_for_lines()
         st_suspense_lines.account_id = liquidity_lines1.account_id
         (st_suspense_lines + liquidity_lines1 + liquidity_lines2).reconcile()
+        self.assertEqual(first_expense_by_employee.state, 'paid')
 
-        self.assertEqual(expense_sheet.payment_state, 'paid', 'payment_state should be paid')
+        # Trying to delete analytic accounts should be forbidden if linked to an expense
+        with self.assertRaises(UserError):
+            (self.analytic_account_1 | self.analytic_account_2).unlink()
 
-    def test_expense_sheet_company_payment_state(self):
-        ''' Test expense sheet company payment states'''
+        # Unlinking moves
+        (payment_1 | payment_2).action_draft()
+        (payment_1 | payment_2).move_id.line_ids.remove_move_reconcile()
+        self.assertEqual(first_expense_by_employee.state, 'posted')
+        expenses_by_employee.account_move_id.button_draft()
+        expenses_by_employee.account_move_id.unlink()
+        self.assertFalse(expenses_by_employee.account_move_id)
 
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for John Smith',
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2021-01-01',
-            'expense_line_ids': [(0, 0, {
-                'name': 'Car Travel Expenses',
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_a.id,
-                'unit_amount': 350.00,
-                'payment_mode': 'company_account',
-            })]
+        first_expense_by_company.account_move_id.origin_payment_id.unlink()
+        self.assertFalse(first_expense_by_company.account_move_id)
+
+        self.assertRecordValues(first_expense_by_employee | first_expense_by_company, [
+            {'payment_mode': 'own_account',     'state': 'approved'},
+            {'payment_mode': 'company_account', 'state': 'approved'},
+        ])
+
+        first_expense_by_employee.action_reset()
+        self.assertEqual(first_expense_by_employee.state, 'draft')
+        first_expense_by_employee.unlink()
+        # Only possible if no expense linked to the account
+        self.analytic_account_1.unlink()
+
+    def test_expense_split_flow(self):
+        """ Check Split Expense flow. """
+        # Grant Analytic Accounting rights, to be able to modify analytic_distribution from the wizard
+        self.env.user.group_ids += self.env.ref('analytic.group_analytic_accounting')
+
+        expense = self.create_expenses({
+            'tax_ids': [Command.set(self.tax_purchase_a.ids)],
+            'analytic_distribution': {self.analytic_account_1.id: 100}
         })
 
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
+        wizard = self.env['hr.expense.split.wizard'].browse(expense.action_split_wizard()['res_id'])
 
-        self.assertEqual(expense_sheet.payment_state, 'paid', 'payment_state should be paid')
-        liquidity_line = expense_sheet.account_move_id.payment_id._seek_for_lines()[0]
-
-        statement_line = self.env['account.bank.statement.line'].create({
-            'journal_id': self.company_data['default_journal_bank'].id,
-            'payment_ref': 'pay_ref',
-            'amount': -350.0,
-            'partner_id': self.expense_employee.address_home_id.id,
-        })
-
-        # Reconcile without the bank reconciliation widget since the widget is in enterprise.
-        _st_liquidity_lines, st_suspense_lines, _st_other_lines = statement_line\
-            .with_context(skip_account_move_synchronization=True)\
-            ._seek_for_lines()
-        st_suspense_lines.account_id = liquidity_line.account_id
-        (st_suspense_lines + liquidity_line).reconcile()
-
-        self.assertEqual(expense_sheet.payment_state, 'paid', 'payment_state should be paid')
-
-    def test_expense_values(self):
-        """ Checking accounting move entries and analytic entries when submitting expense """
-        # The expense employee is able to a create an expense sheet.
-        # The total should be 1500.0 because:
-        # - first line: 1000.0 (unit amount), 130.43 (tax). But taxes are included in total thus - 1000
-        # - second line: (1500.0 (unit amount), 195.652 (tax)) - 65.22 (tax in company currency). total 1500.0 * 1/3 (rate) = 500
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'First Expense for employee',
-            'employee_id': self.expense_employee.id,
-            'journal_id': self.company_data['default_journal_purchase'].id,
-            'expense_line_ids': [
-                (0, 0, {
-                    # Expense without foreign currency.
-                    'name': 'expense_company_currency',
-                    'date': '2016-01-01',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 1000.0,
-                    'tax_ids': [(6, 0, self.company_data['default_tax_purchase'].ids)],
-                    'analytic_distribution': {self.analytic_account_1.id: 100},
-                    'employee_id': self.expense_employee.id,
-                }),
-                (0, 0, {
-                    # Expense with foreign currency (rate 1:3).
-                    'name': 'expense_foreign_currency',
-                    'date': '2016-01-01',
-                    'product_id': self.product_c.id, # product with no cost, else not possible to enter amount in different currency
-                    'total_amount': 1500.0,
-                    'tax_ids': [(6, 0, self.company_data['default_tax_purchase'].ids)],
-                    'analytic_distribution': {self.analytic_account_2.id: 100},
-                    'currency_id': self.currency_data['currency'].id,
-                    'employee_id': self.expense_employee.id,
-                }),
-            ],
-        })
-
-        self.assertRecordValues(expense_sheet, [{'state': 'draft', 'total_amount': 1500.0}])
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-
-        # Check expense sheet journal entry values.
-        self.assertRecordValues(expense_sheet.account_move_id.line_ids.sorted('balance'), [
-            # Receivable line (company currency):
+        # Check default hr.expense.split values
+        self.assertRecordValues(wizard.expense_split_line_ids, [
             {
-                'debit': 0.0,
-                'credit': 1500.0,
-                'amount_currency': -1500.0,
-                'account_id': self.company_data['default_account_payable'].id,
-                'product_id': False,
-                'currency_id': self.company_data['currency'].id,
-                'tax_line_id': False,
+                'name': expense.name,
+                'wizard_id': wizard.id,
+                'expense_id': expense.id,
+                'product_id': expense.product_id.id,
+                'tax_ids': expense.tax_ids.ids,
+                'total_amount_currency': expense.total_amount_currency / 2,
+                'tax_amount_currency': 65.22,
+                'employee_id': expense.employee_id.id,
+                'company_id': expense.company_id.id,
+                'currency_id': expense.currency_id.id,
+                'analytic_distribution': expense.analytic_distribution,
+            }] * 2)
+        self.assertRecordValues(wizard, [{'split_possible': True, 'total_amount_currency': expense.total_amount_currency}])
+
+        with Form(wizard) as form:
+            form.expense_split_line_ids.remove(index=0)
+            self.assertEqual(form.split_possible, False)
+
+            # Check removing tax_ids and analytic_distribution
+            with form.expense_split_line_ids.edit(0) as line:
+                line.total_amount_currency = 200.00
+                line.tax_ids.clear()
+                line.analytic_distribution = {}
+                self.assertEqual(line.total_amount_currency, 200.00)
+                self.assertEqual(line.tax_amount_currency, 0.00)
+            self.assertEqual(form.split_possible, False)
+
+            # This line should have the same tax_ids and analytic_distribution as original expense
+            with form.expense_split_line_ids.new() as line:
+                line.total_amount_currency = 300.00
+                self.assertEqual(line.total_amount_currency, 300.00)
+                self.assertEqual(line.tax_amount_currency, 39.13)
+                self.assertDictEqual(line.analytic_distribution, expense.analytic_distribution)
+            self.assertEqual(form.split_possible, False)
+            self.assertEqual(form.total_amount_currency, 500.00)
+
+            # Check adding tax_ids and setting analytic_distribution
+            with form.expense_split_line_ids.new() as line:
+                line.total_amount_currency = 500.00
+                line.tax_ids.add(self.tax_purchase_b)
+                line.analytic_distribution = {self.analytic_account_2.id: 100}
+                self.assertEqual(line.total_amount_currency, 500.00)
+                self.assertEqual(line.tax_amount_currency, 115.38)
+
+        # Check wizard values
+        self.assertRecordValues(wizard, [
+            {'total_amount_currency': 1000.00, 'total_amount_currency_original': 1000.00, 'tax_amount_currency': 154.51, 'split_possible': True}
+        ])
+
+        wizard.action_split_expense()
+        # Check that split resulted into expenses with correct values
+        expenses_after_split = self.env['hr.expense'].search([('name', '=', expense.name)])
+        self.assertRecordValues(expenses_after_split.sorted('total_amount_currency'), [
+            {
+                'name': expense.name,
+                'employee_id': expense.employee_id.id,
+                'product_id': expense.product_id.id,
+                'total_amount_currency': 200.00,
+                'tax_ids': [],
+                'tax_amount_currency': 0.00,
+                'untaxed_amount_currency': 200.00,
                 'analytic_distribution': False,
-            },
-            # Tax line (foreign currency):
-            {
-                'debit': 65.22,
-                'credit': 0.0,
-                'amount_currency': 65.22,
-                'account_id': self.company_data['default_account_tax_purchase'].id,
-                'product_id': False,
-                'currency_id': self.company_data['currency'].id,
-                'tax_line_id': self.company_data['default_tax_purchase'].id,
-                'analytic_distribution': False,
-            },
-            # Tax line (company currency):
-            {
-                'debit': 130.43,
-                'credit': 0.0,
-                'amount_currency': 130.43,
-                'account_id': self.company_data['default_account_tax_purchase'].id,
-                'product_id': False,
-                'currency_id': self.company_data['currency'].id,
-                'tax_line_id': self.company_data['default_tax_purchase'].id,
-                'analytic_distribution': False,
-            },
-            # Product line (foreign currency):
-            {
-                'debit': 434.78, # 1500 * 1:3 (rate) / 1.15 (incl. tax)
-                'credit': 0.0,
-                'amount_currency': 434.78, # untaxed amount
-                'account_id': self.product_c.property_account_expense_id.id,
-                'product_id': self.product_c.id,
-                'currency_id': self.company_data['currency'].id,
-                'tax_line_id': False,
+                'split_expense_origin_id': expense.id,
+            }, {
+                'name': expense.name,
+                'employee_id': expense.employee_id.id,
+                'product_id': expense.product_id.id,
+                'total_amount_currency': 300.00,
+                'tax_ids': [self.tax_purchase_a.id],
+                'tax_amount_currency': 39.13,
+                'untaxed_amount_currency': 260.87,
+                'analytic_distribution': {str(self.analytic_account_1.id): 100},
+                'split_expense_origin_id': expense.id,
+            }, {
+                'name': expense.name,
+                'employee_id': expense.employee_id.id,
+                'product_id': expense.product_id.id,
+                'total_amount_currency': 500.00,
+                'tax_ids': [self.tax_purchase_a.id, self.tax_purchase_b.id],
+                'tax_amount_currency': 115.38,
+                'untaxed_amount_currency': 384.62,
                 'analytic_distribution': {str(self.analytic_account_2.id): 100},
-            },
-            # Product line (company currency):
-            {
-                'debit': 869.57, # 1000 * 1:1 (rate) / 1.15 (incl. tax)
-                'credit': 0.0,
-                'amount_currency': 869.57,
-                'account_id': self.company_data['default_account_expense'].id,
-                'product_id': self.product_a.id,
-                'currency_id': self.company_data['currency'].id,
-                'tax_line_id': False,
-                'analytic_distribution': {str(self.analytic_account_1.id): 100},
-            },
+                'split_expense_origin_id': expense.id,
+            }
         ])
 
-        # Check expense analytic lines.
-        self.assertRecordValues(expense_sheet.account_move_id.line_ids.analytic_line_ids.sorted('amount'), [
-            {
-                'amount': -869.57,
-                'date': fields.Date.from_string('2016-01-01'),
-                'account_id': self.analytic_account_1.id,
-                'currency_id': self.company_data['currency'].id,
-            },
-            {
-                'amount': -434.78,
-                'date': fields.Date.from_string('2016-01-01'),
-                'account_id': self.analytic_account_2.id,
-                'currency_id': self.company_data['currency'].id,
-            },
-        ])
+    #############################################
+    #  Test Multi-currency
+    #############################################
 
-    def test_expense_company_account(self):
-        """ Create an expense with payment mode 'Company' and post it (it should not fail) """
-        with Form(self.env['hr.expense']) as expense_form:
-            expense_form.name = 'Company expense'
-            expense_form.date = '2022-11-17'
-            expense_form.total_amount = 1000.0
-            expense_form.payment_mode = 'company_account'
-            expense_form.employee_id = self.expense_employee
-            expense_form.product_id = self.product_a
-            expense = expense_form.save()
-
-        with Form(self.env['hr.expense.sheet']) as expense_sheet_form:
-            # Use same values that will be used by action_submit_expenses
-            expense_sheet_form.employee_id = expense.employee_id
-            expense_sheet_form.name = expense.name
-            expense_sheet_form.expense_line_ids.add(expense)
-            expense_sheet = expense_sheet_form.save()
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-
-    def test_account_entry_multi_currency(self):
-        """ Checking accounting move entries and analytic entries when submitting expense. With
-            multi-currency. And taxes. """
-        expense = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for Dick Tracy',
-            'employee_id': self.expense_employee.id,
-        })
-        tax = self.env['account.tax'].create({
-            'name': 'Tax Expense 10%',
-            'amount': 10,
-            'amount_type': 'percent',
-            'type_tax_use': 'purchase',
-            'price_include': True,
-        })
-        self.env['hr.expense'].create({
-            'name': 'Choucroute Saucisse',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_c.id,
-            'total_amount': 700.0,
-            'tax_ids': [(6, 0, tax.ids)],
-            'sheet_id': expense.id,
-            'analytic_distribution': {self.analytic_account_1.id: 100},
-            'currency_id': self.currency_data['currency'].id, # rate is 1:2
-        })
-
-        # State should default to draft
-        self.assertEqual(expense.state, 'draft', 'Expense should be created in Draft state')
-        # Submitted to Manager
-        expense.action_submit_sheet()
-        self.assertEqual(expense.state, 'submit', 'Expense is not in Reported state')
-        # Approve
-        expense.approve_expense_sheets()
-        self.assertEqual(expense.state, 'approve', 'Expense is not in Approved state')
-        # Create Expense Entries
-        expense.action_sheet_move_create()
-        self.assertEqual(expense.state, 'post', 'Expense is not in Waiting Payment state')
-        # Should get this result [(0.0, 350.0, -700.0), (318.18, 0.0, 636.36), (31.82, 0.0, 63.64)]
-        analytic_line = expense.account_move_id.line_ids.analytic_line_ids
-        self.assertEqual(len(analytic_line), 1)
-
-        # Expenses paid by the employee are always translated in company currency
-        self.assertInvoiceValues(expense.account_move_id, [
-            {
-                'balance': 318.18, # 700 * 1:2 (rate) / 1.1 (incl. tax)
-                'amount_currency': 318.18,
-                'product_id': self.product_c.id,
-                'price_unit': 350.0,
-                'price_subtotal': 318.18,
-                'price_total': 350.0,
-                'analytic_line_ids': analytic_line.ids,
-            }, {
-                'balance': 31.82,
-                'amount_currency': 31.82,
-                'product_id': False,
-                'price_unit': 0.0,
-                'price_subtotal': 0.0,
-                'price_total': 0.0,
-                'analytic_line_ids': [],
-            }, {
-                'balance': -350.0,
-                'amount_currency': -350.0,
-                'product_id': False,
-                'price_unit': 0.0,
-                'price_subtotal': 0.0,
-                'price_total': 0.0,
-                'analytic_line_ids': [],
-            },
-        ], {
-            'amount_total': 350.0,
-        })
-
-    def test_account_entry_multi_currency_company_account(self):
-        """ Checking accounting payment entry when payment_mode is 'Company'. With multi-currency."""
-        expense = self.env['hr.expense'].create({
-            'name': 'Company expense',
-            'date': '2022-11-17',
-            'total_amount': 1000.0,
-            'payment_mode': 'company_account',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_c.id,
-            'currency_id': self.currency_data['currency'].id,  # rate is 1:2
-        })
-
-        foreign_bank_journal = self.company_data['default_journal_bank'].copy()
-        foreign_bank_journal.currency_id = self.currency_data['currency'].id
-        foreign_bank_journal_account = foreign_bank_journal.default_account_id.copy()
-        foreign_bank_journal_account.currency_id = self.currency_data['currency'].id
-        foreign_bank_journal.default_account_id = foreign_bank_journal_account.id
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': "test_account_entry_multi_currency_own_account",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'bank_journal_id': foreign_bank_journal.id,
-            'expense_line_ids': [Command.set(expense.ids)],
-        })
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-        self.assertRecordValues(expense_sheet.account_move_id.payment_id, [{
-            'currency_id': self.currency_data['currency'].id,
-        }])
-        self.assertRecordValues(expense_sheet.account_move_id.line_ids, [
-            {'currency_id': self.currency_data['currency'].id},
-            {'currency_id': self.currency_data['currency'].id},
-            {'currency_id': self.currency_data['currency'].id},
-            {'currency_id': self.currency_data['currency'].id},
-        ])
-
-    def test_account_entry_mixed_multi_currency_company_account(self):
+    def test_expense_multi_currencies(self):
         """
-            Checking accounting payment entry when payment_mode is 'Company'. With multi-currency.
-            When several different currencies are found in the expense.
+        Checks that the currency rate is recomputed properly when the total in company currency is set to a new value
         """
-        expenses = self.env['hr.expense'].create([{
-            'name': 'Company expense foreign currency',
-            'date': '2022-11-17',
-            'total_amount': 1000.0,
-            'payment_mode': 'company_account',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_c.id,
-            'currency_id': self.currency_data['currency'].id,  # rate is 1:2
-        }, {
-            'name': 'Company expense local currency',
-            'date': '2022-11-15',
-            'total_amount': 1000.0,
-            'payment_mode': 'company_account',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_c.id,
-            'currency_id': self.company_data['currency'].id,
-        }])
-
-        foreign_bank_journal = self.company_data['default_journal_bank'].copy()
-        foreign_bank_journal.currency_id = self.currency_data['currency'].id
-        foreign_bank_journal_account = foreign_bank_journal.default_account_id.copy()
-        foreign_bank_journal_account.currency_id = self.currency_data['currency'].id
-        foreign_bank_journal.default_account_id = foreign_bank_journal_account.id
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': "test_account_entry_multi_currency_own_account",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'bank_journal_id': foreign_bank_journal.id,
-            'expense_line_ids': [Command.set(expenses.ids)],
-        })
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-        self.assertRecordValues(expense_sheet.account_move_id.payment_id, [{
-            'currency_id': self.company_data['currency'].id,  # Should override to company currency
-        }])
-        self.assertRecordValues(expense_sheet.account_move_id.line_ids, [
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-            {'currency_id': self.company_data['currency'].id},  # Should override to company currency
-        ])
-
-    def test_account_entry_multi_currency_own_account(self):
-        """ Checking accounting payment entry when payment_mode is 'Company'. With multi-currency."""
-        expense = self.env['hr.expense'].create({
-            'name': 'Company expense',
-            'date': '2022-11-17',
-            'payment_mode': 'own_account',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_a.id,
-            'currency_id': self.currency_data['currency'].id, # rate is 1:2
-        })
-
+        foreign_currency_1 = self.other_currency
+        foreign_currency_2 = self.setup_other_currency('GBP', rounding=0.01, rates=([('2016-01-01', 1 / 1.52)]))
         foreign_sale_journal = self.company_data['default_journal_sale'].copy()
-        foreign_sale_journal.currency_id = self.currency_data['currency'].id
+        foreign_sale_journal.currency_id = foreign_currency_2.id
 
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': "test_account_entry_multi_currency_own_account",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'journal_id': foreign_sale_journal.id,
-            'expense_line_ids': [Command.set(expense.ids)],
-        })
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-        self.assertRecordValues(expense_sheet.account_move_id, [{
-            'currency_id': expense_sheet.company_id.currency_id.id,
-        }])
-        self.assertRecordValues(expense_sheet.account_move_id.line_ids, [
-            {'currency_id': expense_sheet.company_id.currency_id.id},
-            {'currency_id': expense_sheet.company_id.currency_id.id},
-            {'currency_id': expense_sheet.company_id.currency_id.id},
-        ])
-
-    def test_multicurrencies_rounding_consistency(self):
-        # pylint: disable=bad-whitespace
-        foreign_currency = self.env['res.currency'].create({
-            'name': 'Exposure',
-            'symbol': ' ',
-            'rounding': 0.01,
-            'position': 'after',
-            'currency_unit_label': 'Nothing',
-            'currency_subunit_label': 'Smaller Nothing',
-        })
-        self.env['res.currency.rate'].create({
-            'name': '2016-01-01',
-            'rate': 1/0.148431,
-            'currency_id': foreign_currency.id,
-            'company_id': self.company_data['company'].id,
-        })
-        foreign_sale_journal = self.company_data['default_journal_sale'].copy()
-        foreign_sale_journal.currency_id = foreign_currency.id
-        tax = self.env['account.tax'].create({
-            'name': 'Tax Expense 15%',
-            'amount': 15,
-            'amount_type': 'percent',
-            'type_tax_use': 'purchase',
-            'price_include': True,
-        })
-        taxes = tax + tax.copy()
-
-        expense_sheet_own_1_tax = self.env['hr.expense.sheet'].create({
-            'name': "own expense 1 tax",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'journal_id': foreign_sale_journal.id,
-            'expense_line_ids': [Command.create({
-                'name': 'Own expense',
-                'date': '2022-11-16',
-                'payment_mode': 'own_account',
-                'total_amount': 100,
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_c.id,
-                'currency_id': foreign_currency.id,  # rate is 1:0.148431
-                'tax_ids': [Command.set(tax.ids)],
-            })],
-        })
-        expense_sheet_own_2_tax = self.env['hr.expense.sheet'].create({
-            'name': "own expense 2 taxes",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'journal_id': foreign_sale_journal.id,
-            'expense_line_ids': [Command.create({
-                'name': 'Own expense',
-                'date': '2022-11-17',
-                'payment_mode': 'own_account',
-                'total_amount': 100,
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_c.id,
-                'currency_id': foreign_currency.id,  # rate is 1:0.148431
-                'tax_ids': [Command.set(taxes.ids)],
-            })],
-        })
-        expense_sheet_company_1_tax = self.env['hr.expense.sheet'].create({
-            'name': "company expense 1 taxes",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'journal_id': foreign_sale_journal.id,
-            'expense_line_ids': [Command.create({
-                'name': 'Company expense',
-                'date': '2022-11-18',
+        foreign_expense_1, foreign_expense_2, foreign_expense_3 = self.create_expenses([{
+                'name': 'foreign_expense_1',
                 'payment_mode': 'company_account',
-                'total_amount': 100,
                 'employee_id': self.expense_employee.id,
                 'product_id': self.product_c.id,
-                'currency_id': foreign_currency.id,  # rate is 1:0.148431
-                'tax_ids': [Command.set(tax.ids)],
-            })],
-        })
-        expense_sheet_company_2_tax = self.env['hr.expense.sheet'].create({
-            'name': "company expense 2 taxes",
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01',
-            'journal_id': foreign_sale_journal.id,
-            'expense_line_ids': [Command.create({
-                'name': 'Company expense',
-                'date': '2022-11-19',
+                'total_amount_currency': 1000.00,
+                'date': self.frozen_today,
+                'company_id': self.company_data['company'].id,
+                'currency_id': foreign_currency_1.id,  # rate is 1:2
+                'tax_ids': [Command.set(self.tax_purchase_a.ids)],
+            },
+            {
+                'name': 'foreign_expense_2',
                 'payment_mode': 'company_account',
-                'total_amount': 100,
                 'employee_id': self.expense_employee.id,
                 'product_id': self.product_c.id,
-                'currency_id': foreign_currency.id,  # rate is 1:0.148431
-                'tax_ids': [Command.set(taxes.ids)],
-            })],
-        })
-        sheets = expense_sheet_own_1_tax + expense_sheet_own_2_tax + expense_sheet_company_1_tax + expense_sheet_company_2_tax
-        self.assertRecordValues(sheets.expense_line_ids, [
-            {'untaxed_amount':  86.96, 'total_amount': 100.00, 'total_amount_company': 14.84, 'amount_tax': 13.04, 'amount_tax_company': 1.94},
-            {'untaxed_amount':  76.92, 'total_amount': 100.00, 'total_amount_company': 14.84, 'amount_tax': 23.08, 'amount_tax_company': 3.42},
-            {'untaxed_amount':  86.96, 'total_amount': 100.00, 'total_amount_company': 14.84, 'amount_tax': 13.04, 'amount_tax_company': 1.94},
-            {'untaxed_amount':  76.92, 'total_amount': 100.00, 'total_amount_company': 14.84, 'amount_tax': 23.08, 'amount_tax_company': 3.42},
+                'total_amount_currency': 1000.00,
+                'date': self.frozen_today,
+                'company_id': self.company_data['company'].id,
+                'currency_id': foreign_currency_2.id,  # rate is 1:1.52
+                'tax_ids': [Command.set(self.tax_purchase_a.ids)],
+            },
+            {
+                'name': 'foreign_expense_3',
+                'payment_mode': 'company_account',
+                'employee_id': self.expense_employee.id,
+                'product_id': self.product_c.id,
+                'total_amount_currency': 1000.00,
+                'total_amount': 3000.00,
+                'date': self.frozen_today,
+                'company_id': self.company_data['company'].id,
+                'currency_id': foreign_currency_2.id,  # default rate is 1:1.52, should be overridden to 1:3
+                'tax_ids': [Command.set(self.tax_purchase_a.ids)],
+            },
+        ]).sorted('name')
+        all_expenses = foreign_expense_1 | foreign_expense_2 | foreign_expense_3
+        self.assertRecordValues(all_expenses, [
+            {'total_amount':  500.00, 'total_amount_currency': 1000.00, 'currency_rate': 0.50},
+            {'total_amount': 1520.00, 'total_amount_currency': 1000.00, 'currency_rate': 1.52},
+            {'total_amount': 3000.00, 'total_amount_currency': 1000.00, 'currency_rate': 3.00},
         ])
 
-        sheets.action_submit_sheet()
-        sheets.approve_expense_sheets()
-        sheets.action_sheet_move_create()
-        self.assertRecordValues(expense_sheet_own_1_tax.account_move_id.line_ids, [
-            {'balance':  12.90, 'amount_currency':  12.90, 'currency_id': self.company_data['currency'].id},
-            {'balance':   1.94, 'amount_currency':   1.94, 'currency_id': self.company_data['currency'].id},
-            {'balance': -14.84, 'amount_currency': -14.84, 'currency_id': self.company_data['currency'].id},
+        # Manually changing rate on the two first expenses after creation to check they recompute properly
+        # Back-end override
+        foreign_expense_1.total_amount = 1000.00
+        self.assertRecordValues(foreign_expense_1, [
+            {'total_amount': 1000.00, 'total_amount_currency': 1000.00, 'currency_rate': 1.0},
         ])
 
-        self.assertRecordValues(expense_sheet_own_2_tax.account_move_id.line_ids, [
-            {'balance':  11.42, 'amount_currency':  11.42, 'currency_id': self.company_data['currency'].id},
-            {'balance':   1.71, 'amount_currency':   1.71, 'currency_id': self.company_data['currency'].id},
-            {'balance':   1.71, 'amount_currency':   1.71, 'currency_id': self.company_data['currency'].id},  #  == 3.42 amount_tax_company
-            {'balance': -14.84, 'amount_currency': -14.84, 'currency_id': self.company_data['currency'].id},
+        # Front-end override
+        with Form(foreign_expense_2) as expense_form:
+            expense_form.total_amount = 2000.00
+        self.assertRecordValues(foreign_expense_2, [
+            {'total_amount': 2000.00, 'total_amount_currency': 1000.00, 'currency_rate': 2.0},
         ])
 
-        self.assertRecordValues(expense_sheet_company_1_tax.account_move_id.line_ids, [
-            {'balance':  12.90, 'amount_currency':   86.96, 'currency_id': foreign_currency.id},
-            {'balance':   1.94, 'amount_currency':   13.04, 'currency_id': foreign_currency.id},
-            {'balance': -14.84, 'amount_currency': -100.00, 'currency_id': foreign_currency.id},
+        # Move creation should not touch the rates anymore
+        all_expenses.action_submit()
+        all_expenses._do_approve()  # Skip duplicate wizard
+        self.post_expenses_with_wizard(all_expenses, journal=foreign_sale_journal)
+        self.assertRecordValues(all_expenses.account_move_id.sorted('id'), [
+            {'amount_total_in_currency_signed': 1000.00, 'amount_total_signed': 1000.00, 'currency_id': foreign_currency_1.id},
+            {'amount_total_in_currency_signed': 1000.00, 'amount_total_signed': 2000.00, 'currency_id': foreign_currency_2.id},
+            {'amount_total_in_currency_signed': 1000.00, 'amount_total_signed': 3000.00, 'currency_id': foreign_currency_2.id},
+        ])
+        self.assertRecordValues(all_expenses.account_move_id.origin_payment_id.sorted('id'), [
+            {'amount': 1000.00, 'payment_type': 'outbound', 'currency_id': foreign_currency_1.id},
+            {'amount': 1000.00, 'payment_type': 'outbound', 'currency_id': foreign_currency_2.id},
+            {'amount': 1000.00, 'payment_type': 'outbound', 'currency_id': foreign_currency_2.id},
         ])
 
-        self.assertRecordValues(expense_sheet_company_2_tax.account_move_id.line_ids, [
-            {'balance':  11.42, 'amount_currency':   76.92, 'currency_id': foreign_currency.id},
-            {'balance':   1.71, 'amount_currency':   11.54, 'currency_id': foreign_currency.id},  #  == 3.42 amount_tax_company & 23.08 amount_tax
-            {'balance':   1.71, 'amount_currency':   11.54, 'currency_id': foreign_currency.id},  # One cent more in currency due to rounding
-            {'balance': -14.84, 'amount_currency': -100.00, 'currency_id': foreign_currency.id},
-        ])
+    #############################################
+    #  Test Corner Cases
+    #############################################
 
-
-    def test_expenses_with_tax_and_lockdate(self):
-        ''' Test creating a journal entry for multiple expenses using taxes. A lock date is set in order to trigger
-        the recomputation of the taxes base amount.
-        '''
-        self.env.company.tax_lock_date = '2020-02-01'
-
-        expense = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for John Smith',
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2020-01-01'
-        })
-
-        for i in range(2):
-            expense_line = self.env['hr.expense'].create({
+    def test_expense_company_dates(self):
+        expenses = self.create_expenses([
+            {
                 'name': 'Car Travel Expenses',
                 'employee_id': self.expense_employee.id,
-                'product_id': self.product_a.id,
-                'unit_amount': 350.00,
-                'tax_ids': [(6, 0, [self.tax_purchase_a.id])],
-                'sheet_id': expense.id,
-                'analytic_distribution': {str(self.analytic_account_1.id): 100},
-            })
+                'product_id': self.product_c.id,
+                'total_amount': 350.00,
+                'payment_mode': 'company_account',
+                'date': '2024-01-01',
+            },
+            {
+                'name': 'Lunch expense',
+                'employee_id': self.expense_employee.id,
+                'product_id': self.product_c.id,
+                'total_amount': 90.00,
+                'payment_mode': 'company_account',
+                'date': '2024-01-12',
+            },
+        ]).sorted()  # By date desc
 
-        expense.action_submit_sheet()
-        expense.approve_expense_sheets()
+        expenses.action_submit()
+        expenses.action_approve()
+        expenses.action_post()
 
-        # Assert not "Cannot create unbalanced journal entry" error.
-        expense.action_sheet_move_create()
+        move_twelve_january, move_first_january = expenses.account_move_id.sorted() # By date desc
 
-    def test_reconcile_payment(self):
-        tax = self.env['account.tax'].create({
-            'name': 'tax abc',
-            'type_tax_use': 'purchase',
-            'amount_type': 'percent',
-            'amount': 15,
-            'price_include': False,
-            'include_base_amount': False,
-            'tax_exigibility': 'on_payment'
-        })
-        company = self.env.company.id
-        tax.cash_basis_transition_account_id = self.env['account.account'].create({
-            'name': "test",
-            'code': 999991,
-            'reconcile': True,
-            'account_type': 'asset_current',
-            'company_id': company,
-        }).id
+        self.assertEqual(
+            move_twelve_january.date,
+            fields.Date.to_date('2024-01-12'),
+            'move date should be the same as the expense date'
+        )
+        self.assertEqual(
+            move_first_january.date,
+            fields.Date.to_date('2024-01-01'),
+            'move date should be the same as the expense date'
+        )
+        self.assertTrue(90 == move_twelve_january.amount_total == move_twelve_january.origin_payment_id.amount)
+        self.assertTrue(350 == move_first_january.amount_total == move_first_january.origin_payment_id.amount)
+        self.assertRecordValues(expenses, [
+            {'date': fields.Date.from_string('2024-01-12'), 'total_amount':  90.00, 'state': 'paid'},
+            {'date': fields.Date.from_string('2024-01-01'),'total_amount': 350.00, 'state': 'paid'},
+        ])
 
-        sheet = self.env['hr.expense.sheet'].create({
-            'company_id': company,
-            'employee_id': self.expense_employee.id,
-            'name': 'test sheet',
-            'expense_line_ids': [
-                (0, 0, {
-                    'name': 'expense_1',
-                    'date': '2016-01-01',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 10.0,
-                    'employee_id': self.expense_employee.id,
-                    'tax_ids': tax
-                }),
-                (0, 0, {
-                    'name': 'expense_2',
-                    'date': '2016-01-01',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 1.0,
-                    'employee_id': self.expense_employee.id,
-                    'tax_ids': tax
-                }),
-            ],
-        })
-
-
-        #actions
-        sheet.action_submit_sheet()
-        sheet.approve_expense_sheets()
-        sheet.action_sheet_move_create()
-        action_data = sheet.action_register_payment()
-        wizard = Form(self.env['account.payment.register'].with_context(action_data['context'])).save()
-        action = wizard.action_create_payments()
-        self.assertEqual(sheet.state, 'done', 'all account.move.line linked to expenses must be reconciled after payment')
-        move = self.env['account.payment'].browse(action['res_id']).move_id
-        move.button_cancel()
-        self.assertEqual(sheet.state, 'done', 'Sheet state must not change when the payment linked to that sheet is canceled')
-
-    def test_expense_amount_total_signed_compute(self):
-        sheet = self.env['hr.expense.sheet'].create({
-            'company_id': self.env.company.id,
-            'employee_id': self.expense_employee.id,
-            'name': 'test sheet',
-            'expense_line_ids': [
-                (0, 0, {
-                    'name': 'expense_1',
-                    'date': '2016-01-01',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 10.0,
-                    'employee_id': self.expense_employee.id
-                }),
-            ],
-        })
-
-
-        #actions
-        sheet.action_submit_sheet()
-        sheet.approve_expense_sheets()
-        sheet.action_sheet_move_create()
-        action_data = sheet.action_register_payment()
-        wizard = Form(self.env['account.payment.register'].with_context(action_data['context'])).save()
-        action = wizard.action_create_payments()
-
-        move = self.env['account.payment'].browse(action['res_id']).move_id
-        self.assertEqual(move.amount_total_signed, 10.0, 'The total amount of the payment move is not correct')
-
-    def test_form_defaults_from_product(self):
-        """
-        As soon as you set a product, the expense name, uom, taxes and account are set
-        according to the product.
-        """
+    def test_corner_case_defaults_values_from_product(self):
+        """ As soon as you set a product, the expense name, uom, taxes and account are set according to the product. """
         # Disable multi-uom
         self.env.ref('base.group_user').implied_ids -= self.env.ref('uom.group_uom')
-        self.expense_user_employee.groups_id -= self.env.ref('uom.group_uom')
+        self.expense_user_employee.group_ids -= self.env.ref('uom.group_uom')
 
         # Use the expense employee
         Expense = self.env['hr.expense'].with_user(self.expense_user_employee)
@@ -747,758 +470,439 @@ class TestExpenses(TestExpenseCommon):
         expense = expense_form.save()
         self.assertEqual(expense.name, product.display_name)
         self.assertEqual(expense.product_uom_id, product.uom_id)
-        self.assertEqual(expense.tax_ids, product.supplier_taxes_id)
+        self.assertEqual(expense.tax_ids, product.supplier_taxes_id.filtered(lambda t: t.company_id == expense.company_id))
         self.assertEqual(expense.account_id, product._get_product_accounts()['expense'])
 
-    def test_expense_account(self):
-        """ Checking accounting move entries for the accounts set on the expenses """
-
-        account_expense_1 = self.env['account.account'].create({
-            'code': '610010',
-            'name': 'Expense Account 1'
+    def test_attachments_in_move_from_own_expense(self):
+        """ Checks that journal entries created form expense reports paid by employee have a copy of the attachments in the expense. """
+        expense = self.create_expenses({'name': 'Employee expense'})
+        expense_2 = self.create_expenses({'name': 'Employee expense 2'})
+        attachment = self.env['ir.attachment'].create({
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': 'file1.png',
+            'res_model': 'hr.expense',
+            'res_id': expense.id,
         })
-        account_expense_2 = self.env['account.account'].create({
-            'code': '610020',
-            'name': 'Expense Account 2'
-        })
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'First Expense for employee',
-            'employee_id': self.expense_employee.id,
-            'journal_id': self.company_data['default_journal_purchase'].id,
-            'accounting_date': '2022-01-20',
-            'expense_line_ids': [
-                Command.create({
-                    # Expense on Expense Account 1
-                    'name': 'expense_1',
-                    'date': '2022-01-05',
-                    'account_id': account_expense_1.id,
-                    'product_id': self.product_a.id,
-                    'unit_amount': 115.0,
-                    'employee_id': self.expense_employee.id,
-                }),
-                Command.create({
-                    # Expense on Expense Account 2
-                    'name': 'expense_2',
-                    'date': '2022-01-08',
-                    'account_id': account_expense_2.id,
-                    'product_id': self.product_a.id,
-                    'unit_amount': 230.0,
-                    'employee_id': self.expense_employee.id,
-                }),
-            ],
+        attachment_2 = self.env['ir.attachment'].create({
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': 'file2.png',
+            'res_model': 'hr.expense',
+            'res_id': expense_2.id,
         })
 
-        self.assertRecordValues(expense_sheet, [{'state': 'draft', 'total_amount': 345.0}])
+        expense.message_main_attachment_id = attachment
+        expense_2.message_main_attachment_id = attachment_2
+        expenses = expense | expense_2
 
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
+        expenses.action_submit()
+        expenses._do_approve()  # Skip duplicate wizard
+        self.post_expenses_with_wizard(expenses)
 
-        # Check expense sheet journal entry values.
-        self.assertRecordValues(expense_sheet.account_move_id.line_ids.sorted('balance'), [
-            # Receivable lines:
+        self.assertRecordValues(expenses.account_move_id.attachment_ids.sorted('name'), [
             {
-                'balance': -345.0, # 115 + 230
-                'account_id': self.company_data['default_account_payable'].id,
-            },
-            # Tax lines:
-            {
-                'balance': 15.0,
-                'account_id': self.company_data['default_account_tax_purchase'].id,
+                'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+                'name': 'file1.png',
+                'res_model': 'account.move',
+                'res_id': expense.account_move_id.id,
             },
             {
-                'balance': 30.0,
-                'account_id': self.company_data['default_account_tax_purchase'].id,
-            },
-            # Expense line 1:
-            {
-                'balance': 100.0, # 115 / 1.15 (tax incl.)
-                'account_id': account_expense_1.id,
-            },
-            # Expense line 2:
-            {
-                'balance': 200.0, # 230 / 1.15 (tax incl.)
-                'account_id': account_expense_2.id,
-            },
-        ])
-
-    def test_employee_supplier(self):
-        """ Checking accounting move entries for the supplier set to the employee """
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'First Expense for employee',
-            'employee_id': self.expense_employee.id,
-            'journal_id': self.company_data['default_journal_purchase'].id,
-            'accounting_date': '2022-01-20',
-            'expense_line_ids': [
-                Command.create({
-                    # Expense on Expense Account 1
-                    'name': 'expense_1',
-                    'date': '2022-01-05',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 115.0,
-                    'employee_id': self.expense_employee.id,
-                }),
-                Command.create({
-                    # Expense on Expense Account 2
-                    'name': 'expense_2',
-                    'date': '2022-01-08',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 230.0,
-                    'employee_id': self.expense_employee.id,
-                }),
-            ],
-        })
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-
-        # Check whether employee is set as supplier on the receipt
-        self.assertRecordValues(expense_sheet.account_move_id, [{
-            'partner_id': self.expense_user_employee.partner_id.id,
-        }])
-
-    def test_print_expense_check(self):
-        """
-        Test the check content when printing a check
-        that comes from an expense
-        """
-        sheet = self.env['hr.expense.sheet'].create({
-            'company_id': self.env.company.id,
-            'employee_id': self.expense_employee.id,
-            'name': 'test sheet',
-            'expense_line_ids': [
-                (0, 0, {
-                    'name': 'expense_1',
-                    'date': '2016-01-01',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 10.0,
-                    'employee_id': self.expense_employee.id,
-                }),
-                (0, 0, {
-                    'name': 'expense_2',
-                    'date': '2016-01-01',
-                    'product_id': self.product_a.id,
-                    'unit_amount': 1.0,
-                    'employee_id': self.expense_employee.id,
-                }),
-            ],
-        })
-
-        #actions
-        sheet.action_submit_sheet()
-        sheet.approve_expense_sheets()
-        sheet.action_sheet_move_create()
-        action_data = sheet.action_register_payment()
-        payment_method_line = self.env.company.bank_journal_ids.outbound_payment_method_line_ids.filtered(lambda m: m.code == 'check_printing')
-        with Form(self.env[action_data['res_model']].with_context(action_data['context'])) as wiz_form:
-            wiz_form.payment_method_line_id = payment_method_line
-        wizard = wiz_form.save()
-        action = wizard.action_create_payments()
-        self.assertEqual(sheet.state, 'done', 'all account.move.line linked to expenses must be reconciled after payment')
-
-        payments = self.env[action['res_model']].browse(action['res_id'])
-        for payment in payments:
-            pages = payment._check_get_pages()
-            stub_line = pages[0]['stub_lines'][:1]
-            self.assertTrue(stub_line)
-            move = self.env[action_data['context']['active_model']].browse(action_data['context']['active_ids'])
-            self.assertDictEqual(stub_line[0], {
-                'due_date': payment.date.strftime("%m/%d/%Y"),
-                'number': ' - '.join([move.name, move.ref] if move.ref else [move.name]),
-                'amount_total': formatLang(self.env, move.amount_total, currency_obj=self.env.company.currency_id),
-                'amount_residual': '-',
-                'amount_paid': formatLang(self.env, payment.amount_total, currency_obj=self.env.company.currency_id),
-                'currency': self.env.company.currency_id
-            })
-
-    def test_hr_expense_split(self):
-        """
-        Check Split Expense flow.
-        """
-        expense = self.env['hr.expense'].create({
-            'name': 'Expense To Test Split - Diego, libre dans sa tête',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_zero_cost.id,
-            'total_amount': 100.00,
-            'tax_ids': [(6, 0, [self.tax_purchase_a.id])],
-            'analytic_distribution': {self.analytic_account_1.id: 100},
-        })
-
-        split_wizard = expense.action_split_wizard()
-        wizard = self.env['hr.expense.split.wizard'].browse(split_wizard['res_id'])
-
-        # Check default hr.expense.split values
-        self.assertRecordValues(wizard.expense_split_line_ids, [
-            {
-                'name': expense.name,
-                'wizard_id': wizard.id,
-                'expense_id': expense.id,
-                'product_id': expense.product_id.id,
-                'tax_ids': expense.tax_ids.ids,
-                'total_amount': expense.total_amount / 2,
-                'amount_tax': 6.52,
-                'employee_id': expense.employee_id.id,
-                'company_id': expense.company_id.id,
-                'currency_id': expense.currency_id.id,
-                'analytic_distribution': expense.analytic_distribution,
-            } for i in range(0, 2)])
-
-        self.assertEqual(wizard.split_possible, True)
-        self.assertEqual(wizard.total_amount, expense.total_amount)
-
-        # Grant Analytic Accounting rights, to be able to modify analytic_distribution from the wizard
-        self.env.user.groups_id += self.env.ref('analytic.group_analytic_accounting')
-
-        with Form(wizard) as form:
-            form.expense_split_line_ids.remove(index=0)
-            self.assertEqual(form.split_possible, False)
-
-            # Check removing tax_ids and analytic_distribution
-            with form.expense_split_line_ids.edit(0) as line:
-                line.total_amount = 20
-                line.tax_ids.clear()
-                line.analytic_distribution = {}
-                self.assertEqual(line.total_amount, 20)
-                self.assertEqual(line.amount_tax, 0)
-
-            self.assertEqual(form.split_possible, False)
-
-            # This line should have the same tax_ids and analytic_distribution as original expense
-            with form.expense_split_line_ids.new() as line:
-                line.total_amount = 30
-                self.assertEqual(line.total_amount, 30)
-                self.assertEqual(line.amount_tax, 3.91)
-            self.assertEqual(form.split_possible, False)
-            self.assertEqual(form.total_amount, 50)
-
-            # Check adding tax_ids and setting analytic_distribution
-            with form.expense_split_line_ids.new() as line:
-                line.total_amount = 50
-                line.tax_ids.add(self.tax_purchase_b)
-                line.analytic_distribution = {self.analytic_account_2.id: 100}
-                self.assertEqual(line.total_amount, 50)
-                self.assertAlmostEqual(line.amount_tax, 11.54)
-
-            # Check wizard values
-            self.assertEqual(form.total_amount, 100)
-            self.assertEqual(form.total_amount_original, 100)
-            self.assertAlmostEqual(form.total_amount_taxes, 15.45)
-            self.assertEqual(form.split_possible, True)
-
-        wizard.action_split_expense()
-        # Check that split resulted into expenses with correct values
-        expenses_after_split = self.env['hr.expense'].search(
-            [
-                ('name', '=', expense.name)
-            ]
-        )
-        self.assertRecordValues(expenses_after_split.sorted('total_amount'), [
-            {
-                'name': expense.name,
-                'employee_id': expense.employee_id.id,
-                'product_id': expense.product_id.id,
-                'total_amount': 20.0,
-                'tax_ids': [],
-                'amount_tax': 0,
-                'untaxed_amount': 20,
-                'analytic_distribution': False,
-            },
-            {
-                'name': expense.name,
-                'employee_id': expense.employee_id.id,
-                'product_id': expense.product_id.id,
-                'total_amount': 30,
-                'tax_ids': [self.tax_purchase_a.id],
-                'amount_tax': 3.91,
-                'untaxed_amount': 26.09,
-                'analytic_distribution': {str(self.analytic_account_1.id): 100},
-            },
-            {
-                'name': expense.name,
-                'employee_id': expense.employee_id.id,
-                'product_id': expense.product_id.id,
-                'total_amount': 50,
-                'tax_ids': [self.tax_purchase_a.id, self.tax_purchase_b.id],
-                'amount_tax': 11.54,
-                'untaxed_amount': 38.46,
-                'analytic_distribution': {str(self.analytic_account_2.id): 100},
+                'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+                'name': 'file2.png',
+                'res_model': 'account.move',
+                'res_id': expense_2.account_move_id.id,
             }
         ])
 
-    def test_analytic_account_deleted(self):
-        """ Test that an analytic account cannot be deleted if it is used in an expense """
+    def test_attachments_in_move_from_company_expense(self):
+        """ Checks that journal entries created form expense reports paid by company have a copy of the attachments in the expense. """
+        expense = self.create_expenses({
+            'name': 'Company expense',
+            'payment_mode': 'company_account',
+        })
+        expense_2 = self.create_expenses({
+            'name': 'Company expense 2',
+            'payment_mode': 'company_account',
+        })
+        attachment = self.env['ir.attachment'].create({
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': 'file1.png',
+            'res_model': 'hr.expense',
+            'res_id': expense.id,
+        })
+        attachment_2 = self.env['ir.attachment'].create({
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': 'file2.png',
+            'res_model': 'hr.expense',
+            'res_id': expense_2.id,
+        })
 
-        expense = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for Dick Tracy',
-            'employee_id': self.expense_employee.id,
+        expense.message_main_attachment_id = attachment
+        expense_2.message_main_attachment_id = attachment_2
+        expenses = expense | expense_2
+
+        expenses.action_submit()
+        expenses._do_approve()  # Skip duplicate wizard
+        expenses.action_post()
+
+        expense_move = expense.account_move_id
+        expense_2_move = expense_2.account_move_id
+        self.assertRecordValues(expense_move.attachment_ids, [{
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': 'file1.png',
+            'res_model': 'account.move',
+            'res_id': expense_move.id
+        }])
+
+        self.assertRecordValues(expense_2_move.attachment_ids, [{
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': 'file2.png',
+            'res_model': 'account.move',
+            'res_id': expense_2_move.id
+        }])
+
+    def test_multiple_attachments_in_move_from_company_expense(self):
+        """ Checks that all attachments from expense are copied to their journal entries. """
+        expense = self.create_expenses({
+            'name': 'Company expense',
+            'payment_mode': 'company_account',
         })
-        expense = self.env['hr.expense'].create({
-            'name': 'Choucroute Saucisse',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_a.id,
-            'unit_amount': 700.00,
-            'sheet_id': expense.id,
-            'analytic_distribution': {
-                self.analytic_account_1.id: 50,
-                self.analytic_account_2.id: 50,
+        self.env['ir.attachment'].create([{
+            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'name': f'file{i}.png',
+            'res_model': 'hr.expense',
+            'res_id': expense.id,
+        } for i in range(1, 3)])
+
+        expense.action_submit()
+        expense._do_approve()  # Skip duplicate wizard
+        expense.action_post()
+
+        self.assertEqual(len(expense.account_move_id.attachment_ids), 2)
+
+    def test_expense_payment_method(self):
+        default_payment_method_line = self.company_data['default_journal_bank'].outbound_payment_method_line_ids[0]
+        check_method = self.env['account.payment.method'].sudo().create({
+            'name': 'Print checks',
+            'code': 'check_printing_expense_test',
+            'payment_type': 'outbound',
+        })
+        new_payment_method_line = self.env['account.payment.method.line'].create({
+            'name': 'Check',
+            'payment_method_id': check_method.id,
+            'journal_id': self.company_data['default_journal_bank'].id,
+            'payment_account_id': self.inbound_payment_method_line.payment_account_id.id,
+        })
+
+        expense = self.create_expenses({
+            'payment_method_line_id': default_payment_method_line.id,
+            'payment_mode': 'company_account',
+        })
+
+        self.assertRecordValues(expense, [{'payment_method_line_id': default_payment_method_line.id}])
+        expense.payment_method_line_id = new_payment_method_line
+
+        expense.action_submit()
+        expense.action_approve()
+        expense.action_post()
+        self.assertRecordValues(expense.account_move_id.origin_payment_id, [{'payment_method_line_id': new_payment_method_line.id}])
+
+    @freeze_time('2024-01-01')
+    def test_expense_vendor(self):
+        """ This test will do a basic flow when a vendor is set on the expense """
+        vendor_a = self.env['res.partner'].create({'name': 'Ruben'})
+        expense = self.create_expenses({
+            'payment_mode': 'company_account',
+            'vendor_id': vendor_a.id,
+        })
+        expense.action_submit()
+        expense.action_approve()
+        expense.action_post()
+
+        self.assertEqual(vendor_a.id, expense.account_move_id.line_ids.partner_id.id)
+
+    def test_payment_edit_fields(self):
+        """ Test that some payment fields cannot be modified once linked with an expense """
+        expense = self.create_expenses({
+            'payment_mode': 'company_account',
+            'total_amount_currency': 1000.00,
+        })
+        expense.action_submit()
+        expense.action_approve()
+        expense.action_post()
+        payment = expense.account_move_id.origin_payment_id
+
+        with self.assertRaises(UserError, msg="Cannot edit payment amount after linking to an expense"):
+            payment.write({'amount': 500})
+
+        payment.write({'is_sent': True})
+
+    def test_corner_case_expense_submitted_cannot_be_zero(self):
+        """
+        Test that the expenses are not submitted if the total amount is 0.0 nor able to be edited that way
+        unless unlinking it from the expense.
+        """
+        expense = self.create_expenses({'total_amount': 0.0, 'total_amount_currency': 0.0})
+
+        # CASE 1: FORBIDS Trying to submit an expense with a total_amount(_currency) of 0.0
+        with self.assertRaises(UserError):
+            expense.action_submit()
+
+        # CASE 2: FORBIDS Trying to change the total_amount(_currency) to 0.0 when the expense is submitted to the manager
+        expense.total_amount_currency = 1000
+        expense.action_submit()
+        with self.assertRaises(UserError):
+            expense.total_amount_currency = 0.0
+        with self.assertRaises(UserError):
+            expense.total_amount = 0.0
+
+        # CASE 3: FORBIDS Trying to change the total_amount(_currency) to 0.0 when the expense is approved
+        expense.action_approve()
+        with self.assertRaises(UserError):
+            expense.total_amount_currency = 0.0
+        with self.assertRaises(UserError):
+            expense.total_amount = 0.0
+
+        # CASE 4: FORBIDS Trying to change the total_amount(_currency) to 0.0 when the expense is posted and the account move created
+        self.post_expenses_with_wizard(expense)
+        with self.assertRaises(UserError):
+            expense.total_amount_currency = 0.0
+        with self.assertRaises(UserError):
+            expense.total_amount = 0.0
+
+        # CASE 5: ALLOWS Changing the total_amount(_currency) to 0.0 when the expense is reset to draft
+        expense.account_move_id.button_draft()
+        expense.account_move_id.unlink()
+        expense.action_reset()
+        expense.write({'total_amount_currency': 0.0, 'total_amount': 0.0})
+
+        # CASE 6: FORBIDS Setting the amounts to 0 while submitting the expense
+        expense.write({'total_amount_currency': 1000.0, 'total_amount': 1000.0})
+        with self.assertRaises(UserError):
+            expense.write({'total_amount_currency': 0.0, 'state': 'submitted'})
+        with self.assertRaises(UserError):
+            expense.write({'total_amount': 0.0, 'state': 'submitted'})
+
+        # CASE 7: ALLOWS Setting the amounts to 0 while resetting the expense to draft
+        expense.write({'total_amount_currency': 0.0, 'total_amount': 0.0, 'state': 'draft'})
+
+    def test_foreign_currencies_total(self):
+        """ Check that the dashboard computes amount properly in company currency """
+        self.create_expenses([{
+                'name': 'Company expense',
+                'payment_mode': 'company_account',
+                'total_amount_currency': 1000.00,
+                'employee_id': self.expense_employee.id,
             },
+            {
+                'name': 'Employee expense',
+                'payment_mode': 'own_account',
+                'currency_id': self.other_currency.id,
+                'total_amount_currency': 1000.00,
+                'total_amount': 2000.00,
+                'employee_id': self.expense_employee.id,
+            },
+        ])
+        expense_data = self.env['hr.expense'].with_user(self.expense_user_employee).get_expense_dashboard()
+        self.assertEqual(expense_data['draft']['amount'], 3000.00)
+
+    def test_update_expense_price_on_product_standard_price(self):
+        """
+        Tests that updating the standard price of a product will update all the un-submitted
+        expenses using that product as a category.
+        """
+        product = self.env['product.product'].create({
+            'name': 'Product',
+            'standard_price': 100.0,
         })
+        expenses = expense_no_update, expense_update = self.create_expenses([
+            {'name': name, 'product_id': product.id, 'total_amount': 100.0}
+            for name in ('test no update', 'test update')
+        ]).sorted('name')
+
+        self.assertRecordValues(expenses.sorted('name'), [
+            {'name': 'test no update', 'price_unit': 100.0, 'quantity': 1, 'total_amount': 100.0},
+            {'name':    'test update', 'price_unit': 100.0, 'quantity': 1, 'total_amount': 100.0},
+        ])
+        expense_no_update.action_submit()  # No update when the expense is submitted
+
+        product.standard_price = 200.0
+        self.assertRecordValues(expenses.sorted('name'), [
+            {'name': 'test no update', 'price_unit': 100.0, 'quantity': 1.0, 'total_amount': 100.0},
+            {'name':    'test update', 'price_unit': 200.0, 'quantity': 1.0, 'total_amount': 200.0},  # total is updated
+        ])
+
+        expense_update.quantity = 5
+        self.assertRecordValues(expenses.sorted('name'), [
+            {'name': 'test no update', 'price_unit': 100.0, 'quantity': 1, 'total_amount':  100.0},
+            {'name':    'test update', 'price_unit': 200.0, 'quantity': 5, 'total_amount': 1000.0},  # total is updated
+        ])
+
+        product.standard_price = 0.0
+        self.assertRecordValues(expenses.sorted('name'), [
+            {'name': 'test no update', 'price_unit':  100.0, 'quantity': 1, 'total_amount':  100.0},
+            {'name':    'test update', 'price_unit': 1000.0, 'quantity': 1, 'total_amount': 1000.0},  # quantity & price_unit only are updated
+        ])
+
+        expenses.action_submit()  # This expense should not be updated any more
+        product.standard_price = 300.0
+        self.assertRecordValues(expenses.sorted('name'), [
+            {'name': 'test no update', 'price_unit':  100.0, 'quantity': 1, 'total_amount':  100.0},
+            {'name':    'test update', 'price_unit': 1000.0, 'quantity': 1, 'total_amount': 1000.0},  # no update
+        ])
+
+    def test_expense_standard_price_update_warning(self):
+        expense_cat_A = self.env['product.product'].create({
+            'name': 'Category A',
+            'default_code': 'CA',
+            'standard_price': 0.0,
+        })
+        expense_cat_B = self.env['product.product'].create({
+            'name': 'Category B',
+            'default_code': 'CB',
+            'standard_price': 0.0,
+        })
+        expense_cat_C = self.env['product.product'].create({
+            'name': 'Category C',
+            'default_code': 'CC',
+            'standard_price': 0.0,
+        })
+        self.create_expenses([
+            {
+                'name': 'Expense 1',
+                'product_id': expense_cat_A.id,
+                'total_amount': 1,
+            },
+            {
+                'name': 'Expense 2',
+                'product_id': expense_cat_B.id,
+                'total_amount': 5,
+            },
+        ])
+
+        # At first, there is no warning message on the categories because their prices are 0
+        self.assertFalse(expense_cat_A.standard_price_update_warning)
+        self.assertFalse(expense_cat_B.standard_price_update_warning)
+        self.assertFalse(expense_cat_C.standard_price_update_warning)
+
+        # When modifying the price of the first category, a message should appear as a an expense will be modified.
+        with Form(expense_cat_A, view="hr_expense.product_product_expense_form_view") as form:
+            form.standard_price = 5
+            self.assertTrue(form.standard_price_update_warning)
+
+        # When modifying the price of the second category, no message should appear as the price of the linked
+        # expense is the price of the category that is going to be saved.
+        with Form(expense_cat_B, view="hr_expense.product_product_expense_form_view") as form:
+            form.standard_price = 5
+            self.assertFalse(form.standard_price_update_warning)
+
+        # When modifying the price of the their category, no message should appear as no expense is linked to it.
+        with Form(expense_cat_C, view="hr_expense.product_product_expense_form_view") as form:
+            form.standard_price = 5
+            self.assertFalse(form.standard_price_update_warning)
+
+    def test_compute_standard_price_update_warning_product_with_and_without_expense(self):
+        """
+        Test that the compute doesn't raise an error with mixed recordsets (products used in expenses and not used in expenses)
+        """
+        product_expensed = self.env['product.product'].create({
+            'name': 'Category A',
+            'default_code': 'CA',
+            'standard_price': 0.0,
+        })
+        product_not_expensed = self.env['product.product'].create({
+            'name': 'Category B',
+            'default_code': 'CB',
+            'standard_price': 0.0,
+        })
+        self.env['hr.expense'].create({
+            'employee_id': self.expense_employee.id,
+            'name': 'Expense 1',
+            'product_id': product_expensed.id,
+            'total_amount': 1,
+        })
+
+        (product_expensed | product_not_expensed)._compute_standard_price_update_warning()
+
+    def test_expense_multi_company(self):
+        main_company = self.company_data['company']
+        other_company = self.company_data_2['company']
+        self.expense_employee.sudo().company_id = other_company
+
+        # The expense employee is able to create an expense for company_2.
+        # product_a needs a standard_price in company_2
+        self.product_a.with_context(allowed_company_ids=self.company_data_2['company'].ids).standard_price = 100
+
+        Expense = self.env['hr.expense'].with_user(self.expense_user_employee).with_context(allowed_company_ids=other_company.ids)
+        expense_approve = Expense.create([{
+            'name': 'First Expense for employee',
+            'employee_id': self.expense_employee.id,
+            'date': '2016-01-01',
+            'product_id': self.product_a.id,
+            'quantity': 1200.0,
+        }])
+        expense_refuse = Expense.create([{
+            'name': 'Second Expense for employee',
+            'employee_id': self.expense_employee.id,
+            'date': '2016-01-01',
+            'product_id': self.product_a.id,
+            'quantity': 1000.0,
+        }])
+        expenses = expense_approve | expense_refuse
+        self.assertRecordValues(expenses, [
+            {'company_id': self.company_data_2['company'].id},
+            {'company_id': self.company_data_2['company'].id},
+        ])
+
+        # The expense employee is able to submit the expense.
+        expenses.with_user(self.expense_user_employee).action_submit()
+
+        # An expense manager is not able to approve nor refuse without access to company_2.
+        with self.assertRaises(UserError):
+            expense_approve \
+                .with_user(self.expense_user_manager) \
+                .with_context(allowed_company_ids=main_company.ids, company_id=main_company.id) \
+                .action_approve()
 
         with self.assertRaises(UserError):
-            (self.analytic_account_1 | self.analytic_account_2).unlink()
+            expense_refuse \
+                .with_user(self.expense_user_manager) \
+                .with_context(allowed_company_ids=main_company.ids) \
+                ._do_refuse('failed')
 
-        expense.unlink()
-        self.analytic_account_1.unlink()
+        # An expense manager is able to approve/refuse with access to company_2.
+        expense_approve \
+            .with_user(self.expense_user_manager) \
+            .with_context(allowed_company_ids=other_company.ids) \
+            .action_approve()
+        expense_refuse \
+            .with_user(self.expense_user_manager) \
+            .with_context(allowed_company_ids=other_company.ids) \
+            ._do_refuse('failed')
 
-    def test_reset_move_to_draft(self):
-        """
-        Test the state of an expense and its report
-        after resetting the paid move to draft
-        """
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'company_id': self.env.company.id,
-            'employee_id': self.expense_employee.id,
-            'name': 'test sheet',
-            'expense_line_ids': [
-                (0, 0, {
-                    'name': 'expense_1',
-                    'employee_id': self.expense_employee.id,
-                    'product_id': self.product_a.id,
-                    'unit_amount': 1000.00,
-                }),
-            ],
+        # An expense manager having accounting access rights is not able to post the journal entry without access
+        # to company_2.
+        with self.assertRaises(UserError):
+            self.post_expenses_with_wizard(expense_approve.with_user(self.env.user).with_context(allowed_company_ids=main_company.ids))
+
+        # An expense manager having accounting access rights is able to post the journal entry with access to
+        # company_2.
+        self.post_expenses_with_wizard(expense_approve.with_user(self.env.user).with_context(allowed_company_ids=other_company.ids))
+
+    def test_tax_is_used_when_in_transactions(self):
+        """ Ensures that a tax is set to used when it is part of some transactions """
+        # Account.move is one type of transaction
+        tax_expense = self.env['account.tax'].create({
+            'name': 'test_is_used_expenses',
+            'amount': '100',
+            'include_base_amount': True,
         })
 
-        expense = expense_sheet.expense_line_ids
-
-        self.assertEqual(expense.state, 'draft', 'Expense state must be draft before sheet submission')
-        self.assertEqual(expense_sheet.state, 'draft', 'Sheet state must be draft before submission')
-
-        # Submit report
-        expense_sheet.action_submit_sheet()
-
-        self.assertEqual(expense.state, 'reported', 'Expense state must be reported after sheet submission')
-        self.assertEqual(expense_sheet.state, 'submit', 'Sheet state must be submit after submission')
-
-        # Approve report
-        expense_sheet.approve_expense_sheets()
-
-        self.assertEqual(expense.state, 'approved', 'Expense state must be draft after sheet approval')
-        self.assertEqual(expense_sheet.state, 'approve', 'Sheet state must be draft after approval')
-
-        # Create move
-        expense_sheet.action_sheet_move_create()
-
-        self.assertEqual(expense.state, 'approved', 'Expense state must be draft after posting move')
-        self.assertEqual(expense_sheet.state, 'post', 'Sheet state must be draft after posting move')
-
-        # Pay move
-        move = expense_sheet.account_move_id
-        self.env['account.payment.register'].with_context(active_model='account.move', active_ids=move.ids).create({
-            'amount': 1000.0,
-        })._create_payments()
-
-        self.assertEqual(expense.state, 'done', 'Expense state must be done after payment')
-        self.assertEqual(expense_sheet.state, 'done', 'Sheet state must be done after payment')
-
-        # Reset move to draft
-        move.button_draft()
-
-        self.assertEqual(expense.state, 'approved', 'Expense state must be approved after resetting move to draft')
-        self.assertEqual(expense_sheet.state, 'post', 'Sheet state must be done after resetting move to draft')
-
-        # Post and pay move again
-        move.action_post()
-        self.env['account.payment.register'].with_context(active_model='account.move', active_ids=move.ids).create({
-            'amount': 1000.0,
-        })._create_payments()
-
-        self.assertEqual(expense.state, 'done', 'Expense state must be done after payment')
-        self.assertEqual(expense_sheet.state, 'done', 'Sheet state must be done after payment')
-
-    def test_expense_sheet_due_date(self):
-        """ Test expense sheet bill due date """
-
-        self.expense_employee.user_partner_id.property_supplier_payment_term_id = self.env.ref('account.account_payment_term_30days')
-        with freeze_time('2021-01-01'):
-            expense_sheet = self.env['hr.expense.sheet'].create({
-                'name': 'Expense for John Smith',
-                'employee_id': self.expense_employee.id,
-                'expense_line_ids': [Command.create({
-                    'name': 'Car Travel Expenses',
-                    'employee_id': self.expense_employee.id,
-                    'product_id': self.product_a.id,
-                    'unit_amount': 350.00,
-                    'date': '2021-01-01',
-                })]
-            })
-            expense_sheet.action_submit_sheet()
-            expense_sheet.approve_expense_sheets()
-            expense_sheet.action_sheet_move_create()
-            move = expense_sheet.account_move_id
-            expected_date = fields.Date.from_string('2021-01-31')
-            self.assertEqual(move.invoice_date_due, expected_date, 'Bill due date should follow employee payment terms')
-
-    def test_inverse_total_amount(self):
-        """ Test if the inverse method works correctly """
-
-        expense = self.env['hr.expense'].create({
-            'name': 'Choucroute Saucisse',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_c.id,
-            'total_amount': 60,
-            'unit_amount': 0,
-            'tax_ids': [self.tax_purchase_a.id, self.tax_purchase_b.id],
-            'analytic_distribution': {
-                self.analytic_account_1.id: 50,
-                self.analytic_account_2.id: 50,
-            },
-        })
-
-        expense.total_amount = 90
-
-        self.assertEqual(expense.unit_amount, 90, 'Unit amount should be the same as total amount was written to')
-
-    def test_expense_from_attachments(self):
-        # avoid passing through extraction when installed
-        if 'hr.expense.extract.words' in self.env:
-            self.env.company.expense_extract_show_ocr_option_selection = 'no_send'
-        self.env.user.employee_id = self.expense_employee.id
-        attachment = self.env['ir.attachment'].create({
-            'datas': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
-            'name': 'file.png',
-            'res_model': 'hr.expense',
-        })
-        product = self.env['product.product'].search([('can_be_expensed', '=', True)])
-        # reproduce the same way we get the product by default
-        if product:
-            product = product.filtered(lambda p: p.default_code == "EXP_GEN") or product[0]
-        product.property_account_expense_id = self.company_data['default_account_payable']
-
-        self.env['hr.expense'].create_expense_from_attachments(attachment.id)
-        expense = self.env['hr.expense'].search([], order='id desc', limit=1)
-        self.assertEqual(expense.account_id, product.property_account_expense_id, "The expense account should be the default one of the product")
-
-    def test_expense_sheet_attachments_sync(self):
-        """
-        Test that the hr.expense.sheet attachments stay in sync with the attachments associated with the expense lines
-        Syncing should happen when:
-        - When adding/removing expense_line_ids on a hr.expense.sheet <-> changing sheet_id on an expense
-        - When deleting an expense that is associated with an hr.expense.sheet
-        - When adding/removing an attachment of an expense that is associated with an hr.expense.sheet
-        """
-        def assert_attachments_are_synced(sheet, attachments_on_sheet, sheet_has_attachment):
-            if sheet_has_attachment:
-                self.assertTrue(bool(attachments_on_sheet), "Attachment that belongs to the hr.expense.sheet only was removed unexpectedly")
-            self.assertSetEqual(
-                set(sheet.expense_line_ids.attachment_ids.mapped('checksum')),
-                set((sheet.attachment_ids - attachments_on_sheet).mapped('checksum')),
-                "Attachments between expenses and their sheet is not in sync.",
-            )
-
-        for sheet_has_attachment in (False, True):
-            expense_1, expense_2, expense_3 = self.env['hr.expense'].create([{
-                'name': 'expense_1',
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_c.id,
-                'total_amount': 1000,
-            }, {
-                'name': 'expense_2',
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_c.id,
-                'total_amount': 999,
-            }, {
-                'name': 'expense_3',
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_c.id,
-                'total_amount': 998,
-            }])
-            self.env['ir.attachment'].create([{
-                'name': "test_file_1.txt",
-                'datas': base64.b64encode(b'content'),
-                'res_id': expense_1.id,
-                'res_model': 'hr.expense',
-            }, {
-                'name': "test_file_2.txt",
-                'datas': base64.b64encode(b'other content'),
-                'res_id': expense_2.id,
-                'res_model': 'hr.expense',
-            }, {
-                'name': "test_file_3.txt",
-                'datas': base64.b64encode(b'different content'),
-                'res_id': expense_3.id,
-                'res_model': 'hr.expense',
-            }])
-
-            sheet = self.env['hr.expense.sheet'].create({
-                'company_id': self.env.company.id,
-                'employee_id': self.expense_employee.id,
-                'name': 'test sheet',
-                'expense_line_ids': [Command.set([expense_1.id, expense_2.id, expense_3.id])],
-            })
-
-            sheet_attachment = self.env['ir.attachment'].create({
-                'name': "test_file_4.txt",
-                'datas': base64.b64encode(b'yet another different content'),
-                'res_id': sheet.id,
-                'res_model': 'hr.expense.sheet',
-            }) if sheet_has_attachment else self.env['ir.attachment']
-
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            expense_1.attachment_ids.unlink()
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            self.env['ir.attachment'].create({
-                'name': "test_file_1.txt",
-                'datas': base64.b64encode(b'content'),
-                'res_id': expense_1.id,
-                'res_model': 'hr.expense',
-            })
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            expense_2.sheet_id = False
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            expense_2.sheet_id = sheet
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            sheet.expense_line_ids = [Command.set([expense_1.id, expense_3.id])]
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            expense_3.unlink()
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-            sheet.attachment_ids.filtered(
-                lambda att: att.checksum in sheet.expense_line_ids.attachment_ids.mapped('checksum')
-            ).unlink()
-            assert_attachments_are_synced(sheet, sheet_attachment, sheet_has_attachment)
-
-    def test_create_report_name(self):
-        """
-            When an expense sheet is created from one or more expense, the report name is generated through the expense name or date.
-            As the expense sheet is created directly from the hr.expense._get_default_expense_sheet_values method,
-            we only need to test the method.
-        """
-        expense_with_date_1, expense_with_date_2, expense_without_date = self.env['hr.expense'].create([{
-            'company_id': self.company_data['company'].id,
-            'name': f'test expense {i}',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_a.id,
-            'unit_amount': self.product_a.standard_price,
-            'date': '2021-01-01',
-            'quantity': i + 1,
-        } for i in range(3)])
-        expense_without_date.date = False
-
-        # CASE 1: only one expense with or without date -> expense name
-        sheet_name = expense_with_date_1._get_default_expense_sheet_values()[0]['name']
-        self.assertEqual(expense_with_date_1.name, sheet_name, "The report name should be the same as the expense name")
-        sheet_name = expense_without_date._get_default_expense_sheet_values()[0]['name']
-        self.assertEqual(expense_without_date.name, sheet_name, "The report name should be the same as the expense name")
-
-        # CASE 2: two expenses with the same date -> expense date
-        expenses = expense_with_date_1 | expense_with_date_2
-        sheet_name = expenses._get_default_expense_sheet_values()[0]['name']
-        self.assertEqual(format_date(self.env, expense_with_date_1.date), sheet_name, "The report name should be the same as the expense date")
-
-        # CASE 3: two expenses with different dates -> date range
-        expense_with_date_2.date = '2021-01-02'
-        sheet_name = expenses._get_default_expense_sheet_values()[0]['name']
-        self.assertEqual(
-            f"{format_date(self.env, expense_with_date_1.date)} - {format_date(self.env, expense_with_date_2.date)}",
-            sheet_name,
-            "The report name should be the date range of the expenses",
-        )
-
-        # CASE 4: One or more expense doesn't have a date (single sheet) -> No fallback name
-        expenses |= expense_without_date
-        sheet_name = expenses._get_default_expense_sheet_values()[0]['name']
-        self.assertFalse(
-            sheet_name,
-            "The report (with the empty expense date) name should be empty as a fallback when several reports are created",
-        )
-        expenses.date = False
-        sheet_name = expenses._get_default_expense_sheet_values()[0]['name']
-        self.assertFalse(sheet_name, "The report name should be empty as a fallback")
-
-        # CASE 5: One or more expense doesn't have a date (multiple sheets) -> Fallback name
-        expenses |= self.env['hr.expense'].create([{
-            'company_id': self.company_data['company'].id,
-            'name': f'test expense by company {i}',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_a.id,
-            'unit_amount': self.product_a.standard_price,
-            'payment_mode': 'company_account',
-            'date': '2021-01-01',
-            'quantity': i + 1,
-        } for i in range(3)])
-        sheet_names = [sheet['name'] for sheet in expenses._get_default_expense_sheet_values()]
-        self.assertSequenceEqual(
-            ("New Expense Report, paid by employee", format_date(self.env, expenses[-1].date)),
-            sheet_names,
-            "The report name should be 'New Expense Report, paid by (employee|company)' as a fallback",
-        )
-
-    def test_expense_product_update(self):
-        """ Test that the expense line is correctly updated or not when its product price is updated."""
-        #pylint: disable=bad-whitespace
-        product = self.env['product.product'].create({
-            'name': 'product',
-            'uom_id': self.env.ref('uom.product_uom_unit').id,
-            'lst_price': 100.0,
-            'standard_price': 0.0,
-            'property_account_income_id': self.company_data['default_account_revenue'].id,
-            'property_account_expense_id': self.company_data['default_account_expense'].id,
-            'supplier_taxes_id': False,
-        })
-
-        sheet_no_update, sheet_update = sheets = self.env['hr.expense.sheet'].create([{
-            'company_id': self.env.company.id,
-            'employee_id': self.expense_employee.id,
-            'name': name,
-            'expense_line_ids': [
-                Command.create({
-                    'name': name,
-                    'date': '2016-01-01',
-                    'product_id': product.id,
-                    'total_amount': 100.0,
-                    'employee_id': self.expense_employee.id
-                }),
-            ],
-        } for name in ('test sheet no update', 'test sheet update')])
-
-        sheet_no_update.action_submit_sheet()  # No update when sheet is submitted
-        self.assertRecordValues(sheets.expense_line_ids.sorted('name'), [
-            {'name': 'test sheet no update', 'unit_amount': 100.0, 'quantity': 1, 'total_amount': 100.0},
-            {'name':    'test sheet update', 'unit_amount': 100.0, 'quantity': 1, 'total_amount': 100.0},
-        ])
-        product.standard_price = 50.0
-        self.assertRecordValues(sheets.expense_line_ids.sorted('name'), [
-            {'name': 'test sheet no update', 'unit_amount': 100.0, 'quantity': 1, 'total_amount': 100.0},
-            {'name':    'test sheet update', 'unit_amount':  50.0, 'quantity': 1, 'total_amount':  50.0},  # unit_amount is updated
-        ])
-        sheet_update.expense_line_ids.quantity = 5
-        self.assertRecordValues(sheets.expense_line_ids.sorted('name'), [
-            {'name': 'test sheet no update', 'unit_amount': 100.0, 'quantity': 1, 'total_amount': 100.0},
-            {'name':    'test sheet update', 'unit_amount':  50.0, 'quantity': 5, 'total_amount': 250.0},  # quantity & total are updated
-        ])
-        product.standard_price = 0.0
-        self.assertRecordValues(sheets.expense_line_ids.sorted('name'), [
-            {'name': 'test sheet no update', 'unit_amount': 100.0, 'quantity': 1, 'total_amount': 100.0},
-            {'name':    'test sheet update', 'unit_amount': 250.0, 'quantity': 1, 'total_amount': 250.0},  # quantity & unit_amount only are updated
-        ])
-
-        sheet_update.action_submit_sheet()  # This sheet should not be updated any more
-        product.standard_price = 300.0
-        self.assertRecordValues(sheets.expense_line_ids.sorted('name'), [
-            {'name': 'test sheet no update', 'unit_amount': 100.0, 'quantity': 1, 'total_amount': 100.0},
-            {'name':    'test sheet update', 'unit_amount': 250.0, 'quantity': 1, 'total_amount': 250.0},  # no update
-        ])
-
-    def test_expense_mandatory_analytic_plan_product_category(self):
-        """
-        Check that when an analytic plan has a mandatory applicability matching
-        product category this is correctly triggered
-        """
-        self.env['account.analytic.applicability'].create({
-            'business_domain': 'expense',
-            'analytic_plan_id': self.analytic_plan.id,
-            'applicability': 'mandatory',
-            'product_categ_id': self.product_a.categ_id.id,
-        })
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for John Smith',
-            'employee_id': self.expense_employee.id,
-            'accounting_date': '2021-01-01',
-            'expense_line_ids': [Command.create({
-                'name': 'Car Travel Expenses',
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_a.id,
-                'unit_amount': 350.00,
-                'payment_mode': 'company_account',
-            })]
-        })
-
-        expense_sheet.action_submit_sheet()
-        with self.assertRaises(ValidationError, msg="One or more lines require a 100% analytic distribution."):
-            expense_sheet.with_context(validate_analytic=True).approve_expense_sheets()
-
-        expense_sheet.expense_line_ids.analytic_distribution = {self.analytic_account_1.id: 100.00}
-        expense_sheet.with_context(validate_analytic=True).approve_expense_sheets()
-
-    def test_expense_no_stealing_from_employees(self):
-        """
-        Test to check that the company doesn't steal their employee when the commercial_partner_id of the employee partner
-        is the company
-        """
-        self.expense_employee.user_partner_id.parent_id = self.env.company.partner_id
-        self.assertEqual(self.env.company.partner_id, self.expense_employee.user_partner_id.commercial_partner_id)
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Company Cash Basis Expense Report',
-            'employee_id': self.expense_employee.id,
-            'payment_mode': 'own_account',
-            'state': 'approve',
-            'expense_line_ids': [Command.create({
-                'name': 'Company Cash Basis Expense',
-                'product_id': self.product_c.id,
-                'payment_mode': 'own_account',
-                'total_amount': 20.0,
-                'employee_id': self.expense_employee.id,
-            })]
-        })
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-        move = expense_sheet.account_move_id
-
-        self.assertNotEqual(move.commercial_partner_id, self.env.company.partner_id)
-        self.assertEqual(move.partner_id, self.expense_employee.user_partner_id)
-        self.assertEqual(move.commercial_partner_id, self.expense_employee.user_partner_id)
-
-    def test_expense_bank_account_of_employee_on_entry_and_register_payment(self):
-        """
-        Test that the bank account defined on the employee form is correctly set on the entry and on the register payment
-        when having multiple bank accounts defined on the partner
-        """
-
-        self.partner_bank_account_1 = self.env['res.partner.bank'].create({
-            'acc_number': "987654321",
-            'partner_id': self.expense_employee.user_partner_id.id,
-            'acc_type': 'bank',
-        })
-        self.partner_bank_account_2 = self.env['res.partner.bank'].create({
-            'acc_number': "123456789",
-            'partner_id': self.expense_employee.user_partner_id.id,
-            'acc_type': 'bank',
-        })
-        # Set the second bank account for the employee
-        self.expense_employee.bank_account_id = self.partner_bank_account_2
-
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Expense for John Smith',
-            'employee_id': self.expense_employee.id,
-            'payment_mode': 'own_account',
-            'state': 'approve',
-            'expense_line_ids': [Command.create({
-                'name': 'Car Travel Expenses',
-                'employee_id': self.expense_employee.id,
-                'product_id': self.product_a.id,
-                'payment_mode': 'own_account',
-                'unit_amount': 350.00,
-            })]
-        })
-
-        expense_sheet.action_submit_sheet()
-        expense_sheet.approve_expense_sheets()
-        expense_sheet.action_sheet_move_create()
-
-        move_bank_acc = expense_sheet.account_move_id.partner_bank_id
-        self.assertEqual(move_bank_acc, self.partner_bank_account_2)
-        action_data = expense_sheet.action_register_payment()
-        with Form(self.env['account.payment.register'].with_context(action_data['context'])) as pay_form:
-            self.assertEqual(pay_form.partner_bank_id, self.partner_bank_account_2)
+        self.create_expenses({'tax_ids': [Command.set(tax_expense.ids)]})
+        tax_expense.invalidate_model(fnames=['is_used'])
+        self.assertTrue(tax_expense.is_used)
 
     def test_expense_by_company_with_caba_tax(self):
-        """When using cash basis tax in an expense paid by the company, the transition account should not be used."""
+        """ When using cash basis tax in an expense paid by the company, the transition account should not be used. """
 
         caba_tag = self.env['account.account.tag'].create({
             'name': 'Cash Basis Tag Final Account',
@@ -1508,6 +912,7 @@ class TestExpenses(TestExpenseCommon):
             'name': 'Cash Basis Tax Transition Account',
             'account_type': 'asset_current',
             'code': '131001',
+            'reconcile': True,
         })
         caba_tax = self.env['account.tax'].create({
             'name': 'Cash Basis Tax',
@@ -1527,47 +932,166 @@ class TestExpenses(TestExpenseCommon):
             ]
         })
 
-        expense_sheet = self.env['hr.expense.sheet'].create({
-            'name': 'Company Cash Basis Expense Report',
-            'employee_id': self.expense_employee.id,
+        expense = self.create_expenses({
             'payment_mode': 'company_account',
-            'state': 'approve',
-            'expense_line_ids': [Command.create({
-                'name': 'Company Cash Basis Expense',
-                'product_id': self.product_c.id,
-                'payment_mode': 'company_account',
-                'total_amount': 20.0,
-                'employee_id': self.expense_employee.id,
-                'tax_ids': [Command.set(caba_tax.ids)],
-            })]
+            'tax_ids': [Command.set(caba_tax.ids)],
         })
-
-        moves = expense_sheet.action_sheet_move_create()
+        expense.action_submit()
+        expense.action_approve()
+        expense.action_post()
+        moves = expense.account_move_id
         tax_lines = moves.line_ids.filtered(lambda line: line.tax_line_id == caba_tax)
         self.assertNotEqual(tax_lines.account_id, caba_transition_account, "The tax should not be on the transition account")
         self.assertEqual(tax_lines.tax_tag_ids, caba_tag, "The tax should still retrieve its tags")
 
-    def test_expense_set_total_amount_to_0(self):
-        """Checks that amount fields are correctly updating when setting total_amount to 0"""
-        expense = self.env['hr.expense'].create({
-            'name': 'Expense with amount',
-            'employee_id': self.expense_employee.id,
-            'product_id': self.product_c.id,
-            'total_amount': 100.0,
-            'tax_ids': self.tax_purchase_a.ids,
+    def test_expense_mandatory_analytic_plan_product_category(self):
+        """
+        Check that when an analytic plan has a mandatory applicability matching
+        product category this is correctly triggered
+        """
+        self.env['account.analytic.applicability'].create({
+            'business_domain': 'expense',
+            'analytic_plan_id': self.analytic_plan.id,
+            'applicability': 'mandatory',
+            'product_categ_id': self.product_a.categ_id.id,
         })
-        expense.total_amount = 0.0
-        self.assertTrue(expense.currency_id.is_zero(expense.amount_tax))
-        self.assertTrue(expense.company_currency_id.is_zero(expense.total_amount_company))
+
+        expense = self.create_expenses({
+            'product_id': self.product_a.id,
+            'quantity': 350.00,
+            'payment_mode': 'company_account',
+        })
+
+        expense.action_submit()
+        with self.assertRaises(ValidationError, msg="One or more lines require a 100% analytic distribution."):
+            expense.with_context(validate_analytic=True).action_approve()
+        expense.analytic_distribution = {self.analytic_account_1.id: 100.00}
+        expense.with_context(validate_analytic=True).action_approve()
+
+    def test_expense_no_stealing_from_employees(self):
+        """
+        Test to check that the company doesn't steal their employee when the commercial_partner_id of the employee partner
+        is the company
+        """
+        self.expense_employee.user_partner_id.parent_id = self.env.company.partner_id
+        self.assertEqual(self.env.company.partner_id, self.expense_employee.user_partner_id.commercial_partner_id)
+
+        expense = self.create_expenses({'employee_id': self.expense_employee.id})
+        expense.action_submit()
+        expense.action_approve()
+        self.post_expenses_with_wizard(expense)
+        move = expense.account_move_id
+
+        self.assertNotEqual(move.commercial_partner_id, self.env.company.partner_id)
+        self.assertEqual(move.partner_id, self.expense_employee.user_partner_id)
+        self.assertEqual(move.commercial_partner_id, self.expense_employee.user_partner_id)
+
+    def test_expense_set_total_amount_to_0(self):
+        """ Checks that amount fields are correctly updating when setting total_amount to 0 """
+        expense = self.create_expenses({
+            'product_id': self.product_c.id,
+            'total_amount_currency': 100.0,
+        })
+        expense.total_amount_currency = 0.0
+        self.assertTrue(expense.currency_id.is_zero(expense.tax_amount))
+        self.assertTrue(expense.company_currency_id.is_zero(expense.total_amount))
 
     def test_expense_set_quantity_to_0(self):
-        """Checks that amount fields except for unit_amount are correctly updating when setting quantity to 0"""
-        expense = self.env['hr.expense'].create({
-            'name': 'Expense with amount',
-            'employee_id': self.expense_employee.id,
+        """ Checks that amount fields except for unit_amount are correctly updating when setting quantity to 0 """
+        expense = self.create_expenses({
             'product_id': self.product_b.id,
             'quantity': 10
         })
         expense.quantity = 0
-        self.assertTrue(expense.currency_id.is_zero(expense.total_amount))
-        self.assertEqual(expense.company_currency_id.compare_amounts(expense.unit_amount, self.product_b.standard_price), 0)
+        self.assertTrue(expense.currency_id.is_zero(expense.total_amount_currency))
+        self.assertEqual(expense.company_currency_id.compare_amounts(expense.price_unit, self.product_b.standard_price), 0)
+
+    def test_employee_expense_in_foreign_currency(self):
+        """ Checks that the currency of the posted entries is always the company currency """
+        expense = self.create_expenses({
+            'payment_mode': 'own_account',
+            'currency_id': self.other_currency.id,
+        })
+        expense.action_submit()
+        expense.action_approve()
+        expense._post_without_wizard()
+        self.assertRecordValues(
+            expense.account_move_id,
+            [{'amount_total': 500.0, 'currency_id': expense.account_move_id.company_currency_id.id}],
+        )
+
+    def test_company_expense_sepa_ct_trust_bypass(self):
+        """
+        Ensure company-paid expenses using SEPA CT post without requiring a trusted recipient bank account.
+        This validates the bypass in account.payment.action_post for expense-originated payments.
+        """
+        self.env.ref('base.EUR').active = True
+        bank_journal = self.company_data['default_journal_bank']
+        bank = self.env['res.bank'].create({
+            'name': 'BNP Paribas',
+            'bic': 'GEBABEBB',
+        })
+        bank_journal.write({
+            'bank_id': bank.id,
+            'bank_acc_number': 'BE48363523682327',
+            'currency_id': self.env.ref('base.EUR').id,
+        })
+
+        sepa_ct_line = bank_journal.outbound_payment_method_line_ids.filtered(lambda l: l.code == 'sepa_ct')
+        if not sepa_ct_line:
+            self.skipTest("SEPA Credit Transfer payment method not available (account_sepa module not installed)")
+
+        expense = self.create_expenses({
+            'name': 'Hotel',
+            'payment_mode': 'company_account',
+            'payment_method_line_id': sepa_ct_line.id,
+            'total_amount_currency': 100.00,
+            'currency_id': self.env.ref('base.EUR').id,
+        })
+
+        expense.action_submit()
+        expense.action_approve()
+        # Should not raise trust validation error despite missing recipient partner bank
+        expense.action_post()
+
+    def test_expense_analytic_vendor_bill_count(self):
+        """
+        Verify that purchase receipts appear when opening a vendor bill via the smart button,
+        and that the vendor bill count matches the records shown.
+        """
+        expense = self.create_expenses([
+            {
+                'name': 'Employee PA 2*800 + 15%',
+                'analytic_distribution': {self.analytic_account_1.id: 100},
+            }])
+        expense.action_submit()
+        expense.action_approve()
+        self.post_expenses_with_wizard(expense)
+
+        self.assertEqual('in_receipt', expense.account_move_id.move_type)
+
+        vendor_bill_view = self.analytic_account_1.action_view_vendor_bill()
+        self.assertTrue(expense.account_move_id.id in vendor_bill_view['domain'][0][2])
+
+    def test_expense_paid_company_no_autobalancing_line(self):
+        """
+        Test that when creating the move associated with an expense paid by company, no autobalancing line
+        appears when an analytic is added to a move line.
+        """
+        expense = self.create_expenses({
+            'name': 'Expense for John Smith',
+            'employee_id': self.expense_employee.id,
+            'total_amount_currency': 100.0,
+            'product_id': self.product_c.id,
+            'payment_mode': 'company_account',
+            'company_id': self.company_data['company'].id,
+            'tax_ids': [self.tax_sale_a.id],
+            })
+
+        expense.action_submit()
+        expense.action_approve()
+        expense.analytic_distribution = {self.analytic_account_1.id: 100.00}
+        expense.action_post()
+
+        # Check that there is no fourth autobalancing line on the account move
+        self.assertEqual(expense.account_move_id.line_ids.mapped('balance'), [86.96, 13.04, -100.0])

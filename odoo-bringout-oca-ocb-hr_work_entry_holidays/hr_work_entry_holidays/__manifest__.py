@@ -14,14 +14,16 @@ Manage Time Off in Payslips
 
 This application allows you to integrate time off in payslips.
     """,
-    'depends': ['hr_holidays', 'hr_work_entry_contract'],
+    'depends': ['hr_holidays', 'hr_work_entry'],
     'data': [
-        'data/hr_payroll_holidays_data.xml',
+        'data/hr_leave_type_data.xml',
         'views/hr_leave_views.xml',
+        'views/hr_leave_type_views.xml',
     ],
     'demo': ['data/hr_payroll_holidays_demo.xml'],
     'installable': True,
     'auto_install': True,
     'post_init_hook': '_validate_existing_work_entry',
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }
