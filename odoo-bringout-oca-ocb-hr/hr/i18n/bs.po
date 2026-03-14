@@ -2030,7 +2030,7 @@ msgstr "Moj odjel"
 #: code:addons/hr/static/src/user_menu/my_profile.js
 #, python-format
 msgid "My Profile"
-msgstr "Master ili inženjer informatike"
+msgstr "Moj profil"
 
 # taken from hr.po
 #. module: hr
