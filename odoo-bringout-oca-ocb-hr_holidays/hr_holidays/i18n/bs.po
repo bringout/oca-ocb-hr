@@ -2786,9 +2786,7 @@ msgstr "Treba dodatno odobrenje"
 #: code:addons/hr_holidays/static/src/views/calendar/calendar_controller.xml
 #, python-format
 msgid "New"
-msgstr ""
-"Maksimalno odsustvo dozvoljeno - Odsustva već uzeta - Odsustva čekaju "
-"odobravanje"
+msgstr "Novo"
 
 # taken from hr.po
 #. module: hr_holidays
