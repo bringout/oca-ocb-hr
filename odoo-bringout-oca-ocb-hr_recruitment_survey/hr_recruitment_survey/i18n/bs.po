@@ -17,48 +17,61 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: hr_recruitment_survey
 #: model:mail.template,body_html:hr_recruitment_survey.mail_template_applicant_interview_invite
 msgid ""
 "<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"        Dear <t t-out=\"object.partner_id.name or 'applicant'\">[applicant "
-"name]</t><br/><br/>\n"
+"        Dear <t t-out=\"object.partner_id.name or 'applicant'\">[applicant name]</t><br/><br/>\n"
 "        <t>\n"
-"            You've progressed through the recruitment process and we would "
-"like you to answer some questions.\n"
+"            You've progressed through the recruitment process and we would like you to answer some questions.\n"
 "        </t>\n"
 "        </p><div style=\"margin: 16px 0px 16px 0px;\">\n"
-"            <a t-att-href=\"(object.get_start_url())\" t-attf-"
-"style=\"background-color: {{user.company_id.email_secondary_color or "
-"'#875A7B'}}; padding: 8px 16px 8px 16px; text-decoration: none; color: "
-"{{user.company_id.email_primary_color or '#FFFFFF'}}; border-radius: 5px; "
-"font-size:13px;\">\n"
+"            <a t-att-href=\"(object.get_start_url())\" t-attf-style=\"background-color: {{user.company_id.email_secondary_color or '#875A7B'}}; padding: 8px 16px 8px 16px; text-decoration: none; color: {{user.company_id.email_primary_color or '#FFFFFF'}}; border-radius: 5px; font-size:13px;\">\n"
 "                <t>\n"
 "                    Start the written interview\n"
 "                </t>\n"
 "            </a>\n"
 "        </div>\n"
 "        <t t-if=\"object.deadline\">\n"
-"            Please answer the interview for <t t-"
-"out=\"format_date(object.deadline)\">[deadline date]</t>.<br/><br/>\n"
+"            Please answer the interview for <t t-out=\"format_date(object.deadline)\">[deadline date]</t>.<br/><br/>\n"
 "        </t>\n"
 "        <t>\n"
-"            We wish you good luck! Thank you in advance for your "
-"participation.\n"
+"            We wish you good luck! Thank you in advance for your participation.\n"
 "        </t>\n"
 "    \n"
 "</div>\n"
 "            "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Poštovani/a <t t-out=\"object.partner_id.name or 'applicant'\">[applicant name]</t><br/><br/>\n"
+"        <t>\n"
+"            Napredovali ste kroz proces zapošljavanja i željeli bismo da odgovorite na nekoliko pitanja.\n"
+"        </t>\n"
+"        </p><div style=\"margin: 16px 0px 16px 0px;\">\n"
+"            <a t-att-href=\"(object.get_start_url())\" t-attf-style=\"background-color: {{user.company_id.email_secondary_color or '#875A7B'}}; padding: 8px 16px 8px 16px; text-decoration: none; color: {{user.company_id.email_primary_color or '#FFFFFF'}}; border-radius: 5px; font-size:13px;\">\n"
+"                <t>\n"
+"                    Započni pisani intervju\n"
+"                </t>\n"
+"            </a>\n"
+"        </div>\n"
+"        <t t-if=\"object.deadline\">\n"
+"            Molimo odgovorite na intervju do <t t-out=\"format_date(object.deadline)\">[deadline date]</t>.<br/><br/>\n"
+"        </t>\n"
+"        <t>\n"
+"            Želimo vam puno sreće! Unaprijed hvala na učešću.\n"
+"        </t>\n"
+"    \n"
+"</div>\n"
+"            "
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.hr_recruitment_survey_button_form_view
 msgid "<i class=\"oi oi-fw oi-arrow-right\"/>Go to Recruitment"
-msgstr ""
+msgstr "<i class=\"oi oi-fw oi-arrow-right\"/>Idi na Zapošljavanje"
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.hr_applicant_view_form_inherit
@@ -66,12 +79,16 @@ msgid ""
 "<span class=\"o_stat_text\">Consult</span>\n"
 "                        <span class=\"o_stat_text\">Interview</span>"
 msgstr ""
+"<span class=\"o_stat_text\">Konsultiraj</span>\n"
+"                        <span class=\"o_stat_text\">Intervju</span>"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1
 msgid "About you"
-msgstr ""
+msgstr "Koji je vaš pol?"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q7
 msgid "Activities"
@@ -80,47 +97,47 @@ msgstr "Aktivnosti"
 #. module: hr_recruitment_survey
 #: model_terms:ir.actions.act_window,help:hr_recruitment_survey.survey_survey_action_recruitment
 msgid "Add a new survey"
-msgstr ""
+msgstr "Dodaj novu anketu"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:ir.model,name:hr_recruitment_survey.model_hr_applicant
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_invite__applicant_id
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_user_input__applicant_id
 msgid "Applicant"
-msgstr ""
+msgstr "Kandidat"
 
 #. module: hr_recruitment_survey
 #: model:mail.template,name:hr_recruitment_survey.mail_template_applicant_interview_invite
 msgid "Applicant: Interview"
-msgstr ""
+msgstr "Kandidat: Intervju"
 
 #. module: hr_recruitment_survey
 #: model:ir.model,website_form_label:hr_recruitment_survey.model_hr_applicant
 msgid "Apply for a Job"
-msgstr ""
+msgstr "Prijavi se za posao"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:ir.model.fields,help:hr_recruitment_survey.field_hr_applicant__survey_id
-#: model:ir.model.fields,help:hr_recruitment_survey.field_hr_job__survey_id
 msgid ""
-"Choose an interview form for this job position and you will be able to print/"
-"answer this interview from all applicants who apply for this job"
+"Choose an interview form for this job position and you will be able to "
+"print/answer this interview from all applicants who apply for this job"
 msgstr ""
+"Odaberite obrazac razgovora za posao za ovo radno mjesto i moći ćete biti u "
+"mogućnosti ispisati / odgovoriti razgovor sa svim kandidatima koji se "
+"prijavljuju za ovaj posao"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.view_hr_job_kanban_inherit
 msgid "Display Interview Form"
-msgstr ""
+msgstr "Prikaz obrasca razgovora za posao"
 
 #. module: hr_recruitment_survey
 #: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_applicant__display_name
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_job__display_name
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_invite__display_name
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_survey__display_name
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_user_input__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q4
 msgid "Education"
@@ -129,77 +146,74 @@ msgstr "Edukacija"
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q2
 msgid "From which university did or will you graduate?"
-msgstr ""
+msgstr "Sa kojeg univerziteta ste diplomirali ili ćete diplomirati?"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row2
 msgid "Getting on with colleagues"
-msgstr ""
+msgstr "Suradnja sa kolegama"
 
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row8
 msgid "Getting perks such as free parking, gym passes"
-msgstr ""
+msgstr "Dobiti pogodnosti poput besplatnog parkinga, članarine za teretanu"
 
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row1
 msgid "Having a good pay"
-msgstr ""
+msgstr "Odgovor koji ste uneli ima neispravan format."
 
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row3
 msgid "Having a nice office environment"
-msgstr ""
+msgstr "Imati lijepo uredsko okruženje"
 
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row7
 msgid "Having freebies such as tea, coffee and stationery"
-msgstr ""
+msgstr "Imati besplatne stvari poput čaja, kafe i kancelarijske opreme"
 
 #. module: hr_recruitment_survey
 #: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_applicant__id
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_job__id
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_invite__id
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_survey__id
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_user_input__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_col2
 msgid "Important"
-msgstr ""
+msgstr "Važno"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_job__survey_id
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.view_hr_job_kanban_inherit
 msgid "Interview Form"
-msgstr ""
+msgstr "obrazac razgovora za posao"
 
 #. module: hr_recruitment_survey
 #. odoo-python
 #: code:addons/hr_recruitment_survey/models/hr_job.py:0
 msgid "Interview Form: %s"
-msgstr ""
+msgstr "Obrazac intervjua: %s"
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.res_config_settings_view_form
 msgid "Interview Survey"
-msgstr ""
+msgstr "Odgovori na pitanje vezano za posao"
 
 #. module: hr_recruitment_survey
 #: model:ir.actions.act_window,name:hr_recruitment_survey.survey_survey_action_recruitment
-#: model:ir.ui.menu,name:hr_recruitment_survey.menu_hr_recruitment_config_surveys
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.view_hr_job_kanban_inherit
 msgid "Interviews"
-msgstr ""
+msgstr "Intervjui"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:ir.model,name:hr_recruitment_survey.model_hr_job
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_survey__hr_job_ids
 msgid "Job Position"
 msgstr "Radno mjesto"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q6
 msgid "Knowledge"
@@ -208,27 +222,29 @@ msgstr "Znanje"
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row6
 msgid "Management quality"
-msgstr ""
+msgstr "Kvalitet upravljanja"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_col1
 msgid "Not important"
-msgstr ""
+msgstr "Nije važno"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row5
 msgid "Office location"
-msgstr ""
+msgstr "Lokacija ureda"
 
 #. module: hr_recruitment_survey
 #: model:mail.template,subject:hr_recruitment_survey.mail_template_applicant_interview_invite
 msgid "Participate to {{ object.survey_id.display_name }} interview"
-msgstr ""
+msgstr "Učestvujte u intervjuu {{ object.survey_id.display_name }}"
 
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q5
 msgid "Past work experiences"
-msgstr ""
+msgstr "Prošla radna iskustva"
 
 #. module: hr_recruitment_survey
 #: model_terms:survey.survey,description:hr_recruitment_survey.survey_recruitment_form
@@ -236,134 +252,143 @@ msgid ""
 "Please answer those questions to help recruitment officers to preprocess "
 "your application."
 msgstr ""
+"Molimo odgovorite na ova pitanja da pomognete službenicima regrutacije da "
+"prethodno obradi vašu prijavu."
 
 #. module: hr_recruitment_survey
 #: model_terms:survey.question,description:hr_recruitment_survey.survey_recruitment_form_p1
 msgid ""
-"Please fill information about you: who you are, what are your education, "
-"experience, and activities.\n"
+"Please fill information about you: who you are, what are your education, experience, and activities.\n"
 "    It will help us managing your application."
 msgstr ""
+"Molimo popunite informacije o sebi: ko ste, šta je vaše obrazovanje, iskustvo i aktivnosti.\n"
+"    To će nam pomoći upravljati vašom prijavom."
 
 #. module: hr_recruitment_survey
 #. odoo-python
 #: code:addons/hr_recruitment_survey/models/hr_applicant.py:0
 msgid "Please provide an applicant name."
-msgstr ""
+msgstr "Molimo unesite ime kandidata."
 
 #. module: hr_recruitment_survey
 #: model_terms:survey.question,description:hr_recruitment_survey.survey_recruitment_form_p1_q4
-#: model_terms:survey.question,description:hr_recruitment_survey.survey_recruitment_form_p1_q5
 msgid ""
 "Please summarize your education history: schools, location, diplomas, ..."
 msgstr ""
+"Molimo sažmite vašu obrazovnu historiju: škole, lokacija, diplome, ..."
 
 #. module: hr_recruitment_survey
 #: model_terms:survey.question,description:hr_recruitment_survey.survey_recruitment_form_p1_q7
 msgid ""
 "Please tell us a bit more about yourself: what are your main activities, ..."
 msgstr ""
+"Molimo recite nam nešto više o sebi: koje su vaše glavne aktivnosti, ..."
 
 #. module: hr_recruitment_survey
 #: model:ir.model.fields.selection,name:hr_recruitment_survey.selection__survey_survey__survey_type__recruitment
 msgid "Recruitment"
-msgstr ""
+msgstr "Zapošljavanje"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.survey,title:hr_recruitment_survey.survey_recruitment_form
 msgid "Recruitment Form"
-msgstr ""
+msgstr "Obrazac zapošljavanja"
 
 #. module: hr_recruitment_survey
 #: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_applicant__response_ids
 msgid "Responses"
-msgstr ""
+msgstr "Odgovori"
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.hr_applicant_view_form_inherit
 msgid "See interview report"
-msgstr ""
+msgstr "Vidite izvještaj intervjua"
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.hr_applicant_view_form_inherit
 msgid "Send Interview"
-msgstr ""
+msgstr "Pošalji intervju"
 
 #. module: hr_recruitment_survey
 #. odoo-python
 #: code:addons/hr_recruitment_survey/models/hr_applicant.py:0
 msgid "Send an interview"
-msgstr ""
+msgstr "Pošalji intervju"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #. odoo-python
 #: code:addons/hr_recruitment_survey/models/hr_job.py:0
-#: model:ir.model,name:hr_recruitment_survey.model_survey_survey
-#: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_applicant__survey_id
+#, python-format
 msgid "Survey"
 msgstr "Upitnik"
 
 #. module: hr_recruitment_survey
 #: model:ir.model,name:hr_recruitment_survey.model_survey_invite
 msgid "Survey Invitation Wizard"
-msgstr ""
+msgstr "Čarobnjak pozivnice za anketu"
 
 #. module: hr_recruitment_survey
 #: model:ir.model.fields,field_description:hr_recruitment_survey.field_survey_survey__survey_type
 msgid "Survey Type"
-msgstr ""
+msgstr "Tip ankete"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:ir.model,name:hr_recruitment_survey.model_survey_user_input
 msgid "Survey User Input"
-msgstr ""
+msgstr "Anketa koju popunjava korisnik"
 
 #. module: hr_recruitment_survey
 #: model_terms:survey.survey,description_done:hr_recruitment_survey.survey_recruitment_form
 msgid "Thank you for answering this survey. We will come back to you soon."
-msgstr ""
+msgstr "Hvala vam što ste odgovorili na ovu anketu. Javit ćemo vam se uskoro."
 
 #. module: hr_recruitment_survey
 #. odoo-python
 #: code:addons/hr_recruitment_survey/models/survey_user_input.py:0
+#, python-format
 msgid "The applicant \"%s\" has finished the survey."
 msgstr ""
 
 #. module: hr_recruitment_survey
 #. odoo-python
 #: code:addons/hr_recruitment_survey/wizard/survey_invite.py:0
+#, python-format
 msgid "The survey %(survey_link)s has been sent to %(partner_link)s"
-msgstr ""
+msgstr "Anketa %(survey_link)s je poslana %(partner_link)s"
 
+# taken from hr.po
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_col3
 msgid "Very important"
-msgstr ""
+msgstr "Vrlo važno"
 
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q3
 msgid "Were you referred by an employee?"
-msgstr ""
+msgstr "Ocenite važnost"
 
 #. module: hr_recruitment_survey
 #: model_terms:survey.question,description:hr_recruitment_survey.survey_recruitment_form_p1_q6
 msgid "What are your main knowledge regarding the job you are applying to?"
-msgstr ""
+msgstr "Koja su vaša glavna znanja u vezi s poslom za koji se prijavljujete?"
 
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q8
 msgid "What is important for you?"
-msgstr ""
+msgstr "Šta vam je važno?"
 
 #. module: hr_recruitment_survey
 #: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q1
 msgid "Which country are you from?"
-msgstr ""
+msgstr "Iz koje države dolazite?"
 
 #. module: hr_recruitment_survey
 #: model:survey.question.answer,value:hr_recruitment_survey.survey_recruitment_form_p1_q8_row4
 msgid "Working with state of the art technology"
-msgstr ""
+msgstr "Raditi sa najsavremenijom tehnologijom"
 
 #. module: hr_recruitment_survey
 #: model_terms:ir.actions.act_window,help:hr_recruitment_survey.survey_survey_action_recruitment
@@ -371,3 +396,54 @@ msgid ""
 "You can create surveys used for recruitments. Design easily your interview,\n"
 "                send invitations and analyze answers."
 msgstr ""
+"Možete kreirati ankete koje se koriste za zapošljavanje. Lako dizajnirajte intervju,\n"
+"                šaljite pozivnice i analizirajte odgovore."
+
+#. module: hr_recruitment_survey
+#: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q2
+msgid "From which university did or will you graduate ?"
+msgstr "Iskustvo"
+
+#. module: hr_recruitment_survey
+#: code:addons/hr_recruitment_survey/models/hr_job.py:0
+#, python-format
+msgid "Interview Form : %s"
+msgstr ""
+
+# taken from hr.po
+#. module: hr_recruitment_survey
+#: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_applicant__response_id
+msgid "Response"
+msgstr "Odgovor"
+
+#. module: hr_recruitment_survey
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_survey.hr_applicant_view_form_inherit
+msgid "SEND INTERVIEW"
+msgstr "POŠALJITE INTERVJU"
+
+#. module: hr_recruitment_survey
+#: model:ir.model.fields,field_description:hr_recruitment_survey.field_hr_applicant__response_state
+msgid "Status"
+msgstr ""
+
+#. module: hr_recruitment_survey
+#: model_terms:survey.question,description:hr_recruitment_survey.survey_recruitment_form_p1_q6
+msgid "What are your main knowledge regarding the job you are applying to ?"
+msgstr ""
+"Koja su vaša glavna znanja u vezi sa poslom za koji se prijavljujete ?"
+
+#. module: hr_recruitment_survey
+#: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q8
+msgid "What is important for you ?"
+msgstr "Šta je važno za vas ?"
+
+#. module: hr_recruitment_survey
+#: model:survey.question,title:hr_recruitment_survey.survey_recruitment_form_p1_q1
+msgid "Which country are you from ?"
+msgstr "Kojoj starosnoj grupi pripadate?"
+
+#. module: hr_recruitment_survey
+#: code:addons/hr_recruitment_survey/models/hr_applicant.py:0
+#, python-format
+msgid "You must define a Contact Name for this applicant."
+msgstr "Morate definirati ime kontakta za ovog podnositelja prijave."

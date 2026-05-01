@@ -16,244 +16,246 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.actions.act_window,help:hr_gamification.goals_menu_groupby_action2
 msgid ""
 "A goal is defined by a user and a goal type.\n"
 "                    Goals can be created automatically by using challenges."
 msgstr ""
+"Cilj je definiran korisnikom i tipom cilja.\n"
+"Ciljevi mogu biti kreirani automatski korištenjem izazova."
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,help:hr_gamification.field_hr_employee__badge_ids
 msgid ""
 "All employee badges, linked to the employee either directly or through the "
 "user"
-msgstr ""
+msgstr "Sve značke dodijeljene zaposleniku, izravno ili preko korisnika"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Are you sure you want to delete this granted badge?"
-msgstr ""
+msgstr "Jeste li sigurni da želite obrisati ovaj dodijeljeni bedž?"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.actions.act_window,help:hr_gamification.challenge_list_action2
 msgid ""
 "Assign a list of goals to chosen users to evaluate them.\n"
-"                    The challenge can use a period (weekly, monthly...) for "
-"automatic creation of goals.\n"
-"                    The goals are created for the specified users or member "
-"of the group."
+"                    The challenge can use a period (weekly, monthly...) for automatic creation of goals.\n"
+"                    The goals are created for the specified users or member of the group."
 msgstr ""
+"Dodijelite listu ciljeva odabranim korisnicima da ih ocijenite. Izazovi se mogu koristiti u periodu (tjedno, mjesečno..) za automatsko kreiranje ciljeva. \n"
+"Ciljevi se kreiranju za odabrane korisnike ili članove grupa."
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_public__badge_ids
 msgid "Badge"
-msgstr ""
+msgstr "Bedž"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Badge Name"
-msgstr ""
+msgstr "Naziv bedža"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_res_users__badge_ids
-#: model:ir.ui.menu,name:hr_gamification.gamification_badge_menu_hr
-#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
-#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
 msgid "Badges"
-msgstr ""
+msgstr "Značke"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,help:hr_gamification.field_hr_employee__direct_badge_ids
 msgid "Badges directly linked to the employee"
-msgstr ""
+msgstr "Značke izravno povezane sa zaposlenikom"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.actions.act_window,name:hr_gamification.challenge_list_action2
-#: model:ir.ui.menu,name:hr_gamification.gamification_challenge_menu_hr
-#: model:ir.ui.menu,name:hr_gamification.menu_hr_gamification
 msgid "Challenges"
-msgstr ""
+msgstr "Izazovi"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.actions.act_window,help:hr_gamification.challenge_list_action2
 msgid "Create a new challenge"
-msgstr ""
+msgstr "Kreiraj novi izazov"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.actions.act_window,help:hr_gamification.goals_menu_groupby_action2
 msgid "Create a new goal"
-msgstr ""
+msgstr "Kreiraj novi cilj"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Delete"
-msgstr ""
+msgstr "Obriši"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Describe what they did and why it matters (will be public)"
-msgstr ""
+msgstr "Opišite što su učinili i zašto je to važno (biti će javno vidljivo)"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__direct_badge_ids
 msgid "Direct Badge"
-msgstr ""
+msgstr "Izravna značka"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Discard"
-msgstr ""
+msgstr "Odbaci"
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge__display_name
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user__display_name
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_wizard__display_name
-#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_public__display_name
-#: model:ir.model.fields,field_description:hr_gamification.field_res_users__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model,name:hr_gamification.model_hr_employee
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user__employee_id
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_wizard__employee_id
 msgid "Employee"
 msgstr "Zaposleni"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__badge_ids
 msgid "Employee Badges"
-msgstr ""
+msgstr "Značke djelatnika"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__goal_ids
 msgid "Employee HR Goals"
-msgstr ""
+msgstr "Ciljevi djelatnika"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model,name:hr_gamification.model_gamification_badge
 msgid "Gamification Badge"
-msgstr ""
+msgstr "Značka izazova"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model,name:hr_gamification.model_gamification_badge_user
 msgid "Gamification User Badge"
-msgstr ""
+msgstr "Korisnička značka igre"
 
 #. module: hr_gamification
 #: model:ir.model,name:hr_gamification.model_gamification_badge_user_wizard
 msgid "Gamification User Badge Wizard"
-msgstr ""
+msgstr "Čarobnjak značke korisnika gamifikacije"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_res_users__goal_ids
 msgid "Goal"
-msgstr ""
+msgstr "Cilj"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.actions.act_window,name:hr_gamification.goals_menu_groupby_action2
-#: model:ir.ui.menu,name:hr_gamification.gamification_goal_menu_hr
 msgid "Goals History"
-msgstr ""
+msgstr "Povijest ciljeva"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
-#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
 msgid "Grant a Badge"
-msgstr ""
+msgstr "Nagradi značkom"
 
 #. module: hr_gamification
 #: model:ir.actions.act_window,name:hr_gamification.action_reward_wizard
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
 msgid "Grant a badge"
-msgstr ""
+msgstr "Dodijeli bedž"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.hr_badge_form_view
 msgid "Granted"
-msgstr ""
+msgstr "Dodjeljeno"
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge__granted_employees_count
 msgid "Granted Employees Count"
-msgstr ""
+msgstr "Broj odobrenih radnika"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Granted by"
-msgstr ""
+msgstr "Dodijelio"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__has_badges
-#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_public__has_badges
 msgid "Has Badges"
-msgstr ""
+msgstr "Ima značke"
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user__has_edit_delete_access
 msgid "Has Edit Delete Access"
-msgstr ""
+msgstr "Ima pristup za uređivanje i brisanje"
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge__id
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user__id
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_wizard__id
-#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_public__id
-#: model:ir.model.fields,field_description:hr_gamification.field_res_users__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_gamification
 #: model:ir.model,name:hr_gamification.model_hr_employee_public
 msgid "Public Employee"
-msgstr ""
+msgstr "Javni zaposleni"
 
 #. module: hr_gamification
 #. odoo-python
 #: code:addons/hr_gamification/models/gamification.py:0
 msgid "Received Badge"
-msgstr ""
+msgstr "Primljeni bedž"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
 msgid "Reward Employee with"
-msgstr ""
+msgstr "Nagradite djelatnika sa"
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Save"
-msgstr ""
+msgstr "Sačuvaj"
 
+# taken from hr.po
 #. module: hr_gamification
 #. odoo-python
 #: code:addons/hr_gamification/models/gamification.py:0
+#, python-format
 msgid "The selected employee does not correspond to the selected user."
-msgstr ""
+msgstr "Odabrani djelatnik ne odgovara odabranom korisniku."
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
-#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
 msgid ""
 "There are no badges for this employee.<br/>\n"
 "                                It's time to allow the first one."
 msgstr ""
+"Nema bedževa za ovog zaposlenog.<br/>\n"
+"                                Vrijeme je za dodjelu prvog."
 
+# taken from hr.po
 #. module: hr_gamification
 #: model:ir.model,name:hr_gamification.model_res_users
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_wizard__user_id
 msgid "User"
 msgstr "Korisnik"
 
@@ -261,23 +263,83 @@ msgstr "Korisnik"
 #. odoo-python
 #: code:addons/hr_gamification/models/gamification.py:0
 msgid "View Your Badge"
-msgstr ""
+msgstr "Pregledajte svoj bedž"
 
+# taken from hr.po
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
 msgid "What are you thankful for?"
-msgstr ""
+msgstr "Za što ste zahvalni?"
 
+# taken from hr.po
 #. module: hr_gamification
 #. odoo-python
 #: code:addons/hr_gamification/wizard/gamification_badge_user_wizard.py:0
+#, python-format
 msgid "You can not send a badge to yourself."
-msgstr ""
+msgstr "Ne možete poslati značku sami sebi."
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "on"
+msgstr "dana"
+
+# taken from hr.po
+#. module: hr_gamification
+#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
+msgid ""
+"Badges are rewards of good work. Give them to people you believe deserve it."
 msgstr ""
+"Značke su nagrada za dobar posao. Dodijelite ih ljudima koji ih zaslužuju."
+
+# taken from hr.po
+#. module: hr_gamification
+#: model:ir.model,name:hr_gamification.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "Obični zaposlenik"
+
+# taken from hr.po
+#. module: hr_gamification
+#: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
+msgid "Cancel"
+msgstr "Otkaži"
+
+# taken from hr.po
+#. module: hr_gamification
+#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
+msgid "Grant this employee his first badge"
+msgstr "Dodijelite ovom zaposleniku njegovu prvu značku"
+
+# taken from hr.po
+#. module: hr_gamification
+#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
+msgid "Received Badges"
+msgstr "Primljene značke"
+
+# taken from hr.po
+#. module: hr_gamification
+#: model:ir.model.fields,help:hr_gamification.field_gamification_badge_user_wizard__user_id
+msgid "Related user name for the resource to manage its access."
+msgstr "Povezano korisničko ime za resurs da upravlja njegovim pristupom."
+
+# taken from hr.po
+#. module: hr_gamification
+#: model:ir.actions.act_window,name:hr_gamification.action_reward_wizard
+msgid "Reward Employee"
+msgstr "Nagradite djelatnika"
+
+# taken from hr.po
+#. module: hr_gamification
+#: code:addons/hr_gamification/wizard/gamification_badge_user_wizard.py:0
+#, python-format
+msgid "You can send badges only to employees linked to a user."
+msgstr "Značke možete poslati samo djelatnicima povezanima sa korisnicima."
+
+# taken from hr.po
+#. module: hr_gamification
+#: model_terms:ir.ui.view,arch_db:hr_gamification.hr_employee_public_view_form
+msgid "to reward this employee for a good action"
+msgstr "da nagradite ovog djelatnika za dobru akciju"
 
 #~ msgid "Cancel"
 #~ msgstr "Otkaži"

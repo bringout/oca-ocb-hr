@@ -17,16 +17,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_view_form_inherit_org_chart
 msgid ""
-"<i class=\"fa fa-share-alt fa-rotate-90 ms-1 mt-1\" role=\"img\" aria-"
-"label=\"Full Chart\"/>\n"
+"<i class=\"fa fa-share-alt fa-rotate-90 ms-1 mt-1\" role=\"img\" aria-label=\"Full Chart\"/>\n"
 "                        Full Chart"
 msgstr ""
+"<i class=\"fa fa-share-alt fa-rotate-90 ms-1 mt-1\" role=\"img\" aria-label=\"Full Chart\"/>\n"
+"                        Cijeli organigram"
 
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_public_view_form_inherit_org_chart
@@ -34,6 +34,8 @@ msgid ""
 "<i class=\"fa fa-sitemap me-1 mt-1\"/>\n"
 "                                <span class=\"fw-bolder\">Zoom</span>"
 msgstr ""
+"<i class=\"fa fa-sitemap me-1 mt-1\"/>\n"
+"                                <span class=\"fw-bolder\">Uvećaj</span>"
 
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_public_view_form_inherit_org_chart
@@ -41,52 +43,54 @@ msgid ""
 "<span class=\"text-uppercase fw-bolder\" style=\"font-size: "
 "13px\">Organization Chart</span>"
 msgstr ""
+"<span class=\"text-uppercase fw-bolder\" style=\"font-size: "
+"13px\">Organizaciona šema</span>"
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__child_all_count
 msgid "Child All Count"
-msgstr ""
+msgstr "Ukupan broj podrejenih"
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__child_count
 msgid "Child Count"
-msgstr ""
+msgstr "Broj podrejenih"
 
 #. module: hr_org_chart
 #: model_terms:ir.actions.act_window,help:hr_org_chart.action_hr_employee_org_chart
-#: model_terms:ir.actions.act_window,help:hr_org_chart.action_hr_employee_public_org_chart
 msgid "Create an employee."
-msgstr ""
+msgstr "Kreiraj zaposlenog."
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__department_color
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__department_color
 msgid "Department Color"
-msgstr ""
+msgstr "Boja odjela"
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__child_count
 msgid "Direct Subordinates Count"
-msgstr ""
+msgstr "Broj direktnih podrejenih"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model.fields,help:hr_org_chart.field_hr_employee__subordinate_ids
-#: model:ir.model.fields,help:hr_org_chart.field_hr_employee_public__subordinate_ids
 msgid "Direct and indirect subordinates"
-msgstr ""
+msgstr "Direktni i indirektni podređeni"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
 msgid "Direct subordinates"
-msgstr ""
+msgstr "Direktno podređeni"
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model,name:hr_org_chart.model_hr_employee
 msgid "Employee"
@@ -95,86 +99,95 @@ msgstr "Zaposleni"
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_department_hierarchy_view
 msgid "Employees"
-msgstr ""
+msgstr "Zaposleni"
 
 #. module: hr_org_chart
 #: model_terms:ir.actions.act_window,help:hr_org_chart.action_hr_employee_org_chart
-#: model_terms:ir.actions.act_window,help:hr_org_chart.action_hr_employee_public_org_chart
 msgid "Find all the information on employees."
-msgstr ""
+msgstr "Pronađi sve informacije o zaposlenima."
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__child_all_count
 msgid "Indirect Subordinates Count"
-msgstr ""
+msgstr "Broj indirektnih podređenih"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
 msgid "Indirect subordinates"
 msgstr ""
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__is_subordinate
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__is_subordinate
 msgid "Is Subordinate"
-msgstr ""
+msgstr "Je podrejeni"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
 msgid "More managers"
-msgstr ""
+msgstr "Više voditelja"
 
 #. module: hr_org_chart
 #: model:ir.actions.act_window,name:hr_org_chart.action_hr_employee_org_chart
-#: model:ir.actions.act_window,name:hr_org_chart.action_hr_employee_public_org_chart
 msgid "Org Chart"
-msgstr ""
+msgstr "Organigram"
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_view_form_inherit_org_chart
 msgid "Organization Chart"
 msgstr ""
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model,name:hr_org_chart.model_hr_employee_public
 msgid "Public Employee"
-msgstr ""
+msgstr "Javni djelatnik"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
 msgid "See All"
-msgstr ""
+msgstr "Vidi sve"
 
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
 msgid "Set a manager or reports to show in org chart."
-msgstr ""
+msgstr "Postavite menadžera ili podređene za prikaz u organigramu."
 
+# taken from hr.po
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__subordinate_ids
-#: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee_public__subordinate_ids
 msgid "Subordinates"
-msgstr ""
+msgstr "Podređeni djelatnici"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hooks.js:0
+#, python-format
 msgid "Team"
-msgstr ""
+msgstr "Tim"
 
+# taken from hr.po
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
 msgid "Total"
 msgstr "Ukupno"
 
@@ -182,10 +195,44 @@ msgstr "Ukupno"
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
 msgid "View employee"
-msgstr ""
+msgstr "Pregled zaposlenog"
 
 #. module: hr_org_chart
 #. odoo-javascript
 #: code:addons/hr_org_chart/static/src/views/hr_employee_hierarchy/hr_employee_hierarchy_card.xml:0
 msgid "people"
-msgstr ""
+msgstr "osoba"
+
+# taken from hr.po
+#. module: hr_org_chart
+#: model:ir.model,name:hr_org_chart.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "Obični zaposlenik"
+
+# taken from hr.po
+#. module: hr_org_chart
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
+msgid "In order to get an organigram, set a manager and save the record."
+msgstr "kako bi dobili organigram, postavite voditelja i snimite zapis."
+
+# taken from hr.po
+#. module: hr_org_chart
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
+msgid "No hierarchy position."
+msgstr "Nema strukturnu poziciju"
+
+# taken from hr.po
+#. module: hr_org_chart
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
+msgid "Redirect"
+msgstr "Preusmjeri"
+
+# taken from hr.po
+#. module: hr_org_chart
+#: code:addons/hr_org_chart/static/src/fields/hr_org_chart.xml:0
+#, python-format
+msgid "This employee has no manager or subordinate."
+msgstr "Ovaj djelatnik nema voditelja ili podređenih."

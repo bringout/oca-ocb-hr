@@ -15,188 +15,173 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave_type.py:0
+#, python-format
 msgid "%s hours available"
 msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_accrual_level
 msgid "Accrual Plan Level"
-msgstr ""
+msgstr "Nivo plana obračuna"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__leave_hours
 msgid "Approved Time Off"
-msgstr ""
+msgstr "Odobreno odsustvo"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
 msgid "Approved Time Offs"
-msgstr ""
+msgstr "Odobrena odsustva"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Archived Employees"
-msgstr ""
+msgstr "Arhivirani zaposleni"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_attendance_overtime_line
 msgid "Attendance Overtime Line"
-msgstr ""
+msgstr "Linija prekovremenih prisustva"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
 msgid "Attendance Records"
-msgstr ""
+msgstr "Zapisi o prisustvu"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_attendance_report
 msgid "Attendance and Leave Analysis Report"
-msgstr ""
+msgstr "Izvještaj analize prisustva i odsustava"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__attendance_ids
 msgid "Attendances"
-msgstr ""
+msgstr "Prisustva"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
+#, python-format
 msgid "Available"
-msgstr ""
+msgstr "Dostupno"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__compensable_as_leave
 msgid "Compensable as Time Off"
-msgstr ""
+msgstr "Nadoknadivo kao odsustvo"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__date
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
+#, python-format
 msgid "Days"
-msgstr ""
+msgstr "Dani/a"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_employee_view_form_inherit
 msgid "Deduct Extra Hours"
-msgstr ""
+msgstr "Odbijte dodatne sate"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__department_id
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Department"
-msgstr ""
+msgstr "Odjel"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__difference_hours
 msgid "Difference"
-msgstr ""
+msgstr "Razlika"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_allocation_overtime_manager_view_form
 msgid "Discard"
-msgstr ""
+msgstr "Odbaci"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_ir_ui_menu__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_resource_calendar_leaves__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
 msgid "Duration"
-msgstr ""
+msgstr "Trajanje"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_employee
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__employee_id
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Employee"
-msgstr ""
+msgstr "Zaposlenik"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__employee_overtime
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__employee_overtime
 msgid "Employee Overtime"
-msgstr ""
+msgstr "Prekovremeni rad zaposlenog"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Employees"
-msgstr ""
+msgstr "Zaposleni"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__expected_hours
 msgid "Expected Hours"
-msgstr ""
+msgstr "Očekivani sati"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_attendance_holidays_hr_leave_allocation_view_form_inherit
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_view_form
 msgid "Extra Hours Available"
-msgstr ""
+msgstr "Raspoloživi dodatni sati"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__frequency
 msgid "Frequency"
-msgstr ""
+msgstr "Frekvencija"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__compensable_as_leave
 msgid "Give back as time off"
-msgstr ""
+msgstr "Vrati kao odsustvo"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
+#, python-format
 msgid "Hours"
-msgstr ""
+msgstr "Sati"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_ir_ui_menu__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_resource_calendar_leaves__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_attendance_report__active
@@ -204,161 +189,179 @@ msgid ""
 "If the active field is set to False, it will allow you to hide the resource "
 "record without removing it."
 msgstr ""
+"Ako je aktivno polje postavljeno na False, omogućit će vam da sakrijete "
+"zapis resursa bez njegovog uklanjanja."
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__job_id
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Job Position"
-msgstr ""
+msgstr "Radno mjesto"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Last 2 Months"
-msgstr ""
+msgstr "Posljednja 2 mjeseca"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_ir_ui_menu
 msgid "Menu"
-msgstr ""
+msgstr "Meni"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Missing Hours"
-msgstr ""
+msgstr "Nedostajući sati"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_allocation_overtime_manager_action
 msgid "New Allocation Request"
-msgstr ""
+msgstr "Novi zahtjev za dodjelom"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
 msgid ""
-"Once a time off of this type is approved, extra hours in attendances will be "
-"deducted."
+"Once a time off of this type is approved, extra hours in attendances will be"
+" deducted."
 msgstr ""
+"Nakon što je odsustvo ove vrste odobreno biti će umanjeni dodatni sati "
+"prisutnosti."
 
 #. module: hr_holidays_attendance
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
+#, python-format
 msgid ""
 "Only an Officer or Administrator is allowed to edit the allocation duration "
 "in this status."
 msgstr ""
+"Samo službenik ili administrator može da uređuje trajanje raspodjele u ovom "
+"statusu."
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__overtime_deductible
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__overtime_deductible
 msgid "Overtime Deductible"
-msgstr ""
+msgstr "Prekovremeno odbitno"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_attendance_overtime_rule
 msgid "Overtime Rule"
-msgstr ""
+msgstr "Pravilo prekovremenog"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields.selection,name:hr_holidays_attendance.selection__hr_leave_accrual_level__frequency__worked_hours
 msgid "Per Hour Worked"
-msgstr ""
+msgstr "Po odrađenom satu"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
 msgid "Remaining Extra Hours:"
-msgstr ""
+msgstr "Preostali dodatni sati:"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_resource_calendar_leaves
 msgid "Resource Time Off Detail"
-msgstr ""
+msgstr "Detalji odsustva resursa"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_allocation_overtime_manager_view_form
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave.py:0
+#, python-format
 msgid "The employee does not have enough extra hours to request this leave."
 msgstr ""
+"Zaposlenik nema dovoljno dodatnih sati da bi mogao kreirati zahtjev za ovo "
+"odsustvo."
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
-msgid "The employee does not have enough overtime hours to request this leave."
+#, python-format
+msgid ""
+"The employee does not have enough overtime hours to request this leave."
 msgstr ""
+"Zaposlenik nema dovoljno prekovremenih sati da bi mogao kreirati zahtjev za "
+"ovo odsustvo."
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave
 msgid "Time Off"
-msgstr ""
+msgstr "Odsustva"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_allocation
 msgid "Time Off Allocation"
-msgstr ""
+msgstr "Dodjela"
 
 #. module: hr_holidays_attendance
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_attendance_report_action
-#: model:ir.ui.menu,name:hr_holidays_attendance.hr_leave_attendance_report
 msgid "Time Off Ledger"
-msgstr ""
+msgstr "Knjiga odsustava"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
 msgid "Time Off Taken from Extra Hours:"
-msgstr ""
+msgstr "Odsustvo uzeto iz dodatnih sati:"
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_type
 msgid "Time Off Type"
-msgstr ""
+msgstr "Vrsta odsustva"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__leave_type_names
 msgid "Time Off Types"
-msgstr ""
+msgstr "Tipovi odsustva"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__leave_ids
 msgid "Time Offs"
-msgstr ""
+msgstr "Odsustva"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
 msgid "Total Compensable Extra Hours:"
-msgstr ""
+msgstr "Ukupno nadoknadivih dodatnih sati:"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
 msgid "Total Extra Hours Worked:"
-msgstr ""
+msgstr "Ukupno odrađenih dodatnih sati:"
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
 msgid "Worked Extra Hours"
-msgstr ""
+msgstr "Odrađeni prekovremeni sati"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__worked_hours
 msgid "Worked Hours"
-msgstr ""
+msgstr "Odrađeni sati"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_attendance_report__difference_hours
 msgid "Worked Hours - Expected Hours + Approved Time Off"
-msgstr ""
+msgstr "Odrađeni sati - Očekivani sati + Odobreno odsustvo"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__schedule_id
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Working Schedule"
-msgstr ""
+msgstr "Radni raspored"
 
 #. module: hr_holidays_attendance
 #. odoo-python
@@ -367,15 +370,94 @@ msgid ""
 "You can't base accrued time on hours worked, because time is accrued at the "
 "start of the period."
 msgstr ""
+"Ne možete bazirati obračunato vrijeme na odrađenim satima, jer se vrijeme "
+"obračunava na početku perioda."
 
+# taken from hr.po
 #. module: hr_holidays_attendance
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave.py:0
+#, python-format
 msgid "You do not have enough extra hours to request this leave"
 msgstr ""
+"Nemate dovoljno dodatnih sati da biste mogli kreirati zahtjev za ovo "
+"odsustvo"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/components/accrual_levels/accrual_levels.xml:0
 msgid "every worked hour."
+msgstr "svaki radni sat."
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model,name:hr_holidays_attendance.model_hr_attendance
+msgid "Attendance"
+msgstr "Prisutnost"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model,name:hr_holidays_attendance.model_res_company
+msgid "Companies"
+msgstr "Tvrtke"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__hr_attendance_overtime
+msgid "Count Extra Hours"
+msgstr "Uračunajte dodatne sate"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:hr.leave.type,name:hr_holidays_attendance.holiday_status_extra_hours
+msgid "Extra Hours"
+msgstr "Dodatni sati"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__hr_attendance_overtime
+msgid "Hr Attendance Overtime"
+msgstr "Hr prisustvo prekovremeni rad"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_res_users__request_overtime
+msgid "Request Overtime"
+msgstr "Zahtjev za prekovremeni rad"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
+#, python-format
+msgid ""
+"The employee does not have enough extra hours to extend this allocation."
+msgstr "Zaposlenik nema dovoljno dodatnih sati za produljenje ove dodjele."
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: code:addons/hr_holidays_attendance/models/hr_leave.py:0
+#, python-format
+msgid "The employee does not have enough extra hours to extend this leave."
 msgstr ""
+"Zaposlenik nema dovoljno dodatnih sati da bi mogao zatražiti produljenje "
+"ovog odsustva."
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
+#, python-format
+msgid ""
+"The employee does not have enough extra hours to request this allocation."
+msgstr "Zaposlenik nema dovoljno dodatnih sati da bi zatražio ovu dodjelu."
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__employee_overtime
+msgid "Total Overtime"
+msgstr "Ukupan prekovremeni rad"
+
+# taken from hr.po
+#. module: hr_holidays_attendance
+#: model:ir.model,name:hr_holidays_attendance.model_res_users
+msgid "User"
+msgstr "Korisnik"

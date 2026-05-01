@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 18:36+0000\n"
+"POT-Creation-Date: 2026-04-10 18:38+0000\n"
 "PO-Revision-Date: 2025-10-08 18:37+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -15,43 +15,48 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_employee__work_entry_source
-#: model:ir.model.fields,help:hr_work_entry.field_hr_version__work_entry_source
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry__work_entry_source
 msgid ""
 "\n"
 "        Defines the source for work entries generation\n"
 "\n"
-"        Working Schedule: Work entries will be generated from the working "
-"hours below.\n"
-"        Attendances: Work entries will be generated from the employee's "
-"attendances. (requires Attendance app)\n"
-"        Planning: Work entries will be generated from the employee's "
-"planning. (requires Planning app)\n"
+"        Working Schedule: Work entries will be generated from the working hours below.\n"
+"        Attendances: Work entries will be generated from the employee's attendances. (requires Attendance app)\n"
+"        Planning: Work entries will be generated from the employee's planning. (requires Planning app)\n"
 "    "
 msgstr ""
+"\n"
+"        Definiše izvor za generisanje unosa rada\n"
+"\n"
+"        Radni raspored: Unosi rada bit će generisani iz radnih sati ispod.\n"
+"        Prisustvo: Unosi rada bit će generisani iz prisustva zaposlenog. (zahtijeva aplikaciju Prisustvo)\n"
+"        Planiranje: Unosi rada bit će generisani iz planiranja zaposlenog. (zahtijeva aplikaciju Planiranje)\n"
+"    "
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_employee.py:0
+#, python-format
 msgid "%s work entries"
-msgstr ""
+msgstr "%s radni unosi"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
 msgid ""
-"<i class=\"fa fa-exclamation-triangle me-1\" title=\"Warning\"/>Employees in "
-"red will be skipped because they have at least one validated work entry."
+"<i class=\"fa fa-exclamation-triangle me-1\" title=\"Warning\"/>Employees in"
+" red will be skipped because they have at least one validated work entry."
 msgstr ""
+"<i class=\"fa fa-exclamation-triangle me-1\" title=\"Warning\"/>Zaposleni "
+"označeni crveno bit će preskočeni jer imaju najmanje jedan odobreni unos "
+"rada."
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
 msgid "<i class=\"fa fa-info-circle me-1\" title=\"Hint\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-info-circle me-1\" title=\"Hint\"/>"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_employee_view_form
@@ -60,6 +65,9 @@ msgid ""
 "                            Work Entries\n"
 "                            </span>"
 msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                            Unosi rada\n"
+"                            </span>"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
@@ -67,106 +75,112 @@ msgid ""
 "<span class=\"text-muted\">Warning: The work entry regeneration will delete "
 "all manual changes on the selected period.</span>"
 msgstr ""
+"<span class=\"text-muted\">Upozorenje: Regeneracija unosa rada obrisat će "
+"sve ručne izmjene u odabranom periodu.</span>"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "<span>Hours</span>"
-msgstr ""
+msgstr "<span>Sati</span>"
 
 #. module: hr_work_entry
+#: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_attendance
+msgid "A"
+msgstr "A"
+
+# taken from hr.po
+#. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__active
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__active
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__active
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_multi_selection_buttons.xml:0
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__is_extra_hours
 msgid "Added to Monthly Pay"
-msgstr ""
+msgstr "Dodato mjesečnoj plati"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_calendar_multi_create_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "Additional Description..."
-msgstr ""
+msgstr "Dodatni opis..."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_additional_paid
 msgid "Additional Time (Paid)"
-msgstr ""
+msgstr "Dodatno vrijeme (plaćeno)"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__is_leave
 msgid "Allow the work entry type to be linked with time off types."
-msgstr ""
+msgstr "Dozvoliti da tip unosa rada bude povezan sa tipovima odsustva."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_defence
 msgid "Ancillary and Defence Leave"
-msgstr ""
+msgstr "Pomoćno i odbrambeno odsustvo"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_attendance
 msgid "Attendance"
-msgstr ""
+msgstr "Prisutnost"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_bereavement_leave
 msgid "Bereavement Leave"
-msgstr ""
+msgstr "Žalosno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_breast_feeding
 msgid "Breastfeeding Break"
-msgstr ""
+msgstr "Pauza za dojenje"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_small_unemployment_birth
 msgid "Brief Holiday (Birth)"
-msgstr ""
+msgstr "Kratko odsustvo (rođenje)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_compensatory
 msgid "CTO"
-msgstr ""
+msgstr "CTO"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry__state__cancelled
 msgid "Cancelled"
-msgstr ""
+msgstr "Otkazano"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry__code
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__code
 msgid ""
 "Careful, the Code is used in many references, changing it could lead to "
 "unwanted changes."
 msgstr ""
+"Pazite, kod se koristi u mnogim referencama, mijenjanje može dovesti do "
+"neželjenih promjena."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_cash_out
 msgid "Cash Out of Leave in Service"
-msgstr ""
+msgstr "Isplata neiskorištenog odsustva u toku radnog odnosa"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__is_extra_hours
@@ -174,334 +188,318 @@ msgid ""
 "Check this setting if you want the hours to be considered as extra time and "
 "added as a bonus to the basic salary."
 msgstr ""
+"Označite ovu postavku ako želite da se sati smatraju dodatnim vremenom i "
+"dodaju kao bonus osnovnoj plati."
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__color
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__color
 msgid "Color"
-msgstr ""
+msgstr "Boja"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__company_id
 msgid "Company"
-msgstr ""
+msgstr "Kompanija"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_compassionate_leave
 msgid "Compassionate Leave"
-msgstr ""
+msgstr "Saosjećajno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_compensatory
 msgid "Compensatory Time Off"
-msgstr ""
+msgstr "Kompenzacijsko odsustvo"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Conflicting"
-msgstr ""
+msgstr "Nesukladan"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__conflict
 msgid "Conflicts"
-msgstr ""
+msgstr "Konflikti"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_corona
 msgid "Corona Unemployment"
-msgstr ""
+msgstr "Corona nezaposlenost"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__country_id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__country_id
 msgid "Country"
-msgstr ""
+msgstr "Država"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__country_code
 msgid "Country Code"
-msgstr ""
+msgstr "Kôd zemlje"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.actions.act_window,help:hr_work_entry.hr_work_entry_type_action
 msgid "Create a new work entry type"
-msgstr ""
+msgstr "Kreirajte novu vrstu radnih sati"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__create_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__create_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__create_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__create_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__create_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__create_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_credit_time
 msgid "Credit Time"
-msgstr ""
+msgstr "Kreditno vrijeme"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Current Month"
-msgstr ""
+msgstr "Tekući mjesec"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__date
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_multi_selection_buttons.xml:0
 msgid "Delete"
-msgstr ""
+msgstr "Obriši"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__department_id
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Department"
-msgstr ""
+msgstr "Odjel"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_calendar
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_calendar_multi_create_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_disability_due_to_illness_imss
 msgid "Disability due to illness (IMSS)"
-msgstr ""
+msgstr "Invaliditet zbog bolesti (IMSS)"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__display_code
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__display_code
 msgid "Display Code"
-msgstr ""
+msgstr "Prikazni kod"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_leaves__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_double
 msgid "Double Time Hours"
-msgstr ""
+msgstr "Dvostruki sati"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Draft"
-msgstr ""
+msgstr "Nacrt"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__duration
 msgid "Duration"
-msgstr ""
+msgstr "Trajanje"
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry.py:0
 msgid "Duration must be positive and cannot exceed 24 hours."
-msgstr ""
+msgstr "Trajanje mora biti pozitivno i ne može preći 24 sata."
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__earliest_available_date_message
 msgid "Earliest Available Date Message"
-msgstr ""
+msgstr "Poruka najranijeg dostupnog datuma"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__earliest_available_date
 msgid "Earliest date"
-msgstr ""
+msgstr "Najraniji datum"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_economic_unemployment
 msgid "Economic Unemployment"
-msgstr ""
+msgstr "Ekonomska nezaposlenost"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training_time_off
 msgid "Educational Time Off"
-msgstr ""
+msgstr "Obrazovno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_emergency
 msgid "Emergency Leave"
-msgstr ""
+msgstr "Hitno odsustvo"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_hr_employee
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__employee_id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__employee_id
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Employee"
-msgstr ""
+msgstr "Zaposlenik"
 
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_hr_version
 msgid "Employee Contract"
-msgstr ""
+msgstr "Ugovor zaposlenog"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__version_id
 msgid "Employee Record"
-msgstr ""
+msgstr "Zapis zaposlenog"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__employee_ids
 msgid "Employees"
-msgstr ""
+msgstr "Zaposleni"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_european
 msgid "European Time Off"
-msgstr ""
+msgstr "Evropsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_examination_leave
 msgid "Examination Leave"
-msgstr ""
+msgstr "Ispitno odsustvo"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__external_code
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__external_code
 msgid "External Code"
-msgstr ""
+msgstr "Eksterni kod"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_extra_hours
 msgid "Extra Hours"
-msgstr ""
+msgstr "Dodatni sati"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal
 msgid "Extra Legal Time Off"
-msgstr ""
+msgstr "Dodatno zakonsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_flemish_training_time_off
 msgid "Flemish Educational Time Off"
-msgstr ""
+msgstr "Flamansko obrazovno odsustvo"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__date_from
 msgid "From"
-msgstr ""
+msgstr "Od"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_leave
 msgid "GTO"
-msgstr ""
+msgstr "GTO"
 
 #. module: hr_work_entry
 #: model:ir.actions.server,name:hr_work_entry.ir_cron_generate_missing_work_entries_ir_actions_server
 msgid "Generate Missing Work Entries"
-msgstr ""
+msgstr "Generiši nedostajuće unose rada"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__date_generated_from
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__date_generated_from
 msgid "Generated From"
-msgstr ""
+msgstr "Generisano od"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__date_generated_to
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__date_generated_to
 msgid "Generated To"
-msgstr ""
+msgstr "Generisano do"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_leave
 msgid "Generic Time Off"
-msgstr ""
+msgstr "Generičko odsustvo"
 
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_hr_work_entry
 msgid "HR Work Entry"
-msgstr ""
+msgstr "HR Unos Rada"
 
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_hr_work_entry_type
 msgid "HR Work Entry Type"
-msgstr ""
+msgstr "HR Tip Unosa Rada"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_home_working
 msgid "HW"
-msgstr ""
+msgstr "HW"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__has_work_entries
 msgid "Has Work Entries"
-msgstr ""
+msgstr "Ima unose rada"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_home_working
 msgid "Home Working"
-msgstr ""
+msgstr "Rad od kuće"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_hourly_wt
 msgid "Hourly Salary"
-msgstr ""
+msgstr "Plata po satu"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_accident_wt_hourly
 msgid "Hourly Salary in case of Accident"
-msgstr ""
+msgstr "Plata po satu u slučaju nezgode"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_illness_wt_hourly
 msgid "Hourly Salary in case of Illness"
-msgstr ""
+msgstr "Plata po satu u slučaju bolesti"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_maternity_wt_hourly
 msgid "Hourly Salary in case of Maternity / Paternity Leave"
-msgstr ""
+msgstr "Plata po satu u slučaju porodiljskog / očinskog odsustva"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_military_wt_hourly
 msgid "Hourly Salary in case of Military Leave"
-msgstr ""
+msgstr "Plata po satu u slučaju vojnog odsustva"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_leaves__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__is_work
 msgid ""
 "If checked, the work entry is counted as work time in the working schedule"
 msgstr ""
+"Ako je označeno, unos rada se računa kao radno vrijeme u radnom rasporedu"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__active
@@ -509,34 +507,38 @@ msgid ""
 "If the active field is set to false, it will allow you to hide the work "
 "entry type without removing it."
 msgstr ""
+"Ako je aktivno polje postavljeno na netačno, omogućiće vam skrivanje tipa "
+"unosa rada bez uklanjanja."
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__amount_rate
 msgid "If you want the hours should be paid double, the rate should be 200%."
-msgstr ""
+msgstr "Ako želite da sati budu plaćeni duplo, stopa treba biti 200%."
 
 #. module: hr_work_entry
 #: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry__state__conflict
 msgid "In Conflict"
-msgstr ""
+msgstr "U konfliktu"
 
 #. module: hr_work_entry
 #: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry__state__validated
 msgid "In Payslip"
-msgstr ""
+msgstr "U platnoj listi"
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/wizard/hr_work_entry_regeneration_wizard.py:0
 msgid ""
-"In order to regenerate the work entries, you need to provide the wizard with "
-"an employee_id, a date_from and a date_to."
+"In order to regenerate the work entries, you need to provide the wizard with"
+" an employee_id, a date_from and a date_to."
 msgstr ""
+"Da biste regenerisali unose rada, morate čarobnjaku obezbijediti "
+"employee_id, date_from i date_to."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_interruption_wt
 msgid "Interruption of Work"
-msgstr ""
+msgstr "Prekid rada"
 
 #. module: hr_work_entry
 #. odoo-javascript
@@ -545,144 +547,140 @@ msgid ""
 "Invalid option: For fully flexible calendars, the work entry source cannot "
 "be 'Working Hours'."
 msgstr ""
+"Neispravna opcija: Za potpuno fleksibilne kalendare, izvor unosa rada ne "
+"može biti 'Radni sati'."
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__is_checked
 msgid "Is Checked"
-msgstr ""
+msgstr "Je označeno"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__last_generation_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__last_generation_date
 msgid "Last Generation Date"
-msgstr ""
+msgstr "Datum posljednje generacije"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__write_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__write_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__write_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji ažurirao"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__write_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__write_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__write_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnje ažurirano"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__latest_available_date_message
 msgid "Latest Available Date Message"
-msgstr ""
+msgstr "Poruka najnovijeg dostupnog datuma"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__latest_available_date
 msgid "Latest date"
-msgstr ""
+msgstr "Najnoviji datum"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_lesson_wt
 msgid "Lesson Salary"
-msgstr ""
+msgstr "Plata za lekciju"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_long_service_leave
 msgid "Long Service Leave"
-msgstr ""
+msgstr "Odsustvo dugog radnog staža"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_long_sick
 msgid "Long Term Sick"
-msgstr ""
+msgstr "Dugotrajno bolovanje"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_long_leave
 msgid "Long Term Time Off"
-msgstr ""
+msgstr "Dugotrajno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_marriage_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_marriage_leave
 msgid "Marriage Leave"
-msgstr ""
+msgstr "Svadbeno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_maternity_imss
 msgid "Maternity (IMSS)"
-msgstr ""
+msgstr "Porodiljsko (IMSS)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_maternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_maternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_maternity
 msgid "Maternity Leave"
-msgstr ""
+msgstr "Porodiljsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_maternity_leave_80
 msgid "Maternity Leave 80%"
-msgstr ""
+msgstr "Porodiljsko odsustvo 80%"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_maternity
 msgid "Maternity Time Off"
-msgstr ""
+msgstr "Porodiljsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_maternity
 msgid "Maternity Time Off (Paid at 75%)"
-msgstr ""
+msgstr "Porodiljsko odsustvo (plaćeno 75%)"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__user_id
 msgid "Me"
-msgstr ""
+msgstr "Ja"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_medical_assistance
 msgid "Medical Assistance"
-msgstr ""
+msgstr "Medicinska pomoć"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_care_children_with_cancer_imss
 msgid "Medical Leave for Care of Children Diagnosed with Cancer (IMSS)"
-msgstr ""
+msgstr "Medicinsko odsustvo za njegu djece sa dijagnozom raka (IMSS)"
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_version.py:0
 msgid "Missing date or duration on work entry"
-msgstr ""
+msgstr "Nedostaje datum ili trajanje na unosu rada"
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_version.py:0
 msgid "Missing timezone for work entries generation."
-msgstr ""
+msgstr "Nedostaje vremenska zona za generisanje unosa rada."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_monthly_wt
 msgid "Monthly Salary"
-msgstr ""
+msgstr "Mjesečna plata"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_work_entry
 #: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry__state__draft
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.actions.act_window,help:hr_work_entry.hr_work_entry_action
 msgid "No data to display"
-msgstr ""
+msgstr "Nema podataka za prikaz"
 
 #. module: hr_work_entry
 #. odoo-python
@@ -690,403 +688,400 @@ msgstr ""
 msgid ""
 "No work entry can be regenerated in this range of dates and these employees."
 msgstr ""
+"Nijedan unos rada se ne može regenerisati u ovom rasponu datuma i za ove "
+"zaposlene."
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "Note: Validated work entries cannot be modified."
-msgstr ""
+msgstr "Napomena: Validirani radni unosi se ne mogu modificirati."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_notice
 msgid "Notice (Unprovided)"
-msgstr ""
+msgstr "Otkazni rok (neostvaren)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_overtime
 msgid "OT"
-msgstr ""
+msgstr "OT"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.hr_work_entry_type_out_of_contract
 msgid "OoC"
-msgstr ""
+msgstr "OoC"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_other
 msgid "Other Paid Leave"
-msgstr ""
+msgstr "Drugo plaćeno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.hr_work_entry_type_out_of_contract
 msgid "Out of Contract"
-msgstr ""
+msgstr "Van ugovora"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_overtime_wt
 msgid "Overtime 100%"
-msgstr ""
+msgstr "Prekovremeni 100%"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_overtime_125_wt
 msgid "Overtime 125%"
-msgstr ""
+msgstr "Prekovremeni 125%"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_overtime
 msgid "Overtime Hours"
-msgstr ""
+msgstr "Prekovremeni sati"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_overtime
 msgid "Overtime Hours (Paid at 150%)"
-msgstr ""
+msgstr "Prekovremeni sati (plaćeno 150%)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_pto
 msgid "Overtime: Public Time Off"
-msgstr ""
+msgstr "Prekovremeni: Državni praznik"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_regular
 msgid "Overtime: Regular"
-msgstr ""
+msgstr "Prekovremeni: Redovni"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_saturday
 msgid "Overtime: Saturday"
-msgstr ""
+msgstr "Prekovremeni: Subota"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_saturday_pto
 msgid "Overtime: Saturday & Public Time Off"
-msgstr ""
+msgstr "Prekovremeni: Subota i državni praznik"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_sunday
 msgid "Overtime: Sunday"
-msgstr ""
+msgstr "Prekovremeni: Nedjelja"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_sunday_pto
 msgid "Overtime: Sunday & Public Time Off"
-msgstr ""
+msgstr "Prekovremeni: Nedjelja i državni praznik"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_legal_leave
 msgid "PTO"
-msgstr ""
+msgstr "PTO"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_parental
 msgid "Paid Parental Leave"
-msgstr ""
+msgstr "Plaćeno roditeljsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_paid_sick_leave
 msgid "Paid Sick Time off"
-msgstr ""
+msgstr "Plaćeno bolovanje"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_paid_time_off
-#: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_legal_leave
 msgid "Paid Time Off"
-msgstr ""
+msgstr "Plaćeno odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_parental_time_off
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_parental_time_off
 msgid "Parental Time Off"
-msgstr ""
+msgstr "Roditeljsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_partial_incapacity
 msgid "Partial Incapacity (due to illness)"
-msgstr ""
+msgstr "Djelimična nesposobnost (zbog bolesti)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_paternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_paternity_leave
 msgid "Paternity Leave"
-msgstr ""
+msgstr "Očinsko odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_paternity_leave_80
 msgid "Paternity Leave 80%"
-msgstr ""
+msgstr "Očinsko odsustvo 80%"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paternity_legal
 msgid "Paternity Time Off (Legal)"
-msgstr ""
+msgstr "Očinsko odsustvo (zakonsko)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paternity_company
 msgid "Paternity Time Off (Paid by Company)"
-msgstr ""
+msgstr "Očinsko odsustvo (plaćeno od strane firme)"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__amount_rate
 msgid "Pay rate"
-msgstr ""
+msgstr "Stopa plaćanja"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__code
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__code
 msgid "Payroll Code"
-msgstr ""
+msgstr "Platni kod"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
 msgid "Period"
-msgstr ""
+msgstr "Period"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_personal_leave
 msgid "Personal Leave"
-msgstr ""
+msgstr "Lično odsustvo"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_bank_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_work_entry_type_bank_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_public_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_public_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.uae_public_holiday_entry_type
 msgid "Public Holiday"
-msgstr ""
+msgstr "Državni praznik"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_phc
 msgid "Public Holiday Compensation"
-msgstr ""
+msgstr "Naknada za državni praznik"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__amount_rate
 msgid "Rate"
-msgstr ""
+msgstr "Stopa"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_recovery_additional
 msgid "Recovery Additional Time"
-msgstr ""
+msgstr "Dodatno vrijeme za oporavak"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_recovery
 msgid "Recovery Bank Holiday"
-msgstr ""
+msgstr "Praznik za nadoknadu"
 
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_hr_work_entry_regeneration_wizard
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
 msgid "Regenerate Employee Work Entries"
-msgstr ""
+msgstr "Regeneriši unose rada zaposlenog"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_regeneration_wizard
 msgid "Regenerate Work Entries"
-msgstr ""
+msgstr "Regeneriši unose rada"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_multi_create_popover.xml:0
 msgid "Replace"
-msgstr ""
+msgstr "Zamijeni"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_calendar.xml:0
 msgid "Reset"
-msgstr ""
+msgstr "Resetuj"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_multi_selection_buttons.xml:0
 msgid "Reset Selected Work Entries"
-msgstr ""
+msgstr "Resetuj odabrane unose rada"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_resource_calendar_leaves
 msgid "Resource Time Off Detail"
-msgstr ""
+msgstr "Detalji odsustva"
 
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_resource_calendar
 msgid "Resource Working Time"
-msgstr ""
+msgstr "Radno vrijeme resursa"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_retro_overtime
 msgid "Retro Overtime Hours"
-msgstr ""
+msgstr "Retro prekovremeni sati"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_retro_regular
 msgid "Retro Regular Pay Hours"
-msgstr ""
+msgstr "Retro redovni plaćeni sati"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_sick_leave
 msgid "STO"
-msgstr ""
+msgstr "STO"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_accident_wt
 msgid "Salary in case of Accident"
-msgstr ""
+msgstr "Plata u slučaju nezgode"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_illness_wt
 msgid "Salary in case of Illness"
-msgstr ""
+msgstr "Plata u slučaju bolesti"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_maternity_wt
 msgid "Salary in case of Maternity / Paternity Leave"
-msgstr ""
+msgstr "Plata u slučaju porodiljskog / očinskog odsustva"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_military_wt
 msgid "Salary in case of Military Leave"
-msgstr ""
+msgstr "Plata u slučaju vojnog odsustva"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__search_criteria_completed
 msgid "Search Criteria Completed"
-msgstr ""
+msgstr "Kriteriji pretrage završeni"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Search Work Entry"
-msgstr ""
+msgstr "Pretraži radni unos"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
 msgid "Search Work Entry Type"
-msgstr ""
+msgstr "Pretražite po vrsti unosa posla"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Redoslijed"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_multi_selection_buttons.xml:0
 msgid "Set"
-msgstr ""
+msgstr "Postavi"
 
 #. module: hr_work_entry
 #: model:ir.actions.server,name:hr_work_entry.action_hr_work_entry_set_to_draft
 msgid "Set to Draft"
-msgstr ""
+msgstr "Postavi na nacrt"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_sick_leave_100
 msgid "Sick Leave (100% Paid)"
-msgstr ""
+msgstr "Bolovanje (100% plaćeno)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_sick_leave_75
 msgid "Sick Leave (75% Paid)"
-msgstr ""
+msgstr "Bolovanje (75% plaćeno)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_sick_leave_unpaid
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_sick_leave_0
 msgid "Sick Leave (Unpaid)"
-msgstr ""
+msgstr "Bolovanje (neplaćeno)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.uae_sick_leave_0_entry_type
 msgid "Sick Leave 0"
-msgstr ""
+msgstr "Bolovanje 0"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.uae_sick_leave_50_entry_type
 msgid "Sick Leave 50"
-msgstr ""
+msgstr "Bolovanje 50"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_sick_leave_80
 msgid "Sick Leave 80%"
-msgstr ""
+msgstr "Bolovanje 80%"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_sick_leave
 msgid "Sick Time Off"
-msgstr ""
+msgstr "Bolovanje"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_pl_work_entry_type_sick_leave
 msgid "Sick Time Off (Paid at 80%)"
-msgstr ""
+msgstr "Bolovanje (plaćeno 80%)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_part_sick
 msgid "Sick Time Off (Without Guaranteed Salary)"
-msgstr ""
+msgstr "Bolovanje (bez garantovane plate)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_25
 msgid "Sick Time Off Day 1-3 (Paid at 25%)"
-msgstr ""
+msgstr "Bolovanje dan 1-3 (plaćeno 25%)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_55
 msgid "Sick Time Off Day 4-10 (Paid at 55%)"
-msgstr ""
+msgstr "Bolovanje dan 4-10 (plaćeno 55%)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_0
 msgid "Sick Time Off Day up to 52 weeks (Paid at 55% by social security)"
-msgstr ""
+msgstr "Bolovanje do 52 sedmice (plaćeno 55% od socijalnog osiguranja)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_sick_leave_75
 msgid "Sick Time off (75% Paid)"
-msgstr ""
+msgstr "Bolovanje (75% plaćeno)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_sick_leave_unpaid
 msgid "Sick Time off (Unpaid)"
-msgstr ""
+msgstr "Bolovanje (neplaćeno)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_simple_holiday_pay_variable_salary
 msgid "Simple Holiday Pay - Variable Salary"
-msgstr ""
+msgstr "Jednostavna naknada za praznik - varijabilna plata"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_situational_unemployment
 msgid "Situational Unemployment"
-msgstr ""
+msgstr "Situaciona nezaposlenost"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_small_unemployment
 msgid "Small Unemployment (Brief Holiday)"
-msgstr ""
+msgstr "Mala nezaposlenost (kratki praznik)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_solicitation_time_off
 msgid "Solicitation Time Off"
-msgstr ""
+msgstr "Odsustvo za molbu"
 
+# taken from hr.po
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/xml/work_entry_templates.xml:0
+#, python-format
 msgid "Solve conflicts first"
-msgstr ""
+msgstr "Najprije riješite nesukladnosti"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/calendar_common/work_entry_calendar_common_popover.xml:0
 msgid "Split"
-msgstr ""
+msgstr "Podijeli"
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/work_entry_calendar_controller.js:0
 msgid "Split Work Entry"
-msgstr ""
+msgstr "Podijeli unos rada"
 
 #. module: hr_work_entry
 #. odoo-python
@@ -1095,21 +1090,24 @@ msgid ""
 "Split work entry duration has to be less than the existing work entry "
 "duration."
 msgstr ""
+"Trajanje podijeljenog unosa rada mora biti manje od trajanja postojećeg "
+"unosa rada."
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__state
 msgid "State"
-msgstr ""
+msgstr "Županija"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_statutory_holiday
 msgid "Statutory Holiday"
-msgstr ""
+msgstr "Zakonski praznik"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_strike
 msgid "Strike"
-msgstr ""
+msgstr "Štrajk"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__country_code
@@ -1117,11 +1115,13 @@ msgid ""
 "The ISO country code in two chars. \n"
 "You can use this field for quick search."
 msgstr ""
+"ISO kod države sa dva znaka. \n"
+"Možete koristiti ovo polje za brzu pretragu."
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "The amount of work on the day should not exceed 24 hours."
-msgstr ""
+msgstr "Količina rada u danu ne treba preći 24 sata."
 
 #. module: hr_work_entry
 #. odoo-python
@@ -1131,210 +1131,217 @@ msgid ""
 "be <= '%(latest_available_date)s', which correspond to the generated work "
 "entries time interval."
 msgstr ""
+"Datum od mora biti >= '%(earliest_available_date)s' i datum do mora biti <= "
+"'%(latest_available_date)s', što odgovara vremenskom intervalu generisanih "
+"unosa rada."
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry_type.py:0
 msgid "The same code cannot be associated to multiple work entry types (%s)"
-msgstr ""
+msgstr "Isti kod ne može biti povezan sa više tipova unosa rada (%s)"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry__display_code
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__display_code
 msgid ""
 "This code can be changed, it is only for a display purpose (3 letters max)"
 msgstr ""
+"Ovaj kod se može promijeniti, samo je za potrebe prikaza (maksimalno 3 "
+"slova)"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "This work entry cannot be validated. The work entry type is undefined."
-msgstr ""
+msgstr "Ovaj unos rada se ne može odobriti. Tip unosa rada nije definisan."
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry.py:0
 msgid "This work entry is validated. You can't delete it."
-msgstr ""
+msgstr "Ovaj unos rada je odobren. Ne možete ga obrisati."
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__is_leave
 msgid "Time Off"
-msgstr ""
+msgstr "Odsustvo"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
 msgid "Time Off Options"
-msgstr ""
+msgstr "Opcije slobodnog vremena"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__date_to
 msgid "To"
-msgstr ""
+msgstr "Do"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training
 msgid "Training"
-msgstr ""
+msgstr "Obuka"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.actions.act_window,help:hr_work_entry.hr_work_entry_action
 msgid ""
 "Try to add some records, or make sure that there is no active filter in the "
 "search bar."
 msgstr ""
+"Pokušajte dodati nove zapise ili provjerite da u traci za pretraživanje nije"
+" zabilježen kakav aktivni filter"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,display_code:hr_work_entry.work_entry_type_unpaid_leave
 msgid "UN"
-msgstr ""
+msgstr "UN"
 
+# taken from hr.po
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry.py:0
+#, python-format
 msgid "Undefined"
-msgstr ""
+msgstr "Nedefiniran"
 
+# taken from hr.po
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry.py:0
+#, python-format
 msgid "Undefined Type"
-msgstr ""
+msgstr "Nedefinirana vrsta"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unjustified_reason
 msgid "Unjustified Reason"
-msgstr ""
+msgstr "Neopravdani razlog"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_unpaid_leave
 msgid "Unpaid"
-msgstr ""
+msgstr "Neplaćeno"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_unpaid_wt
 msgid "Unpaid Salary"
-msgstr ""
+msgstr "Neplaćena plata"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpredictable
 msgid "Unpredictable Reason"
-msgstr ""
+msgstr "Nepredvidiv razlog"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_termination
 msgid "Unused Leave on Termination"
-msgstr ""
+msgstr "Neiskorišteno odsustvo pri prekidu"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry__external_code
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__external_code
 msgid "Use this code to export your data to a third party"
-msgstr ""
+msgstr "Koristite ovaj kod za izvoz vaših podataka trećoj strani"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_regeneration_wizard__valid
 msgid "Valid"
-msgstr ""
+msgstr "Važeći"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
 msgid "Validated"
-msgstr ""
+msgstr "Provjereno"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_weekend
 msgid "Weekend"
-msgstr ""
+msgstr "Vikend"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident
 msgid "Work Accident"
-msgstr ""
+msgstr "Povreda na radu"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_resource_calendar_attendance
 msgid "Work Detail"
-msgstr ""
+msgstr "Detalj posla"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_pivot
 msgid "Work Entries"
-msgstr ""
+msgstr "Radni unosi"
 
 #. module: hr_work_entry
 #: model:ir.model,name:hr_work_entry.model_hr_user_work_entry_employee
 msgid "Work Entries Employees"
-msgstr ""
+msgstr "Radnici Unosi Rada"
 
 #. module: hr_work_entry
 #: model:ir.actions.act_window,name:hr_work_entry.hr_work_entry_action
-#: model:ir.actions.act_window,name:hr_work_entry.hr_work_entry_action_conflict
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_calendar
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
 msgid "Work Entry"
-msgstr ""
+msgstr "Radni unos"
 
 #. module: hr_work_entry
 #: model:ir.actions.act_window,name:hr_work_entry.hr_work_entry_regeneration_wizard_action
 msgid "Work Entry Regeneration"
-msgstr ""
+msgstr "Regeneracija unosa rada"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__work_entry_source
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__work_entry_source
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__work_entry_source
 msgid "Work Entry Source"
-msgstr ""
+msgstr "Izvor unosa rada"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__work_entry_source_calendar_invalid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__work_entry_source_calendar_invalid
 msgid "Work Entry Source Calendar Invalid"
-msgstr ""
+msgstr "Izvor unosa rada - kalendar nije ispravan"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry__work_entry_type_id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__work_entry_type_id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_leaves__work_entry_type_id
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.resource_calendar_leaves_view_search_inherit
 msgid "Work Entry Type"
-msgstr ""
+msgstr "Vrsta radnih sati"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
 msgid "Work Entry Type Name"
-msgstr ""
+msgstr "Naziv vrste radnih sati"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.actions.act_window,name:hr_work_entry.hr_work_entry_type_action
 msgid "Work Entry Types"
-msgstr ""
+msgstr "Vrste radnih sati"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_work_risk_imss
 msgid "Work risk (IMSS)"
-msgstr ""
+msgstr "Rizik na radu (IMSS)"
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_compensation
 msgid "Workers Compensation"
-msgstr ""
+msgstr "Naknada radnicima"
 
 #. module: hr_work_entry
 #: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_version__work_entry_source__calendar
 msgid "Working Schedule"
-msgstr ""
+msgstr "Radni raspored"
 
 #. module: hr_work_entry
 #: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__is_work
 msgid "Working Time"
-msgstr ""
+msgstr "Radno vrijeme"
 
 #. module: hr_work_entry
 #. odoo-python
@@ -1343,36 +1350,110 @@ msgid ""
 "You can't change the Country of this work entry type cause it's currently "
 "used by the system. You need to delete related working entries first."
 msgstr ""
+"Ne možete promijeniti državu ovog tipa unosa rada jer ga sistem trenutno "
+"koristi. Prvo morate obrisati povezane unose rada."
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry_type.py:0
 msgid "You can't change the country of this specific work entry type."
-msgstr ""
+msgstr "Ne možete promijeniti državu ovog specifičnog tipa unosa rada."
 
 #. module: hr_work_entry
 #. odoo-python
 #: code:addons/hr_work_entry/models/hr_work_entry.py:0
 msgid "You can't split a work entry with less than 1 hour."
-msgstr ""
+msgstr "Ne možete podijeliti unos rada sa manje od 1 sata."
 
 #. module: hr_work_entry
 #. odoo-javascript
 #: code:addons/hr_work_entry/static/src/views/work_entry_calendar/calendar_common/work_entry_calendar_common_popover.xml:0
 msgid "You cannot edit a validated work entry"
-msgstr ""
+msgstr "Ne možete uređivati odobreni unos rada"
 
+# taken from hr.po
 #. module: hr_work_entry
 #: model:ir.model.constraint,message:hr_work_entry.constraint_hr_user_work_entry_employee_user_id_employee_id_unique
 msgid "You cannot have the same employee twice."
-msgstr ""
+msgstr "Ne možete istog zaposlenika imati 2 puta."
 
 #. module: hr_work_entry
 #: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_youth_time_off
 msgid "Youth Time Off"
-msgstr ""
+msgstr "Odsustvo za mlade"
 
 #. module: hr_work_entry
 #: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_calendar_multi_create_form
 msgid "hours"
+msgstr "sati"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_tree
+msgid "Beginning"
+msgstr "Početak"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__code
+msgid "Code"
+msgstr "Šifra"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry__state__conflict
+msgid "Conflict"
+msgstr "Nesukladnost"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_kanban
+msgid "Dropdown menu"
+msgstr "Padajući izbornik"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_tree
+msgid "End"
+msgstr "Kraj"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee____last_update
+msgid "Last Modified on"
+msgstr "Zadnja izmjena"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_search
+msgid "Start Date"
+msgstr "Početni Datum"
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model:ir.model.constraint,message:hr_work_entry.constraint_hr_work_entry__work_entry_start_before_end
+msgid "Starting time should be before end time."
+msgstr "Vrijeme početka treba biti prije vremena završetka."
+
+# taken from hr.po
+#. module: hr_work_entry
+#: model:ir.model.constraint,message:hr_work_entry.constraint_hr_work_entry_type_unique_work_entry_code
+msgid "The same code cannot be associated to multiple work entry types."
+msgstr "Isti kod ne može biti povezan s više vrsti radnih sati."
+
+#. module: hr_work_entry
+#: model:ir.model.constraint,message:hr_work_entry.constraint_hr_work_entry__work_entries_no_validated_conflict
+msgid "Validated work entries cannot overlap"
+msgstr "Ovjereni unosi rada ne mogu se preklapati"
+
+#. module: hr_work_entry
+#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_view_form
+msgid "Work Entry Name"
+msgstr "Naziv radnog unosa"
+
+#. module: hr_work_entry
+#: model:ir.model.constraint,message:hr_work_entry.constraint_hr_work_entry__work_entry_has_end
+msgid "Work entry must end. Please define an end date or a duration."
 msgstr ""
+"Unos rada mora imati završetak. Molimo definirajte datum završetka ili "
+"trajanje."
