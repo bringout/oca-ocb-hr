@@ -34,7 +34,7 @@ msgstr "Privitci"
 # taken from hr.po
 #. module: hr_fleet
 #. odoo-python
-#: code:addons/hr_fleet/models/employee.py
+#: code:addons/hr_fleet/models/employee.py:0
 #, python-format
 msgid "Cannot remove address from employees with linked cars."
 msgstr "Ne može se ukloniti adresa zaposlenika kojem je pridruženo vozilo"
@@ -112,14 +112,14 @@ msgstr "Budući vozač (zaposlenik)"
 
 #. module: hr_fleet
 #. odoo-python
-#: code:addons/hr_fleet/models/employee.py
+#: code:addons/hr_fleet/models/employee.py:0
 #, python-format
 msgid "History Employee Cars"
 msgstr "Istorijat vozila radnika"
 
 # taken from hr.po
 #. module: hr_fleet
-#: model_terms:ir.ui.view,arch_db:hr_fleet.view_employee_filter
+#: model:ir.model.fields,field_description:hr_fleet.field_hr_employee__license_plate
 msgid "License Plate"
 msgstr "Registracija"
 
@@ -149,7 +149,7 @@ msgstr "Javni djelatnik"
 # taken from hr.po
 #. module: hr_fleet
 #. odoo-python
-#: code:addons/hr_fleet/models/fleet_vehicle.py
+#: code:addons/hr_fleet/models/fleet_vehicle.py:0
 #, python-format
 msgid "Related Employee"
 msgstr "Povezani zaposlenik"
@@ -169,7 +169,7 @@ msgstr "Servisi za vozila"
 # taken from hr.po
 #. module: hr_fleet
 #. odoo-javascript
-#: code:addons/hr_fleet/static/src/views/hr_fleet_kanban/hr_fleet_kanban_controller.xml
+#: code:addons/hr_fleet/static/src/views/hr_fleet_kanban/hr_fleet_kanban_controller.xml:0
 #, python-format
 msgid "Upload"
 msgstr "Učitaj"
@@ -197,3 +197,67 @@ msgstr "Ugovor o vozilu"
 #: model:ir.model.fields,field_description:hr_fleet.field_hr_employee__car_ids
 msgid "Vehicles (private)"
 msgstr "Vozila (privatna)"
+
+#. module: hr_fleet
+#: model_terms:ir.ui.view,arch_db:hr_fleet.fleet_vehicle_log_contract_view_form_inherit_hr
+msgid "<span class=\"o_stat_text\">Employee</span>"
+msgstr "<span class=\"o_stat_text\">Zaposleni</span>"
+
+#. module: hr_fleet
+#: model:ir.model,name:hr_fleet.model_mail_activity_plan_template
+msgid "Activity plan template"
+msgstr "Šablon plana aktivnosti"
+
+#. module: hr_fleet
+#: model:ir.model.fields,field_description:hr_fleet.field_mail_activity_plan_template__responsible_type
+msgid "Assignment"
+msgstr "Dodjela"
+
+#. module: hr_fleet
+#: model:ir.model,name:hr_fleet.model_ir_attachment
+msgid "Attachment"
+msgstr "Prilog"
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/employee.py:0
+msgid "Cars History"
+msgstr "Historija automobila"
+
+#. module: hr_fleet
+#: model_terms:ir.ui.view,arch_db:hr_fleet.view_attachment_kanban_inherit_hr
+msgid "Delete"
+msgstr "Obriši"
+
+#. module: hr_fleet
+#: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/mail_activity_plan_template.py:0
+msgid "Employee %s is not linked to a vehicle."
+msgstr "Zaposleni %s nije povezan sa vozilom."
+
+#. module: hr_fleet
+#: model:ir.model.fields.selection,name:hr_fleet.selection__mail_activity_plan_template__responsible_type__fleet_manager
+msgid "Fleet Manager"
+msgstr "Menadžer voznog parka"
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/mail_activity_plan_template.py:0
+msgid "Fleet Manager is limited to Employee plans."
+msgstr "Menadžer voznog parka je ograničen na planove zaposlenih."
+
+#. module: hr_fleet
+#: model:ir.model.fields,field_description:hr_fleet.field_fleet_vehicle__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/mail_activity_plan_template.py:0
+msgid ""
+"The vehicle of employee %(employee)s is not linked to a fleet manager, "
+"assigning to you."
+msgstr ""
+"Vozilo zaposlenog %(employee)s nije povezano sa menadžerom voznog parka, "
+"dodjeljuje se vama."

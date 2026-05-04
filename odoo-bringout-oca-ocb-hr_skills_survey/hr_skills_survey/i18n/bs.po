@@ -38,3 +38,82 @@ msgstr "Stavka životopisa djelatnika"
 #: model:ir.model,name:hr_skills_survey.model_survey_user_input
 msgid "Survey User Input"
 msgstr "Anketa koju popunjava korisnik"
+
+#. module: hr_skills_survey
+#: code:addons/hr_skills_survey/models/hr_resume_line.py:0
+msgid "%s (copy)"
+msgstr "%s (kopija)"
+
+#. module: hr_skills_survey
+#: model:hr.resume.line,name:hr_skills_survey.resume_line_valid
+msgid "AWS Cloud"
+msgstr "AWS Cloud"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields,field_description:hr_skills_survey.field_hr_resume_line__department_id
+msgid "Department"
+msgstr "Odjel"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields,field_description:hr_skills_survey.field_hr_resume_line__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields,field_description:hr_skills_survey.field_hr_resume_line__expiration_status
+msgid "Expiration Status"
+msgstr "Status isteka"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields.selection,name:hr_skills_survey.selection__hr_resume_line__expiration_status__expired
+msgid "Expired"
+msgstr "Isteklo"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields.selection,name:hr_skills_survey.selection__hr_resume_line__expiration_status__expiring
+msgid "Expiring"
+msgstr "Ističe"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields,field_description:hr_skills_survey.field_hr_resume_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_skills_survey
+#: model:hr.resume.line.type,name:hr_skills_survey.resume_type_certification
+msgid "Internal Certification"
+msgstr "Interni certifikat"
+
+#. module: hr_skills_survey
+#: model:hr.resume.line,name:hr_skills_survey.resume_line_expiring
+msgid "MongoDB Developer"
+msgstr "MongoDB Developer"
+
+#. module: hr_skills_survey
+#: model:hr.resume.line,name:hr_skills_survey.resume_line_aws
+msgid "Oracle DB"
+msgstr "Oracle DB"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields,help:hr_skills_survey.field_survey_survey__certification_validity_months
+msgid ""
+"Specify the number of months the certification is valid after being awarded."
+" Enter 0 for certifications that never expire."
+msgstr ""
+"Navedite broj mjeseci za koje je certifikat važeći nakon dodjele. Unesite 0 "
+"za certifikate koji nikada ne ističu."
+
+#. module: hr_skills_survey
+#: model:ir.model,name:hr_skills_survey.model_survey_survey
+msgid "Survey"
+msgstr "Anketa"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields.selection,name:hr_skills_survey.selection__hr_resume_line__expiration_status__valid
+msgid "Valid"
+msgstr "Važeći"
+
+#. module: hr_skills_survey
+#: model:ir.model.fields,field_description:hr_skills_survey.field_survey_survey__certification_validity_months
+msgid "Validity"
+msgstr "Važenje"

@@ -18,14 +18,14 @@ msgstr ""
 # taken from hr.po
 #. module: hr_work_entry_holidays
 #. odoo-python
-#: code:addons/hr_work_entry_holidays/models/hr_leave.py
+#: code:addons/hr_work_entry_holidays/models/hr_leave.py:0
 #, python-format
 msgid "%s: Time Off"
 msgstr "%s: slobodan"
 
 #. module: hr_work_entry_holidays
 #. odoo-python
-#: code:addons/hr_work_entry_holidays/models/hr_leave.py
+#: code:addons/hr_work_entry_holidays/models/hr_leave.py:0
 #, python-format
 msgid ""
 "A leave cannot be set across multiple contracts with different working schedules.\n"
@@ -47,7 +47,7 @@ msgstr ""
 
 # taken from hr.po
 #. module: hr_work_entry_holidays
-#: model:ir.model,name:hr_work_entry_holidays.model_hr_contract
+#: model:ir.model,name:hr_work_entry_holidays.model_hr_version
 msgid "Employee Contract"
 msgstr "Ugovor djelatnika"
 
@@ -70,7 +70,7 @@ msgstr "Obračun plaće"
 #. module: hr_work_entry_holidays
 #: model:ir.model.fields,field_description:hr_work_entry_holidays.field_hr_work_entry__leave_state
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 # taken from hr.po
 #. module: hr_work_entry_holidays
@@ -88,7 +88,7 @@ msgstr ""
 
 #. module: hr_work_entry_holidays
 #. odoo-python
-#: code:addons/hr_work_entry_holidays/models/hr_leave.py
+#: code:addons/hr_work_entry_holidays/models/hr_leave.py:0
 #, python-format
 msgid ""
 "There is no employee set on the time off. Please make sure you're logged in "
@@ -120,3 +120,13 @@ msgstr "Vrsta radnih sati"
 #: model:ir.model.fields,help:hr_work_entry_holidays.field_hr_work_entry_type__leave_type_ids
 msgid "Work entry used in the payslip."
 msgstr "Odsustvo je evidentirano na isplatnoj listi."
+
+#. module: hr_work_entry_holidays
+#: model:ir.model.fields,field_description:hr_work_entry_holidays.field_hr_leave__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: hr_work_entry_holidays
+#: model:ir.model.fields,field_description:hr_work_entry_holidays.field_hr_leave__id
+msgid "ID"
+msgstr "ID"

@@ -128,3 +128,38 @@ msgstr "Koristio"
 #: model:ir.model,name:hr_maintenance.model_res_users
 msgid "User"
 msgstr "Korisnik"
+
+#. module: hr_maintenance
+#: model:ir.model,name:hr_maintenance.model_hr_departure_wizard
+msgid "Departure Wizard"
+msgstr "Čarobnjak za odlazak"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_departure_wizard__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_employee__equipment_count
+msgid "Equipment Count"
+msgstr "Broj opreme"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_departure_wizard__unassign_equipment
+msgid "Free Equiments"
+msgstr "Oslobodi opremu"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,field_description:hr_maintenance.field_hr_departure_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_maintenance
+#: model:ir.model,name:hr_maintenance.model_hr_employee_public
+msgid "Public Employee"
+msgstr "Javni zaposleni"
+
+#. module: hr_maintenance
+#: model:ir.model.fields,help:hr_maintenance.field_hr_departure_wizard__unassign_equipment
+msgid "Unassign Employee from Equipments"
+msgstr "Razduži zaposlenog od opreme"

@@ -17,10 +17,10 @@ msgstr ""
 
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/hr_employee.py
+#: code:addons/hr_skills_slides/models/hr_employee.py:0
 #, python-format
 msgid "%(completed)s / %(total)s"
-msgstr "%(completed)s / %(total)s"
+msgstr ""
 
 #. module: hr_skills_slides
 #: model:ir.model,name:hr_skills_slides.model_slide_channel_partner
@@ -41,7 +41,7 @@ msgstr "URL tečaja"
 
 # taken from hr.po
 #. module: hr_skills_slides
-#: model_terms:ir.ui.view,arch_db:hr_skills_slides.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:hr_skills_slides.hr_employee_public_view_form
 msgid "Courses"
 msgstr "Tečajevi"
 
@@ -71,7 +71,7 @@ msgstr "Stavka životopisa djelatnika"
 # taken from hr.po
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/slide_channel.py
+#: code:addons/hr_skills_slides/models/slide_channel.py:0
 #, python-format
 msgid "The employee has completed the course <a href=\"%(link)s\">%(course)s</a>"
 msgstr "Zaposlenik je završio tečaj<a href=\"%(link)s\">%(course)s</a>"
@@ -79,7 +79,7 @@ msgstr "Zaposlenik je završio tečaj<a href=\"%(link)s\">%(course)s</a>"
 # taken from hr.po
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/slide_channel.py
+#: code:addons/hr_skills_slides/models/slide_channel.py:0
 #, python-format
 msgid "The employee left the course <a href=\"%(link)s\">%(course)s</a>"
 msgstr "Zaposlenik je odustao od tečaja <a href=\"%(link)s\">%(course)s</a>"
@@ -87,13 +87,139 @@ msgstr "Zaposlenik je odustao od tečaja <a href=\"%(link)s\">%(course)s</a>"
 # taken from hr.po
 #. module: hr_skills_slides
 #. odoo-python
-#: code:addons/hr_skills_slides/models/slide_channel.py
+#: code:addons/hr_skills_slides/models/slide_channel.py:0
 #, python-format
 msgid "The employee subscribed to the course <a href=\"%(link)s\">%(course)s</a>"
 msgstr "Zaposlenik se pretplatio na tečaj <a href=\"%(link)s\">%(course)s</a>"
 
 # taken from hr.po
 #. module: hr_skills_slides
-#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_employee__subscribed_courses
+#: model:ir.actions.act_window,name:hr_skills_slides.slide_channel_training_elearning_action
 msgid "eLearning Courses"
 msgstr "eLearning tečajevi"
+
+#. module: hr_skills_slides
+#: model_terms:ir.actions.act_window,help:hr_skills_slides.slide_channel_training_elearning_action
+msgid "<strong>Create a course</strong>"
+msgstr "<strong>Kreiraj kurs</strong>"
+
+#. module: hr_skills_slides
+#: model:hr.resume.line,name:hr_skills_slides.employee_niv_resume_line
+msgid "Basics of Furniture Creation"
+msgstr "Osnove izrade namještaja"
+
+#. module: hr_skills_slides
+#: model:hr.resume.line,name:hr_skills_slides.employee_chs_resume_line
+msgid "Choose your wood!"
+msgstr "Odaberi svoje drvo!"
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__course_type
+msgid "Course Type"
+msgstr "Tip kursa"
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_employee__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__duration
+msgid "Duration"
+msgstr "Trajanje"
+
+#. module: hr_skills_slides
+#: model_terms:hr.resume.line,description:hr_skills_slides.employee_chs_resume_line
+msgid ""
+"Explored wood types, properties, and selection criteria for various "
+"woodworking applications."
+msgstr ""
+"Istraženi tipovi drveta, svojstva i kriteriji odabira za razne primjene u "
+"obradi drveta."
+
+#. module: hr_skills_slides
+#: model_terms:hr.resume.line,description:hr_skills_slides.employee_vad_resume_line
+msgid ""
+"Gained essential knowledge in tree maintenance, health assessment, and "
+"pruning techniques."
+msgstr ""
+"Stečeno osnovno znanje o održavanju stabala, procjeni zdravlja i tehnikama "
+"orezivanja."
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_employee__has_subscribed_courses
+msgid "Has Subscribed Courses"
+msgstr "Ima pretplaćene kurseve"
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_employee__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_skills_slides
+#: model_terms:hr.resume.line,description:hr_skills_slides.employee_niv_resume_line
+msgid ""
+"Learned core principles of furniture design and construction through hands-"
+"on projects and material exploration."
+msgstr ""
+"Naučeni osnovni principi dizajna i konstrukcije namještaja kroz praktične "
+"projekte i istraživanje materijala."
+
+#. module: hr_skills_slides
+#: model:ir.model,name:hr_skills_slides.model_hr_employee_public
+msgid "Public Employee"
+msgstr "Javni zaposleni"
+
+#. module: hr_skills_slides
+#: model_terms:ir.ui.view,arch_db:hr_skills_slides.slide_channel_view_list
+msgid "Published"
+msgstr "Objavljeno"
+
+#. module: hr_skills_slides
+#: model:hr.resume.line,name:hr_skills_slides.employee_vad_resume_line
+msgid "Taking care of Trees"
+msgstr "Briga o stablima"
+
+#. module: hr_skills_slides
+#: code:addons/hr_skills_slides/models/slide_channel.py:0
+msgid "The employee has completed the course %s"
+msgstr "Zaposleni je završio kurs %s"
+
+#. module: hr_skills_slides
+#: code:addons/hr_skills_slides/models/slide_channel.py:0
+msgid "The employee left the course %s"
+msgstr "Zaposleni je napustio kurs %s"
+
+#. module: hr_skills_slides
+#: code:addons/hr_skills_slides/models/slide_channel.py:0
+msgid "The employee subscribed to the course %s"
+msgstr "Zaposleni se pretplatio na kurs %s"
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,help:hr_skills_slides.field_hr_resume_line__course_url
+msgid "The full absolute URL to access the document through the website."
+msgstr "Puni apsolutni URL za pristup dokumentu putem web stranice."
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__course_url
+msgid "Website Absolute URL"
+msgstr "Apsolutni URL web stranice"
+
+#. module: hr_skills_slides
+#: model_terms:ir.actions.act_window,help:hr_skills_slides.slide_channel_training_elearning_action
+msgid ""
+"Your eLearning platform starts here!<br>\n"
+"                Upload content, set up rewards, manage attendees..."
+msgstr ""
+"Vaša eLearning platforma počinje ovdje!<br>\n"
+"                Učitajte sadržaj, postavite nagrade, upravljajte učesnicima..."
+
+#. module: hr_skills_slides
+#: model:ir.model.fields.selection,name:hr_skills_slides.selection__hr_resume_line__course_type__elearning
+msgid "eLearning"
+msgstr "eUčenje"
+
+#. module: hr_skills_slides
+#: model:ir.model.fields,field_description:hr_skills_slides.field_hr_resume_line__channel_id
+msgid "eLearning Course"
+msgstr "eLearning kurs"
