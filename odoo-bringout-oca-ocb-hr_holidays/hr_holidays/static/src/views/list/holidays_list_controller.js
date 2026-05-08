@@ -1,8 +1,11 @@
+import { useSubEnv } from "@web/owl2/utils";
 import { useService } from "@web/core/utils/hooks";
-import { registry } from '@web/core/registry';
-import { listView } from '@web/views/list/list_view';
+import { registry } from "@web/core/registry";
+import { listView } from "@web/views/list/list_view";
 import { ListController } from "@web/views/list/list_controller";
-import { useSubEnv } from "@odoo/owl";
+import { onWillStart } from "@odoo/owl";
+import { _t } from "@web/core/l10n/translation";
+import { userHasEmployeeInCurrentCompany } from "@hr_holidays/utils";
 
 export class HolidaysListController extends ListController {
     static template = "hr_holidays.HolidaysListView";
@@ -16,6 +19,21 @@ export class HolidaysListController extends ListController {
 
         useSubEnv({
             onClickViewButton: (params) => this.handleViewButtonClick(params),
+        });
+
+        onWillStart(async () => {
+            const hasEmployee = await userHasEmployeeInCurrentCompany(this.orm);
+            const ignoreActions = [
+                "hr_holidays.hr_leave_action_action_approve_department",
+                "hr_holidays.hr_leave_allocation_action_approve_department",
+            ];
+            const ignoreHasEmployee = ignoreActions.includes(this.env.config.actionXmlId);
+            if (!hasEmployee && !ignoreHasEmployee) {
+                this.env.services.notification.add(
+                    _t("You are not linked to an employee in the current company, so you cannot create requests for yourself."),
+                    { type: "warning", sticky: true }
+                );
+            }
         });
     }
 
@@ -75,11 +93,9 @@ export class HolidaysListController extends ListController {
      * @param {Array} records - Array of record objects to process
      */
     async executeAction(functionName, records) {
-        await this.orm.call(
-            this.props.resModel,
-            functionName,
-            [records.map((record) => record.resId)],
-        );
+        await this.orm.call(this.props.resModel, functionName, [
+            records.map((record) => record.resId),
+        ]);
         await this.actionService.doAction({
             type: "ir.actions.client",
             tag: "soft_reload",
@@ -92,4 +108,4 @@ export const holidaysListView = {
     Controller: HolidaysListController,
 };
 
-registry.category('views').add('hr_holidays_payslip_list', holidaysListView)
+registry.category("views").add("hr_holidays_payslip_list", holidaysListView);

@@ -7,8 +7,9 @@ from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
-from odoo import Command
 from odoo.tools import date_utils, mute_logger, test_reports
+
+from odoo.tests import tagged
 
 from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
@@ -19,23 +20,32 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
     def test_00_leave_request_flow_unlimited(self):
         """ Testing leave request flow: unlimited type of leave request """
         Requests = self.env['hr.leave']
-        HolidaysStatus = self.env['hr.leave.type']
+        HolidaysStatus = self.env['hr.work.entry.type']
 
         # HrManager creates some holiday statuses
         HolidayStatusManagerGroup = HolidaysStatus.with_user(self.user_hrmanager_id)
         HolidayStatusManagerGroup.create({
             'name': 'WithMeetingType',
+            'code': 'WithMeetingType',
             'requires_allocation': False,
+            'request_unit': 'day',
+            'unit_of_measure': 'day',
         })
         self.holidays_status_hr = HolidayStatusManagerGroup.create({
             'name': 'NotLimitedHR',
+            'code': 'NotLimitedHR',
             'requires_allocation': False,
             'leave_validation_type': 'hr',
+            'request_unit': 'day',
+            'unit_of_measure': 'day',
         })
         self.holidays_status_manager = HolidayStatusManagerGroup.create({
             'name': 'NotLimitedManager',
+            'code': 'NotLimitedManager',
             'requires_allocation': False,
             'leave_validation_type': 'manager',
+            'request_unit': 'day',
+            'unit_of_measure': 'day',
         })
 
         HolidaysEmployeeGroup = Requests.with_user(self.user_employee_id)
@@ -45,7 +55,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
         hol1_employee_group = HolidaysEmployeeGroup.create({
             'name': 'Hol11',
             'employee_id': self.employee_emp_id,
-            'holiday_status_id': self.holidays_status_hr.id,
+            'work_entry_type_id': self.holidays_status_hr.id,
             'request_date_from': leave_date,
             'request_date_to': leave_date,
         })
@@ -62,7 +72,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
         hol12_employee_group = HolidaysEmployeeGroup.create({
             'name': 'Hol12',
             'employee_id': self.employee_emp_id,
-            'holiday_status_id': self.holidays_status_manager.id,
+            'work_entry_type_id': self.holidays_status_manager.id,
             'request_date_from': leave_date,
             'request_date_to': leave_date,
         })
@@ -80,39 +90,41 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
         with freeze_time('2022-01-15'):
             Requests = self.env['hr.leave']
             Allocations = self.env['hr.leave.allocation']
-            HolidaysStatus = self.env['hr.leave.type']
+            HolidaysStatus = self.env['hr.work.entry.type']
 
-            self.env.ref('hr.employee_admin').tz = "Europe/Brussels"
+            self.admin_employee.tz = "Europe/Brussels"
 
-            holiday_status_paid_time_off = self.env['hr.leave.type'].create({
+            work_entry_type_paid_time_off = self.env['hr.work.entry.type'].create({
                 'name': 'Paid Time Off',
+                'code': 'Paid Time Off',
                 'requires_allocation': True,
                 'employee_requests': False,
                 'allocation_validation_type': 'hr',
                 'leave_validation_type': 'both',
-                'responsible_ids': [Command.link(self.env.ref('base.user_admin').id)],
+                'request_unit': 'day',
+                'unit_of_measure': 'day',
             })
 
             self.env['hr.leave.allocation'].create([
                 {
                     'name': 'Paid Time off for David',
-                    'holiday_status_id': holiday_status_paid_time_off.id,
+                    'work_entry_type_id': work_entry_type_paid_time_off.id,
                     'number_of_days': 20,
                     'employee_id': self.employee_emp_id,
                     'state': 'confirm',
                     'date_from': time.strftime('%Y-%m-01'),
                 }, {
                     'name': 'Paid Time off for Admin',
-                    'holiday_status_id': holiday_status_paid_time_off.id,
+                    'work_entry_type_id': work_entry_type_paid_time_off.id,
                     'number_of_days': 20,
-                    'employee_id': self.ref('hr.employee_admin'),
+                    'employee_id': self.admin_employee.id,
                     'state': 'confirm',
                     'date_from': time.strftime('%Y-%m-01'),
                 }
             ]).action_approve()
 
-            def _check_holidays_status(holiday_status, employee, ml, lt, rl, vrl):
-                result = holiday_status.get_allocation_data(employee)[employee][0][1]
+            def _check_holidays_status(work_entry_type, employee, ml, lt, rl, vrl):
+                result = work_entry_type.get_allocation_data(employee)[employee][0][1]
                 self.assertEqual(result['max_leaves'], ml,
                                 'hr_holidays: wrong type days computation')
                 self.assertEqual(result['leaves_taken'], lt,
@@ -126,16 +138,21 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
             HolidayStatusManagerGroup = HolidaysStatus.with_user(self.user_hrmanager_id)
             HolidayStatusManagerGroup.create({
                 'name': 'WithMeetingType',
+                'code': 'WithMeetingType',
                 'requires_allocation': False,
+                'request_unit': 'day',
+                'unit_of_measure': 'day',
             })
 
             self.holidays_status_limited = HolidayStatusManagerGroup.create({
                 'name': 'Limited',
+                'code': 'Limited',
                 'requires_allocation': True,
                 'employee_requests': False,
                 'allocation_validation_type': 'hr',
                 'leave_validation_type': 'both',
-                'responsible_ids': [Command.link(self.env.ref('base.user_admin').id)]
+                'request_unit': 'day',
+                'unit_of_measure': 'day',
             })
             HolidaysEmployeeGroup = Requests.with_user(self.user_employee_id)
 
@@ -143,7 +160,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
             aloc1_user_group = Allocations.with_user(self.user_hruser_id).create({
                 'name': 'Days for limited category',
                 'employee_id': self.employee_emp_id,
-                'holiday_status_id': self.holidays_status_limited.id,
+                'work_entry_type_id': self.holidays_status_limited.id,
                 'number_of_days': 2,
                 'state': 'confirm',
                 'date_from': time.strftime('%Y-%m-01'),
@@ -161,7 +178,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
             hol2 = HolidaysEmployeeGroup.create({
                 'name': 'Hol22',
                 'employee_id': self.employee_emp_id,
-                'holiday_status_id': self.holidays_status_limited.id,
+                'work_entry_type_id': self.holidays_status_limited.id,
                 'request_date_from': (date.today() + relativedelta(days=2)),
                 'request_date_to': (date.today() + relativedelta(days=2)),
             })
@@ -191,13 +208,13 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
             self.assertEqual(hol2.state, 'refuse',
                             'hr_holidays: hr_user should not be able to reset a refused leave request')
 
-            employee_id = self.ref('hr.employee_admin')
-            # cl can be of maximum 20 days for employee_admin
-            hol3_status = holiday_status_paid_time_off.with_context(employee_id=employee_id)
+            employee_id = self.admin_employee.id
+            # cl can be of maximum 20 days for admin_emp
+            hol3_status = work_entry_type_paid_time_off.with_context(employee_id=employee_id)
             # I assign the dates in the holiday request for 1 day
             hol3 = Requests.create({
                 'name': 'Sick Time Off',
-                'holiday_status_id': hol3_status.id,
+                'work_entry_type_id': hol3_status.id,
                 'request_date_from': date.today() + relativedelta(day=10),
                 'request_date_to': date.today() + relativedelta(day=10),
                 'employee_id': employee_id,
@@ -216,11 +233,11 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
         # Print the HR Holidays(Summary Employee) Report through the wizard
         ctx = {
             'model': 'hr.employee',
-            'active_ids': [self.ref('hr.employee_admin')]
+            'active_ids': [self.admin_employee.id]
         }
         data_dict = {
             'date_from': datetime.today().strftime('%Y-%m-01'),
-            'emp': [(6, 0, [self.ref('hr.employee_admin')])],
+            'emp': [(6, 0, [self.admin_employee.id])],
             'holiday_type': 'Approved'
         }
         self.env.company.external_report_layout_id = self.env.ref('web.external_layout_standard').id
@@ -231,20 +248,22 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
         # error message is triggered if the date_from is after
         # date_to. Coming from a bug due to the new ORM 13.0
 
-        holiday_status_paid_time_off = self.env['hr.leave.type'].create({
+        work_entry_type_paid_time_off = self.env['hr.work.entry.type'].create({
             'name': 'Paid Time Off',
+            'code': 'Paid Time Off',
             'requires_allocation': True,
             'employee_requests': False,
             'allocation_validation_type': 'hr',
             'leave_validation_type': 'both',
-            'responsible_ids': [Command.link(self.env.ref('base.user_admin').id)],
+            'request_unit': 'day',
+            'unit_of_measure': 'day',
         })
 
         self.env['hr.leave.allocation'].create({
             'name': 'Paid Time off for David',
-            'holiday_status_id': holiday_status_paid_time_off.id,
+            'work_entry_type_id': work_entry_type_paid_time_off.id,
             'number_of_days': 20,
-            'employee_id': self.ref('hr.employee_admin'),
+            'employee_id': self.admin_employee.id,
             'state': 'confirm',
             'date_from': time.strftime('%Y-%m-01'),
             'date_to': time.strftime('%Y-12-31'),
@@ -252,20 +271,20 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
 
         leave_vals = {
             'name': 'Sick Time Off',
-            'holiday_status_id': holiday_status_paid_time_off.id,
+            'work_entry_type_id': work_entry_type_paid_time_off.id,
             'request_date_from': date.today() + relativedelta(day=11),
             'request_date_to': date.today() + relativedelta(day=10),
-            'employee_id': self.ref('hr.employee_admin'),
+            'employee_id': self.admin_employee.id,
         }
         with mute_logger('odoo.sql_db'), self.assertRaises(IntegrityError):
             self.env['hr.leave'].create(leave_vals)
 
         leave_vals = {
             'name': 'Sick Time Off',
-            'holiday_status_id': holiday_status_paid_time_off.id,
+            'work_entry_type_id': work_entry_type_paid_time_off.id,
             'request_date_from': date.today() + relativedelta(day=10),
             'request_date_to': date.today() + relativedelta(day=11),
-            'employee_id': self.ref('hr.employee_admin'),
+            'employee_id': self.admin_employee.id,
         }
         leave = self.env['hr.leave'].create(leave_vals)
 

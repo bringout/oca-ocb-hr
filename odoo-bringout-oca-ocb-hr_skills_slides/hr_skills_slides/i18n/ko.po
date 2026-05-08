@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.1alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2025-11-17 19:02+0000\n"
 "Last-Translator: \"Kwanghee Park (kwpa)\" <kwpa@odoo.com>\n"
 "Language-Team: Korean <https://translate.odoo.com/projects/odoo-19/"
@@ -197,12 +197,3 @@ msgstr "온라인 학습 강좌"
 #: model_terms:ir.ui.view,arch_db:hr_skills_slides.slide_channel_view_list
 msgid "eLearning Courses"
 msgstr "온라인 학습 강좌"
-
-#~ msgid "Completed Internal Training"
-#~ msgstr "사내 교육 이수"
-
-#~ msgid "Course Url"
-#~ msgstr "강좌 Url"
-
-#~ msgid "Display Type"
-#~ msgstr "표시 유형"

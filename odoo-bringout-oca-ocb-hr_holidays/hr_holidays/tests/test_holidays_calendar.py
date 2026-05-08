@@ -33,7 +33,7 @@ class TestHolidaysCalendar(HttpCase, TestHrHolidaysCommon):
         expected_leave_end = leave.date_to.hour
 
         # Tour that takes a leave on the first thursday of the year.
-        self.start_tour('/', 'time_off_request_calendar_view', login='enguerran')
+        self.start_tour('/odoo', 'time_off_request_calendar_view', login='enguerran')
 
         last_leave = self.env['hr.leave'].search([('employee_id.id', '=', self.employee_emp.id)]).sorted(lambda leave: leave.create_date)[-1]
         self.assertEqual(last_leave.date_from.weekday(), 3, "It should be Thursday")
@@ -45,15 +45,17 @@ class TestHolidaysCalendar(HttpCase, TestHrHolidaysCommon):
         Test that single-day time off requests have a single day display in calendar
         """
 
-        leave_type, leave_type_half = self.env['hr.leave.type'].create([
+        leave_type, leave_type_half = self.env['hr.work.entry.type'].create([
             {
                 'name': 'Test Leave Type',
+                'code': 'Test Leave Type',
                 'requires_allocation': False,
                 'leave_validation_type': 'no_validation',
                 'create_calendar_meeting': True,
             },
             {
                 'name': 'Test Leave Type Half Day',
+                'code': 'Test Leave Type Half Day',
                 'requires_allocation': False,
                 'leave_validation_type': 'no_validation',
                 'create_calendar_meeting': True,
@@ -65,11 +67,10 @@ class TestHolidaysCalendar(HttpCase, TestHrHolidaysCommon):
 
         test_date = date(2025, 4, 22)
         self.employee_emp.user_id.tz = 'America/Los_Angeles'
-        self.employee_emp.resource_calendar_id.tz = 'America/Los_Angeles'
         leave = self.env['hr.leave'].create({
             'name': 'Single Day Leave',
             'employee_id': self.employee_emp.id,
-            'holiday_status_id': leave_type.id,
+            'work_entry_type_id': leave_type.id,
             'request_date_from': test_date,
             'request_date_to': test_date,
         })
@@ -89,7 +90,7 @@ class TestHolidaysCalendar(HttpCase, TestHrHolidaysCommon):
         leave_half = self.env['hr.leave'].create({
             'name': 'Half Day Leave LA',
             'employee_id': self.employee_emp.id,
-            'holiday_status_id': leave_type_half.id,
+            'work_entry_type_id': leave_type_half.id,
             'request_date_from': test_date_half,
             'request_date_to': test_date_half,
             'request_date_from_period': 'pm',

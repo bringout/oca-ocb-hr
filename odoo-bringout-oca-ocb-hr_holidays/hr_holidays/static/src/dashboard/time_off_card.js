@@ -1,8 +1,9 @@
+import { onWillRender } from "@web/owl2/utils";
 import { usePopover } from "@web/core/popover/popover_hook";
 import { user } from "@web/core/user";
-import { formatNumber, useNewAllocationRequest } from "@hr_holidays/views/hooks";
+import { formatNumber } from "@hr_holidays/views/hooks";
 import { useService } from "@web/core/utils/hooks";
-import { Component, onWillRender } from "@odoo/owl";
+import { Component } from "@odoo/owl";
 
 export class TimeOffCardPopover extends Component {
     static template = "hr_holidays.TimeOffCardPopover";
@@ -14,17 +15,17 @@ export class TimeOffCardPopover extends Component {
         "left",
         "warning",
         "closest",
-        "request_unit",
+        "unit_of_measure",
         "exceeding_duration",
         "close?",
         "allows_negative",
         "max_allowed_negative",
-        "onClickNewAllocationRequest?",
         "errorLeaves",
         "accrualExcess",
         "timeOffType",
         "employeeId",
         "employeeCompany",
+        "employeeCountry",
     ];
 
     setup() {
@@ -45,7 +46,7 @@ export class TimeOffCardPopover extends Component {
 
     async allocatedLeaves() {
         const { employeeId, timeOffType, employeeCompany } = this.props;
-        const today = new Date().toISOString().split('T')[0];
+        const today = new Date().toISOString().split("T")[0];
         const isInHolidaysUserGroup = await user.hasGroup("hr_holidays.group_hr_holidays_user");
 
         const resModel = "hr.leave.allocation"
@@ -54,7 +55,7 @@ export class TimeOffCardPopover extends Component {
             list_view_ref: "hr_holidays.hr_leave_allocation_view_tree_my",
             form_view_ref: "hr_holidays.hr_leave_allocation_view_form",
         }
-        const domain = [["holiday_status_id", "=", timeOffType], ['employee_company_id','=', employeeCompany],
+        const domain = [["work_entry_type_id", "=", timeOffType], ['employee_company_id','=', employeeCompany],
                 '|', ["date_to", "=", false], ["date_to", ">=", today],
                 employeeId ? ['employee_id', '=', employeeId] : ['employee_id.user_id', '=', user.userId]]
 
@@ -62,23 +63,27 @@ export class TimeOffCardPopover extends Component {
     }
 
     async navigateInfo(stateList) {
-        const { employeeId, timeOffType, employeeCompany } = this.props;
+        const { employeeId, timeOffType } = this.props;
         const isInHolidaysUserGroup = await user.hasGroup("hr_holidays.group_hr_holidays_user");
 
-        const resModel = "hr.leave"
-        const name = "My Time Off"
+        const resModel = "hr.leave";
+        const name = "My Time Off";
         const domain = [
             ['state', 'in', stateList],
-            ['holiday_status_id', '=', timeOffType], ['company_id','=', employeeCompany],
+            ['work_entry_type_id', '=', timeOffType],
             employeeId ? ['employee_id', '=', employeeId] : ['user_id', '=', user.userId]
         ];
-        const context = isInHolidaysUserGroup ? {
-            search_default_group_date_from: true
-        } : {
-            search_default_group_date_from: true,
-            list_view_ref: "hr_holidays.hr_leave_view_tree_my",
-            form_view_ref: "hr_holidays.hr_leave_view_form",
-        }
+        const context = isInHolidaysUserGroup
+            ? {
+                  search_default_group_date_from: true,
+                  expand_leave_list: true,
+              }
+            : {
+                  search_default_group_date_from: true,
+                  expand_leave_list: true,
+                  list_view_ref: "hr_holidays.hr_leave_view_tree_my",
+                  form_view_ref: "hr_holidays.hr_leave_view_form",
+              };
 
         openLeaveWindow(this.actionService, resModel, name, domain, context);
     }
@@ -93,7 +98,6 @@ export class TimeOffCard extends Component {
             position: "bottom",
             popoverClass: "bg-view",
         });
-        this.newAllocationRequest = useNewAllocationRequest();
         this.actionService = useService("action");
         this.lang = user.lang;
         this.formatNumber = formatNumber;
@@ -108,6 +112,22 @@ export class TimeOffCard extends Component {
         onWillRender(this.updateWarning);
     }
 
+    // e.g.: Input: 9.5 Output: 9:30
+    formatHour(hoursFloat) {
+        const hours = Math.floor(hoursFloat);
+        const minutes = Math.round((hoursFloat - hours) * 60);
+        // Pad minutes with leading zero if needed
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+        return `${hours}:${formattedMinutes}`;
+    }
+
+    formatDuration(duration) {
+        if (this.props.data.unit_of_measure === "hour") {
+            return this.formatHour(duration);
+        }
+        return formatNumber(this.lang, duration);
+    }
+
     updateWarning() {
         const { data } = this.props;
         const errorLeavesSignificant = data.allows_negative
@@ -116,7 +136,7 @@ export class TimeOffCard extends Component {
         const accrualExcess = this.getAccrualExcess(data);
         const closeExpire =
             data.closest_allocation_duration &&
-            data.closest_allocation_duration < data.virtual_remaining_leaves;
+            data.closest_allocation_duration < data.closest_allocation_remaining;
         this.warning = errorLeavesSignificant || accrualExcess || closeExpire;
     }
 
@@ -130,16 +150,16 @@ export class TimeOffCard extends Component {
             left: formatNumber(this.lang, data.virtual_remaining_leaves),
             warning: this.warning,
             closest: data.closest_allocation_duration,
-            request_unit: data.request_unit,
+            unit_of_measure: data.unit_of_measure,
             exceeding_duration: data.exceeding_duration,
             allows_negative: data.allows_negative,
             max_allowed_negative: data.max_allowed_negative,
-            onClickNewAllocationRequest: this.newAllocationRequestFrom.bind(this),
             errorLeaves: this.errorLeaves,
             accrualExcess: this.getAccrualExcess(data),
             timeOffType: holidayStatusId,
             employeeId: employeeId,
-            employeeCompany: data.employee_company
+            employeeCompany: data.employee_company,
+            employeeCountry: data.employee_country
         });
     }
 
@@ -149,28 +169,27 @@ export class TimeOffCard extends Component {
             : -data.exceeding_duration > 0;
     }
 
-    async newAllocationRequestFrom() {
-        this.popover.close();
-        await this.newAllocationRequest(this.props.employeeId, this.props.holidayStatusId);
-    }
-
     async navigateTimeOffType() {
         const { employeeId, holidayStatusId, data } = this.props;
         const isInHolidaysUserGroup = await user.hasGroup("hr_holidays.group_hr_holidays_user");
 
-        const resModel = "hr.leave"
-        const name = "My Time Off"
+        const resModel = "hr.leave";
+        const name = "My Time Off";
         const domain = [
-            ['holiday_status_id', '=', holidayStatusId], ['company_id','=', data.employee_company],
+            ['work_entry_type_id', '=', holidayStatusId], ['company_id','=', data.employee_company],
             employeeId ? ['employee_id', '=', employeeId] : ['user_id', '=', user.userId]
         ];
-        const context = isInHolidaysUserGroup ? {
-            search_default_group_date_from: true
-        } : {
-            list_view_ref: "hr_holidays.hr_leave_view_tree_my",
-            form_view_ref: "hr_holidays.hr_leave_view_form",
-            search_default_group_date_from: true
-        };
+        const context = isInHolidaysUserGroup
+            ? {
+                  search_default_group_date_from: true,
+                  expand_leave_list: true,
+              }
+            : {
+                  list_view_ref: "hr_holidays.hr_leave_view_tree_my",
+                  form_view_ref: "hr_holidays.hr_leave_view_form",
+                  search_default_group_date_from: true,
+                  expand_leave_list: true,
+              };
 
         openLeaveWindow(this.actionService, resModel, name, domain, context);
     }
@@ -183,10 +202,10 @@ function openLeaveWindow(actionService, resModel, name, domain, context) {
         res_model: resModel,
         views: [
             [false, "list"],
-            [false, "form"]
+            [false, "form"],
         ],
         domain: domain,
-        context: context
+        context: context,
     });
 }
 

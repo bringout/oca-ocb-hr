@@ -1,8 +1,7 @@
-import { Record, fields } from "@mail/core/common/record";
+import { Record, fields } from "@mail/model/export";
 
 export class HrEmployee extends Record {
     static _name = "hr.employee";
-    static id = "id";
 
     /** @type {number} */
     id;
@@ -11,6 +10,7 @@ export class HrEmployee extends Record {
     department_id = fields.One("hr.department");
     /** @type {string} */
     job_title;
+    resource_id = fields.One("resource.resource", { inverse: "employee_id" });
     work_contact_id = fields.One("res.partner");
     user_id = fields.One("res.users");
     /** @type {string} */

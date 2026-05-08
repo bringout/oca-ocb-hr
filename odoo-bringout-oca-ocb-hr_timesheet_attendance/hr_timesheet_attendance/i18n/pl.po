@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2025-09-16 10:04+0000\n"
 "Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Polish <https://translate.odoo.com/projects/odoo-19/"
@@ -146,24 +146,3 @@ msgstr "Zarejestrowany czas pracy"
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
 msgid "Today"
 msgstr "Dzisiaj"
-
-#~ msgid "Attendance Hours"
-#~ msgstr "Godziny obecności"
-
-#~ msgid "Hours Difference"
-#~ msgstr "Różnica w godzinach"
-
-#~ msgid "Sum of Total Attendance"
-#~ msgstr "Suma obecności ogółem"
-
-#~ msgid "Sum of Total Difference"
-#~ msgstr "Suma różnicy całkowitej"
-
-#~ msgid "Sum of Total Timesheet"
-#~ msgstr "Suma całkowitego arkusza czasu"
-
-#~ msgid "Timesheets Hours"
-#~ msgstr "Godziny arkusza"
-
-#~ msgid "User"
-#~ msgstr "Użytkownik"

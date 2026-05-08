@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~18.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2025-11-12 13:03+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.odoo.com/"
@@ -200,12 +200,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_skills_slides.slide_channel_view_list
 msgid "eLearning Courses"
 msgstr "電子教學課程"
-
-#~ msgid "Completed Internal Training"
-#~ msgstr "已完成內部培訓"
-
-#~ msgid "Course Url"
-#~ msgstr "課程網址"
-
-#~ msgid "Display Type"
-#~ msgstr "顯示類型"

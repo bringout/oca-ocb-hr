@@ -26,7 +26,7 @@ class HrLeaveAttendanceReport(models.Model):
     leave_hours = fields.Float("Approved Time Off")
     difference_hours = fields.Float("Difference", help="Worked Hours - Expected Hours + Approved Time Off")
 
-    leave_type_names = fields.Char("Time Off Types", compute="_compute_leave_attendance_fields")
+    work_entry_type_names = fields.Char("Time Types", compute="_compute_leave_attendance_fields")
     leave_ids = fields.Many2many("hr.leave", string="Time Offs", compute="_compute_leave_attendance_fields")
     attendance_ids = fields.Many2many("hr.attendance", string="Attendances", compute="_compute_leave_attendance_fields")
 
@@ -62,8 +62,8 @@ class HrLeaveAttendanceReport(models.Model):
                 lambda lv: self._timestamped(lv.date_from) <= rec.date <= self._timestamped(lv.date_to),
             )
             rec.leave_ids = rec_date_leaves.ids
-            leave_type_ids = rec_date_leaves.mapped('holiday_status_id')
-            rec.leave_type_names = ', '.join(leave_type_ids.mapped('name'))
+            work_entry_type_ids = rec_date_leaves.mapped('work_entry_type_id')
+            rec.work_entry_type_names = ', '.join(work_entry_type_ids.mapped('name'))
 
             attendances = attendances_by_employees.get(rec.employee_id, self.env['hr.attendance'])
             rec.attendance_ids = attendances.filtered(
@@ -170,7 +170,7 @@ class HrLeaveAttendanceReport(models.Model):
             LEFT JOIN LATERAL (
                         SELECT SUM(lv.number_of_hours / NULLIF(wd.working_days,0)) AS leave_hours
                           FROM hr_leave AS lv
-                          JOIN hr_leave_type as lvt ON lvt.id = lv.holiday_status_id
+                          JOIN hr_work_entry_type as wet ON wet.id = lv.work_entry_type_id
                           JOIN LATERAL (
                                            SELECT COUNT(*) AS working_days
                                              FROM generate_series(
@@ -195,7 +195,7 @@ class HrLeaveAttendanceReport(models.Model):
                                                ON (
                                                           (rc.id = rcl2.calendar_id OR rcl2.calendar_id IS NULL)
                                                       AND rcl2.resource_id IS NULL
-                                                      AND NOT lvt.include_public_holidays_in_duration
+                                                      AND NOT wet.include_public_holidays_in_duration
                                                       AND rcl2.company_id = emp.company_id
                                                       AND d.day
                                                   BETWEEN (rcl2.date_from AT TIME ZONE 'UTC')::date

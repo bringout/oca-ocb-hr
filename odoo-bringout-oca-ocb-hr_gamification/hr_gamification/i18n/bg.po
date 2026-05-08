@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2026-02-04 18:36+0000\n"
 "PO-Revision-Date: 2022-09-22 05:46+0000\n"
 "Last-Translator: Maria Boyadjieva <marabo2000@gmail.com>, 2023\n"
 "Language-Team: Bulgarian (https://app.transifex.com/odoo/teams/41243/bg/)\n"
@@ -118,12 +118,6 @@ msgstr ""
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__direct_badge_ids
 msgid "Direct Badge"
-msgstr ""
-
-#. module: hr_gamification
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
-msgid "Discard"
 msgstr ""
 
 #. module: hr_gamification
@@ -289,32 +283,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "on"
 msgstr ""
-
-#~ msgid ""
-#~ "Badges are rewards of good work. Give them to people you believe deserve "
-#~ "it."
-#~ msgstr ""
-#~ "Значките представляват награди за добре свършена работа. Връчвайте ги на "
-#~ "хора, за които сте сигурни, че ги заслужават."
-
-#~ msgid "Basic Employee"
-#~ msgstr "Основен служител"
-
-#~ msgid "Cancel"
-#~ msgstr "Отказ"
-
-#~ msgid "Received Badges"
-#~ msgstr "Получени значки"
-
-#~ msgid "Related user name for the resource to manage its access."
-#~ msgstr "Име на свързан потребител, който управлява достъпа до този ресурс."
-
-#~ msgid "Reward Employee"
-#~ msgstr "Наградете служител"
-
-#~ msgid "You can send badges only to employees linked to a user."
-#~ msgstr ""
-#~ "Можете да изпращате значки само на служители, свързани с потребител."
-
-#~ msgid "to reward this employee for a good action"
-#~ msgstr "за да възнаградите този служител за доброто му представяне"

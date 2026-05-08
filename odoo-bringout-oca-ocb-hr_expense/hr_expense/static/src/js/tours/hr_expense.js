@@ -5,7 +5,6 @@ import { stepUtils } from "@web_tour/tour_utils";
 import { markup } from "@odoo/owl";
 
 registry.category("web_tour.tours").add('hr_expense_tour' , {
-    url: "/odoo",
     steps: () => [stepUtils.showAppsMenuItem(), {
     isActive: ["community"],
     trigger: '.o_app[data-menu-xmlid="hr_expense.menu_hr_expense_root"]',
@@ -46,7 +45,7 @@ registry.category("web_tour.tours").add('hr_expense_tour' , {
 },
 {
     trigger: '.o_field_widget[name="product_id"] .o_input_dropdown',
-    content: _t("Enter a name then choose a category and configure the amount of your expense."),
+    content: _t("Enter a name then choose a product and configure the amount of your expense."),
     tooltipPosition: 'bottom',
     run: "click",
 },

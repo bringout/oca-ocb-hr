@@ -32,12 +32,13 @@ class ResCompany(models.Model):
     attendance_kiosk_key = fields.Char(default=lambda s: uuid.uuid4().hex, copy=False, groups='hr_attendance.group_hr_attendance_user')
     attendance_kiosk_url = fields.Char(compute="_compute_attendance_kiosk_url")
     attendance_kiosk_use_pin = fields.Boolean(string='Employee PIN Identification')
-    attendance_from_systray = fields.Boolean(string='Attendance From Systray', default=False)
+    attendance_from_systray = fields.Boolean(string='Attendance From Systray', default=True)
     attendance_overtime_validation = fields.Selection([
         ('no_validation', 'Automatically Approved'),
         ('by_manager', 'Approved by Manager'),
     ], string='Extra Hours Validation', default='no_validation')
     auto_check_out = fields.Boolean(string="Automatic Check Out", default=False)
+    single_check_in = fields.Boolean(string="Single Check-In Attendance System")
     auto_check_out_tolerance = fields.Float(default=2, export_string_translation=False)
     absence_management = fields.Boolean(string="Absence Management", default=False)
     attendance_device_tracking = fields.Boolean(string="Device & Location Tracking", default=False)
@@ -101,6 +102,7 @@ class ResCompany(models.Model):
                 company.hr_presence_control_attendance = True
             if not at_install and company.hr_presence_control_attendance:
                 company.hr_presence_control_login = True
+                company.hr_presence_control_attendance = False
 
     def _action_open_kiosk_mode(self):
         return {

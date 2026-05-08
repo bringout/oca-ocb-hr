@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2026-02-04 18:36+0000\n"
 "PO-Revision-Date: 2022-09-22 05:46+0000\n"
 "Last-Translator: Martin Trigaux, 2022\n"
 "Language-Team: Mongolian (https://app.transifex.com/odoo/teams/41243/mn/)\n"
@@ -118,12 +118,6 @@ msgstr ""
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__direct_badge_ids
 msgid "Direct Badge"
-msgstr ""
-
-#. module: hr_gamification
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
-msgid "Discard"
 msgstr ""
 
 #. module: hr_gamification
@@ -289,32 +283,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "on"
 msgstr ""
-
-#~ msgid ""
-#~ "Badges are rewards of good work. Give them to people you believe deserve "
-#~ "it."
-#~ msgstr ""
-#~ "Медаль нь ямарваа сайн ажлын шагнал юм. Медалийг хүртэх ёстой гэж үзсэн "
-#~ "хүмүүстээ өгнө үү."
-
-#~ msgid "Basic Employee"
-#~ msgstr "Үндсэн ажилтан"
-
-#~ msgid "Cancel"
-#~ msgstr "Цуцлах"
-
-#~ msgid "Received Badges"
-#~ msgstr "Хүлээн авсан медалиуд"
-
-#~ msgid "Related user name for the resource to manage its access."
-#~ msgstr "Нөөцөд хандах эрх бүхий холбогдох хэрэглэгчийн нэр"
-
-#~ msgid "Reward Employee"
-#~ msgstr "Ажилтныг шагнах"
-
-#~ msgid "You can send badges only to employees linked to a user."
-#~ msgstr ""
-#~ "Та зөвхөн хэрэглэгчтэй холбогдсон ажилчинд л медаль илгээх боломжтой."
-
-#~ msgid "to reward this employee for a good action"
-#~ msgstr "энэ ажилтныг сайн үйлийн төлөө шагнах"

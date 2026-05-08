@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:36+0000\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
 "PO-Revision-Date: 2018-09-21 13:17+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2018\n"
 "Language-Team: Bosnian (https://www.transifex.com/odoo/teams/41243/bs/)\n"
@@ -18,51 +18,56 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
 msgid "\"Check Out\" time cannot be earlier than \"Check In\" time."
-msgstr "'Vrijeme odjave' ne može biti prije 'vremena prijave'"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "%(nb_hours)d h / %(period)s"
-msgstr "%(nb_hours)d h / %(period)s"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
 msgid "%(worked_hours)s (%(check_in)s-%(check_out)s)"
-msgstr "%(worked_hours)s (%(check_in)s-%(check_out)s)"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance_overtime_ruleset.py:0
+msgid "%s (copy)"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "'Buy an RFID Device'"
-msgstr "'Kupite RFID uređaj'"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "'Read the Documentation'"
-msgstr "'Pročitajte dokumentaciju'"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_hr_attendance_kanban
-msgid "<i class=\"fa fa-calendar me-1\" aria-label=\"Period\" role=\"img\" title=\"Period\"/>"
-msgstr ""
+msgid ""
 "<i class=\"fa fa-calendar me-1\" aria-label=\"Period\" role=\"img\" "
 "title=\"Period\"/>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<i class=\"fa fa-fw fa-arrow-right\"/>Installation Manual"
-msgstr "<i class=\"fa fa-fw fa-arrow-right\"/>Uputstvo za instalaciju"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
@@ -70,17 +75,14 @@ msgid ""
 "<span class=\"fa fa-circle text-success me-1\" role=\"img\" aria-"
 "label=\"Available\" title=\"Available\"/>"
 msgstr ""
-"<span class=\"fa fa-circle text-success me-1\" role=\"img\" aria-"
-"label=\"Available\" title=\"Available\"/>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
 msgid ""
-"<span class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-label=\"Not available\" title=\"Not available\">\n"
+"<span class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-label=\"Not "
+"available\" title=\"Not available\">\n"
 "                                    </span>"
 msgstr ""
-"<span class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-label=\"Not available\" title=\"Not available\">\n"
-"                                    </span>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
@@ -88,28 +90,26 @@ msgid ""
 "<span class=\"fw-bold\" invisible=\"base_off != 'timing' or timing_type not "
 "in ['work_days', 'non_work_days']\">Between</span>"
 msgstr ""
-"<span class=\"fw-bold\" invisible=\"base_off != 'timing' or timing_type not "
-"in ['work_days', 'non_work_days']\">Između</span>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span class=\"me-2\">Time Period </span>"
-msgstr "<span class=\"me-2\">Vremenski period </span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span class=\"me-2\">Time Period</span>"
-msgstr "<span class=\"me-2\">Vremenski period</span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span class=\"me-2\">Tolerance</span>"
-msgstr "<span class=\"me-2\">Tolerancija</span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span class=\"ms-2\">Hours</span>"
-msgstr "<span class=\"ms-2\">Sati</span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
@@ -118,9 +118,6 @@ msgid ""
 "                                <br/>\n"
 "                                <br/>"
 msgstr ""
-"<span class=\"ms-2\">Minute</span>\n"
-"                                <br/>\n"
-"                                <br/>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_public_view_form
@@ -129,9 +126,6 @@ msgid ""
 "                                Monthly Hours\n"
 "                            </span>"
 msgstr ""
-"<span class=\"o_stat_text\">\n"
-"                                Mjesečni sati\n"
-"                            </span>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
@@ -140,9 +134,14 @@ msgid ""
 "                            Monthly Hours\n"
 "                        </span>"
 msgstr ""
-"<span class=\"o_stat_text\">\n"
-"                            Mjesečni sati\n"
-"                        </span>"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
+msgid ""
+"<span class=\"o_stat_value\">Add</span>\n"
+"                                    <span class=\"o_stat_text\">Employees</"
+"span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
@@ -150,60 +149,68 @@ msgid ""
 "<span colspan=\"2\" class=\"mb-3 fw-bold\">The hours will be considered "
 "extra and submitted to approval.</span>"
 msgstr ""
-"<span colspan=\"2\" class=\"mb-3 fw-bold\">Sati će biti smatrani "
-"prekovremenim i poslati na odobrenje.</span>"
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span> Minutes</span>"
-msgstr "<span class=\"o_stat_text\">Prisustvo</span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span> seconds</span>"
-msgstr "<span> sekundi</span>"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__absence_management
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__absence_management
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Absence Management"
-msgstr "Upravljanje odsustvima"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Absent"
-msgstr "Odsutan"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Action"
-msgstr "Akcija"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna akcija"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__active
 msgid "Active"
-msgstr "Aktivno"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Active Employees"
-msgstr "Aktivni zaposleni"
+msgstr ""
 
-# taken from hr.po
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_list_view_enhanced_hr_attendance_add
+msgid "Add"
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_list_view_enhanced_hr_attendance
+msgid "Add Employees"
+msgstr ""
+
 #. module: hr_attendance
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_employee_attendance_action_kanban
 msgid ""
-"Add a few employees to be able to select an employee here and perform his check in / check out.\n"
+"Add a few employees to be able to select an employee here and perform his "
+"check in / check out.\n"
 "                To create employees go to the Employees menu."
 msgstr ""
-"Kreirajte nekoliko zaposlenika kako bi mogli raditi prijave/odjave po zaposlenicima.\n"
-"                Kreiranje zaposlenika je moguće u izborniku Zaposlenici."
 
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_manager
@@ -214,177 +221,186 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "All"
-msgstr "Sve"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.js:0
 msgid "All departments"
-msgstr "Svi odjeli"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Allow Users to Check in/out from Odoo."
-msgstr "Dozvolite korisnicima prijavu/odjavu iz Odoo-a."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid ""
 "Allow a period of time (around working hours) where extra time will not be "
 "counted, in benefit of the company"
 msgstr ""
-"Definirajte vremenski period (unutar radnog vremena) u kojem se dodatno "
-"vrijeme neće računati, u korist tvrtke"
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid ""
 "Allow a period of time (around working hours) where extra time will not be "
 "deducted, in benefit of the employee"
 msgstr ""
-"Definirajte vremenski period (unutar radnog vremena) u kojem se dodatno "
-"vrijeme neće računati, u korist zaposlenika"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid ""
-"Allow the collection of GPS location, IP address, and browser/device details"
-" used to track employee access and attendance"
+"Allow the collection of GPS location, IP address, and browser/device details "
+"used to track employee access and attendance"
 msgstr ""
-"Dozvolite prikupljanje GPS lokacije, IP adrese i detalja preglednika/uređaja"
-" koji se koriste za praćenje pristupa i prisustva zaposlenih"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__rule_ids
 msgid "Applied Rules"
-msgstr "Primijenjena pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Approve"
-msgstr "Odobri"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Approve Extra Hours"
-msgstr "Odobri prekovremene sate"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Approve all overtimes for the same employee and date"
-msgstr "Odobri sve prekovremene sate za istog zaposlenog i datum"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__overtime_status__approved
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_line__status__approved
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
 msgid "Approved"
-msgstr "Odobreno"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_overtime_validation__by_manager
 msgid "Approved by Manager"
-msgstr "Odobreno od menadžera"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
 msgid "Archived"
-msgstr "Arhivirano"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Archived Employees"
-msgstr "Arhivirani zaposleni"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "At Work"
-msgstr "Na poslu"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
 msgid "At least one rule"
-msgstr "Najmanje jedno pravilo"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_attachment_count
 msgid "Attachment Count"
-msgstr "Broj priloga"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+#: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
+#: model:ir.model,name:hr_attendance.model_hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_ids
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Attendance"
 msgstr "Prisutnost"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_manager_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__attendance_manager_id
 msgid "Attendance Approver"
-msgstr "Odobravatelj prisustva"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid "Attendance Error"
-msgstr "Greška prisustva"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_from_systray
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_from_systray
 msgid "Attendance From Systray"
-msgstr "Prisustvo iz Systray-a"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_delay
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_kiosk_delay
 msgid "Attendance Kiosk Delay"
-msgstr "Kašnjenje evidencije kioska"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_key
 msgid "Attendance Kiosk Key"
-msgstr "Ključ kioska prisustva"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_url
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_kiosk_url
 msgid "Attendance Kiosk Url"
-msgstr "URL kioska prisustva"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_mode
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_kiosk_mode
 msgid "Attendance Mode"
-msgstr "Način na koji se evidentiraju prisustva zaposlenika"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_attendance_overtime_line
 msgid "Attendance Overtime Line"
-msgstr "Linija prekovremenih prisustva"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_state
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__attendance_state
 msgid "Attendance Status"
-msgstr "Status prisustva"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Attendance with barcode"
-msgstr "Prisustvo sa barkodom"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.hr_attendance_check_out_cron_ir_actions_server
 msgid "Attendance: Automatically check-out employees"
-msgstr "Prisustvo: Automatski odjavi zaposlene"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.hr_attendance_absence_cron_ir_actions_server
 msgid "Attendance: Detect Absences for employees"
-msgstr "Prisustvo: Otkrivanje odsustava zaposlenih"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_action
+#: model:ir.actions.act_window,name:hr_attendance.hr_attendance_reporting
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_attendance_reporting
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_root
+#: model:res.groups.privilege,name:hr_attendance.res_groups_privilege_attendances
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_calendar_view
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_department_view_kanban
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Attendances"
 msgstr "Prisutnosti"
 
@@ -392,32 +408,34 @@ msgstr "Prisutnosti"
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_employee.py:0
 msgid "Attendances This Month"
-msgstr "Prisustva ovaj mjesec"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Attendances from Backend"
-msgstr "Prisustva iz pozadine"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__auto_check_out_tolerance
 msgid "Auto Check Out Tolerance"
-msgstr "Tolerancija automatske odjave"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__auto_check_out
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__auto_check_out
 msgid "Automatic Check Out"
-msgstr "Automatska odjava"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__auto_check_out
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Automatic Check-Out"
-msgstr "Automatska odjava"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_overtime_validation__no_validation
 msgid "Automatically Approved"
-msgstr "Automatski odobreno"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
@@ -426,274 +444,237 @@ msgid ""
 "additional tolerance. Does not apply to employees with a flexible working "
 "schedule."
 msgstr ""
-"Automatski odjavi zaposlene na osnovu njihovog radnog rasporeda sa dodatnom "
-"tolerancijom. Ne primjenjuje se na zaposlene sa fleksibilnim radnim "
-"rasporedom."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Automatically Checked-Out"
-msgstr "Automatski odjavljen"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Back"
-msgstr "Nazad"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_barcode_source__back
 msgid "Back Camera"
 msgstr ""
-"Zaposleni će imati pristup meniju \"Moja prisustva\" za prijavu i odjavu iz "
-"svoje sesije"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Badge assigned successfully!"
-msgstr "Bedž je uspješno dodijeljen!"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.js:0
 msgid "Badge updated: "
-msgstr "Bedž je ažuriran: "
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Badge with Barcode"
-msgstr "Bedž sa barkodom"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Badge with Barcode on Tablet"
-msgstr "Bedž sa barkodom na tabletu"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_pivot
 msgid "Balance"
-msgstr "Saldo"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_kiosk_mode__barcode
 msgid "Barcode / RFID"
-msgstr "Barkod / RFID"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_kiosk_mode__barcode_manual
 msgid "Barcode / RFID and Manual Selection"
-msgstr "Barkod / RFID i ručni odabir"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_barcode_source
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_barcode_source
 msgid "Barcode Source"
-msgstr "Ručno prisustvo"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime_rule__base_off
 msgid ""
 "Base for overtime calculation.\n"
-"Use 'Quantity' when overtime hours are those in excess of a certain amount per day/week.\n"
+"Use 'Quantity' when overtime hours are those in excess of a certain amount "
+"per day/week.\n"
 "Use 'Timing' when overtime hours happen on specific days or at specific times"
 msgstr ""
-"Osnova za obračun prekovremenog rada.\n"
-"Koristite 'Količina' kada su prekovremeni sati oni koji prelaze određeni iznos po danu/sedmici.\n"
-"Koristite 'Vrijeme' kada se prekovremeni sati dešavaju na određene dane ili u određeno vrijeme"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__base_off
 msgid "Based Off"
-msgstr "Bazirano na"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__in_location
+#: model:ir.model.fields,help:hr_attendance.field_hr_attendance__out_location
 msgid "Based on GPS-Coordinates if available or on IP Address"
-msgstr "Bazirano na GPS koordinatama ako su dostupne ili na IP adresi"
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Before"
-msgstr "Prije"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_browser
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Browser"
-msgstr "Preglednik"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__can_edit
+msgid "Can Edit"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Can be converted as Time Off (cfr Time Off configuration)."
-msgstr "Može se konvertovati u odsustvo (vidi konfiguraciju odsustva)."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
 msgid ""
 "Cannot create new attendance record for %(empl_name)s, the employee hasn't "
 "checked out since %(datetime)s"
 msgstr ""
-"Prisutnost se ne može kreirati za %(empl_name)s, zaposlenik se nije odjavio "
-"od %(datetime)s"
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
 msgid ""
 "Cannot create new attendance record for %(empl_name)s, the employee was "
 "already checked in on %(datetime)s"
 msgstr ""
-"Prisutnost se ne može kreirati za %(empl_name)s, zaposlenik se već prijavio "
-"u %(datetime)s"
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_employee.py:0
-#, python-format
 msgid ""
 "Cannot perform check out on %(empl_name)s, could not find corresponding "
 "check in. Your attendances have probably been modified manually by human "
 "resources."
 msgstr ""
-"Odjava nije moguća za %(empl_name)s, ne postoji odgovarajuća prijava po "
-"zaposleniku. Prisutnost je vjerojatno ručno promijenjena od strane ljudskih "
-"resursa."
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/check_in_out/check_in_out.xml:0
-#, python-format
 msgid "Check IN"
-msgstr "Prijava"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__check_in
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_check_in
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__last_check_in
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Check In"
-msgstr "Prijava"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/check_in_out/check_in_out.xml:0
-#, python-format
 msgid "Check OUT"
-msgstr "Ne može se izvršiti prijava ili odjava za više zaposlenih."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__check_out
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_check_out
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__last_check_out
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Check Out"
-msgstr "Odjava"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 msgid "Check in"
-msgstr "Prijava"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 msgid "Check out"
-msgstr "Odjava"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_employee__attendance_state__checked_in
 msgid "Checked in"
-msgstr "lista prisustva za zaposlenog"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
 msgid "Checked in at"
-msgstr "Prijavljen/a u"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_employee__attendance_state__checked_out
 msgid "Checked out"
-msgstr "Odjavljen/a"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
 msgid "Checked out at"
-msgstr "Datum odjave"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Choose how long the greeting message will be displayed."
-msgstr "Prijava/Odjava"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Choose how to record attendances"
-msgstr "Odaberite kako bilježiti prisustva"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Close"
-msgstr "Zatvori"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__color
 msgid "Color"
-msgstr "Boja"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_company
-msgid "Companies"
-msgstr "Tvrtke"
-
-# taken from hr.po
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__company_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__company_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__company_id
 msgid "Company"
-msgstr "Kompanija"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
-#, python-format
 msgid "Company Logo"
 msgstr "Logo kompanije"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Condition"
-msgstr "Uslov"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_configuration
 msgid "Configuration"
@@ -703,19 +684,19 @@ msgstr "Konfiguracija"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 msgid "Confirm"
-msgstr "Potvrdi"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Connect an RFID reader, and scan a token."
-msgstr "Povežite RFID čitač i skenirajte token."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid "Connection lost. Check in/out could not be recorded."
-msgstr "Veza izgubljena. Prijava/odjava nije mogla biti zabilježena."
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime_ruleset__rate_combination_mode
@@ -723,129 +704,146 @@ msgid ""
 "Controls how the rates from the different rules that apply are combined.\n"
 "  Max: use the highest rate. (e.g.: combined for 150% and 120 = 150%)\n"
 "  Sum: sum the *extra* pay (i.e. above 100%).\n"
-"    e.g.: combined rate for 150% & 120% = 100% (baseline) + (150-100)% + (120-100)% = 170%\n"
+"    e.g.: combined rate for 150% & 120% = 100% (baseline) + (150-100)% + "
+"(120-100)% = 170%\n"
 msgstr ""
-"Kontroliše kako se kombinuju stope iz različitih pravila koja se primjenjuju.\n"
-"  Maks: koristite najvišu stopu. (npr.: kombinovano za 150% i 120 = 150%)\n"
-"  Suma: zbrojiti *dodatnu* isplatu (tj. iznad 100%).\n"
-"    npr.: kombinovana stopa za 150% i 120% = 100% (osnova) + (150-100)% + (120-100)% = 170%\n"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__country_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
 msgid "Country"
-msgstr "Država"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_employee_attendance_action_kanban
 msgid "Create a new employee"
-msgstr "Kreiraj novog zaposlenika"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 msgid "Create the name of the new employee below"
-msgstr "Kreirajte naziv novog zaposlenog ispod"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__create_uid
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__create_uid
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__create_uid
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__create_date
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__create_date
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__create_date
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Currently Working"
-msgstr "Trenutno radi"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_view_dashboard
 msgid "Dashboard"
-msgstr "Kontrolna tabla"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__date
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Date"
-msgstr "Datum"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__date
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__quantity_period__day
 msgid "Day"
-msgstr "Dan"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Define the camera used for the barcode scan."
-msgstr "Definirajte kameru koja će se koristiti za skeniranje barkoda."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Define the way the user will be identified by the application."
 msgstr ""
-"Definirajte način na koji će korisnik biti identificiran od strane "
-"aplikacije"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Definition"
-msgstr "Definicija"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__department_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Department"
 msgstr "Odjeljenje"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__description
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__description
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Description"
-msgstr "Opis"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__device_tracking_enabled
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_device_tracking
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_device_tracking
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Device & Location Tracking"
-msgstr "Praćenje uređaja i lokacije"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_pivot
 msgid "Difference"
-msgstr "Razlika"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__display_extra_hours
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__display_extra_hours
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__hr_attendance_display_overtime
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__hr_attendance_display_overtime
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Display Extra Hours"
-msgstr "Prikaži prekovremene sate"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Display Extra Hours in Kiosk mode and on User profile."
-msgstr "Prikaži prekovremene sate u Kiosk modu i na korisničkom profilu."
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Display Extra Hours."
-msgstr "Prikaži prekovremene sate."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_version__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_http__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_websocket__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_res_users__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Prikazani naziv"
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Display Time"
-msgstr "Prikaz vremena"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
@@ -854,17 +852,19 @@ msgid ""
 "Do not have access, user cannot edit the attendances that are not their own "
 "or if they are not the attendance manager of the employee."
 msgstr ""
-"Nema pristup, korisnik ne može uređivati prisustva koja nisu njegova ili ako"
-" nije menadžer prisustva zaposlenog."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Duration to exceed:"
-msgstr "Trajanje za prekoračenje:"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_employee
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__employee_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
 msgid "Employee"
 msgstr "Zaposleni"
 
@@ -872,506 +872,541 @@ msgstr "Zaposleni"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Employee Avatar"
-msgstr "Avatar zaposlenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_version
 msgid "Employee Contract"
-msgstr "Ugovor zaposlenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_use_pin
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_kiosk_use_pin
 msgid "Employee PIN Identification"
-msgstr "PIN identifikacija zaposlenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__employee_tolerance
 msgid "Employee Tolerance"
-msgstr "Tolerancija zaposlenog"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Employee attendances"
-msgstr "Prisutnosti zaposlenih"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Employee created successfully!"
-msgstr "Zaposleni je uspješno kreiran!"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Employee name is required."
-msgstr "Naziv zaposlenog je obavezan."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_employee_attendance_action_kanban
+#: model:ir.actions.act_window,name:hr_attendance.hr_version_list_view
+#: model:ir.actions.act_window,name:hr_attendance.hr_version_list_view_add
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_employee
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Employees"
 msgstr "Zaposleni"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__employer_tolerance
 msgid "Employer Tolerance"
-msgstr "Tolerancija poslodavca"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 msgid "Enter Badge Number"
-msgstr "Unesite broj bedža"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Error creating employee: "
-msgstr "Greška pri kreiranju zaposlenog: "
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Error: "
-msgstr "Greška: "
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
-#, python-format
 msgid "Error: could not find corresponding employee."
-msgstr "Greška: ne postoji odgovarajući zaposlenik."
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Errors"
-msgstr "Greške"
+msgstr ""
 
-# taken from hr.po
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__expected_hours
+msgid "Expected Hours"
+msgstr ""
+
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__validated_overtime_hours
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__duration
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Extra Hours"
-msgstr "Dodatni sati"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__manual_duration
 msgid "Extra Hours (encoded)"
-msgstr "Prekovremeni sati (uneseno)"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Extra Hours Rules"
-msgstr "Pravila prekovremenih sati"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_overtime_validation
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_overtime_validation
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Extra Hours Validation"
-msgstr "Validacija prekovremenih sati"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_calendar/attendance_calendar_overview.xml:0
+msgid "Extra Time"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Extra hours"
-msgstr "Prekovremeni sati"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Failed to create employee."
-msgstr "Neuspjelo kreiranje zaposlenog."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.js:0
 msgid "Failed to update badge: "
-msgstr "Neuspjelo ažuriranje bedža: "
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_follower_ids
 msgid "Followers"
-msgstr "Pratioci"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratioci (Partneri)"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.xml:0
 msgid "For"
-msgstr "Za"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__timing_start
 msgid "From"
-msgstr "Od"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
 msgid "From %s"
-msgstr "Od %s"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "From Employee"
-msgstr "Od zaposlenog"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_barcode_source__front
 msgid "Front Camera"
 msgstr ""
-"PIN korišćen za Prijavu/Odjavu u Kiosk modu (ako je omogućen u "
-"konfiguraciji)."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "GPS Coordinates"
-msgstr "GPS koordinate"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Generate new URL"
-msgstr "Generiši novi URL"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_list
 msgid "Get working hours from contract"
-msgstr "Preuzmi radne sate iz ugovora"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/card_layout/card_layout.xml:0
-#, python-format
+#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
+#: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
+#: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
 msgid "Go back"
-msgstr "Natrag"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
 msgid "Goodbye"
-msgstr "Doviđenja"
+msgstr ""
+
+#. module: hr_attendance
+#: model:res.groups,comment:hr_attendance.group_hr_attendance_own
+msgid ""
+"Grants users permission to modify their own attendance entries that are "
+"pending approval."
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_ir_http
 msgid "HTTP Routing"
-msgstr "HTTP rutiranje"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__has_message
 msgid "Has Message"
-msgstr "Ima poruku"
+msgstr ""
 
-# taken from hr.po
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_calendar/attendance_calendar_overview.xml:0
+msgid "Hours"
+msgstr ""
+
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_last_month
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__hours_last_month
 msgid "Hours Last Month"
-msgstr "Sati prošli mjesec"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_last_month_display
 msgid "Hours Last Month Display"
-msgstr "Sati prošli mjesec"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_last_month_overtime
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__hours_last_month_overtime
 msgid "Hours Last Month Overtime"
-msgstr "Prekovremeni sati prošlog mjeseca"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_previously_today
 msgid "Hours Previously Today"
-msgstr "Prethodni sati danas"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Hours Previously Today:"
-msgstr "Prethodni sati danas:"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_today
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__hours_today
 msgid "Hours Today"
-msgstr "Sati danas"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Hours Today:"
-msgstr "Sati danas:"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__expected_hours_from_contract
 msgid "Hours from employee schedule"
-msgstr "Sati iz rasporeda zaposlenog"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Hr Attendance Search"
-msgstr "Predraživanje prisutnosti"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_version__id
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_http__id
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_websocket__id
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__id
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hr_attendance.field_res_users__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_ip_address
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "IP Address"
-msgstr "IP adresa"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
-#, python-format
 msgid "Identify Manually"
-msgstr "Identificiraj ručno"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid ""
-"If checked, days not covered by an attendance will be visible in the Report."
-" Does not apply to employees with a flexible working schedule."
+"If checked, days not covered by an attendance will be visible in the Report. "
+"Does not apply to employees with a flexible working schedule."
 msgstr ""
-"Ako je označeno, dani nepokriveni prisustvom će biti vidljivi u izvještaju. "
-"Ne primjenjuje se na zaposlene sa fleksibilnim radnim rasporedom."
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Ako je označeno, nove poruke zahtijevaju vašu pažnju."
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_has_error
+#: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Ako je označeno, neke poruke imaju grešku u dostavi."
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "If the employee works"
-msgstr "Ako zaposleni radi"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "If the worked hours on a"
-msgstr "Ako su odrađeni sati u"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_location
 msgid "In Location"
-msgstr "U lokaciji"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__information_display
 msgid "Information"
-msgstr "Informacije"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Input Mode (In)"
-msgstr "Mod unosa (Ulaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Input Mode (Out)"
-msgstr "Mod unosa (Izlaz)"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Install"
-msgstr "Instaliraj"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/controllers/main.py:0
-msgid ""
-"Invalid domain, use 'name' and/or 'department_id' fields with '=' and/or "
-"'ilike' operators."
 msgstr ""
-"Nevažeći domen, koristite 'name' i/ili 'department_id' polja sa '=' i/ili "
-"'ilike' operatorima."
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
 msgid "Invalid request"
-msgstr "Neispravan zahtjev"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_is_follower
 msgid "Is Follower"
-msgstr "Je pratilac"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__is_manager
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__is_manager
 msgid "Is Manager"
-msgstr "Je menadžer"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__is_own
+msgid "Is Own"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__kiosk
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__kiosk
 msgid "Kiosk"
-msgstr "Kiosk"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_action_open_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Kiosk Mode"
-msgstr "Kiosk mod"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Kiosk Mode Adress"
-msgstr "Adresa Kiosk moda"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Kiosk Settings"
-msgstr "Postavke kioska"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Last 3 Months"
-msgstr "Zadnja 3 mjeseca"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_attendance_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__last_attendance_id
 msgid "Last Attendance"
-msgstr "Zadnje prisustvo"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_attendance_worked_hours
 msgid "Last Attendance Worked Hours"
-msgstr "Sati zadnjeg prisustva"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__write_uid
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__write_uid
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__write_uid
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__write_uid
 msgid "Last Updated by"
 msgstr "Zadnji ažurirao"
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__write_date
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__write_date
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__write_date
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__write_date
 msgid "Last Updated on"
 msgstr "Zadnje ažurirano"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_latitude
 msgid "Latitude"
-msgstr "Geografska širina"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Latitude (In)"
-msgstr "Geografska širina (Ulaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Latitude (Out)"
-msgstr "Geografska širina (Izlaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__linked_overtime_ids
 msgid "Linked Overtime"
-msgstr "Povezani prekovremeni"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.action_load_demo_data
 msgid "Load demo data"
-msgstr "Učitaj demo podatke"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Load sample data"
-msgstr "Učitaj uzorak podataka"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Location (In)"
-msgstr "Lokacija (Ulaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Location (Out)"
-msgstr "Lokacija (Izlaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_longitude
 msgid "Longitude"
-msgstr "Geografska dužina"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Longitude (In)"
-msgstr "Geografska dužina (Ulaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Longitude (Out)"
-msgstr "Geografska dužina (Izlaz)"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_management_action
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_view_attendances_management
 msgid "Management"
-msgstr "Upravljanje"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Manager"
-msgstr "Menadžer"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__manual
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__manual
 msgid "Manual"
-msgstr "Ručno"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Manual Attendance"
-msgstr "Ručno prisustvo"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Manual Attendance or with barcode"
-msgstr "Ručno prisustvo ili sa barkodom"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_kiosk_mode__manual
 msgid "Manual Selection"
-msgstr "Ručni odabir"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Manually (optional PIN)"
-msgstr "Ručno (opcioni PIN)"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_ruleset__rate_combination_mode__max
 msgid "Maximum Rate"
-msgstr "Maksimalna stopa"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.actions.client,name:hr_attendance.hr_attendance_action_greeting_message
 msgid "Message"
@@ -1380,395 +1415,441 @@ msgstr "Poruka"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_has_error
 msgid "Message Delivery error"
-msgstr "Greška u dostavi poruke"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_ids
 msgid "Messages"
-msgstr "Poruke"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Method"
-msgstr "Metoda"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Missing Data"
-msgstr "Nedostaju podaci"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.js:0
 msgid "Missing Employee ID"
-msgstr "Nedostaje ID zaposlenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_mode
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Mode"
-msgstr "Režim"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Modes"
-msgstr "Modovi"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "My Attendances"
-msgstr "Moje prisutnosti"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "My Team"
-msgstr "Moj tim"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__name
 msgid "Name"
-msgstr "Naziv"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "New Set-up (Employee/Badge)"
-msgstr "Nova postavka (Zaposleni/Bedž)"
+msgstr ""
 
-# taken from hr.po
+#. module: hr_attendance
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view_add
+msgid "No Records."
+msgstr ""
+
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_management_action
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_reporting
 msgid "No attendance records found"
-msgstr "Nema zapisa o prisutnostima"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.js:0
 msgid "No barcode received"
-msgstr "Nije primljen barkod"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.js:0
-#, python-format
 msgid "No employee corresponding to Badge ID '%(barcode)s.'"
-msgstr "Nema zaposlenika čiji ID odgovara ID-u sa značke'%(barcode)s.'"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Now"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_needaction_counter
 msgid "Number of Actions"
-msgstr "Broj akcija"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_has_error_counter
 msgid "Number of errors"
-msgstr "Broj grešaka"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr "Broj poruka koje zahtijevaju akciju"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Broj poruka sa greškom u dostavi"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Odoo Logo"
-msgstr "Odoo Logo"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hr_presence_status/hr_attendance_presence_status.js:0
+msgid "Off-Hours"
+msgstr ""
 
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_user
 msgid "Officer: Manage all attendances"
-msgstr "Službenik: Upravljaj svim prisustvima"
+msgstr ""
 
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_officer
 msgid "Officer: Manage attendances"
-msgstr "Službenik: Upravljaj prisustvima"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__public_leave
+msgid "On a Public holiday"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__non_work_days
 msgid "On any non-working day"
-msgstr "Bilo koji neradni dan"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__work_days
 msgid "On any working day"
-msgstr "Bilo koji radni dan"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "On site"
-msgstr "Na lokaciji"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_onboarding
 msgid "Onboarding"
-msgstr "Uvođenje"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Online"
-msgstr "Online"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.open_kiosk_url
 msgid "Open Kiosk Url"
-msgstr "Otvori URL kioska"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_browser
 msgid "Out Browser"
-msgstr "Izlazni preglednik"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_ip_address
 msgid "Out Ip Address"
-msgstr "Izlazna IP adresa"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_latitude
 msgid "Out Latitude"
-msgstr "Izlazna geografska širina"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_location
 msgid "Out Location"
-msgstr "Izlazna lokacija"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_longitude
 msgid "Out Longitude"
-msgstr "Izlazna geografska dužina"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_mode
 msgid "Out Mode"
-msgstr "Izlazni mod"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "Outside Schedule: %(schedule_name)s"
-msgstr "Van rasporeda: %(schedule_name)s"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__schedule
 msgid "Outside of a specific schedule"
-msgstr "Van određenog rasporeda"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__overtime_hours
 msgid "Over Time"
-msgstr "Prekovremeno"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__overtime_ids
 msgid "Overtime"
-msgstr "Prekovremeni sati"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Overtime Details"
-msgstr "Detalji prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_attendance_overtime_rule
 msgid "Overtime Rule"
-msgstr "Pravilo prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_overtime_rule_action
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Overtime Rules"
-msgstr "Pravila prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_attendance_overtime_ruleset
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Overtime Ruleset"
-msgstr "Skup pravila prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_overtime_rulesets
 msgid "Overtime Rulesets"
-msgstr "Skupovi pravila prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__overtime_status
 msgid "Overtime Status"
-msgstr "Status prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__amount_rate
 msgid "Overtime pay rate"
-msgstr "Stopa plaćanja prekovremenog"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_overview
 msgid "Overview"
-msgstr "Pregled"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__paid
 msgid "Pay Extra Hours"
-msgstr "Plati prekovremene sate"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Pay extra hours"
-msgstr "Plati prekovremene sate"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
-#, python-format
 msgid "Please enter your PIN to"
 msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
+#: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
 msgid "Please return to the main menu."
-msgstr "Molim vas da se vratite na glavni izbornik."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Please select an employee and enter a badge number."
-msgstr "Molimo odaberite zaposlenog i unesite broj bedža."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Powered by"
-msgstr "Pokreće"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hr_presence_status/hr_attendance_presence_status.js:0
+msgid "Present (untracked)"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Print"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Print It"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid "Proceed Anyway"
-msgstr "Ipak nastavi"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Provide a description or sources for this ruleset."
-msgstr "Navedite opis ili izvore za ovaj skup pravila."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_employee_public
 msgid "Public Employee"
-msgstr "Javni djelatnik"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__base_off__quantity
 msgid "Quantity"
-msgstr "Količina"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__quantity_period
 msgid "Quantity Period"
-msgstr "Period količine"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "RFID Token with reader"
-msgstr "RFID token sa čitačem"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "RFID Token with reader on tablet"
-msgstr "RFID token sa čitačem na tabletu"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "RFID/Badge Number"
-msgstr "RFID/Broj bedža"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__amount_rate
 msgid "Rate"
-msgstr "Stopa"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__rate_combination_mode
 msgid "Rate Combination Mode"
-msgstr "Mod kombinacije stopa"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_list
 msgid "Rate Mode"
-msgstr "Mod stope"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__rating_ids
 msgid "Ratings"
-msgstr "Ocjene"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Read a badge"
-msgstr "Pročitaj bedž"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Ready to track attendances ?"
-msgstr "Spremni za praćenje prisustava?"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Refuse"
-msgstr "Odbij"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Refuse Extra Hours"
-msgstr "Odbij prekovremene sate"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Refuse all overtimes for the same employee and date"
-msgstr "Odbij sve prekovremene sate za istog zaposlenog i datum"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__overtime_status__refused
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_line__status__refused
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
 msgid "Refused"
-msgstr "Odbijeno"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Regenerate overtimes"
-msgstr "Regeneriši prekovremene"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Regenerate overtimes for this ruleset"
-msgstr "Regeneriši prekovremene za ovaj skup pravila"
+msgstr ""
 
-# taken from hr.po
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_list_view_enhanced_hr_attendance
+msgid "Remove"
+msgstr ""
+
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_reporting
 msgid "Reporting"
@@ -1777,23 +1858,21 @@ msgstr "Izvještavanje"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__rule_ids
 msgid "Rule"
-msgstr "Pravilo"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "Rule '%(name)s' is based off quantity, but the period is not specified"
-msgstr "Pravilo '%(name)s' je bazirano na količini, ali period nije naveden"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid ""
-"Rule '%(name)s' is based off quantity, but the usual amount of work hours is"
-" not specified"
+"Rule '%(name)s' is based off quantity, but the usual amount of work hours is "
+"not specified"
 msgstr ""
-"Pravilo '%(name)s' je bazirano na količini, ali uobičajeni broj radnih sati "
-"nije naveden"
 
 #. module: hr_attendance
 #. odoo-python
@@ -1801,176 +1880,171 @@ msgstr ""
 msgid ""
 "Rule '%(name)s' is based off timing, but the work schedule is not specified"
 msgstr ""
-"Pravilo '%(name)s' je bazirano na vremenu, ali radni raspored nije naveden"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Rule Name"
-msgstr "Naziv pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__rules_count
 msgid "Rules Count"
-msgstr "Broj pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__ruleset_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__ruleset_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_version__ruleset_id
 msgid "Ruleset"
-msgstr "Skup pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Ruleset Name"
-msgstr "Naziv skupa pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
 msgid "Ruleset Search"
-msgstr "Pretraga skupa pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_overtime_ruleset_action
 msgid "Rulesets"
-msgstr "Skupovi pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr "Greška u dostavi SMS-a"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.xml:0
 msgid "Scan Badge"
-msgstr "Skeniraj bedž"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.xml:0
 msgid "Scan or Tap your badge"
-msgstr "Skenirajte ili dodirnite svoj bedž"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
-#, python-format
 msgid "Scan your badge"
-msgstr "Skenirajte svoju značku"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_barcode_source__scanner
 msgid "Scanner"
-msgstr "Skener"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__resource_calendar_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "Schedule"
-msgstr "Raspored"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Search..."
-msgstr "Pretraga..."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 msgid "Select Employee Without Badge"
-msgstr "Odaberi zaposlenog bez bedža"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Select a ruleset to manage overtime."
-msgstr "Odaberite skup pravila za upravljanje prekovremenim radom."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Select on Tablet"
-msgstr "Odaberi na tabletu"
+msgstr ""
+
+#. module: hr_attendance
+#: model:res.groups,name:hr_attendance.group_hr_attendance_own
+msgid "Self Attendance Edit"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__sequence
 msgid "Sequence"
-msgstr "Redoslijed"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Set PIN codes in the employee detail form (in HR Settings tab)."
 msgstr ""
-"Postavljanje PIN kôdova u postavkama zaposlenika (u tabu postavki ljudskih "
-"resursa)"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 msgid "Set the Badge"
-msgstr "Postavi bedž"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Set-up"
-msgstr "Postavka"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.action_hr_attendance_settings
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_settings
 msgid "Settings"
 msgstr "Postavke"
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
-#, python-format
 msgid "Sign out"
-msgstr "Odjava"
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Since"
-msgstr "Od"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__time_start
 msgid "Start"
-msgstr "Početak"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.constraint,message:hr_attendance.constraint_hr_attendance_overtime_line_overtime_start_before_end
 msgid "Starting time should be before end time."
-msgstr "Početno vrijeme treba biti prije završnog vremena."
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__status
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__time_stop
 msgid "Stop"
-msgstr "Zaustavi"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_ruleset__rate_combination_mode__sum
 msgid "Sum of all rates"
-msgstr "Suma svih stopa"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__systray
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__systray
 msgid "Systray"
-msgstr "Systray"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__technical
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__technical
 msgid "Technical"
-msgstr "Tehnički"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime_rule__expected_hours_from_contract
@@ -1979,35 +2053,32 @@ msgid ""
 "hours compared to what is expected if the Absence Management setting is "
 "enabled."
 msgstr ""
-"Prisustvo može ići u negativne prekovremene sate da bi predstavljalo "
-"nedostajuće sate u odnosu na ono što se očekuje ako je postavka Upravljanje "
-"odsustvima omogućena."
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "The attendance records of your employees will be displayed here."
-msgstr "Zapisi o prisutnosti vaših zaposlenika prikazivat će se ovdje."
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_management_action
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_reporting
 msgid "The attendance reporting of your employees will be displayed here."
-msgstr "Izvještavanje prisustava vaših zaposlenih će biti prikazano ovdje."
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "The rule is based on"
-msgstr "Pravilo je bazirano na"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__attendance_manager_id
+#: model:ir.model.fields,help:hr_attendance.field_hr_employee__attendance_manager_id
+#: model:ir.model.fields,help:hr_attendance.field_hr_employee_public__attendance_manager_id
 msgid ""
 "The user set in Attendance will access the attendance of the employee "
 "through the dedicated app and will be able to edit them."
 msgstr ""
-"Korisnik postavljen u Prisustvo će pristupiti prisustvu zaposlenog kroz "
-"dedikovanu aplikaciju i moći će ih uređivati."
 
 #. module: hr_attendance
 #: model:res.groups,comment:hr_attendance.group_hr_attendance_user
@@ -2015,8 +2086,6 @@ msgid ""
 "The user will have access to all attendance records and reports for all "
 "employees."
 msgstr ""
-"Korisnik će imati pristup svim zapisima prisustva i izvještajima za sve "
-"zaposlene."
 
 #. module: hr_attendance
 #: model:res.groups,comment:hr_attendance.group_hr_attendance_own_reader
@@ -2024,8 +2093,6 @@ msgid ""
 "The user will have access to his own attendances on his user / employee "
 "profile"
 msgstr ""
-"Korisnik će imati pristup vlastitim prisustvima na svom korisničkom / "
-"zaposleničkom profilu"
 
 #. module: hr_attendance
 #: model:res.groups,comment:hr_attendance.group_hr_attendance_officer
@@ -2033,13 +2100,16 @@ msgid ""
 "The user will have access to the attendance records and reporting of "
 "employees where he's set as an attendance manager"
 msgstr ""
-"Korisnik će imati pristup zapisima prisustva i izvještavanju zaposlenih za "
-"koje je postavljen kao menadžer prisustva"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__expected_hours
-msgid "Theoretical Hours"
-msgstr "Teorijski sati"
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view
+msgid "There are no employees assigned to this overtime ruleset."
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view_add
+msgid "There are no employees without an overtime ruleset."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
@@ -2048,888 +2118,357 @@ msgid ""
 "This attendance was automatically checked out because the employee exceeded "
 "the allowed time for their scheduled work hours."
 msgstr ""
-"Ovo prisustvo je automatski odjavljeno jer je zaposleni prekoračio "
-"dozvoljeno vrijeme za zakazane radne sate."
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
 msgid ""
-"This attendance was automatically created to cover an unjustified absence on"
-" that day."
+"This attendance was automatically created to cover an unjustified absence on "
+"that day."
 msgstr ""
-"Ovo prisustvo je automatski kreirano da pokrije neopravdano odsustvo tog "
-"dana."
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__base_off__timing
 msgid "Timing"
-msgstr "Vrijeme"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.constraint,message:hr_attendance.constraint_hr_attendance_overtime_rule_timing_start_is_hour
 msgid "Timing Start is an hour of the day"
-msgstr "Početak vremena je sat u danu"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.constraint,message:hr_attendance.constraint_hr_attendance_overtime_rule_timing_stop_is_hour
 msgid "Timing Stop is an hour of the day"
-msgstr "Završetak vremena je sat u danu"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__timing_type
 msgid "Timing Type"
-msgstr "Tip vremena"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__timing_stop
 msgid "To"
-msgstr "Do"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__overtime_status__to_approve
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_line__status__to_approve
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
 msgid "To Approve"
-msgstr "Za odobrenje"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Today"
-msgstr "Danas"
+msgstr ""
 
-# taken from hr.po
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__today_attendance_ids
+msgid "Today Attendance"
+msgstr ""
+
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__overtime_company_threshold
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__overtime_company_threshold
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Tolerance Time In Favor Of Company"
-msgstr "Vrijeme tolerancije u korist tvrtke"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__overtime_employee_threshold
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__overtime_employee_threshold
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Tolerance Time In Favor Of Employee"
-msgstr "Vrijeme tolerancije u korist zaposlenika"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Total"
-msgstr "Ukupno"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__total_overtime
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__total_overtime
 msgid "Total Overtime"
-msgstr "Ukupan prekovremeni rad"
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Total today"
-msgstr "Ukupno danas"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.action_try_kiosk
 msgid "Try kiosk"
-msgstr "Probaj kiosk"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Try the backend and reporting:"
-msgstr "Probajte pozadinu i izvještavanje:"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Try the kiosk"
-msgstr "Probaj kiosk"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Try the top"
-msgstr "Probaj vrh"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid ""
-"Unable to get a valid location. Do you want to proceed with your check-"
-"in/out anyway?"
+"Unable to get a valid location. Do you want to proceed with your check-in/"
+"out anyway?"
 msgstr ""
-"Nije moguće dobiti validnu lokaciju. Želite li svejedno nastaviti sa "
-"prijavom/odjavom?"
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/controllers/main.py:0
 msgid "Unknown"
-msgstr "Nepoznato"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Use PIN codes (defined on the Employee's profile) to check-in."
-msgstr "Koristite PIN kodove (definirane na kartici zaposlenika) za prijavu"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Use this url to access your kiosk mode from any device."
-msgstr "Koristite ovaj URL za pristup vašem kiosk modu sa bilo kojeg uređaja."
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_users
 msgid "User"
-msgstr "Korisnik"
+msgstr ""
 
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_own_reader
 msgid "User: Read his own attendances"
-msgstr "Korisnik: Čita svoja prisustva"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__expected_hours
 msgid "Usual work hours"
-msgstr "Uobičajeni radni sati"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Validation Error"
-msgstr "Greška validacije"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__version_ids
+msgid "Version"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__versions_count
+msgid "Versions Count"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "View on Maps"
-msgstr "Pregled na mapi"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__website_message_ids
 msgid "Website Messages"
-msgstr "Poruke web stranice"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__website_message_ids
 msgid "Website communication history"
-msgstr "Historija komunikacije web stranice"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__quantity_period__week
 msgid "Week"
-msgstr "Sedmica"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-#, python-format
 msgid "Welcome"
-msgstr "Dobrodošli"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Welcome back"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Welcome,"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__leave
 msgid "When employee is off"
-msgstr "Kada je zaposleni odsutan"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "With a tolerance in favor of the employee of"
-msgstr "Sa tolerancijom u korist zaposlenog od"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "With a tolerance in favor of the employer of"
-msgstr "Sa tolerancijom u korist poslodavca od"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
-msgid "Work Hours"
 msgstr ""
-"Upozorenje: Vaš korisnik treba da bude povezan sa zaposlenim da bi koristio "
-"prisustvo. Molimo kontaktirajte vašeg administratora."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Worked Extra Hours"
-msgstr "Odrađeni prekovremeni sati"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__worked_hours
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_graph
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_pivot
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Worked Hours"
-msgstr "Odrađeni sati"
+msgstr ""
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_calendar/attendance_calendar_overview.xml:0
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Worked Time"
-msgstr "Odrađeno vrijeme"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_public_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Worked hours this month"
-msgstr "Odrađeni sati ovaj mjesec"
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_search_view_enhanced_hr_attendance
+msgid "Working Hours"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.js:0
 msgid "Wrong Pin"
-msgstr "Pogrešan PIN"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
 msgid "You cannot duplicate an attendance."
-msgstr "Ne možete duplicirati prisutnost."
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
 msgid "You don't have the rights to execute that action."
-msgstr "Nemate prava za izvršavanje te akcije."
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "and"
-msgstr "i"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
-#, python-format
 msgid "check in"
-msgstr "prijava"
+msgstr ""
 
-# taken from hr.po
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
-#, python-format
 msgid "check out"
-msgstr "odjava"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "day"
-msgstr "dan"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "differs"
-msgstr "razlikuje se"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 msgid "e.g. John Doe"
-msgstr "npr. John Doe"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "e.g. Legal Rules"
-msgstr "npr. Zakonska pravila"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "e.g. Over 8 hours daily"
-msgstr "npr. Više od 8 sati dnevno"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "from a specific duration"
-msgstr "od određenog trajanja"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "from the amount defined on the contract"
-msgstr "od iznosa definiranog u ugovoru"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "hours"
-msgstr "sati"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "icon (e.g for work from home)"
-msgstr "ikona (npr. za rad od kuće)"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "or"
-msgstr "ili"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model,name:hr_attendance.model_ir_websocket
+msgid "websocket message handling"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "week"
-msgstr "sedmica"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "with a rate of"
-msgstr "po stopi od"
+msgstr ""
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "with optional PIN code"
-msgstr "sa opcionim PIN kodom"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
-msgid "%(empl_name)s from %(check_in)s"
-msgstr "%(empl_name)s od %(check_in)s"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
-msgid "%(empl_name)s from %(check_in)s to %(check_out)s"
-msgstr "%(empl_name)s od %(check_in)s do %(check_out)s"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid ": Your user should be linked to an employee to use attendance."
 msgstr ""
-": Vaš dodijeljen korisnik poslovnog sustava treba biti povezan sa "
-"pripadajućim zaposlenikom da biste mogli koristiti modul Prisutnosti."
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid ""
-"<b>Warning! Last check in was over 12 hours ago.</b><br/>If this isn't "
-"right, please contact Human Resource staff"
-msgstr ""
-"<b>Upozorenje! Zadnja prijava je bila prije više od 12 sati.</b><br/>Ako to "
-"nije točno molim vas da kontaktirate ljudske resurse"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_hr_attendance_kanban
-msgid "<i class=\"fa fa-calendar\" aria-label=\"Period\" role=\"img\" title=\"Period\"/>"
-msgstr ""
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Ove vrijednosti su specifične"
-" za svaku tvrtku.\" role=\"img\" aria-label=\"Ove vrijednosti su specifične "
-"za svaku tvrtku.\" groups=\"base.group_multi_company\"/>"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_user_view_form
-msgid ""
-"<span class=\"o_stat_text\">\n"
-"                            Last Month\n"
-"                        </span>"
-msgstr ""
-"<span class=\"o_stat_text\">\n"
-"                            Prošli mjesec\n"
-"                        </span>"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_user_view_form
-msgid "<span class=\"o_stat_text\">Extra Hours</span>"
-msgstr "<span class=\"o_stat_text\">Dodatni sati</span>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
-msgid ""
-"<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-success "
-"me-1\" role=\"img\" aria-label=\"Available\" title=\"Available\"/>"
-msgstr ""
-"<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-success "
-"me-1\" role=\"img\" aria-label=\"Dostupan\" title=\"Dostupan\"/>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
-msgid ""
-"<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-label=\"Not available\" title=\"Not available\">\n"
-"                                    </span>"
-msgstr ""
-"<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-label=\"Nije dostupan\" title=\"Nije dostupan\">\n"
-"                                    </span>"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"<span> Minutes</span>\n"
-"                                    <br/>\n"
-"                                    <br/>"
-msgstr ""
-"<span> Minuta</span>\n"
-"                                    <br/>\n"
-"                                    <br/>"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "<span>Time Period </span>"
-msgstr "<span>Vremenski period </span>"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Activate the count of employees' extra hours."
-msgstr "Aktivirajte brojanje dodatnih sati zaposlenika"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime__adjustment
-msgid "Adjustment"
-msgstr "Prilagodba"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_user_view_form
-msgid "Amount of extra hours"
-msgstr "Broj dodatnih sati"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "An apple a day keeps the doctor away"
-msgstr "Jabuka na dan, liječnik iz kuće van"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Another good day's work! See you soon!"
-msgstr "Još jedan dobar radni dan! Vidimo se uskoro!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.actions.act_window,name:hr_attendance.hr_attendance_report_action
-msgid "Attendance Analysis"
-msgstr "Analiza prisutnosti"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model,name:hr_attendance.model_hr_attendance_overtime
-msgid "Attendance Overtime"
-msgstr "Prekovremeno prisustvo"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model,name:hr_attendance.model_hr_attendance_report
-msgid "Attendance Statistics"
-msgstr "Statistike prisustava zaposlenika"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Available"
-msgstr "Raspoloživo"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Barcode"
-msgstr "Barkod"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_my_attendances
-msgid "Check In / Check Out"
-msgstr "Prijava / odjava"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Check-In/Out in Kiosk Mode"
-msgstr "Datum prijave"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Compare attendance with working hours set on employee."
-msgstr "Usporedite prisutnosti s radnim vremenom definiranim za zaposlenika."
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_res_company__hr_attendance_overtime
-msgid "Count Extra Hours"
-msgstr "Uračunajte dodatne sate"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Count of Extra Hours"
-msgstr "Broj dodatnih sati"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"Count of extra hours is considered from this date. Potential extra hours "
-"prior to this date are not considered."
-msgstr ""
-"Broj dodatnih sati poslovni sustav računa od ovog datuma. Dodatni sate, "
-"eventualno, nastale prije ovog datuma neće uzeti u obzir prilikom izračuna "
-"dodatnih sati."
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/models/hr_attendance.py:0
-#, python-format
-msgid ""
-"Do not have access, user cannot edit the attendances that are not his own."
-msgstr ""
-"Nemate pristup, korisnik ne može uređivati prisutnosti koje nisu njegove"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Early to bed and early to rise, makes a man healthy, wealthy and wise"
-msgstr ""
-"Spavanje je jedan zlatni lanac koji povezuje zdravlje i naša tijela zajedno."
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Eat breakfast as a king, lunch as a merchant and supper as a beggar"
-msgstr "Doručkuj kao kralj, ručaj kao princ, a večeraj kao prosjak"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__group_attendance_use_pin
-msgid "Employee PIN"
-msgstr "PIN zaposlenika"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:res.groups,name:hr_attendance.group_hr_attendance_use_pin
-msgid "Enable PIN use"
-msgstr "Omogući korištenje PIN-a"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__expected_hours
-msgid "Expected Hours"
-msgstr "Očekivani sati"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime__duration_real
-msgid "Extra Hours (Real)"
-msgstr "Dodatni sati (stvarni broj)"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_res_company__overtime_start_date
-msgid "Extra Hours Starting Date"
-msgstr "Datum početka dodatnih sati"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Extra hours today:"
-msgstr "Dodatni sati od danas"
-
-#. module: hr_attendance
-#: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime__duration_real
-msgid "Extra-hours including the threshold duration"
-msgstr "Prekovremeno uključujući trajanje praga"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "First come, first served"
-msgstr "Tko prvi, njegova djevojka"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Glad to have you back, it's been a while!"
-msgstr "Lijepo vas je ponovo vidjeti nakon toliko vremena!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Good afternoon"
-msgstr "Dobar dan"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Good evening"
-msgstr "Dobra večer"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Good morning"
-msgstr "Dobro jutro"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Good night"
-msgstr "Laku noć"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_report_view_search
-msgid "Group By"
-msgstr "Grupiši po"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_report_view_search
-msgid "HR Attendance Search"
-msgstr "HR Pretraživanje prisutnosti"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Have a good afternoon"
-msgstr "Ugodno poslijepodne!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Have a good day!"
-msgstr "Ugodan dan!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Have a good evening"
-msgstr "Ugodna večer!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "Have a nice lunch!"
-msgstr "Uživajte u ručku!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_user_view_form
-msgid "Hours"
-msgstr "Sati"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_report__worked_hours
-msgid "Hours Worked"
-msgstr "Radni sati"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "If a job is worth doing, it is worth doing well!"
-msgstr "Ako se posao treba napraviti onda ga se isplati napraviti kvalitetno!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance____last_update
-msgid "Last Modified on"
-msgstr "Zadnja izmjena"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:ir.model,name:hr_attendance.model_ir_ui_menu
-msgid "Menu"
-msgstr "Izbornik"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
-msgid "No Check Out"
-msgstr "Bez odjave"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_action_employee
-msgid "No attendance records to display"
-msgstr "Neispravan zahtev, molimo vratite se na glavni meni."
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:res.groups,name:hr_attendance.group_hr_attendance_user
-msgid "Officer : Manage all attendances"
-msgstr "Službenik: administrira sve prisutnosti"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Please contact your administrator."
-msgstr "Molimo kontaktirajte administratora vašeg poslovnog sustava."
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Start from"
-msgstr "Počnite od"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/models/hr_employee.py:0
-#, python-format
-msgid "Such grouping is not allowed."
-msgstr "Odabrano grupiranje nije dozvoljeno."
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/js/greeting_message.js:0
-#, python-format
-msgid "The early bird catches the worm"
-msgstr "Tko rano rani, dvije sreće grabi"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:res.groups,comment:hr_attendance.group_hr_attendance_kiosk
-msgid ""
-"The user will be able to open the kiosk mode and validate the employee PIN."
-msgstr ""
-"Korisnik će moći otvoriti način rada Kiosk mod i verificirati PIN "
-"zaposlenika."
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:res.groups,comment:hr_attendance.group_hr_attendance
-msgid ""
-"The user will gain access to the human resources attendance menu, enabling "
-"him to manage his own attendance."
-msgstr ""
-"Korisnik će dobiti pristup izborniku prisustava te će moći sam raditi "
-"prijave i odjave."
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:res.groups,comment:hr_attendance.group_hr_attendance_use_pin
-msgid ""
-"The user will have to enter his PIN to check in and out manually at the "
-"company screen."
-msgstr ""
-"Korisnik će morati upisati svoj BIN kako bi se mogao ručno prijaviti i "
-"odjaviti na ekranu tvrtke."
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/models/hr_employee.py:0
-#, python-format
-msgid ""
-"To activate Kiosk mode without pin code, you must have access right as an "
-"Officer or above in the Attendance app. Please contact your administrator."
-msgstr ""
-"Da biste aktivirali način rada Kiosk mode, bez korištenja PIN koda, kao "
-"korisnik sustava za aplikaciju Prisutnosti trebate imati dodijeljene ovlasti"
-" službenik ili razinu ovlasti višu od te. Molimo kontaktirajte "
-"administratora vašeg poslovnog sustava."
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Today's work hours:"
-msgstr "Danas radnih sati:"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Total extra hours:"
-msgstr "Ukupan broj dodatnih sati:"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model:res.groups,name:hr_attendance.group_hr_attendance_kiosk
-msgid "User : Only kiosk mode"
-msgstr "Korisnik: Samo kiosk mod"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Want to check out?"
-msgstr "Želite li se odjaviti?"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Warning"
-msgstr "Upozorenje"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Welcome to"
-msgstr "Dobrodošli u"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/static/src/xml/attendance.xml:0
-#, python-format
-msgid "Welcome!"
-msgstr "Dobrodošli!"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_user_view_form
-msgid "Worked hours last month"
-msgstr "Odrađeno sati prošli mjesec"
-
-# taken from hr.po
-#. module: hr_attendance
-#: code:addons/hr_attendance/models/hr_employee.py:0
-#, python-format
-msgid "Wrong PIN"
-msgstr "Pogrešan PIN"
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_action_overview
-msgid "Your attendance records will be displayed here."
-msgstr "Vaši zapisi o prisutnosti zaposlenika prikazivati će se ovdje."
-
-# taken from hr.po
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "seconds"
-msgstr "sekundi"
-
-#~ msgid "Group By"
-#~ msgstr "Grupiši po"

@@ -1,6 +1,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from datetime import date
+from datetime import date, UTC
 from odoo import api, fields, models
 from odoo.fields import Domain
 from odoo.exceptions import ValidationError
@@ -36,7 +36,7 @@ class HrVersion(models.Model):
             leaves = self._get_leaves_from_vals(vals)
             is_created = False
             for leave in leaves:
-                leaves_state = self._refuse_leave(leave, leaves_state) if leave.request_date_from < vals['contract_date_start'] else self._set_leave_draft(leave, leaves_state)
+                leaves_state = self._update_leave_state(leave, leaves_state, leave.request_date_from < vals['contract_date_start'])
                 if not is_created:
                     created_versions |= super().create([vals])
                     is_created = True
@@ -71,22 +71,22 @@ class HrVersion(models.Model):
             all_new_leave_origin = []
             all_new_leave_vals = []
             leaves_state = {}
+            for contract in self:
+                resource_calendar_id = vals.get('resource_calendar_id', contract.resource_calendar_id.id)
+                extra_domain = [('resource_calendar_id', '!=', resource_calendar_id)] if resource_calendar_id else None
+                leaves = contract._get_leaves(
+                    extra_domain=extra_domain
+                )
+                for leave in leaves:
+                    super(HrVersion, contract).write(vals)
+                    overlapping_contracts = self._check_overlapping_contract(leave)
+                    if not overlapping_contracts:
+                        continue
+                    leaves_state = self._update_leave_state(leave, leaves_state, True)
+                    specific_contracts += contract
+                    all_new_leave_origin, all_new_leave_vals = self._populate_all_new_leave_vals_from_split_leave(
+                        all_new_leave_origin, all_new_leave_vals, overlapping_contracts, leave, leaves_state)
             try:
-                for contract in self:
-                    resource_calendar_id = vals.get('resource_calendar_id', contract.resource_calendar_id.id)
-                    extra_domain = [('resource_calendar_id', '!=', resource_calendar_id)] if resource_calendar_id else None
-                    leaves = contract._get_leaves(
-                        extra_domain=extra_domain
-                    )
-                    for leave in leaves:
-                        super(HrVersion, contract).write(vals)
-                        overlapping_contracts = self._check_overlapping_contract(leave)
-                        if not overlapping_contracts:
-                            continue
-                        leaves_state = self._refuse_leave(leave, leaves_state)
-                        specific_contracts += contract
-                        all_new_leave_origin, all_new_leave_vals = self._populate_all_new_leave_vals_from_split_leave(
-                            all_new_leave_origin, all_new_leave_vals, overlapping_contracts, leave, leaves_state)
                 if all_new_leave_vals:
                     self._create_all_new_leave(all_new_leave_origin, all_new_leave_vals)
             except ValidationError as e:
@@ -111,10 +111,13 @@ class HrVersion(models.Model):
         return self.env['hr.leave'].search(domain)
 
     def _get_leaves_from_vals(self, vals):
+        contract_date_start = fields.Date.from_string(vals.get('contract_date_start') or vals.get('date_version', fields.Date.today()))
+        version_date_start = fields.Date.from_string(vals.get('date_version', fields.Date.today()))
+        relevant_start_date = max(contract_date_start, version_date_start)
         domain = [
             ('state', 'not in', ['refuse', 'cancel']),
             ('employee_id', 'in', vals['employee_id']),
-            ('date_to', '>=', fields.Date.from_string(vals.get('contract_date_start', vals.get('date_version', fields.Date.today())))),
+            ('date_to', '>=', relevant_start_date),
             ('resource_calendar_id', '!=', vals.get('resource_calendar_id')),
         ]
         if vals.get('contract_date_end'):
@@ -130,25 +133,21 @@ class HrVersion(models.Model):
                 first_overlapping_contract = next(iter(overlapping_contracts), overlapping_contracts)
                 if leave.resource_calendar_id != first_overlapping_contract.resource_calendar_id:
                     leave.resource_calendar_id = first_overlapping_contract.resource_calendar_id
-                    if not leave.request_unit_hours:
+                    if leave.work_entry_type_request_unit != 'hour':
                         leave.with_context(leave_skip_date_check=True, leave_skip_state_check=True)._compute_date_from_to()
                         if leave.state == 'validate':
                             leave._validate_leave_request()
             return False
         return overlapping_contracts
 
-    def _refuse_leave(self, leave, leaves_state):
+    def _update_leave_state(self, leave, leaves_state, refuse_leave=False):
         if leave.id not in leaves_state:
             leaves_state[leave.id] = leave.state
         if leave.state not in ['refuse', 'confirm']:
-            leave.action_refuse()
-        return leaves_state
-
-    def _set_leave_draft(self, leave, leaves_state):
-        if leave.id not in leaves_state:
-            leaves_state[leave.id] = leave.state
-        if leave.state not in ['refuse', 'confirm']:
-            leave.action_back_to_approval()
+            if refuse_leave:
+                leave.action_refuse()
+            else:
+                leave.action_back_to_approval()
         return leaves_state
 
     def _populate_all_new_leave_vals_from_split_leave(self, all_new_leave_origin, all_new_leave_vals, overlapping_contracts, leave, leaves_state):
@@ -172,6 +171,7 @@ class HrVersion(models.Model):
         return all_new_leave_origin, all_new_leave_vals
 
     def _create_all_new_leave(self, all_new_leave_origin, all_new_leave_vals):
+        # seems 'tracking_disable' is wanted to speedup leaves batch creation
         new_leaves = self.env['hr.leave'].with_context(
             tracking_disable=True,
             mail_activity_automation_skip=True,
@@ -185,3 +185,68 @@ class HrVersion(models.Model):
                 render_values={'self': new_leave, 'origin': all_new_leave_origin[index]},
                 subtype_xmlid='mail.mt_note',
             )
+
+    # override to add work_entry_type from leave
+    def _get_leave_work_entry_type(self, leave):
+        if leave.holiday_id:
+            return leave.holiday_id.work_entry_type_id
+        else:
+            return leave.work_entry_type_id
+
+    def _get_more_vals_leave_interval(self, interval, leaves):
+        result = super()._get_more_vals_leave_interval(interval, leaves)
+        for leave in leaves:
+            if interval[0] >= leave[0] and interval[1] <= leave[1]:
+                if leave[2].holiday_id:
+                    result.append(('leave_ids', leave[2].holiday_id))
+        return result
+
+    def _get_interval_leave_work_entry_type(self, interval, leaves, bypassing_codes):
+        # returns the work entry time related to the leave that
+        # includes the whole interval.
+        # Overriden in hr_work_entry_holiday to select the
+        # global time off first (eg: Public Holiday > Home Working)
+        self.ensure_one()
+        if 'work_entry_type_id' in interval[2]:
+            work_entry_types = interval[2].work_entry_type_id
+            if work_entry_types and work_entry_types[:1].code in bypassing_codes:
+                return work_entry_types[:1]
+
+        interval_start = interval[0].astimezone(UTC).replace(tzinfo=None)
+        interval_stop = interval[1].astimezone(UTC).replace(tzinfo=None)
+        including_rcleaves = [l[2] for l in leaves if l[2] and interval_start >= l[2][0].date_from and interval_stop <= l[2][0].date_to]
+        including_global_rcleaves = [l for l in including_rcleaves if not l.holiday_id]
+        including_holiday_rcleaves = [l for l in including_rcleaves if l.holiday_id]
+        rc_leave = False
+
+        # Example: In CP200: Long term sick > Public Holidays (which is global)
+        if bypassing_codes:
+            bypassing_rc_leave = [l for l in including_holiday_rcleaves if l.holiday_id.work_entry_type_id.code in bypassing_codes]
+        else:
+            bypassing_rc_leave = []
+
+        if bypassing_rc_leave:
+            rc_leave = bypassing_rc_leave[0]
+        elif including_global_rcleaves:
+            rc_leave = including_global_rcleaves[0]
+        elif including_holiday_rcleaves:
+            rc_leave = including_holiday_rcleaves[0]
+        if rc_leave:
+            return self._get_leave_work_entry_type_dates(rc_leave, interval_start, interval_stop, self.employee_id)
+        return self.env.ref('hr_work_entry.generic_work_entry_type_leave')
+
+    def _get_sub_leave_domain(self):
+        # see https://github.com/odoo/enterprise/pull/15091
+        return super()._get_sub_leave_domain() | Domain('holiday_id.employee_id', 'in', self.employee_id.ids)
+
+    @api.model
+    def _generate_work_entries_postprocess_adapt_to_calendar(self, vals):
+        res = super()._generate_work_entries_postprocess_adapt_to_calendar(vals)
+        if 'work_entry_type_id' not in vals or not vals.get('leave_ids'):
+            return res
+        work_entry_type = vals['work_entry_type_id']
+        return res or (work_entry_type.count_as == 'absence' or work_entry_type.request_unit != 'hour')
+
+    @api.model
+    def _get_work_entry_source_fields(self):
+        return super()._get_work_entry_source_fields() + ['leave_ids']

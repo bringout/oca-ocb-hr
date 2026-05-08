@@ -15,7 +15,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
     number_of_days = fields.Float('Number of Days', readonly=True, aggregator="sum")
     number_of_hours = fields.Float('Number of Hours', readonly=True, aggregator="sum")
     department_id = fields.Many2one('hr.department', string='Department', readonly=True)
-    leave_type = fields.Many2one("hr.leave.type", string="Time Off Type", readonly=True)
+    work_entry_type_id = fields.Many2one("hr.work.entry.type", string="Time Type", readonly=True)
     holiday_status = fields.Selection([
         ('taken', 'Taken'), #taken = validated
         ('left', 'Left'),
@@ -44,7 +44,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
 						l.employee_id as employee_id,
 						l.number_of_days as number_of_days,
 						l.number_of_hours as number_of_hours,
-						l.holiday_status_id as leave_type,
+						l.work_entry_type_id as work_entry_type_id,
 						l.date_from as date_from,
 						l.date_to as date_to
                     FROM hr_leave l
@@ -60,14 +60,14 @@ class HrLeaveEmployeeTypeReport(models.Model):
 						allocation.number_of_days as number_of_days,
 						allocation.number_of_hours_display as number_of_hours,
 						v.department_id as department_id,
-						allocation.holiday_status_id as leave_type,
+						allocation.work_entry_type_id as work_entry_type_id,
 						allocation.state as state,
 						allocation.date_from as date_from,
 						allocation.date_to as date_to,
 						allocation.employee_company_id as company_id,
 						CASE
 							WHEN allocation.date_from > MAX(COALESCE(allocation.date_to, 'infinity'::date)) OVER (
-								PARTITION BY allocation.employee_id, allocation.holiday_status_id
+								PARTITION BY allocation.employee_id, allocation.work_entry_type_id
 								ORDER BY allocation.date_from, allocation.id
 								ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING
 							)
@@ -85,7 +85,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
                     SELECT
 						ba.*,
 						SUM(ba.is_new_group) OVER (
-							PARTITION BY ba.employee_id, ba.leave_type
+							PARTITION BY ba.employee_id, ba.work_entry_type_id
 							ORDER BY ba.date_from, ba.allocation_id
 							ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
 						) as overlap_group
@@ -101,22 +101,22 @@ class HrLeaveEmployeeTypeReport(models.Model):
 						ga.number_of_days as number_of_days,
 						ga.number_of_hours as number_of_hours,
 						ga.department_id as department_id,
-						ga.leave_type as leave_type,
+						ga.work_entry_type_id as work_entry_type_id,
 						ga.state as state,
 						ga.date_from as date_from,
 						ga.date_to as date_to,
 						ga.company_id as company_id,
 						ROW_NUMBER() OVER (
-							PARTITION BY ga.employee_id, ga.leave_type, ga.overlap_group
+							PARTITION BY ga.employee_id, ga.work_entry_type_id, ga.overlap_group
 							ORDER BY ga.date_from, ga.allocation_id
 						) as fifo_rank,
 						SUM(ga.number_of_days) OVER (
-							PARTITION BY ga.employee_id, ga.leave_type, ga.overlap_group
+							PARTITION BY ga.employee_id, ga.work_entry_type_id, ga.overlap_group
 							ORDER BY ga.date_from, ga.allocation_id
 							ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
 						) as cumulative_allocated_days,
 						SUM(ga.number_of_hours) OVER (
-							PARTITION BY ga.employee_id, ga.leave_type, ga.overlap_group
+							PARTITION BY ga.employee_id, ga.work_entry_type_id, ga.overlap_group
 							ORDER BY ga.date_from, ga.allocation_id
 							ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
 						) as cumulative_allocated_hours
@@ -132,7 +132,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
                     FROM ordered_allocations oa
                     LEFT JOIN validated_leaves vl
                         ON vl.employee_id = oa.employee_id
-                        AND vl.leave_type = oa.leave_type
+                        AND vl.work_entry_type_id = oa.work_entry_type_id
                         AND vl.date_from <= COALESCE(oa.date_to, 'infinity')
                         AND (
                             oa.date_to IS NULL
@@ -154,7 +154,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
 							COALESCE(tpa.taken_hours, 0) - (oa.cumulative_allocated_hours - oa.number_of_hours), 0),
 						0) as number_of_hours,
                         oa.department_id as department_id,
-                        oa.leave_type as leave_type,
+                        oa.work_entry_type_id as work_entry_type_id,
                         oa.state as state,
                         oa.date_from as date_from,
                         oa.date_to as date_to,
@@ -172,7 +172,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
 					leaves.number_of_days as number_of_days,
 					leaves.number_of_hours as number_of_hours,
 					leaves.department_id as department_id,
-					leaves.leave_type as leave_type,
+					leaves.work_entry_type_id as work_entry_type_id,
 					leaves.state as state,
 					leaves.date_from as date_from,
 					leaves.date_to as date_to,
@@ -186,7 +186,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
 						fb.number_of_days as number_of_days,
 						fb.number_of_hours as number_of_hours,
 						fb.department_id as department_id,
-						fb.leave_type as leave_type,
+						fb.work_entry_type_id as work_entry_type_id,
 						fb.state as state,
 						fb.date_from::timestamp + interval '12 hours' as date_from,
 						fb.date_to::timestamp + interval '12 hours' as date_to,
@@ -202,7 +202,7 @@ class HrLeaveEmployeeTypeReport(models.Model):
 						request.number_of_days as number_of_days,
 						request.number_of_hours as number_of_hours,
 						v.department_id as department_id,
-						request.holiday_status_id as leave_type,
+						request.work_entry_type_id as work_entry_type_id,
 						request.state as state,
 						request.date_from as date_from,
 						request.date_to as date_to,

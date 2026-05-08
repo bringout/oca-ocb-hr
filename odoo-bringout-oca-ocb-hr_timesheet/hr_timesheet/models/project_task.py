@@ -59,7 +59,7 @@ class ProjectTask(models.Model):
 
     @api.constrains('project_id')
     def _check_project_root(self):
-        private_tasks = self.filtered(lambda t: not t.project_id)
+        private_tasks = self.filtered(lambda t: not t.project_id and not t.is_template)
         if private_tasks and self.env['account.analytic.line'].sudo().search_count([('task_id', 'in', private_tasks.ids)], limit=1):
             raise UserError(_("This task cannot be private because there are some timesheets linked to it."))
 
@@ -69,15 +69,23 @@ class ProjectTask(models.Model):
     def _compute_encode_uom_in_days(self):
         self.encode_uom_in_days = self._uom_in_days()
 
-    @api.depends('project_id.allow_timesheets')
+    @api.depends('project_id.allow_timesheets', 'is_template')
     def _compute_allow_timesheets(self):
         for task in self:
-            task.allow_timesheets = task.project_id.allow_timesheets
+            task.allow_timesheets = task.project_id.allow_timesheets if task.project_id else task.is_template
 
     def _search_allow_timesheets(self, operator, value):
         query = self.env['project.project'].sudo()._search([
             ('allow_timesheets', operator, value),
         ])
+        if value:
+            return [
+                '|',
+                    ('project_id', 'in', query),
+                    '&',
+                        ('project_id', '=', False),
+                        ('is_template', '=', True),
+            ]
         return [('project_id', 'in', query)]
 
     @api.depends('timesheet_ids.unit_amount')
@@ -221,7 +229,7 @@ class ProjectTask(models.Model):
             'timesheets_per_task': timesheets_per_task,
         }
 
-    @api.depends_context('hr_timesheet_display_remaining_hours')
+    @api.depends_context('hr_timesheet_display_remaining_hours', 'formatted_display_name')
     def _compute_display_name(self):
         super()._compute_display_name()
         if self.env.context.get('hr_timesheet_display_remaining_hours'):
@@ -231,13 +239,16 @@ class ProjectTask(models.Model):
                     task.display_name = task.display_name + "\u00A0" + days_left
                 elif task.allow_timesheets and task.allocated_hours > 0:
                     hours, mins = (str(int(duration)).rjust(2, '0') for duration in divmod(abs(task.remaining_hours) * 60, 60))
-                    hours_left = _(
+                    hours_left = self.env._(
                         "(%(sign)s%(hours)s:%(minutes)s remaining)",
                         sign='-' if task.remaining_hours < 0 else '',
                         hours=hours,
                         minutes=mins,
                     )
-                    task.display_name = task.display_name + "\u00A0" + hours_left
+                    if self.env.context.get('formatted_display_name'):
+                        task.display_name = f"{task.display_name} \t --{hours_left}--"
+                    else:
+                        task.display_name = task.display_name + "\u00A0" + hours_left
 
     @api.ondelete(at_uninstall=False)
     def _unlink_except_contains_entries(self):
@@ -288,3 +299,10 @@ class ProjectTask(models.Model):
             'allocated_hours': sum(tasks_for_total.mapped('allocated_hours')),
             'effective_hours': sum(tasks_for_total.mapped('total_hours_spent')),
         }
+
+    def _get_template_field_blacklist(self):
+        fields = super()._get_template_field_blacklist()
+        project_id = self.env.context.get('default_project_id')
+        if project_id and not self.env['project.project'].browse(project_id).allow_timesheets:
+            fields.append('allocated_hours')
+        return fields

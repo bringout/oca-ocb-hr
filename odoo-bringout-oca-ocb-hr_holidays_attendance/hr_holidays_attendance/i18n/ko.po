@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.2a1+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-27 18:37+0000\n"
-"PO-Revision-Date: 2026-01-02 10:06+0000\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
+"PO-Revision-Date: 2026-02-07 12:18+0000\n"
 "Last-Translator: \"Kwanghee Park (kwpa)\" <kwpa@odoo.com>\n"
-"Language-Team: Korean <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Korean <https://translate.odoo.com/projects/odoo-s19-1/"
 "hr_holidays_attendance/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #. module: hr_holidays_attendance
 #. odoo-python
-#: code:addons/hr_holidays_attendance/models/hr_leave_type.py:0
+#: code:addons/hr_holidays_attendance/models/hr_work_entry_type.py:0
 msgid "%s hours available"
 msgstr "%s 시간 사용 가능"
 
@@ -65,7 +65,7 @@ msgstr "출근 기록"
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_attendance_report
 msgid "Attendance and Leave Analysis Report"
-msgstr ""
+msgstr "근태 및 휴가 분석 보고서"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__attendance_ids
@@ -77,12 +77,6 @@ msgstr "근태 관리"
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
 msgid "Available"
 msgstr "사용 가능"
-
-#. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Balance"
-msgstr "잔액"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__compensable_as_leave
@@ -102,7 +96,7 @@ msgid "Days"
 msgstr "일"
 
 #. module: hr_holidays_attendance
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_work_entry_type__overtime_deductible
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_employee_view_form_inherit
 msgid "Deduct Extra Hours"
 msgstr "추가 시간 공제"
@@ -119,11 +113,6 @@ msgid "Difference"
 msgstr "차액"
 
 #. module: hr_holidays_attendance
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_allocation_overtime_manager_view_form
-msgid "Discard"
-msgstr "취소"
-
-#. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_employee__display_name
@@ -131,7 +120,7 @@ msgstr "취소"
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__display_name
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_work_entry_type__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_ir_ui_menu__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_resource_calendar_leaves__display_name
 msgid "Display Name"
@@ -179,10 +168,11 @@ msgstr "주기"
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__compensable_as_leave
 msgid "Give back as time off"
-msgstr ""
+msgstr "휴가 보상"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.xml:0
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
 msgid "Hours"
 msgstr "시간"
@@ -195,7 +185,7 @@ msgstr "시간"
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__id
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_work_entry_type__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_ir_ui_menu__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_resource_calendar_leaves__id
 msgid "ID"
@@ -221,6 +211,12 @@ msgid "Last 2 Months"
 msgstr "지난 2개월"
 
 #. module: hr_holidays_attendance
+#. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.xml:0
+msgid "Left"
+msgstr ""
+
+#. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_ir_ui_menu
 msgid "Menu"
 msgstr "메뉴"
@@ -231,12 +227,24 @@ msgid "Missing Hours"
 msgstr "누락 시간"
 
 #. module: hr_holidays_attendance
+#. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.xml:0
+msgid "NEW TIMEOFF REQUEST"
+msgstr ""
+
+#. module: hr_holidays_attendance
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_allocation_overtime_manager_action
 msgid "New Allocation Request"
 msgstr "새 할당 요청"
 
 #. module: hr_holidays_attendance
-#: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
+#. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.js:0
+msgid "New Time Off"
+msgstr ""
+
+#. module: hr_holidays_attendance
+#: model:ir.model.fields,help:hr_holidays_attendance.field_hr_work_entry_type__overtime_deductible
 msgid ""
 "Once a time off of this type is approved, extra hours in attendances will be "
 "deducted."
@@ -265,12 +273,6 @@ msgstr "시간외근무 규칙"
 #: model:ir.model.fields.selection,name:hr_holidays_attendance.selection__hr_leave_accrual_level__frequency__worked_hours
 msgid "Per Hour Worked"
 msgstr "근무 시간 당"
-
-#. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Remaining Extra Hours:"
-msgstr "초과 근무 잔여 시간:"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_resource_calendar_leaves
@@ -312,18 +314,7 @@ msgid "Time Off Ledger"
 msgstr "휴가 관리 대장"
 
 #. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Time Off Taken from Extra Hours:"
-msgstr ""
-
-#. module: hr_holidays_attendance
-#: model:ir.model,name:hr_holidays_attendance.model_hr_leave_type
-msgid "Time Off Type"
-msgstr "휴가 유형"
-
-#. module: hr_holidays_attendance
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__leave_type_names
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__work_entry_type_names
 msgid "Time Off Types"
 msgstr "휴가 유형"
 
@@ -333,16 +324,9 @@ msgid "Time Offs"
 msgstr "휴가"
 
 #. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Total Compensable Extra Hours:"
-msgstr "총 초과 근무 보상 시간:"
-
-#. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Total Extra Hours Worked:"
-msgstr "총 초과 근무 시간:"
+#: model:ir.model,name:hr_holidays_attendance.model_hr_work_entry_type
+msgid "Work Entry Type"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
@@ -386,25 +370,3 @@ msgstr "휴가를 요청할 수 있는 충분한 추가 시간을 채우지 않�
 #: code:addons/hr_holidays_attendance/static/src/components/accrual_levels/accrual_levels.xml:0
 msgid "every worked hour."
 msgstr "매 근무 시간입니다."
-
-#~ msgid "Total Overtime"
-#~ msgstr "총 초과 근무"
-
-#~ msgid "Attendance"
-#~ msgstr "출근"
-
-#~ msgid "Extra Hours"
-#~ msgstr "추가 시간"
-
-#~ msgid "Request Overtime"
-#~ msgstr "초과 근무 요청"
-
-#~ msgid ""
-#~ "The employee does not have enough extra hours to extend this allocation."
-#~ msgstr "직원이 수당을 연장할 수 있는 충분한 추가 시간을 채우지 않았습니다."
-
-#~ msgid "The employee does not have enough extra hours to extend this leave."
-#~ msgstr "직원이 휴가를 연장할 수 있는 충분한 추가 시간을 채우지 않았습니다."
-
-#~ msgid "User"
-#~ msgstr "사용자"

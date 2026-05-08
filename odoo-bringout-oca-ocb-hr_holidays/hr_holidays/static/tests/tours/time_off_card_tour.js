@@ -2,7 +2,6 @@ import { registry } from "@web/core/registry";
 import { stepUtils } from "@web_tour/tour_utils";
 
 registry.category("web_tour.tours").add("time_off_card_tour", {
-    url: "/odoo",
     steps: () => [
         stepUtils.showAppsMenuItem(),
         {
@@ -72,8 +71,8 @@ registry.category("web_tour.tours").add("time_off_card_tour", {
             run: "click",
         },
         {
-            content: "Click on the link containing 'Planned'",
-            trigger: ".o_popover .btn-link:contains('Planned')",
+            content: "Click on the link containing 'Pending'",
+            trigger: ".o_popover .btn-link:contains('Pending')",
             run: "click",
         },
         {

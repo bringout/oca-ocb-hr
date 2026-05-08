@@ -5,14 +5,14 @@
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2025, 2026.
+# "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2025.
 # "Patricia Gutiérrez (pagc)" <pagc@odoo.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.2a1+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-27 18:37+0000\n"
-"PO-Revision-Date: 2026-03-06 17:51+0000\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
+"PO-Revision-Date: 2025-12-20 09:54+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
 "Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
 "hr_holidays_attendance/es/>\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #. module: hr_holidays_attendance
 #. odoo-python
-#: code:addons/hr_holidays_attendance/models/hr_leave_type.py:0
+#: code:addons/hr_holidays_attendance/models/hr_work_entry_type.py:0
 msgid "%s hours available"
 msgstr "%s horas disponibles"
 
@@ -42,12 +42,12 @@ msgstr "Activo"
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__leave_hours
 msgid "Approved Time Off"
-msgstr "Ausencias aprobadas"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
 msgid "Approved Time Offs"
-msgstr "Ausencias aprobadas"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
@@ -57,17 +57,17 @@ msgstr "Empleados archivados"
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_attendance_overtime_line
 msgid "Attendance Overtime Line"
-msgstr "Línea de horas extra de asistencia"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
 msgid "Attendance Records"
-msgstr "Registros de asistencia"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_attendance_report
 msgid "Attendance and Leave Analysis Report"
-msgstr "Informe de análisis de asistencia y ausencias"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__attendance_ids
@@ -81,15 +81,9 @@ msgid "Available"
 msgstr "Disponible"
 
 #. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Balance"
-msgstr "Saldo"
-
-#. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__compensable_as_leave
 msgid "Compensable as Time Off"
-msgstr "Compensable como ausencia"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__date
@@ -104,7 +98,7 @@ msgid "Days"
 msgstr "Días"
 
 #. module: hr_holidays_attendance
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_work_entry_type__overtime_deductible
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_employee_view_form_inherit
 msgid "Deduct Extra Hours"
 msgstr "Descontar horas extras"
@@ -121,11 +115,6 @@ msgid "Difference"
 msgstr "Diferencia"
 
 #. module: hr_holidays_attendance
-#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_allocation_overtime_manager_view_form
-msgid "Discard"
-msgstr "Descartar"
-
-#. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_line__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_employee__display_name
@@ -133,7 +122,7 @@ msgstr "Descartar"
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__display_name
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__display_name
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_work_entry_type__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_ir_ui_menu__display_name
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_resource_calendar_leaves__display_name
 msgid "Display Name"
@@ -155,7 +144,7 @@ msgstr "Empleado"
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__employee_overtime
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__employee_overtime
 msgid "Employee Overtime"
-msgstr "Horas extra del empleado"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
@@ -181,10 +170,11 @@ msgstr "Frecuencia"
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_attendance_overtime_rule__compensable_as_leave
 msgid "Give back as time off"
-msgstr "Compensar como ausencia"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.xml:0
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
 msgid "Hours"
 msgstr "Horas"
@@ -197,7 +187,7 @@ msgstr "Horas"
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_allocation__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__id
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_type__id
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_work_entry_type__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_ir_ui_menu__id
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_resource_calendar_leaves__id
 msgid "ID"
@@ -224,6 +214,12 @@ msgid "Last 2 Months"
 msgstr "Últimos 2 meses"
 
 #. module: hr_holidays_attendance
+#. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.xml:0
+msgid "Left"
+msgstr ""
+
+#. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_ir_ui_menu
 msgid "Menu"
 msgstr "Menú"
@@ -231,7 +227,13 @@ msgstr "Menú"
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_search
 msgid "Missing Hours"
-msgstr "Horas que faltan"
+msgstr ""
+
+#. module: hr_holidays_attendance
+#. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.xml:0
+msgid "NEW TIMEOFF REQUEST"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_allocation_overtime_manager_action
@@ -239,7 +241,13 @@ msgid "New Allocation Request"
 msgstr "Nueva solicitud de asignación"
 
 #. module: hr_holidays_attendance
-#: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
+#. odoo-javascript
+#: code:addons/hr_holidays_attendance/static/src/views/calendar/attendance_calendar_overview.js:0
+msgid "New Time Off"
+msgstr ""
+
+#. module: hr_holidays_attendance
+#: model:ir.model.fields,help:hr_holidays_attendance.field_hr_work_entry_type__overtime_deductible
 msgid ""
 "Once a time off of this type is approved, extra hours in attendances will be "
 "deducted."
@@ -266,7 +274,7 @@ msgstr "Horas extraordinarias descontables"
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_attendance_overtime_rule
 msgid "Overtime Rule"
-msgstr "Regla de horas extra"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields.selection,name:hr_holidays_attendance.selection__hr_leave_accrual_level__frequency__worked_hours
@@ -274,15 +282,9 @@ msgid "Per Hour Worked"
 msgstr "Por hora trabajada"
 
 #. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Remaining Extra Hours:"
-msgstr "Horas extra restantes:"
-
-#. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_resource_calendar_leaves
 msgid "Resource Time Off Detail"
-msgstr "Detalle de la ausencia del recurso"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_allocation_overtime_manager_view_form
@@ -318,21 +320,10 @@ msgstr "Asignación de ausencias"
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_attendance_report_action
 #: model:ir.ui.menu,name:hr_holidays_attendance.hr_leave_attendance_report
 msgid "Time Off Ledger"
-msgstr "Registro de ausencias"
+msgstr ""
 
 #. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Time Off Taken from Extra Hours:"
-msgstr "Ausencias cogidas de horas extras:"
-
-#. module: hr_holidays_attendance
-#: model:ir.model,name:hr_holidays_attendance.model_hr_leave_type
-msgid "Time Off Type"
-msgstr "Tipo de ausencia"
-
-#. module: hr_holidays_attendance
-#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__leave_type_names
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__work_entry_type_names
 msgid "Time Off Types"
 msgstr "Tipos de vacaciones"
 
@@ -342,16 +333,9 @@ msgid "Time Offs"
 msgstr "Ausencias"
 
 #. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Total Compensable Extra Hours:"
-msgstr "Total de horas extra compensables:"
-
-#. module: hr_holidays_attendance
-#. odoo-javascript
-#: code:addons/hr_holidays_attendance/static/src/views/extra_hours_list_view.xml:0
-msgid "Total Extra Hours Worked:"
-msgstr "Total de horas extra trabajadas:"
+#: model:ir.model,name:hr_holidays_attendance.model_hr_work_entry_type
+msgid "Work Entry Type"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_attendance_report_view_form
@@ -366,7 +350,7 @@ msgstr "Horas trabajadas"
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_attendance_report__difference_hours
 msgid "Worked Hours - Expected Hours + Approved Time Off"
-msgstr "Horas trabajadas - Horas previstas + ausencias aprobadas"
+msgstr ""
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_attendance_report__schedule_id
@@ -395,28 +379,3 @@ msgstr "No tiene suficientes horas extras para solicitar este permiso"
 #: code:addons/hr_holidays_attendance/static/src/components/accrual_levels/accrual_levels.xml:0
 msgid "every worked hour."
 msgstr "cada hora trabajada."
-
-#~ msgid "Total Overtime"
-#~ msgstr "Total de horas extraordinarias"
-
-#~ msgid "Attendance"
-#~ msgstr "Asistencia"
-
-#~ msgid "Extra Hours"
-#~ msgstr "Horas extras"
-
-#~ msgid "Request Overtime"
-#~ msgstr "Solicitar horas extraordinarias"
-
-#~ msgid ""
-#~ "The employee does not have enough extra hours to extend this allocation."
-#~ msgstr ""
-#~ "El empleado no tiene suficientes horas extras para extender esta "
-#~ "asignación."
-
-#~ msgid "The employee does not have enough extra hours to extend this leave."
-#~ msgstr ""
-#~ "El empleado no tiene suficientes horas extras para extender este permiso."
-
-#~ msgid "User"
-#~ msgstr "Usuario"

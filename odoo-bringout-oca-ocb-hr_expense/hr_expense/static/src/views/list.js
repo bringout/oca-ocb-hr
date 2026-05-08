@@ -1,6 +1,6 @@
-import { ExpenseDashboard } from '../components/expense_dashboard';
-import { ExpenseMobileQRCode } from '../mixins/qrcode';
-import { ExpenseDocumentUpload, ExpenseDocumentDropZone } from '../mixins/document_upload';
+import { render } from "@web/owl2/utils";
+import { ExpenseDashboard } from "@hr_expense/components/expense_dashboard";
+import { ExpenseDocumentUpload, ExpenseDocumentDropZone } from "@hr_expense/mixins/document_upload";
 
 import { registry } from '@web/core/registry';
 import { useService } from '@web/core/utils/hooks';
@@ -56,7 +56,7 @@ export class ExpenseListController extends ExpenseDocumentUpload(ListController)
                 },
                 onClose: async () => {
                     await this.model.root.load();
-                    this.render(true);
+                    render(this, true);
                 }
             });
         }
@@ -64,9 +64,7 @@ export class ExpenseListController extends ExpenseDocumentUpload(ListController)
     }
 }
 
-export class ExpenseListRenderer extends ExpenseDocumentDropZone(
-    ExpenseMobileQRCode(ListRenderer)
-) {
+export class ExpenseListRenderer extends ExpenseDocumentDropZone(ListRenderer) {
     static template = "hr_expense.ListRenderer";
 }
 

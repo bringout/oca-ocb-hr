@@ -57,13 +57,13 @@ class TestPayrollFieldsAccess(TransactionCase):
         }
         whitelist_field_names = [
             'resource_calendar_id',
-            'employee_type',
+            'hours_per_week',
+            'hours_per_day',
             'tz',
             'currency_id',
             'lang',
             'registration_number',
             'standard_calendar_id',
-            'employee_age',
             'distance_home_work',
             'distance_home_work_unit',
             'show_billable_time_target',
@@ -80,7 +80,8 @@ class TestPayrollFieldsAccess(TransactionCase):
             'new_bike_model_id',
             'originated_offer_id',
             'is_non_resident',
-            'structure_id'
+            'structure_id',
+            'attendance_based',
         ]
         missing_group_field_names = [
             f_name

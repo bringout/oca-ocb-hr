@@ -12,13 +12,16 @@ class TestAccrualAllocations(TestHrHolidaysCommon):
     @classmethod
     def setUpClass(cls):
         super(TestAccrualAllocations, cls).setUpClass()
-        cls.leave_type = cls.env['hr.leave.type'].create({
+        cls.work_entry_type = cls.env['hr.work.entry.type'].create({
             'name': 'Accrual Time Off',
-            'time_type': 'leave',
+            'code': 'Accrual Time Off',
+            'count_as': 'absence',
             'requires_allocation': True,
             'allocation_validation_type': 'no',
+            'request_unit': 'day',
+            'unit_of_measure': 'day',
         })
-        cls.accrual_plan = cls.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).create({
+        cls.accrual_plan = cls.env['hr.leave.accrual.plan'].create({
             'name': 'Test Seniority Plan',
             'level_ids': [
                 (0, 0, {
@@ -58,9 +61,8 @@ class TestAccrualAllocations(TestHrHolidaysCommon):
         with freeze_time("2023-12-01"):
             allocation = self.env['hr.leave.allocation'].create({
                 'employee_id': self.employee_emp_id,
-                'allocation_type': 'accrual',
                 'accrual_plan_id': self.accrual_plan.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'date_from': date(2000, 1, 1),
                 'number_of_days': 0,
             })

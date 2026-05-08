@@ -648,14 +648,13 @@ class TestHrVersion(TestHrCommon):
             "active_employee",
             "activity_ids",
             "company_country_id",
-            "contract_wage",
             "country_code",
             "create_date",
             "create_uid",
             "currency_id",
             "date_end",
             "date_start",
-            "departure_description",
+            "departure_id",
             "display_name",
             "id",
             "is_current",
@@ -714,7 +713,7 @@ class TestHrVersion(TestHrCommon):
         )
 
     def test_search_on_version_fields(self):
-        Department = self.env['hr.department'].with_context(tracking_disable=True)
+        Department = self.env['hr.department']
         rd_dep = Department.create({
             'name': 'Research and devlopment',
         })
@@ -816,27 +815,85 @@ class TestHrVersion(TestHrCommon):
         version.unlink()
         self.assertEqual(len(employee.version_ids), 1)
 
-    def test_date_version_sync_contract_date_start_for_single_version(self):
-        """
-        This test is to ensure that in case when an employee has only one version, writing contract_date_start on the employee
-        will synchronize the version.date_version with that contract_date_start
-        """
-        with freeze_time(date(2025, 12, 20)), self.enter_registry_test_mode():
-            employee = self.env['hr.employee'].create({
-                'name': 'John Doe',
-            })
-            version = employee.version_id
-            self.assertEqual(version.date_version, date(2025, 12, 20))
+    def test_first_contract_date_on_create(self):
+        employee = self.env['hr.employee'].create({
+            'name': 'Youssef Ahmed',
+            'date_version': '2026-01-01',
+            'contract_date_start': '2026-01-01',
+        })
 
-            employee.write({'contract_date_start': '2025-12-10'})
-            self.assertEqual(version.contract_date_start, date(2025, 12, 10))
-            self.assertEqual(version.date_version, date(2025, 12, 10))
+        self.assertEqual(employee.first_contract_date, date(2026, 1, 1), "First contract date should be 2026-01-01 when creating an employee with a single contract.")
 
-            # date_version should not be reset if contract_date_start is cleared
-            employee.write({'contract_date_start': False})
-            self.assertEqual(version.date_version, date(2025, 12, 10))
+    def test_first_contract_date_with_new_version(self):
+        employee = self.env['hr.employee'].create({
+            'name': 'Youssef Ahmed',
+            'date_version': '2026-01-01',
+            'contract_date_start': '2026-01-01',
+        })
 
-            # and setting it again should re-sync
-            employee.write({'contract_date_start': '2025-12-15'})
-            self.assertEqual(version.contract_date_start, date(2025, 12, 15))
-            self.assertEqual(version.date_version, date(2025, 12, 15))
+        employee.create_version({
+            'date_version': '2026-02-01',
+        })
+
+        self.assertEqual(employee.first_contract_date, date(2026, 1, 1))
+
+    def test_first_contract_date_with_new_contract(self):
+        employee = self.env['hr.employee'].create({
+            'name': 'Youssef Ahmed',
+            'date_version': '2026-01-01',
+            'contract_date_start': '2026-01-01',
+            'contract_date_end': '2026-01-31',
+        })
+
+        employee.create_version({
+            'date_version': '2026-02-01',
+            'contract_date_start': '2026-02-01',
+            'contract_date_end': '2026-02-28',
+        })
+
+        employee.create_version({
+            'date_version': '2026-03-01',
+            'contract_date_start': '2026-03-01',
+        })
+
+        self.assertEqual(employee.first_contract_date, date(2026, 1, 1))
+
+    def test_first_contract_date_with_unlink_versions(self):
+        employee = self.env['hr.employee'].create({
+            'name': 'Youssef Ahmed',
+        })
+
+        version_1 = employee.create_version({
+            'date_version': '2026-01-01',
+            'contract_date_start': '2026-01-01',
+            'contract_date_end': '2026-01-31',
+        })
+        employee.create_version({
+            'date_version': '2026-02-01',
+            'contract_date_start': '2026-02-01',
+        })
+
+        self.assertEqual(employee.first_contract_date, date(2026, 1, 1))
+
+        version_1.unlink()
+
+        self.assertEqual(employee.first_contract_date, date(2026, 2, 1))
+
+    def test_version_date_start_end_search(self):
+        employee = self.env['hr.employee'].create({
+            'name': 'John Doe',
+            'date_version': '2026-01-01',
+        })
+        employee.write({'contract_date_start': '2026-01-01', 'contract_date_end': '2026-12-31'})
+        v1 = employee.version_id
+        v2 = employee.create_version({
+            'date_version': '2026-06-01',
+        })
+        versions = self.env['hr.version'].search([('employee_id', '=', employee.id), ('date_start', '>', '2026-02-01')])
+        self.assertEqual(versions, v2)
+        versions = self.env['hr.version'].search([('employee_id', '=', employee.id), ('date_start', '<', '2026-02-01')])
+        self.assertEqual(versions, v1)
+        versions = self.env['hr.version'].search([('employee_id', '=', employee.id), ('date_end', '<', '2026-06-01')])
+        self.assertEqual(versions, v1)
+        versions = self.env['hr.version'].search([('employee_id', '=', employee.id), ('date_end', '>', '2026-06-01')])
+        self.assertEqual(versions, v2)

@@ -4,14 +4,13 @@
 #
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# Hanna Kharraziha <hakha@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
-"PO-Revision-Date: 2026-03-27 12:02+0000\n"
-"Last-Translator: Hanna Kharraziha <hakha@odoo.com>\n"
+"POT-Creation-Date: 2026-02-20 09:02+0000\n"
+"PO-Revision-Date: 2025-11-09 15:13+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Swedish <https://translate.odoo.com/projects/odoo-19/"
 "hr_recruitment_skills/sv/>\n"
 "Language: sv\n"
@@ -19,23 +18,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: hr_recruitment_skills
 #: model:ir.model,name:hr_recruitment_skills.model_hr_applicant
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__applicant_id
 msgid "Applicant"
-msgstr "Kandidat"
+msgstr "Sökande"
 
 #. module: hr_recruitment_skills
 #: model:ir.model,website_form_label:hr_recruitment_skills.model_hr_applicant
 msgid "Apply for a Job"
-msgstr "Ansök om ett jobb"
+msgstr ""
 
 #. module: hr_recruitment_skills
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_skill_view_form
 msgid "Category"
 msgstr "Kategori"
+
+#. module: hr_recruitment_skills
+#: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__certificate_file
+msgid "Certificate"
+msgstr ""
+
+#. module: hr_recruitment_skills
+#: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__certificate_filename
+msgid "Certificate Filename"
+msgstr ""
 
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant_skill__color
@@ -134,6 +143,13 @@ msgid "Matching Skills"
 msgstr "Matching Skills"
 
 #. module: hr_recruitment_skills
+#. odoo-javascript
+#: code:addons/hr_recruitment_skills/static/src/components/search_job_applicant_menu/search_job_applicant_menu.xml:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.view_hr_job_kanban
+msgid "Matching Talents"
+msgstr ""
+
+#. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant__missing_skill_ids
 msgid "Missing Skills"
 msgstr "Missing Skills"
@@ -146,7 +162,7 @@ msgstr ""
 #. module: hr_recruitment_skills
 #. odoo-python
 #: code:addons/hr_recruitment_skills/models/hr_job.py:0
-msgid "No Matching Applicants"
+msgid "No Matching Talents"
 msgstr ""
 
 #. module: hr_recruitment_skills
@@ -166,8 +182,6 @@ msgstr ""
 "Utveckling från noll kunskap (0 %) till fullständig behärskning (100 %)."
 
 #. module: hr_recruitment_skills
-#. odoo-javascript
-#: code:addons/hr_recruitment_skills/static/src/components/search_job_applicant_menu/search_job_applicant_menu.xml:0
 #: model:ir.actions.server,name:hr_recruitment_skills.action_applicant_search_applicant
 msgid "Search Matching Applicants"
 msgstr "Sök matchande sökande"
@@ -200,9 +214,11 @@ msgstr "Kompetensnivå för en sökande"
 
 #. module: hr_recruitment_skills
 #: model:ir.model.fields,field_description:hr_recruitment_skills.field_hr_applicant__applicant_skill_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.crm_case_tree_view_job
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_skill_view_form
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_view_form
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_view_search
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_view_search_bis
 msgid "Skills"
 msgstr "Kompetenser"
 
@@ -241,7 +257,7 @@ msgstr "Valideringsslut"
 #. odoo-python
 #: code:addons/hr_recruitment_skills/models/hr_job.py:0
 msgid ""
-"We do not have any applicants who meet the skill requirements for this job "
+"We do not have any talents who meet the skill requirements for this job "
 "position in the database at the moment."
 msgstr ""
 
@@ -254,16 +270,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_skills.hr_applicant_skill_view_form
 msgid "indefinite"
 msgstr ""
-
-#~ msgid "Expected Skills"
-#~ msgstr "Förväntade färdigheter"
-
-#~ msgid "The skill %(name)s and skill type %(type)s doesn't match"
-#~ msgstr ""
-#~ "Kompetensen %(name)s och Kompetenstypen %(type)s stämmer inte överens"
-
-#~ msgid "The skill level %(level)s is not valid for skill type: %(type)s"
-#~ msgstr "Kompetensnivån%(level)s är inte giltig för Kompetenstypen: %(type)s"
-
-#~ msgid "Two levels for the same skill is not allowed"
-#~ msgstr "Det är inte tillåtet att ha två nivåer för samma Kompetens"

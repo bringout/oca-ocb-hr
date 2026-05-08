@@ -50,37 +50,47 @@
                     <attribute name="required">1</attribute>
                 </xpath>
                 <!-- Must be replaced by work_email when the user has an employee_id. -->
-                <xpath expr="//h5[@name='h5_email']" position="attributes">
+                <xpath expr="//div[@name='email']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <!-- Must be replaced by work_phone when the user has an employee_id. -->
-                <xpath expr="//h5[@name='h5_phone']" position="attributes">
+                <xpath expr="//div[@name='phone']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//div[hasclass('oe_title')]" position="inside">
-                    <h5 class="d-flex align-items-baseline mb-0">
-                        <i class="fa fa-envelope fa-fw me-1 text-primary" title="Work Email"/>
-                        <field name="work_email" widget="email" placeholder="Work Email" string="Work Email" class="w-75"/>
-                    </h5>
-                    <h5 class="d-flex align-items-baseline mb-0">
-                        <i class="fa fa-phone fa-fw me-1 text-primary" title="Work Phone"/>
-                        <field name="work_phone" widget="phone" placeholder="Work Phone" string="Work Phone" class="w-75"/>
-                    </h5>
-                    <h5 class="d-flex align-items-baseline mb-0">
-                        <i class="fa fa-mobile fa-fw me-1 text-primary" title="Work Mobile"/>
-                        <field name="mobile_phone" widget="phone" placeholder="Work Mobile" string="Work Mobile" class="w-75"/>
-                    </h5>
+                <xpath expr="//*[hasclass('o_form_header_details')]" position="inside">
+                    <label for="work_email" class="d-md-none"/>
+                    <div class="d-flex align-items-baseline w-md-50 gap-2">
+                        <i class="d-none d-md-inline-flex fa fa-envelope" title="Work Email"/>
+                        <field name="work_email" widget="email" placeholder="Work Email"/>
+                    </div>
+                    <label for="work_phone" class="d-md-none"/>
+                    <div class="d-flex align-items-baseline w-md-50 gap-2">
+                        <i class="d-none d-md-inline-flex fa fa-phone" title="Work Phone"/>
+                        <field name="work_phone" widget="phone" placeholder="Work Phone"/>
+                    </div>
+                    <label for="mobile_phone" class="d-md-none"/>
+                    <div class="d-flex align-items-baseline w-md-50 gap-2">
+                        <i class="d-none d-md-inline-flex fa fa-mobile" title="Work Mobile"/>
+                        <field name="mobile_phone" widget="phone" placeholder="Work Mobile"/>
+                    </div>
                 </xpath>
                 <xpath expr="//group[@name='other_preferences']" position="inside">
                     <field name="pin" string="Attendance PIN"/>
                 </xpath>
                 <xpath expr="//group[@name='other_calendar_preferences']" position="inside">
                     <field name="work_location_id" string="Main Work Location" options="{'no_create': True}"/>
+                    <field name="monday_location_id"  placeholder="Unspecified"/>
+                    <field name="tuesday_location_id"  placeholder="Unspecified"/>
+                    <field name="wednesday_location_id" placeholder="Unspecified"/>
+                    <field name="thursday_location_id"  placeholder="Unspecified"/>
+                    <field name="friday_location_id"  placeholder="Unspecified"/>
+                    <field name="saturday_location_id"  placeholder="Unspecified"/>
+                    <field name="sunday_location_id"  placeholder="Unspecified"/>
                 </xpath>
                 <xpath expr="//page[@name='calendar']" position="after">
                     <page name="private_information" string="Private">
                         <group>
-                            <group string="Private Information">
+                            <group string="Private Address &amp; Contact">
                                 <field name="employee_ids" invisible="1"/>
                                 <label for="private_street" string="Private Address"/>
                                 <div class="o_address_format">
@@ -97,6 +107,24 @@
                             <group string="Emergency Contact">
                                 <field name="emergency_contact" string="Contact Name" placeholder="e.g. John Doe"/>
                                 <field name="emergency_phone" string="Contact Phone" widget="phone"/>
+                            </group>
+                            <group string="Family" name="hr_family_group">
+                                <field name="marital"/>
+                                <field name="spouse_complete_name" invisible="marital not in ['married', 'cohabitant']"/>
+                                <field name="spouse_birthdate" invisible="marital not in ['married', 'cohabitant']"/>
+                                <field name="children"/>
+                            </group>
+                            <group string="Personal Information" name="hr_personal_information">
+                                <field name="legal_name"/>
+                                <field name="birthday"/>
+                                <field name="birthday_public_display" invisible="not birthday" widget="boolean_toggle"/>
+                                <label for="place_of_birth"/>
+                                <div class="o_row" name="birth_location">
+                                    <field name="place_of_birth" class="oe_inline o_hr_narrow_field" nolabel="1" placeholder="City"/>
+                                    <div class="mx-3 flex-grow-0">─</div>
+                                    <field name="country_of_birth" class="oe_inline o_hr_narrow_field" nolabel="1" placeholder="Country"/>
+                                </div>
+                                <field name="sex" string="Gender"/>
                             </group>
                         </group>
                     </page>
@@ -138,7 +166,7 @@
                 <sheet position="after">
                     <footer>
                         <button string="Save" special="save" class="btn btn-primary"/>
-                        <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                        <button special="cancel" class="btn btn-secondary"/>
                     </footer>
                 </sheet>
             </field>
@@ -196,39 +224,52 @@
                         widget="contact_image" options="{'preview_image': 'avatar_128', 'img_class': 'rounded-4'}"/>
                 </field>
                 <!-- Must be replaced by work_email when the user has an employee_id. -->
-                <xpath expr="//h5[@name='h5_email']" position="attributes">
-                    <attribute name="invisible">employee_id</attribute>
+                <xpath expr="//label[@for='email']" position="attributes">
+                    <attribute name="invisible">employee_id or login == email</attribute>
+                </xpath>
+                <xpath expr="//div[@name='email']" position="attributes">
+                    <attribute name="invisible">employee_id or login == email</attribute>
                 </xpath>
                 <!-- Must be replaced by work_phone when the user has an employee_id. -->
-                <xpath expr="//h5[@name='h5_phone']" position="attributes">
+                <xpath expr="//label[@for='phone']" position="attributes">
                     <attribute name="invisible">employee_id</attribute>
                 </xpath>
-                <xpath expr="//div[hasclass('oe_title')]" position="inside">
-                    <h5 class="d-flex flex-wrap align-items-baseline mb-0" invisible="not employee_id">
-                        <div class="w-100">
-                            <i class="fa fa-fw fa-envelope me-1 text-primary" title="Login / Email" invisible="login != work_email"/>
-                            <i class="fa fa-fw fa-key me-1 text-primary" title="Login" invisible="login == work_email"/>
-                            <field name="login" placeholder="Login" class="w-75"/><br/>
-                        </div>
-                    
-                        <i class="fa fa-envelope fa-fw me-1 text-primary" title="Work Email" invisible="login == work_email"/>
-                        <field name="email_domain_placeholder" invisible="1" />
-                        <field name="work_email" widget="email" string="Work Email" class="w-75" options="{'placeholder_field': 'email_domain_placeholder'}" invisible="login == work_email"/>
-                    </h5>
-                    <h5 class="d-flex align-items-baseline mb-0" invisible="not employee_id">
-                        <i class="fa fa-phone fa-fw me-1 text-primary" title="Work Phone"/>
-                        <field name="work_phone" widget="phone" placeholder="Work Phone" string="Work Phone" class="w-75"/>
-                    </h5>
-                    <h5 class="d-flex align-items-baseline mb-0" invisible="not employee_id">
-                        <i class="fa fa-mobile fa-fw me-1 text-primary" title="Work Mobile"/>
-                        <field name="mobile_phone" widget="phone" placeholder="Work Mobile" string="Work Mobile" class="w-75"/>
-                    </h5>
+                <xpath expr="//div[@name='phone']" position="attributes">
+                    <attribute name="invisible">employee_id</attribute>
                 </xpath>
-                <xpath expr="//group[@name='other_preferences']" position="inside">
-                    <field name="pin" string="Attendance PIN" invisible="not employee_id"/>
+                <xpath expr="//div[@name='login']/i[hasclass('fa-envelope')]" position="attributes">
+                    <attribute name="invisible">(not employee_id and login != email) or (employee_id and login != work_email)</attribute>
+                </xpath>
+                <xpath expr="//div[@name='login']/i[hasclass('fa-key')]" position="attributes">
+                    <attribute name="invisible">(not employee_id and login == email) or (employee_id and login == work_email)</attribute>
+                </xpath>
+                <xpath expr="//*[hasclass('o_form_header_details')]" position="inside">
+                    <label for="work_email" class="d-md-none" invisible="not employee_id or login == work_email"/>
+                    <div class="d-flex align-items-baseline w-md-50 gap-2" invisible="not employee_id or login == work_email">
+                        <i class="d-none d-md-inline-flex fa fa-envelope fa-fw" title="Work Email"/>
+                        <field name="email_domain_placeholder" invisible="1" />
+                        <field name="work_email" widget="email" options="{'placeholder_field': 'email_domain_placeholder'}"/>
+                    </div>
+                    <label for="work_phone" class="d-md-none" invisible="not employee_id"/>
+                    <div class="d-flex align-items-baseline w-md-50 gap-2" invisible="not employee_id">
+                        <i class="d-none d-md-inline-flex fa fa-phone fa-fw" title="Work Phone"/>
+                        <field name="work_phone" widget="phone" placeholder="Work Phone"/>
+                    </div>
+                    <label for="mobile_phone" class="d-md-none" invisible="not employee_id"/>
+                    <div class="d-flex align-items-baseline w-md-50 gap-2" invisible="not employee_id">
+                        <i class="d-none d-md-inline-flex fa fa-mobile fa-fw" title="Work Mobile"/>
+                        <field name="mobile_phone" widget="phone" placeholder="Work Mobile"/>
+                    </div>
                 </xpath>
                 <xpath expr="//group[@name='other_calendar_preferences']" position="inside">
                     <field name="work_location_id" string="Main Work Location" invisible="not employee_id or share"/>
+                    <field name="monday_location_id"  placeholder="Unspecified" invisible="not employee_id or share"/>
+                    <field name="tuesday_location_id"  placeholder="Unspecified" invisible="not employee_id or share"/>
+                    <field name="wednesday_location_id" placeholder="Unspecified" invisible="not employee_id or share"/>
+                    <field name="thursday_location_id"  placeholder="Unspecified" invisible="not employee_id or share"/>
+                    <field name="friday_location_id"  placeholder="Unspecified" invisible="not employee_id or share"/>
+                    <field name="saturday_location_id"  placeholder="Unspecified" invisible="not employee_id or share"/>
+                    <field name="sunday_location_id"  placeholder="Unspecified" invisible="not employee_id or share"/>
                 </xpath>
                 <xpath expr="//page[@name='calendar']" position="attributes">
                     <attribute name="groups">hr.group_hr_user</attribute>

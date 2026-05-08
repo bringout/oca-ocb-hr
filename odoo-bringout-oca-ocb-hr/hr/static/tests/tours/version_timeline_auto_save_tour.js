@@ -2,7 +2,6 @@ import { registry } from "@web/core/registry";
 import { stepUtils } from "@web_tour/tour_utils";
 
 registry.category("web_tour.tours").add("version_timeline_auto_save_tour", {
-    url: "/odoo",
     steps: () => [
         stepUtils.showAppsMenuItem(),
         {
@@ -17,7 +16,7 @@ registry.category("web_tour.tours").add("version_timeline_auto_save_tour", {
         },
         {
             content: "Open Payroll Page",
-            trigger: ".o_notebook_headers a[name='payroll_information']",
+            trigger: ".o_notebook_headers button[name='payroll_information']",
             run: "click",
         },
         {
@@ -26,14 +25,12 @@ registry.category("web_tour.tours").add("version_timeline_auto_save_tour", {
             run: "click",
         },
         {
-            content: "Go to the next month",
-            trigger: ".o_next",
+            content: "Choose date X + 1",
+            trigger: ".o_datetime_picker .o_date_item_cell:nth-child(11) > div",
             run: "click",
         },
         {
-            content: "Choose date X + 1",
-            trigger: ".o_date_item_cell:nth-child(11) > div",
-            run: "click",
+            trigger: "body:not(:has(.o_datetime_picker))",
         },
         {
             content: "Open Create New Version",
@@ -47,7 +44,12 @@ registry.category("web_tour.tours").add("version_timeline_auto_save_tour", {
         },
         {
             content: "Choose date X + 2",
-            trigger: ".o_date_item_cell:nth-child(12) > div",
+            trigger: ".o_datetime_picker .o_date_item_cell:nth-child(12) > div",
+            run: "click",
+        },
+        {
+            content: "Wait the form is dirty and click on save button",
+            trigger: "body:has(.o_form_dirty) .o_form_button_save",
             run: "click",
         },
         {

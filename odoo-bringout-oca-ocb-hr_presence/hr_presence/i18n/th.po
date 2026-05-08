@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2026-02-20 09:01+0000\n"
 "PO-Revision-Date: 2025-09-16 21:36+0000\n"
 "Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
 "Language-Team: Thai <https://translate.odoo.com/projects/odoo-19/hr_presence/"
@@ -18,12 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.12.2\n"
-
-#. module: hr_presence
-#. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
-msgid "%(name)s has been noted as %(state)s today"
-msgstr "%(name)sได้รับการบันทึกเป็น %(state)s ในวันนี้"
 
 #. module: hr_presence
 #: model:mail.template,body_html:hr_presence.mail_template_presence
@@ -45,21 +39,14 @@ msgid ""
 msgstr ""
 
 #. module: hr_presence
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__absent
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__absent
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_search
 msgid "Absent"
 msgstr "ขาด"
 
 #. module: hr_presence
-#: model:ir.actions.server,name:hr_presence.action_hr_employee_presence_log
-msgid "Add a log note"
-msgstr "เพิ่มหมายเหตุบันทึก"
-
-#. module: hr_presence
 #: model:ir.model,name:hr_presence.model_res_company
-msgid "Companies"
-msgstr "บริษัท"
+msgid "Company"
+msgstr ""
 
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_res_config_settings
@@ -123,12 +110,6 @@ msgid "Hr Presence Last Compute Date"
 msgstr "การคำนวณวันที่เข้างานของ Hr"
 
 #. module: hr_presence
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee__hr_presence_state_display
-#: model:ir.model.fields,field_description:hr_presence.field_hr_employee_public__hr_presence_state_display
-msgid "Hr Presence State Display"
-msgstr "แสดงสถานะการเข้างานของ Hr"
-
-#. module: hr_presence
 #: model:ir.model.fields,field_description:hr_presence.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_presence.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_presence.field_ir_websocket__id
@@ -162,28 +143,10 @@ msgid "Manually Set Present"
 msgstr "ตั้งค่าปัจจุบันด้วยตนเอง"
 
 #. module: hr_presence
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__out_of_working_hour
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__out_of_working_hour
-#: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_search
-msgid "Off-Hours"
-msgstr ""
-
-#. module: hr_presence
 #. odoo-javascript
 #: code:addons/hr_presence/static/src/search/hr_presence_cog_menu/hr_presence_cog_menu.xml:0
 msgid "Presence Control"
 msgstr "การควบคุมการแสดงตัวตน"
-
-#. module: hr_presence
-#: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_search
-msgid "Presence/Absence"
-msgstr "การแสดงตน/การขาดงาน"
-
-#. module: hr_presence
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__present
-#: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__present
-msgid "Present"
-msgstr "การมา"
 
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_hr_employee_public
@@ -193,12 +156,8 @@ msgstr ""
 #. module: hr_presence
 #. odoo-python
 #: code:addons/hr_presence/models/hr_employee.py:0
-msgid "Send SMS"
-msgstr "ส่ง SMS"
-
-#. module: hr_presence
 #: model:ir.actions.server,name:hr_presence.action_hr_employee_presence_sms
-msgid "Send a SMS"
+msgid "Send SMS"
 msgstr "ส่ง SMS"
 
 #. module: hr_presence
@@ -264,12 +223,3 @@ msgstr "คุณไม่มีสิทธิ์ทำเช่นนี้ �
 #: model:ir.model,name:hr_presence.model_ir_websocket
 msgid "websocket message handling"
 msgstr "การจัดการข้อความของ websocket"
-
-#~ msgid "Create Uid"
-#~ msgstr "สร้าง Uid"
-
-#~ msgid "Out of Working Hours"
-#~ msgstr "นอกเวลาทำการ"
-
-#~ msgid "Presence"
-#~ msgstr "การมา"

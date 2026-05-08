@@ -8,6 +8,7 @@ from odoo import Command, fields
 from odoo.exceptions import UserError, ValidationError
 from odoo.tests import Form, tagged
 
+from odoo.addons.base.tests.files import GIF_RAW
 from odoo.addons.hr_expense.tests.common import TestExpenseCommon
 
 
@@ -328,7 +329,7 @@ class TestExpenses(TestExpenseCommon):
         Checks that the currency rate is recomputed properly when the total in company currency is set to a new value
         """
         foreign_currency_1 = self.other_currency
-        foreign_currency_2 = self.setup_other_currency('GBP', rounding=0.01, rates=([('2016-01-01', 1 / 1.52)]))
+        foreign_currency_2 = self.setup_other_currency('GBP', rounding=0.01, rates=([('2015-12-31', 1 / 1.52)]))
         foreign_sale_journal = self.company_data['default_journal_sale'].copy()
         foreign_sale_journal.currency_id = foreign_currency_2.id
 
@@ -478,13 +479,13 @@ class TestExpenses(TestExpenseCommon):
         expense = self.create_expenses({'name': 'Employee expense'})
         expense_2 = self.create_expenses({'name': 'Employee expense 2'})
         attachment = self.env['ir.attachment'].create({
-            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'raw': GIF_RAW,
             'name': 'file1.png',
             'res_model': 'hr.expense',
             'res_id': expense.id,
         })
         attachment_2 = self.env['ir.attachment'].create({
-            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'raw': GIF_RAW,
             'name': 'file2.png',
             'res_model': 'hr.expense',
             'res_id': expense_2.id,
@@ -500,13 +501,13 @@ class TestExpenses(TestExpenseCommon):
 
         self.assertRecordValues(expenses.account_move_id.attachment_ids.sorted('name'), [
             {
-                'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+                'raw': GIF_RAW,
                 'name': 'file1.png',
                 'res_model': 'account.move',
                 'res_id': expense.account_move_id.id,
             },
             {
-                'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+                'raw': GIF_RAW,
                 'name': 'file2.png',
                 'res_model': 'account.move',
                 'res_id': expense_2.account_move_id.id,
@@ -524,13 +525,13 @@ class TestExpenses(TestExpenseCommon):
             'payment_mode': 'company_account',
         })
         attachment = self.env['ir.attachment'].create({
-            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'raw': GIF_RAW,
             'name': 'file1.png',
             'res_model': 'hr.expense',
             'res_id': expense.id,
         })
         attachment_2 = self.env['ir.attachment'].create({
-            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'raw': GIF_RAW,
             'name': 'file2.png',
             'res_model': 'hr.expense',
             'res_id': expense_2.id,
@@ -547,14 +548,14 @@ class TestExpenses(TestExpenseCommon):
         expense_move = expense.account_move_id
         expense_2_move = expense_2.account_move_id
         self.assertRecordValues(expense_move.attachment_ids, [{
-            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'raw': GIF_RAW,
             'name': 'file1.png',
             'res_model': 'account.move',
             'res_id': expense_move.id
         }])
 
         self.assertRecordValues(expense_2_move.attachment_ids, [{
-            'raw': b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=",
+            'raw': GIF_RAW,
             'name': 'file2.png',
             'res_model': 'account.move',
             'res_id': expense_2_move.id
@@ -708,7 +709,7 @@ class TestExpenses(TestExpenseCommon):
     def test_update_expense_price_on_product_standard_price(self):
         """
         Tests that updating the standard price of a product will update all the un-submitted
-        expenses using that product as a category.
+        expenses using that product.
         """
         product = self.env['product.product'].create({
             'name': 'Product',
@@ -749,79 +750,6 @@ class TestExpenses(TestExpenseCommon):
             {'name': 'test no update', 'price_unit':  100.0, 'quantity': 1, 'total_amount':  100.0},
             {'name':    'test update', 'price_unit': 1000.0, 'quantity': 1, 'total_amount': 1000.0},  # no update
         ])
-
-    def test_expense_standard_price_update_warning(self):
-        expense_cat_A = self.env['product.product'].create({
-            'name': 'Category A',
-            'default_code': 'CA',
-            'standard_price': 0.0,
-        })
-        expense_cat_B = self.env['product.product'].create({
-            'name': 'Category B',
-            'default_code': 'CB',
-            'standard_price': 0.0,
-        })
-        expense_cat_C = self.env['product.product'].create({
-            'name': 'Category C',
-            'default_code': 'CC',
-            'standard_price': 0.0,
-        })
-        self.create_expenses([
-            {
-                'name': 'Expense 1',
-                'product_id': expense_cat_A.id,
-                'total_amount': 1,
-            },
-            {
-                'name': 'Expense 2',
-                'product_id': expense_cat_B.id,
-                'total_amount': 5,
-            },
-        ])
-
-        # At first, there is no warning message on the categories because their prices are 0
-        self.assertFalse(expense_cat_A.standard_price_update_warning)
-        self.assertFalse(expense_cat_B.standard_price_update_warning)
-        self.assertFalse(expense_cat_C.standard_price_update_warning)
-
-        # When modifying the price of the first category, a message should appear as a an expense will be modified.
-        with Form(expense_cat_A, view="hr_expense.product_product_expense_form_view") as form:
-            form.standard_price = 5
-            self.assertTrue(form.standard_price_update_warning)
-
-        # When modifying the price of the second category, no message should appear as the price of the linked
-        # expense is the price of the category that is going to be saved.
-        with Form(expense_cat_B, view="hr_expense.product_product_expense_form_view") as form:
-            form.standard_price = 5
-            self.assertFalse(form.standard_price_update_warning)
-
-        # When modifying the price of the their category, no message should appear as no expense is linked to it.
-        with Form(expense_cat_C, view="hr_expense.product_product_expense_form_view") as form:
-            form.standard_price = 5
-            self.assertFalse(form.standard_price_update_warning)
-
-    def test_compute_standard_price_update_warning_product_with_and_without_expense(self):
-        """
-        Test that the compute doesn't raise an error with mixed recordsets (products used in expenses and not used in expenses)
-        """
-        product_expensed = self.env['product.product'].create({
-            'name': 'Category A',
-            'default_code': 'CA',
-            'standard_price': 0.0,
-        })
-        product_not_expensed = self.env['product.product'].create({
-            'name': 'Category B',
-            'default_code': 'CB',
-            'standard_price': 0.0,
-        })
-        self.env['hr.expense'].create({
-            'employee_id': self.expense_employee.id,
-            'name': 'Expense 1',
-            'product_id': product_expensed.id,
-            'total_amount': 1,
-        })
-
-        (product_expensed | product_not_expensed)._compute_standard_price_update_warning()
 
     def test_expense_multi_company(self):
         main_company = self.company_data['company']
@@ -912,7 +840,6 @@ class TestExpenses(TestExpenseCommon):
             'name': 'Cash Basis Tax Transition Account',
             'account_type': 'asset_current',
             'code': '131001',
-            'reconcile': True,
         })
         caba_tax = self.env['account.tax'].create({
             'name': 'Cash Basis Tax',
@@ -1014,7 +941,7 @@ class TestExpenses(TestExpenseCommon):
         })
         expense.action_submit()
         expense.action_approve()
-        expense._post_without_wizard()
+        self.post_expenses_with_wizard(expense)
         self.assertRecordValues(
             expense.account_move_id,
             [{'amount_total': 500.0, 'currency_id': expense.account_move_id.company_currency_id.id}],
@@ -1027,13 +954,10 @@ class TestExpenses(TestExpenseCommon):
         """
         self.env.ref('base.EUR').active = True
         bank_journal = self.company_data['default_journal_bank']
-        bank = self.env['res.bank'].create({
-            'name': 'BNP Paribas',
-            'bic': 'GEBABEBB',
-        })
         bank_journal.write({
-            'bank_id': bank.id,
-            'bank_acc_number': 'BE48363523682327',
+            'bank_name': 'BNP Paribas',
+            'bank_bic': 'GEBABEBB',
+            'bank_account_number': 'BE48363523682327',
             'currency_id': self.env.ref('base.EUR').id,
         })
 
@@ -1198,3 +1122,50 @@ class TestExpenses(TestExpenseCommon):
                 {'name': 'file_4.png', 'res_model': 'account.move', 'res_id': expense_2.account_move_id.id},
             ]
         )
+
+    def test_expense_paid_by_company_with_linked_bill(self):
+        """ Test that linking a bill uses the payable account and reconciles automatically """
+        other_payable_account = self.company_data['default_account_payable'].copy()
+        partner = self.env['res.partner'].create({
+            'name': 'test partner',
+            'property_account_payable_id': other_payable_account.id,
+        })
+        bill = self.env['account.move'].create({
+            'move_type': 'in_invoice',
+            'partner_id': partner.id,
+            'invoice_date': '2026-01-01',
+            'invoice_line_ids': [
+                Command.create({
+                    'name': 'test bill line',
+                    'price_unit': 100.0,
+                })
+            ]
+        })
+        bill.action_post()
+
+        # 2. Create Expense linked to this bill
+        expense = self.create_expenses({
+            'name': 'Expense matched to bill',
+            'payment_mode': 'company_account',
+            'total_amount_currency': 100.0,
+            'has_existing_bill': True,
+            'existing_bill_id': bill.id,
+        })
+
+        self.assertEqual(expense.account_id, other_payable_account, "The expense account should be the bill's payable account")
+
+        expense.action_submit()
+        expense.action_approve()
+        expense.action_post()
+
+        payment_entry = expense.account_move_id
+        outstanding_payment_account = self.env['account.account'].with_company(self.env.company).search([('name', '=', 'Outstanding Payments')], limit=1)
+        self.assertEqual(
+            set(payment_entry.line_ids.account_id.ids),
+            {other_payable_account.id, outstanding_payment_account.id},
+            "The accounts on the payment entry should be the bill's payable account and the outstanding payment account"
+        )
+
+        payable_move_line = payment_entry.line_ids.filtered(lambda l: l.account_id == other_payable_account)
+        self.assertTrue(bill.payment_state in ('in_payment', 'paid'), "The bill should be marked as paid/in_payment")
+        self.assertTrue(payable_move_line.reconciled, "The payment entry should be reconciled with the bill")

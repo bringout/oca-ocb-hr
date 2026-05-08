@@ -8,6 +8,7 @@ from odoo.tests.common import tagged, TransactionCase
 
 
 @tagged('hr_attendance_overtime_ruleset')
+@tagged('at_install', '-post_install')  # LEGACY at_install, fails post install
 class TestHrAttendanceOvertime(TransactionCase):
     """ Tests for overtime """
 
@@ -55,11 +56,11 @@ class TestHrAttendanceOvertime(TransactionCase):
             'full_time_required_hours': 38,
             'attendance_ids': [
                 (5, 0, 0),  # Clear existing attendances
-                (0, 0, {'name': 'Monday', 'dayofweek': '0', 'hour_from': 8, 'hour_to': 16, 'day_period': 'morning'}),
-                (0, 0, {'name': 'Tuesday', 'dayofweek': '1', 'hour_from': 8, 'hour_to': 16, 'day_period': 'morning'}),
-                (0, 0, {'name': 'Wednesday', 'dayofweek': '2', 'hour_from': 8, 'hour_to': 16, 'day_period': 'morning'}),
-                (0, 0, {'name': 'Thursday', 'dayofweek': '3', 'hour_from': 8, 'hour_to': 16, 'day_period': 'morning'}),
-                (0, 0, {'name': 'Friday', 'dayofweek': '4', 'hour_from': 8, 'hour_to': 16, 'day_period': 'morning'}),
+                (0, 0, {'dayofweek': '0', 'hour_from': 8, 'hour_to': 16}),
+                (0, 0, {'dayofweek': '1', 'hour_from': 8, 'hour_to': 16}),
+                (0, 0, {'dayofweek': '2', 'hour_from': 8, 'hour_to': 16}),
+                (0, 0, {'dayofweek': '3', 'hour_from': 8, 'hour_to': 16}),
+                (0, 0, {'dayofweek': '4', 'hour_from': 8, 'hour_to': 16}),
             ],
         })
 
@@ -161,8 +162,8 @@ class TestHrAttendanceOvertime(TransactionCase):
         Test the access rights of the ruleset on the employee
         Only the employee admin should be able to see and change the ruleset on the employee
         """
-        user = new_test_user(self.env, login='usr', groups='hr.group_hr_user', company_id=self.company.id).with_company(self.company)
-        employee = self.env['hr.employee'].with_company(self.company).create({'name': "Employee Test"})
+        user = new_test_user(self.env, login='usr', groups='hr.group_hr_user', company_id=self.company.id)
+        employee = self.env['hr.employee'].with_context(allowed_company_ids=self.company.ids).create({'name': "Employee Test"})
         with Form(employee.with_user(user)) as employee_form:
             self.assertFalse("ruleset_id" in employee_form._view['fields'])
 
@@ -175,9 +176,9 @@ class TestHrAttendanceOvertime(TransactionCase):
 
     def test_is_manager_with_overtime(self):
         """ Test the computation of is_manager with overtime """
-        user = new_test_user(self.env, login='usr', groups='hr_attendance.group_hr_attendance_officer', company_id=self.company.id).with_company(self.company)
+        user = new_test_user(self.env, login='usr', groups='hr_attendance.group_hr_attendance_officer', company_id=self.company.id)
         self.employee.attendance_manager_id = user.id
-        attendance = self.env['hr.attendance'].with_company(self.company).create({
+        attendance = self.env['hr.attendance'].with_context(allowed_company_ids=self.company.ids).create({
             'employee_id': self.employee.id,
             'check_in': datetime(2021, 1, 4, 8, 0),
             'check_out': datetime(2021, 1, 4, 20, 0)

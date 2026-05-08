@@ -1,4 +1,5 @@
-import { AvatarEmployee } from "@hr/components/avatar_employee/avatar_employee";
+import { Avatar } from "@mail/views/web/fields/avatar/avatar";
+
 import { Component, onWillStart } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -13,7 +14,7 @@ import {
 
 export class KanbanMany2OneAvatarEmployeeField extends Component {
     static template = "hr.KanbanMany2OneAvatarEmployeeField";
-    static components = { AvatarEmployee, KanbanMany2One };
+    static components = { Avatar, KanbanMany2One };
     static props = {
         ...Many2OneField.props,
         displayAvatarName: { type: Boolean, optional: true },
@@ -45,12 +46,18 @@ export class KanbanMany2OneAvatarEmployeeField extends Component {
     get value() {
         return this.props.record.data[this.props.name];
     }
+
+    get uniqueId() {
+        // hr_leave_stats widget uses this field but doesn't provide the write_date
+        return this.value?.write_date ? this.value.write_date.toMillis() : undefined;
+    }
 }
 
 /** @type {import("registries").FieldsRegistryItemShape} */
 const fieldDescr = {
     ...buildM2OFieldDescription(KanbanMany2OneAvatarEmployeeField),
     additionalClasses: ["o_field_many2one_avatar_kanban", "o_field_many2one_avatar_user"],
+    relatedFields: [{ name: "write_date", type: "datetime" }],
     extractProps(staticInfo, dynamicInfo) {
         return {
             ...extractM2OFieldProps(staticInfo, dynamicInfo),

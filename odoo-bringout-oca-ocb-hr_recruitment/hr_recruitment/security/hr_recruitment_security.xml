@@ -80,13 +80,6 @@
         <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>
     </record>
 
-    <record id="mail_message_user_rule" model="ir.rule">
-        <field name="name">User: All Chatter</field>
-        <field name="model_id" ref="mail.model_mail_message"/>
-        <field name="domain_force">[(1, '=', 1)]</field>
-        <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>
-    </record>
-
     <record id="mail_plan_rule_group_hr_recruitment_manager_applicant" model="ir.rule">
         <field name="name">Manager can manage applicant plans</field>
         <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]"/>
@@ -102,4 +95,16 @@
         <field name="domain_force">[('plan_id.res_model', '=', 'hr.applicant')]</field>
         <field name="perm_read" eval="False"/>
     </record>
+
+    <record id="res_partner_rule_edit_all" model="ir.rule">
+        <field name="name">edit all (hr)</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="groups" eval="[Command.set([ref('group_hr_recruitment_user')])]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
 </odoo>

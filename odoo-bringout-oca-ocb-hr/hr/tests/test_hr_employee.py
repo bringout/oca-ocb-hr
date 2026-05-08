@@ -1,5 +1,5 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-from datetime import datetime
+from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 from psycopg2.errors import UniqueViolation
 from freezegun import freeze_time
@@ -9,9 +9,11 @@ from odoo.fields import Domain
 from odoo.tests import Form, users, new_test_user, HttpCase, tagged, TransactionCase
 from odoo.addons.hr.tests.common import TestHrCommon
 from odoo.tools import mute_logger
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, AccessError
 from psycopg2.errors import NotNullViolation
 
+
+@tagged('at_install', '-post_install')  # LEGACY at_install, fails post install
 class TestHrEmployee(TestHrCommon):
 
     def setUp(self):
@@ -60,15 +62,15 @@ class TestHrEmployee(TestHrCommon):
             'company_id': company_B.id
         })
 
-        partner.with_company(company_A)._compute_employees_count()
+        partner.with_context(allowed_company_ids=[company_A.id])._compute_employees_count()
         self.assertEqual(partner.employees_count, 1)
-        partner.with_company(company_B)._compute_employees_count()
+        partner.with_context(allowed_company_ids=[company_B.id])._compute_employees_count()
         self.assertEqual(partner.employees_count, 1)
-        single_company_action = partner.with_company(company_B).action_open_employees()
+        single_company_action = partner.with_context(allowed_company_ids=[company_B.id]).action_open_employees()
         self.assertEqual(single_company_action.get('view_mode'), 'form')
-        partner.with_company(company_A).with_company(company_B)._compute_employees_count()
+        partner.with_context(allowed_company_ids=[company_A.id, company_B.id])._compute_employees_count()
         self.assertEqual(partner.employees_count, 2)
-        multi_company_action = partner.with_company(company_A).with_company(company_B).action_open_employees()
+        multi_company_action = partner.with_context(allowed_company_ids=[company_A.id, company_B.id]).action_open_employees()
         self.assertEqual(multi_company_action.get('view_mode'), 'kanban')
 
     def test_employee_linked_partner(self):
@@ -78,13 +80,26 @@ class TestHrEmployee(TestHrCommon):
 
     def test_employee_resource(self):
         _tz = 'Pacific/Apia'
-        self.res_users_hr_officer.company_id.resource_calendar_id.tz = _tz
-        Employee = self.env['hr.employee'].with_user(self.res_users_hr_officer)
+        self.res_users_hr_officer.company_id.tz = _tz
+        Employee = self.env['hr.employee'].with_user(self.res_users_hr_officer).with_context({'tz': 'Europe/Brussels'})
         employee_form = Form(Employee)
         employee_form.name = 'Raoul Grosbedon'
         employee_form.work_email = 'raoul@example.com'
         employee = employee_form.save()
-        self.assertEqual(employee.tz, _tz)
+        self.assertEqual(employee.tz, 'Europe/Brussels')
+
+    def test_compute_user_company_employee(self):
+        test_user = new_test_user(self.env, login='test_user', groups='base.group_user', name='testuser', email='test@user.com')
+        test_user.action_create_employee()
+        employee = test_user.employee_id
+        multiple_users = self.user_without_image + test_user
+
+        multiple_users.invalidate_recordset(['employee_id'])
+
+        multiple_users.with_user(test_user).employee_id  # trigger the compute in batch and in non-sudo
+
+        self.assertEqual(test_user.with_user(test_user).employee_id, employee)
+        self.assertEqual(test_user.with_user(test_user).sudo().employee_id, employee)
 
     def test_employee_timezone(self):
         self.res_users_hr_officer.tz = "Africa/Cairo"
@@ -114,14 +129,10 @@ class TestHrEmployee(TestHrCommon):
         with mute_logger('odoo.sql_db'), self.assertRaises(NotNullViolation):
             self.res_users_hr_officer.tz = False
 
-        # Check None value on user's calendar
-        with mute_logger('odoo.sql_db'), self.assertRaises(NotNullViolation):
-            self.res_users_hr_officer.company_id.resource_calendar_id.write({'tz': None})
-
     def test_employee_from_user(self):
         _tz = 'Pacific/Apia'
         _tz2 = 'America/Tijuana'
-        self.res_users_hr_officer.company_id.resource_calendar_id.tz = _tz
+        self.res_users_hr_officer.company_id.tz = _tz
         self.res_users_hr_officer.tz = _tz2
         Employee = self.env['hr.employee'].with_user(self.res_users_hr_officer)
         employee_form = Form(Employee)
@@ -167,7 +178,7 @@ class TestHrEmployee(TestHrCommon):
         self.assertTrue(self.employee_without_image.avatar_1920)
 
     def test_employee_has_same_avatar_as_corresponding_user(self):
-        self.assertEqual(self.employee_without_image.avatar_1920, self.user_without_image.avatar_1920)
+        self.assertEqual(self.employee_without_image.avatar_1920.content, self.user_without_image.avatar_1920.content)
 
     def test_employee_member_of_department(self):
         dept, dept_sub, dept_sub_sub, dept_other, dept_parent = self.env['hr.department'].create([
@@ -212,7 +223,7 @@ class TestHrEmployee(TestHrCommon):
                 'department_id': dept_parent.id,
             },
         ])
-        self.res_users_hr_officer.employee_id = emp
+        self.res_users_hr_officer.employee_ids = emp
         self.assertTrue(emp.member_of_department)
         self.assertTrue(emp_sub.member_of_department)
         self.assertTrue(emp_sub_sub.member_of_department)
@@ -314,7 +325,7 @@ class TestHrEmployee(TestHrCommon):
             'name': 'Test employee',
             'user_id': user.id,
         }])
-        user_fields = ['email', 'phone', 'im_status']
+        user_fields = ['email', 'phone']
         for field in user_fields:
             self.assertEqual(employee[field], user[field])
 
@@ -366,7 +377,7 @@ class TestHrEmployee(TestHrCommon):
         })
         test_user.partner_id.company_id = test_company
         bank_account = self.env['res.partner.bank'].create({
-            'acc_number' : '1234567',
+            'account_number': '1234567',
             'partner_id' : test_user.partner_id.id,
         })
         test_employee = self.env['hr.employee'].create({
@@ -481,8 +492,8 @@ class TestHrEmployee(TestHrCommon):
 
         # Check that linked employee got user image
         employee_norbert = self.env['hr.employee'].create({'name': 'Norbert Employee', 'user_id': user_norbert.id})
-        self.assertEqual(employee_norbert.image_1920, user_norbert.image_1920)
-        self.assertEqual(employee_norbert.avatar_1920, user_norbert.avatar_1920)
+        self.assertEqual(employee_norbert.image_1920.content, user_norbert.image_1920.content)
+        self.assertEqual(employee_norbert.avatar_1920.content, user_norbert.avatar_1920.content)
 
     def test_badge_validation(self):
         # check employee's barcode should be a sequence of digits and alphabets
@@ -504,26 +515,6 @@ class TestHrEmployee(TestHrCommon):
 
         self.assertEqual(employee_form.barcode, 'Testbadge2')
 
-    def test_departure_wizard(self):
-        """ Test the archiving wizard in the case of multiple employees """
-        employee_A, employee_B, employee_C = self.env['hr.employee'].create([
-            {
-                'name': f'Employee {code}',
-                'user_id': False,
-                'work_email': f'employee_{code}@example.com',
-            } for code in ['A', 'B', 'C']
-        ])
-        archiving_employees = [employee.id for employee in (employee_A, employee_C)]
-
-        wizard = self.env['hr.departure.wizard'].with_context(
-            employee_termination=True,
-            active_ids=archiving_employees,
-        ).create({})
-        wizard.action_register_departure()
-
-        all_employees = employee_A | employee_B | employee_C
-        self.assertEqual(all_employees.filtered(lambda e: e.active), employee_B, "Employees should have been archived")
-
     def test_search_hr_employee_no_access(self):
         new_user = new_test_user(self.env, 'employee')
         employee = self.env['hr.employee'].create({
@@ -542,23 +533,26 @@ class TestHrEmployee(TestHrCommon):
     def test_is_flexible(self):
         employee = self.env['hr.employee'].create({
             'name': 'Employee',
+            'tz': 'Asia/Tokyo',
         })
         self.assertTrue(employee.resource_calendar_id)
         self.assertFalse(employee.is_flexible)
         self.assertFalse(employee.is_fully_flexible)
 
-        employee.resource_calendar_id.flexible_hours = True
+        employee.resource_calendar_id = False
+        employee.hours_per_week = 40
+        employee.hours_per_day = 8
         self.assertTrue(employee.is_flexible)
         self.assertFalse(employee.is_fully_flexible)
 
-        employee.resource_calendar_id = False
+        employee.hours_per_week = 0
+        employee.hours_per_day = 0
         self.assertTrue(employee.is_flexible)
         self.assertTrue(employee.is_fully_flexible)
 
     def test_resource_calendar_sync_with_employee_one(self):
         calendar = self.env['resource.calendar'].create({
             'name': 'test calendar',
-            'flexible_hours': True,
         })
         self.assertTrue(self.employee.resource_id)
         self.assertTrue(self.employee.resource_calendar_id)
@@ -601,34 +595,6 @@ class TestHrEmployee(TestHrCommon):
             # Switch back to first job, job title should be first job name
             employee_form.job_id = first_job
             self.assertEqual(employee_form.job_title, first_job.name)
-
-    def test_flexible_working_hours(self):
-        """
-        Test to verifie that get_unusual_days() return false for flexible work schedule
-        """
-
-        # Creating a flexible working schedule
-        calendar_flex = self.env['resource.calendar'].create([
-            {
-                'tz': "Europe/Brussels",
-                'name': 'flexible hours',
-                'flexible_hours': "True",
-            },
-        ])
-        employeeA = self.env['hr.employee'].create({
-            'name': 'Employee',
-        })
-
-        # Testing employeA on regular working schedule
-        days = employeeA._get_unusual_days(str(datetime(2025, 1, 1)), str(datetime(2025, 12, 31)))
-        self.assertTrue(days)
-        self.assertTrue(days['2025-01-04'])
-
-        # Assigning flexible work hours to employeeA
-        employeeA.resource_calendar_id = calendar_flex.id
-        days = employeeA._get_unusual_days(str(datetime(2025, 1, 1)), str(datetime(2025, 12, 31)))
-        self.assertTrue(days)
-        self.assertFalse(days['2025-01-04'])
 
     def test_user_creation_from_employee_with_invalid_email(self):
         employee = self.env['hr.employee'].create({
@@ -719,6 +685,124 @@ class TestHrEmployee(TestHrCommon):
         self.assertNotEqual(partner.phone, first_employee.work_phone)
         self.assertNotEqual(partner.email, second_employee.work_email)
         self.assertNotEqual(partner.email, first_employee.work_email)
+
+    @freeze_time('2025-12-01 09-00-00')
+    def test_presence_state_groupby(self):
+        present_user_a, present_user_b, absent_user = self.env['res.users'].create([
+            {
+                'name': 'Present User A',
+                'login': 'present_user_a',
+                'group_ids': [(6, 0, [self.env.ref('base.group_user').id])],
+                'notification_type': 'email',
+            },
+            {
+                'name': 'Present User B',
+                'login': 'present_user_b',
+                'group_ids': [(6, 0, [self.env.ref('base.group_user').id])],
+                'notification_type': 'email',
+            },
+            {
+                'name': 'Absent User',
+                'login': 'absent_user_a',
+                'group_ids': [(6, 0, [self.env.ref('base.group_user').id])],
+                'notification_type': 'email',
+            },
+        ])
+        present_user_a.action_create_employee()
+        present_user_b.action_create_employee()
+        absent_user.action_create_employee()
+
+        present_absent_emps = present_user_a.employee_ids | present_user_b.employee_ids | absent_user.employee_ids
+        present_absent_emps.write({
+            'date_version': date(2025, 1, 1),
+            'contract_date_start': date(2025, 1, 1)
+        })
+
+        out_working_emp = self.env['hr.employee'].create(
+            {'name': 'Out of Office Employee', 'contract_date_start': False, 'contract_date_end': False}
+        )
+
+        self.env["mail.presence"]._update_presence(present_user_a)
+        self.env["mail.presence"]._update_presence(present_user_b)
+
+        employee_per_presence_state = self.env['hr.employee'].with_context(active_test=False)._read_group(
+            domain=[('id', 'in', (present_user_a.employee_ids + present_user_b.employee_ids + absent_user.employee_ids + out_working_emp).ids)],
+            groupby=['hr_presence_state'],
+            aggregates=['id:recordset'],
+        )
+        self.assertEqual(len(employee_per_presence_state), 3)
+        for presence_state, employees in employee_per_presence_state:
+            if presence_state == 'present':
+                self.assertEqual(employees.ids, [present_user_a.employee_ids.id, present_user_b.employee_ids.id])
+            if presence_state == 'absent':
+                self.assertEqual(employees.ids, [absent_user.employee_ids.id])
+            if presence_state == 'out_of_working_hour':
+                self.assertEqual(employees.ids, [out_working_emp.id])
+
+    def test_employee_can_edit_proxy_fields_on_own_user(self):
+        user = new_test_user(
+            self.env,
+            login='emp_test',
+            groups='base.group_user',
+        )
+        employee = self.env['hr.employee'].create({
+            'name': 'Employee Test',
+            'user_id': user.id,
+        })
+
+        user_env = user.with_user(user)
+
+        vals = {
+            'legal_name': 'Legal Name Self',
+            'children': 2,
+            'birthday': date(1990, 1, 1),
+            'birthday_public_display': True,
+            'place_of_birth': 'Brussels',
+            'country_of_birth': self.env.ref('base.be').id,
+            'marital': 'married',
+            'spouse_complete_name': 'Alex Test',
+            'spouse_birthdate': date(1991, 2, 3),
+            'sex': 'male',
+        }
+        user_env.write(vals)
+
+        self.assertEqual(user_env.legal_name, vals['legal_name'])
+        self.assertEqual(user_env.children, vals['children'])
+        self.assertEqual(user_env.birthday, vals['birthday'])
+        self.assertEqual(user_env.birthday_public_display, vals['birthday_public_display'])
+        self.assertEqual(user_env.place_of_birth, vals['place_of_birth'])
+        self.assertEqual(user_env.country_of_birth.id, vals['country_of_birth'])
+        self.assertEqual(user_env.marital, vals['marital'])
+        self.assertEqual(user_env.spouse_complete_name, vals['spouse_complete_name'])
+        self.assertEqual(user_env.spouse_birthdate, vals['spouse_birthdate'])
+        self.assertEqual(user_env.sex, vals['sex'])
+
+        self.assertEqual(employee.legal_name, vals['legal_name'])
+        self.assertEqual(employee.children, vals['children'])
+        self.assertEqual(employee.birthday, vals['birthday'])
+        self.assertEqual(employee.birthday_public_display, vals['birthday_public_display'])
+        self.assertEqual(employee.place_of_birth, vals['place_of_birth'])
+        self.assertEqual(employee.country_of_birth.id, vals['country_of_birth'])
+        self.assertEqual(employee.marital, vals['marital'])
+        self.assertEqual(employee.spouse_complete_name, vals['spouse_complete_name'])
+        self.assertEqual(employee.spouse_birthdate, vals['spouse_birthdate'])
+        self.assertEqual(employee.sex, vals['sex'])
+
+    def test_employee_cannot_edit_others_proxy_fields(self):
+        user1 = new_test_user(self.env, login='emp_u1', groups='base.group_user')
+        user2 = new_test_user(self.env, login='emp_u2', groups='base.group_user')
+
+        emp1 = self.env['hr.employee'].create({'name': 'Emp 1', 'user_id': user1.id})
+        self.env['hr.employee'].create({'name': 'Emp 2', 'user_id': user2.id})
+
+        with self.assertRaises(AccessError):
+            user1.with_user(user2).write({
+                'legal_name': 'Hacked',
+                'children': 99,
+            })
+
+        self.assertNotEqual(emp1.sudo().legal_name, 'Hacked')
+        self.assertNotEqual(emp1.sudo().children, 99)
 
 
 @tagged('-at_install', 'post_install')
@@ -837,12 +921,12 @@ class TestHrEmployeeWebJson(HttpCase):
     def setUp(self):
         super().setUp()
         # JSON route needs to be enabled for the tests
-        self.env['ir.config_parameter'].sudo().set_param('web.json.enabled', True)
+        self.env['ir.config_parameter'].sudo().set_bool('web.json.enabled', True)
 
     def test_webjson_employees(self):
         # Check that json employees can be accessed
         url = "/json/1/employees"
-        self.env['ir.config_parameter'].set_param('web.json.enabled', True)
+        self.env['ir.config_parameter'].set_bool('web.json.enabled', True)
         self.authenticate('admin', 'admin')
         CSRF_USER_HEADERS = {
             "Sec-Fetch-Dest": "document",

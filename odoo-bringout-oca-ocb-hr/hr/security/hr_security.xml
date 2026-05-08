@@ -42,6 +42,33 @@
         <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
     </record>
 
+    <record id="hr_dept_manager_access_rule" model="ir.rule">
+        <field name="name">Department Access For Managers</field>
+        <field name="model_id" ref="model_hr_department"/>
+        <field name="domain_force">[
+            '|',
+            ('manager_id', 'in', user.employee_id.ids),
+            ('manager_id.is_subordinate', '=', True)
+        ]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+
+    </record>
+
+    <record id="hr_dept_hr_officer_access_rule" model="ir.rule">
+        <field name="name">Department Access For HR Officers</field>
+        <field name="model_id" ref="hr.model_hr_department"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
     <record id="hr_employee_public_comp_rule" model="ir.rule">
         <field name="name">Employee multi company rule</field>
         <field name="model_id" ref="model_hr_employee_public"/>
@@ -51,6 +78,12 @@
             ('id', '=', user.employee_id.parent_id.id),
             ('user_id', '=', user.id)
         ]</field>
+    </record>
+
+    <record id="ir_rule_hr_employee_departure_multi_company" model="ir.rule">
+        <field name="name">HR Employee Departure: Multi Company</field>
+        <field name="model_id" ref="model_hr_employee_departure"/>
+        <field name="domain_force">[('employee_id.company_id', 'in', company_ids)]</field>
     </record>
 
     <record id="hr_job_comp_rule" model="ir.rule">
@@ -75,7 +108,7 @@
 
     <record id="ir_rule_hr_contract_type_multi_company" model="ir.rule">
         <field name="name">HR Contract Type: Multi Company</field>
-        <field name="model_id" ref="model_hr_contract_type"/>
+        <field name="model_id" ref="model_hr_employee_type"/>
         <field name="domain_force">['|', ('country_id', '=', False), ('country_id', 'in', user.env.companies.country_id.ids)]</field>
     </record>
 
@@ -114,11 +147,33 @@
         <field name="domain_force">[('company_id', 'in', company_ids)]</field>
     </record>
 
+    <record id="ir_rule_hr_employee_departure_company" model="ir.rule">
+        <field name="name">HR Departure: Multi Company</field>
+        <field name="model_id" ref="model_hr_employee_departure"/>
+        <field name="domain_force">[('employee_id.company_id', 'in', company_ids)]</field>
+    </record>
+
     <record id="ir_rule_hr_payroll_structure_type_multi_company" model="ir.rule">
         <field name="name">HR Payroll Structure Type: Multi Company</field>
         <field name="model_id" ref="model_hr_payroll_structure_type"/>
         <field name="global" eval="True"/>
         <field name="domain_force">['|', ('country_id', '=', False), ('country_id', 'in', user.env.companies.mapped('country_id').ids)]</field>
+    </record>
+
+    <record id="homeworking_own_rule" model="ir.rule">
+        <field name="name">homeworking: own</field>
+        <field name="model_id" ref="model_hr_employee_location"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[
+            ('employee_id', '=', user.employee_id.id)
+        ]</field>
+    </record>
+
+    <record id="homeworking_admin_rule" model="ir.rule">
+        <field name="name">homeworking: admin</field>
+        <field name="model_id" ref="model_hr_employee_location"/>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
     </record>
 </data>
 </odoo>

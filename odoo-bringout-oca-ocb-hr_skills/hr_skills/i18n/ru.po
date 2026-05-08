@@ -5,14 +5,13 @@
 # Translators:
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# "Anastasiia Koroleva (koan)" <koan@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 18:38+0000\n"
-"PO-Revision-Date: 2026-04-24 16:29+0000\n"
-"Last-Translator: \"Anastasiia Koroleva (koan)\" <koan@odoo.com>\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
+"PO-Revision-Date: 2025-11-11 17:15+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Russian <https://translate.odoo.com/projects/odoo-19/"
 "hr_skills/ru/>\n"
 "Language: ru\n"
@@ -22,18 +21,33 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: hr_skills
 #. odoo-python
 #: code:addons/hr_skills/models/hr_skill_type.py:0
 msgid "%(skill_type_name)s (copy)"
-msgstr "%(skill_type_name)s (копия)"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.actions.report,print_report_name:hr_skills.action_report_employee_cv
 msgid "'CV - %s' % (object.name)"
 msgstr "'CV - %s' % (object.name)"
+
+#. module: hr_skills
+#: model_terms:ir.ui.view,arch_db:hr_skills.report_employee_cv_sidepanel
+msgid "+1234567890"
+msgstr "+1234567890"
+
+#. module: hr_skills
+#: model_terms:ir.ui.view,arch_db:hr_skills.report_employee_cv_main_panel
+msgid "2022"
+msgstr "2022"
+
+#. module: hr_skills
+#: model_terms:ir.ui.view,arch_db:hr_skills.report_employee_cv_main_panel
+msgid "2023"
+msgstr "2023"
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.resume_line_view_form
@@ -43,6 +57,25 @@ msgid ""
 msgstr ""
 "<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" "
 "title=\"Arrow\"/>"
+
+#. module: hr_skills
+#. odoo-python
+#: code:addons/hr_skills/models/hr_employee_skill.py:0
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">No Certifications available!</p>"
+msgstr ""
+
+#. module: hr_skills
+#. odoo-python
+#: code:addons/hr_skills/models/hr_employee_skill.py:0
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">No Certifications available. "
+"Navigate to Skill types!</p>\n"
+"                <a type=\"action\" name=\"hr_skills.hr_skill_type_action\" "
+"class=\"btn btn-primary\">\n"
+"                Show Skill Types\n"
+"                </a>"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:hr.resume.line,description:hr_skills.employee_resume_line_admin_7
@@ -56,7 +89,6 @@ msgid "ADD"
 msgstr "ДОБАВИТЬ"
 
 #. module: hr_skills
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__active
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__active
 #: model:ir.model.fields,field_description:hr_skills.field_hr_skill_type__active
 msgid "Active"
@@ -190,11 +222,6 @@ msgid "Burtho Inc."
 msgstr "Burtho Inc."
 
 #. module: hr_skills
-#: model:hr.skill,name:hr_skills.hr_skill_csharp
-msgid "C#"
-msgstr ""
-
-#. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_c
 msgid "C/C++"
 msgstr "C/C++"
@@ -231,22 +258,26 @@ msgid "Category"
 msgstr "Категория"
 
 #. module: hr_skills
+#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__certificate_file
+#: model:ir.model.fields,field_description:hr_skills.field_hr_individual_skill_mixin__certificate_file
+#: model:ir.model.fields,field_description:hr_skills.field_hr_job_skill__certificate_file
 #: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line__certificate_file
+#: model_terms:ir.ui.view,arch_db:hr_skills.employee_skill_view_form
 msgid "Certificate"
 msgstr "Сертификат"
 
 #. module: hr_skills
+#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__certificate_filename
+#: model:ir.model.fields,field_description:hr_skills.field_hr_individual_skill_mixin__certificate_filename
+#: model:ir.model.fields,field_description:hr_skills.field_hr_job_skill__certificate_filename
 #: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line__certificate_filename
 msgid "Certificate Filename"
-msgstr "Имя файла сертификата"
+msgstr ""
 
 #. module: hr_skills
-#: model:ir.actions.act_window,name:hr_skills.hr_employee_certification_report_action
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee__certification_ids
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_public__certification_ids
 #: model:ir.model.fields,field_description:hr_skills.field_hr_skill_type__is_certification
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_list
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_public_view_form_inherit
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_view_list
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_view_search
@@ -255,22 +286,10 @@ msgid "Certification"
 msgstr "Сертификация"
 
 #. module: hr_skills
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_list
-msgid "Certification Level"
-msgstr "Уровень сертификации"
-
-#. module: hr_skills
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_list
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_search
-msgid "Certification Type"
-msgstr "Тип сертификации"
-
-#. module: hr_skills
 #: model:hr.skill.type,name:hr_skills.hr_skill_type_certifications
 #: model:ir.actions.act_window,name:hr_skills.action_hr_employee_skill_certification
+#: model:ir.actions.server,name:hr_skills.action_server_hr_employee_skill_certification
 #: model:ir.ui.menu,name:hr_skills.hr_certification_menu
-#: model:ir.ui.menu,name:hr_skills.hr_employee_certification_report_menu
-#: model:mail.activity.type,name:hr_skills.mail_activity_data_upload_certification
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_public_view_form_inherit
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_view_form
 msgid "Certifications"
@@ -330,7 +349,7 @@ msgid "Communication"
 msgstr "Связь"
 
 #. module: hr_skills
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__company_id
+#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__company_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__company_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line__company_id
 msgid "Company"
@@ -370,7 +389,7 @@ msgstr "Тип курса"
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_resume_line_type_tree_view
 msgid "Course?"
-msgstr "Курс?"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.ui.menu,name:hr_skills.menu_learnings_training_attendances_courses
@@ -386,13 +405,13 @@ msgstr "Южная младшая начальная школа Крейгмор
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/resume_one2many/resume_one2many.xml:0
 msgid "Create Resume Lines"
-msgstr "Создать строки резюме"
+msgstr ""
 
 #. module: hr_skills
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/skills_one2many/skills_one2many.xml:0
 msgid "Create Skills"
-msgstr "Создать навыки"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_cv_wizard__create_uid
@@ -439,16 +458,14 @@ msgstr "Текущий"
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee__current_employee_skill_ids
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_public__current_employee_skill_ids
 msgid "Current Employee Skill"
-msgstr "Текущий навык сотрудника"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_job__current_job_skill_ids
 msgid "Current Job Skill"
-msgstr "Текущий навык для должности"
+msgstr ""
 
 #. module: hr_skills
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_list
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_pivot
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_report_view_graph
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_report_view_pivot
 msgid "Current Level"
@@ -522,7 +539,7 @@ msgstr "Дэвис, Санчес и Миллер"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/formatted_date/formatted_date.js:0
 msgid "Day Format"
-msgstr "Формат дня"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_decision_making
@@ -545,10 +562,8 @@ msgid "Demo Company Name"
 msgstr "Название демо-компании"
 
 #. module: hr_skills
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__department_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__department_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line__department_id
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_report_view_search
 msgid "Department"
 msgstr "Отдел"
@@ -575,19 +590,13 @@ msgid "Digital advertising"
 msgstr "Цифровой маркетинг"
 
 #. module: hr_skills
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_cv_wizard_view_form
-msgid "Discard"
-msgstr "Отменить"
-
-#. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee__display_certification_page
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_public__display_certification_page
 msgid "Display Certification Page"
-msgstr "Отображать страницу сертификации"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__display_name
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_cv_wizard__display_name
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__display_name
@@ -651,23 +660,16 @@ msgstr "Рекламная рассылка"
 
 #. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_employee
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__employee_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_cv_wizard__employee_ids
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__employee_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_history_report__employee_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__employee_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line__employee_id
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_report_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.resume_line_view_form_inherit
 msgid "Employee"
 msgstr "Сотрудник"
-
-#. module: hr_skills
-#: model:ir.model,name:hr_skills.model_hr_employee_certification_report
-msgid "Employee Certification Report"
-msgstr "Отчет по сертификации сотрудника"
 
 #. module: hr_skills
 #: model:ir.actions.report,name:hr_skills.action_report_employee_cv
@@ -747,12 +749,7 @@ msgstr "Опыт"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/components/internal_resume_lines/internal_resume_one2many.xml:0
 msgid "Experience -"
-msgstr "Опыт –"
-
-#. module: hr_skills
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_certification_report_view_search
-msgid "Expired Certification"
-msgstr "Просроченная сертификация"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model.fields.selection,name:hr_skills.selection__hr_resume_line__course_type__external
@@ -899,7 +896,6 @@ msgid "Harrington Park Public School"
 msgstr "Государственная школа Харрингтон Парк"
 
 #. module: hr_skills
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__has_department_manager_access
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__has_department_manager_access
 msgid "Has Department Manager Access"
 msgstr "Имеет права руководителя отдела"
@@ -946,7 +942,6 @@ msgstr "Сотрудник отдела кадров"
 
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_cv_wizard__id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__id
@@ -1219,7 +1214,6 @@ msgid "Leinster School"
 msgstr "Школа Лейнстер"
 
 #. module: hr_skills
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__level_progress
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_history_report__level_progress
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__level_progress
 msgid "Level Progress"
@@ -1237,7 +1231,7 @@ msgstr "Уровни"
 #: model:ir.model.fields,field_description:hr_skills.field_hr_job_skill__levels_count
 #: model:ir.model.fields,field_description:hr_skills.field_hr_skill_type__levels_count
 msgid "Levels Count"
-msgstr "Количество уровней"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.resume.line,name:hr_skills.employee_resume_fme_lewis_group
@@ -1369,7 +1363,7 @@ msgstr "Разработка мобильных приложений"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/formatted_date/formatted_date.js:0
 msgid "Month Format"
-msgstr "Формат месяца"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:hr.resume.line,description:hr_skills.employee_resume_jog_douglas_thompson_and_conner
@@ -1409,7 +1403,7 @@ msgstr "Новый"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/resume_one2many/resume_one2many.js:0
 msgid "New Resume Line"
-msgstr "Новая строка резюме"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_nosql
@@ -1437,7 +1431,7 @@ msgstr "Количество часов"
 #: model:ir.model.fields,help:hr_skills.field_hr_job_skill__levels_count
 #: model:ir.model.fields,help:hr_skills.field_hr_skill_type__levels_count
 msgid "Number of levels linked to this skill type"
-msgstr "Количество уровней, связанных с этим типом навыка"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_type_certifications_odoo
@@ -1470,7 +1464,7 @@ msgstr "Другое"
 #. module: hr_skills
 #: model:hr.resume.line.type,name:hr_skills.resume_type_experience
 msgid "Other Experience"
-msgstr "Прочий опыт"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_cv_wizard__show_others
@@ -1661,11 +1655,6 @@ msgid "Python"
 msgstr "Python"
 
 #. module: hr_skills
-#: model:hr.skill,name:hr_skills.hr_skill_r
-msgid "R"
-msgstr ""
-
-#. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_sql
 msgid "RDMS"
 msgstr "РСУБД"
@@ -1681,21 +1670,19 @@ msgid "React"
 msgstr "React"
 
 #. module: hr_skills
+#: model:ir.model,name:hr_skills.model_resource_resource
+msgid "Resource"
+msgstr ""
+
+#. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_resourcefulness
 msgid "Resourcefulness"
 msgstr "Находчивость"
 
 #. module: hr_skills
-#: model:ir.model,name:hr_skills.model_resource_resource
-msgid "Resources"
-msgstr "Ресурсы"
-
-#. module: hr_skills
 #: model:ir.ui.menu,name:hr_skills.menu_human_resources_configuration_resume
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_public_view_form_inherit
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_public_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_view_form
-#: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_view_search
 #: model_terms:ir.ui.view,arch_db:hr_skills.resume_line_view_form
 msgid "Resume"
 msgstr "Резюме"
@@ -1709,17 +1696,17 @@ msgstr "Резюме %s"
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.view_resume_lines_filter
 msgid "Resume Lines"
-msgstr "Строки резюме"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_resume_line_list_view
 msgid "Resume Section"
-msgstr "Раздел резюме"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.actions.act_window,name:hr_skills.hr_resume_type_action
 msgid "Resume Sections"
-msgstr "Разделы резюме"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_resume_line
@@ -1801,7 +1788,7 @@ msgstr "Научный писатель"
 #. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_type_certifications_scrum_master
 msgid "Scrum Master"
-msgstr "Скрам-мастер"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_skill_view_search
@@ -1831,7 +1818,7 @@ msgstr "Секции"
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line_type__resume_line_type_properties_definition
 msgid "Sections Properties"
-msgstr "Свойства разделов"
+msgstr ""
 
 #. module: hr_skills
 #. odoo-javascript
@@ -1876,7 +1863,6 @@ msgstr "Симмонс-Вилкокс"
 #. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_skill
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee__skill_ids
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__skill_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__skill_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_history_report__skill_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__skill_id
@@ -1897,7 +1883,6 @@ msgstr "Отчет об истории навыков"
 
 #. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_skill_level
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__skill_level
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__skill_level_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__skill_level
 #: model:ir.model.fields,field_description:hr_skills.field_hr_individual_skill_mixin__skill_level_id
@@ -1914,7 +1899,6 @@ msgstr "Уровни сложности"
 
 #. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_skill_type
-#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_certification_report__skill_type_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__skill_type_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_history_report__skill_type_id
 #: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_report__skill_type_id
@@ -1938,14 +1922,19 @@ msgid "Skill Types"
 msgstr "Типы навыков"
 
 #. module: hr_skills
+#: model:ir.model,name:hr_skills.model_hr_job_skill
+msgid "Skill for job position"
+msgstr ""
+
+#. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_individual_skill_mixin
 msgid "Skill level"
-msgstr "Уровень навыка"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model,name:hr_skills.model_hr_employee_skill
 msgid "Skill level for employee"
-msgstr "Уровень навыка сотрудника"
+msgstr ""
 
 #. module: hr_skills
 #. odoo-javascript
@@ -1956,7 +1945,6 @@ msgstr "Уровень навыка сотрудника"
 #: model:ir.model.fields,field_description:hr_skills.field_hr_job__job_skill_ids
 #: model:ir.model.fields,field_description:hr_skills.field_hr_skill_type__skill_ids
 #: model:ir.model.fields,field_description:hr_skills.field_resource_resource__employee_skill_ids
-#: model:ir.ui.menu,name:hr_skills.hr_employee_skill_report_menu
 #: model_terms:ir.ui.view,arch_db:hr_skills.employee_skill_view_form
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_type_view_form
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_job_skill_view_form
@@ -1969,7 +1957,7 @@ msgstr "Навыки"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/skills_one2many/skills_one2many.xml:0
 msgid "Skills & Certifications"
-msgstr "Навыки и сертификации"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_department_view_kanban
@@ -1989,17 +1977,10 @@ msgid "Skills Report"
 msgstr "Отчет о навыках"
 
 #. module: hr_skills
-#: model:ir.model,name:hr_skills.model_hr_job_skill
-msgid "Skills for job positions"
-msgstr "Навыки для должностей"
-
-#. module: hr_skills
 #: model:ir.actions.server,name:hr_skills.hr_job_skills_cron_add_certification_activity_to_employees_ir_actions_server
 msgid ""
 "Skills: Add an activity to employees with missing or expiring certifications"
 msgstr ""
-"Навыки: Добавить действие для сотрудников с отсутствующими или истекающими "
-"сертификатами"
 
 #. module: hr_skills
 #: model:hr.skill.type,name:hr_skills.hr_skill_type_softskill
@@ -2095,7 +2076,7 @@ msgstr "Командная работа"
 #. module: hr_skills
 #: model:ir.model.fields,field_description:hr_skills.field_hr_skill_level__technical_is_new_default
 msgid "Technical Is New Default"
-msgstr "Технический: Новый по умолчанию"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_telugu
@@ -2105,7 +2086,7 @@ msgstr "Телугу"
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.employee_skill_view_form
 msgid "The end date must be after the start date."
-msgstr "Дата окончания должна быть позже даты начала."
+msgstr ""
 
 #. module: hr_skills
 #. odoo-python
@@ -2115,9 +2096,6 @@ msgid ""
 "existing skills:\n"
 "%(collisions)s"
 msgstr ""
-"Следующие навыки не могут быть созданы, так как они пересекаются или "
-"полностью совпадают с существующими:\n"
-"%(collisions)s"
 
 #. module: hr_skills
 #. odoo-python
@@ -2125,7 +2103,7 @@ msgstr ""
 msgid ""
 "The following skills have their valid stop date prior to their valid start "
 "date:\n"
-msgstr "У следующих навыков дата окончания предшествует дате начала:\n"
+msgstr ""
 
 #. module: hr_skills
 #. odoo-python
@@ -2133,14 +2111,12 @@ msgstr "У следующих навыков дата окончания пре�
 msgid ""
 "The following skills type must contain at least one skill and one level: %s"
 msgstr ""
-"Следующий тип навыков должен содержать как минимум один навык и один "
-"уровень: %s"
 
 #. module: hr_skills
 #. odoo-python
 #: code:addons/hr_skills/models/hr_individual_skill_mixin.py:0
 msgid "The skill %(name)s and skill type %(type)s don't match"
-msgstr "Навык %(name)s и тип навыка %(type)s не совпадают"
+msgstr ""
 
 #. module: hr_skills
 #. odoo-python
@@ -2162,22 +2138,13 @@ msgstr "Терапевт, речь и язык"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/components/internal_resume_lines/internal_resume_one2many.xml:0
 msgid "There are no resume lines on this employee."
-msgstr "Для этого сотрудника нет строк резюме."
+msgstr ""
 
 #. module: hr_skills
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/skills_one2many/skills_one2many.xml:0
 msgid "There are no skills defined in the library."
 msgstr "В библиотеке нет определенных навыков."
-
-#. module: hr_skills
-#: model_terms:ir.actions.act_window,help:hr_skills.hr_employee_certification_report_action
-msgid ""
-"This report will give you an overview of the certification per Employee.\n"
-"                Create them in configuration and add them on the Employee."
-msgstr ""
-"Этот отчет даст вам обзор сертификаций по каждому сотруднику.\n"
-"                Создайте их в настройках и добавьте в карточку сотрудника."
 
 #. module: hr_skills
 #: model_terms:ir.actions.act_window,help:hr_skills.hr_employee_skill_report_action
@@ -2236,12 +2203,12 @@ msgstr "Тренинг"
 #: model:ir.actions.act_window,name:hr_skills.hr_resume_lines_training_action
 #: model:ir.ui.menu,name:hr_skills.menu_learnings_training_attendances
 msgid "Training Attendances"
-msgstr "Посещаемость тренингов"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_resume_line_list_view
 msgid "Training Title"
-msgstr "Название тренинга"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.resume.line,name:hr_skills.employee_resume_jep_trinity_college
@@ -2289,12 +2256,13 @@ msgstr "Свободный университет Брюсселя - Полит�
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/skills_one2many/skills_one2many.js:0
 msgid "Update Skills"
-msgstr "Обновить навыки"
+msgstr ""
 
 #. module: hr_skills
-#: model:mail.activity.type,summary:hr_skills.mail_activity_data_upload_certification
-msgid "Upload a certification"
-msgstr "Загрузить сертификат"
+#. odoo-python
+#: code:addons/hr_skills/models/hr_employee.py:0
+msgid "Upload a document for a missing certification"
+msgstr ""
 
 #. module: hr_skills
 #: model:hr.skill,name:hr_skills.hr_skill_urdu
@@ -2304,7 +2272,7 @@ msgstr "Урду"
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.hr_employee_skill_view_search
 msgid "Valid certification"
-msgstr "Действующая сертификация"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.employee_skill_view_form
@@ -2394,7 +2362,7 @@ msgstr "Колледж Wycheproof P-12"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/formatted_date/formatted_date.js:0
 msgid "Year Format"
-msgstr "Формат года"
+msgstr ""
 
 #. module: hr_skills
 #. odoo-javascript
@@ -2406,7 +2374,7 @@ msgstr "Вы можете добавить навыки из нашей библ
 #. odoo-python
 #: code:addons/hr_skills/models/hr_employee.py:0
 msgid "You cannot access the resume of this employee."
-msgstr "У вас нет доступа к резюме этого сотрудника."
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.report_employee_cv_sidepanel
@@ -2426,7 +2394,7 @@ msgstr "например, Odoo Inc."
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.resume_line_view_form
 msgid "e.g. https://duolingo.com/course/xyz"
-msgstr "напр.: https://duolingo.com/course/xyz"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.resume_line_view_form
@@ -2437,7 +2405,7 @@ msgstr "часов"
 #. odoo-javascript
 #: code:addons/hr_skills/static/src/fields/resume_one2many/resume_one2many.xml:0
 msgid "hours)"
-msgstr "час.)"
+msgstr ""
 
 #. module: hr_skills
 #: model:ir.model.fields,help:hr_skills.field_hr_employee_skill__is_certification
@@ -2445,12 +2413,12 @@ msgstr "час.)"
 #: model:ir.model.fields,help:hr_skills.field_hr_job_skill__is_certification
 #: model:ir.model.fields,help:hr_skills.field_hr_skill_type__is_certification
 msgid "if checked the skill type become a certification type"
-msgstr "если флажок установлен, тип навыка становится типом сертификации"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.employee_skill_view_form
 msgid "indefinite"
-msgstr "бессрочно"
+msgstr ""
 
 #. module: hr_skills
 #: model_terms:ir.ui.view,arch_db:hr_skills.report_employee_cv_sidepanel
@@ -2461,127 +2429,4 @@ msgstr "www.demo.com"
 #. odoo-python
 #: code:addons/hr_skills/models/hr_individual_skill_mixin.py:0
 msgid "• %(skill_name)s from %(valid_from)s to %(valid_to)s"
-msgstr "• %(skill_name)s с %(valid_from)s по %(valid_to)s"
-
-#~ msgid "+1234567890"
-#~ msgstr "+1234567890"
-
-#~ msgid "2022"
-#~ msgstr "2022"
-
-#~ msgid "2023"
-#~ msgstr "2023"
-
-#~ msgid "%s (copy)"
-#~ msgstr "%s (копия)"
-
-#~ msgid "CREATE A NEW ENTRY"
-#~ msgstr "СОЗДАТЬ НОВУЮ ЗАПИСЬ"
-
-#~ msgid "Classic"
-#~ msgstr "Классический"
-
-#~ msgid "Create a new entry"
-#~ msgstr "Создайте новую запись"
-
-#~ msgid "Create a resume line"
-#~ msgstr "Создайте строку резюме"
-
-#~ msgid "Create new Skills"
-#~ msgstr "Создать новые навыки"
-
-#~ msgid "Display Type"
-#~ msgstr "Тип отображения"
-
-#~ msgid "Employee Name"
-#~ msgstr "ФИО сотрудника"
-
-#~ msgid "Employee Skills"
-#~ msgstr "Навыки сотрудников"
-
-#~ msgid "Employees with Skills"
-#~ msgstr "Сотрудники с навыками"
-
-#~ msgid "Employees without Skills"
-#~ msgstr "Сотрудники без навыков"
-
-#~ msgid "Group By"
-#~ msgstr "Группировать по"
-
-#~ msgid "Group By..."
-#~ msgstr "Группировать По…"
-
-#~ msgid ""
-#~ "Job position: Development team leader\n"
-#~ "- Supported technical operations with investigating and correcting varied "
-#~ "production support issues (Java, Perl, Shell scripts, SQL).\n"
-#~ "- Led quality assurance planning for multiple concurrent projects "
-#~ "relative to overall system architecture or trading system changes/new "
-#~ "developments.\n"
-#~ "- Configured and released business critical alpha and risk models using "
-#~ "MATLAB and SQL with inputs from Portfolio Managers.\n"
-#~ "        "
-#~ msgstr ""
-#~ "Должность: Руководитель группы разработчиков\n"
-#~ "- Оказывал поддержку техническим операциям в расследовании и устранении "
-#~ "различных проблем, связанных с поддержкой производства (Java, Perl, "
-#~ "сценарии Shell, SQL).\n"
-#~ "- Руководил планированием обеспечения качества для нескольких "
-#~ "параллельных проектов, связанных с общей архитектурой системы или "
-#~ "изменениями/новыми разработками торговой системы.\n"
-#~ "- Настраивал и выпускал важные для бизнеса модели альфа-активности и "
-#~ "риска с использованием MATLAB и SQL при участии портфельных менеджеров.\n"
-#~ "        "
-
-#~ msgid ""
-#~ "Job position: Product manager\n"
-#~ "- Coordinated and managed software deployment across five system "
-#~ "environments from development to production.\n"
-#~ "- Developed stored procedures to assist Java level programming efforts.\n"
-#~ "- Developed multiple renewable energy plant architectures, both "
-#~ "commercial installations and defense-related.\n"
-#~ "        "
-#~ msgstr ""
-#~ "Должность: Менеджер по продуктам\n"
-#~ "- Координировал и управлял развертыванием программного обеспечения в пяти "
-#~ "системных средах от разработки до производства.\n"
-#~ "- Разрабатывал хранимые процедуры для помощи в программировании на уровне "
-#~ "Java.\n"
-#~ "- Разработал несколько архитектур установок по производству "
-#~ "возобновляемых источников энергии, как коммерческих, так и связанных с "
-#~ "обороной.\n"
-#~ "        "
-
-#~ msgid "Line Types"
-#~ msgstr "Типы линий"
-
-#~ msgid "Odoo India pvt. Ltd"
-#~ msgstr "Odoo India pvt. Ltd"
-
-#~ msgid "Resume Line Types"
-#~ msgstr "Типы строк резюме"
-
-#~ msgid "Science & math"
-#~ msgstr "Наука и математика"
-
-#~ msgid "Search Logs"
-#~ msgstr "Найти"
-
-#~ msgid "Skill level for an employee"
-#~ msgstr "Уровень квалификации сотрудника"
-
-#~ msgid "The skill %(name)s and skill type %(type)s doesn't match"
-#~ msgstr "Навык %(name)s и тип навыка %(type)s не совпадают"
-
-#~ msgid "Two levels for the same skill is not allowed"
-#~ msgstr "Два уровня для одного навыка не допускаются"
-
-#~ msgid "Two levels for the same skill on the same day is not allowed"
-#~ msgstr ""
-#~ "Два уровня для одного и того же навыка в один и тот же день не допускаются"
-
-#~ msgid "User"
-#~ msgstr "Пользователь"
-
-#~ msgid "Why not try adding some ?"
-#~ msgstr "Почему бы не попробовать добавить немного?"
+msgstr ""

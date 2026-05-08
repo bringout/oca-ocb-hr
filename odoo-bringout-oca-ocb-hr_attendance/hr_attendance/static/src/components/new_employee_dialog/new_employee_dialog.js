@@ -1,4 +1,5 @@
-import { Component, useState } from "@odoo/owl";
+import { useState } from "@web/owl2/utils";
+import { Component } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
 import { rpc } from "@web/core/network/rpc";
@@ -25,16 +26,19 @@ export class NewEmployeeDialog extends Component {
             badgeId: "",
             value: null,
             searchName: "",
+            employeeHasBadge: false,
         });
     }
 
     onSelectEmployee(emp) {
         this.state.searchName = emp?.name ?? "";
+        this.state.badgeId = "";
         if( this.state.searchName == ""){
             this.state.value = null;
         }
         else{
             this.state.value = emp;
+            this.state.employeeHasBadge = false;
         }
     }
 
@@ -85,7 +89,7 @@ export class NewEmployeeDialog extends Component {
             this.notification.add(_t("Badge assigned successfully!"), {
                 type: "success",
             });
-            this.props.close();
+            this.state.employeeHasBadge = true;
         } else {
             this.notification.add( _t("Error: ") + _t(data?.message),{
                 type: "danger",

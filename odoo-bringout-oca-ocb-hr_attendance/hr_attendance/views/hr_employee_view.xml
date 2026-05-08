@@ -5,11 +5,6 @@
         <field name="name">hr.employee.search.view</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_filter"/>
-        <field name="arch" type="xml">
-            <xpath expr="//separator[@name='managers_groupby_separator']" position="before">
-                <filter name="group_attendance_manager" string="Attendance Approver" context="{'group_by': 'attendance_manager_id'}" groups="hr_attendance.group_hr_attendance_user"/>
-            </xpath>
-        </field>
     </record>
 
     <record id="view_employee_form_inherit_hr_attendance" model="ir.ui.view">
@@ -123,23 +118,21 @@
         </field>
     </record>
 
-    <record id="hr_attendance_employee_simple_tree_view" model="ir.ui.view">
-        <field name="name">hr.attendance.list</field>
+    <record id="hr_attendance_employee_calendar_view" model="ir.ui.view">
+        <field name="name">hr.attendance.employee.calendar.view</field>
         <field name="model">hr.attendance</field>
         <field name="arch" type="xml">
-            <list sample="1">
-                <field name="check_in"/>
-                <field name="check_out"/>
-                <field name="worked_hours" string="Work Hours" widget="float_time"/>
-                <field name="validated_overtime_hours" string="Extra Hours" widget="float_time" column_invisible="not context.get('display_extra_hours')"/>
-                <field name="overtime_status" string="Status" widget="badge"
-                       decoration-warning="overtime_status == 'to_approve'"
-                       decoration-success="overtime_status == 'approved'"
-                       decoration-danger="overtime_status == 'refused'"
-                       column_invisible="not context.get('display_extra_hours')"
-                       optional="hide"
-                />
-            </list>
+            <calendar string="Attendances"
+                js_class="attendance_calendar_view"
+                date_start="check_in"
+                date_stop="check_out"
+                color="overtime_status"
+                create="0"
+                delete="0"
+                edit="0"
+                mode="month">
+                <field name="worked_hours" widget="float_time"/>
+            </calendar>
         </field>
     </record>
 

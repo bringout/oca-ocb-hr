@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2026-02-04 18:36+0000\n"
 "PO-Revision-Date: 2025-09-16 18:32+0000\n"
 "Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
 "Language-Team: Norwegian Bokmål <https://translate.odoo.com/projects/odoo-19/"
@@ -114,12 +114,6 @@ msgstr ""
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__direct_badge_ids
 msgid "Direct Badge"
-msgstr ""
-
-#. module: hr_gamification
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
-msgid "Discard"
 msgstr ""
 
 #. module: hr_gamification
@@ -285,25 +279,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "on"
 msgstr ""
-
-#~ msgid ""
-#~ "Badges are rewards of good work. Give them to people you believe deserve "
-#~ "it."
-#~ msgstr ""
-#~ "Medaljer er belønning for godt utført arbeid. Gi dem til folk du mener "
-#~ "fortjener det."
-
-#~ msgid "Cancel"
-#~ msgstr "Kanseller"
-
-#~ msgid "Related user name for the resource to manage its access."
-#~ msgstr "Tilknyttet brukernavn for ressursen for å administrere tilgang."
-
-#~ msgid "Reward Employee"
-#~ msgstr "Belønn ansatt"
-
-#~ msgid "You can send badges only to employees linked to a user."
-#~ msgstr "Du kan bare gi medaljer til ansatte tilknyttet en bruker."
-
-#~ msgid "to reward this employee for a good action"
-#~ msgstr "for å belønne den ansatte for en god handling"

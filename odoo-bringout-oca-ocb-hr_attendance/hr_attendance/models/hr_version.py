@@ -14,19 +14,28 @@ class HrVersion(models.Model):
             ('country_id', 'in', self.env.companies.country_id.ids),
         ]
 
+    def _default_ruleset_id(self):
+        country_ruleset = self.env['hr.attendance.overtime.ruleset'].sudo().search([
+            ('country_id', 'in', self.env.companies.country_id.ids),
+        ], limit=1).sudo(False)
+        if country_ruleset:
+            return country_ruleset
+        return self.env.ref('hr_attendance.hr_attendance_default_ruleset', raise_if_not_found=False)
+
     ruleset_id = fields.Many2one(
          "hr.attendance.overtime.ruleset",
          domain=_domain_current_countries,
          groups="hr.group_hr_manager",
          tracking=True,
-         default=lambda self: self.env.ref('hr_attendance.hr_attendance_default_ruleset', raise_if_not_found=False),
+         index='btree_not_null',
+         default=_default_ruleset_id,
     )
 
     @api.model
     def _get_versions_by_employee_and_date(self, employee_dates):
         # for `employee_dates` a dict[employee] -> dates
         # Generate a 2 level dict[employee][date] -> version
-        employees = self.env['hr.employee'].union(*employee_dates.keys())
+        employees = self.env['hr.employee'].union(employee_dates.keys())
         all_dates = [date for dates in employee_dates.values() for date in dates]
         if not all_dates:
             return {}
@@ -48,3 +57,24 @@ class HrVersion(models.Model):
                     version_index += 1
                 version_by_employee_and_date[employee][date] = versions[version_index]
         return version_by_employee_and_date
+
+    def action_open_version_selector(self):
+        action = self.env['ir.actions.act_window']._for_xml_id('hr_attendance.hr_version_list_view_add')
+        today = fields.Date.today()
+        action['domain'] = [
+            ("ruleset_id", "=", False),
+            ("contract_date_start", "<=", today),
+            "|",
+            ("contract_date_end", "=", False),
+            ("contract_date_end", ">=", today),
+            ("employee_id", "!=", False),
+        ]
+        action['context'] = {'default_ruleset_id': self.env.context.get('default_ruleset_id', False)}
+        return action
+
+    def action_unassign_ruleset(self):
+        self.ruleset_id = False
+
+    def action_assign_ruleset(self):
+        if ruleset_id := self.env.context.get('default_ruleset_id', False):
+            self.ruleset_id = ruleset_id

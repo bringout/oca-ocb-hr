@@ -17,13 +17,16 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.leave_type = cls.env['hr.leave.type'].create({
+        cls.work_entry_type = cls.env['hr.work.entry.type'].create({
             'name': 'Test',
-            'time_type': 'leave',
+            'code': 'Test',
+            'count_as': 'absence',
             'requires_allocation': True,
             'allocation_validation_type': 'no_validation',
+            'request_unit': 'day',
+            'unit_of_measure': 'day',
         })
-        cls.accrual_plan_with_accrual_validity = cls.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        cls.accrual_plan_with_accrual_validity = cls.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan With Accrual Validity',
             'carryover_date': 'other',
             'carryover_day': 1,
@@ -66,7 +69,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         to None, so no leaves will be carriedover. The remaining days of the allocation will expire.
         """
         number_of_accrued_days = 10
-        accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -90,9 +93,8 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         logged_in_emp = self.env.user.employee_id
         allocation = self.env['hr.leave.allocation'].sudo().create({
             'date_from': date(date.today().year, 1, 1),
-            'allocation_type': 'accrual',
             'accrual_plan_id': accrual_plan.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'employee_id': logged_in_emp.id,
             'number_of_days': 0,
         })
@@ -100,12 +102,12 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         target_date = date(date.today().year + 1, 12, 30)
         leave = self.env['hr.leave'].create({
             'employee_id': logged_in_emp.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'request_date_from': target_date + relativedelta(month=12, day=1),
             'request_date_to': target_date + relativedelta(month=12, day=7)
         })
 
-        allocation_data = self.leave_type.get_allocation_data(
+        allocation_data = self.work_entry_type.get_allocation_data(
             allocation.employee_id, target_date)
 
         # Assert the date of expiration
@@ -139,7 +141,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
 
         number_of_accrued_days = 20
         carryover_limit = 10
-        accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -165,9 +167,8 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         logged_in_emp = self.env.user.employee_id
         allocation = self.env['hr.leave.allocation'].sudo().create({
             'date_from': date(date.today().year, 1, 1),
-            'allocation_type': 'accrual',
             'accrual_plan_id': accrual_plan.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'employee_id': logged_in_emp.id,
             'number_of_days': 0,
         })
@@ -175,11 +176,11 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         target_date = date(date.today().year + 1, 12, 30)
         leave = self.env['hr.leave'].create({
             'employee_id': logged_in_emp.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'request_date_from': target_date + relativedelta(month=12, day=1),
             'request_date_to': target_date + relativedelta(month=12, day=7)
         })
-        allocation_data = self.leave_type.get_allocation_data(
+        allocation_data = self.work_entry_type.get_allocation_data(
             allocation.employee_id, target_date)
 
         # Assert the date of expiration
@@ -226,7 +227,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
 
         number_of_accrued_days = 20
         carryover_limit = 10
-        accrual_plan_1 = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan_1 = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -249,7 +250,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             ],
         })
 
-        accrual_plan_2 = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan_2 = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan With All Leaves Carried Over',
             'can_be_carryover': True,
             'level_ids': [
@@ -271,15 +272,14 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         with freeze_time("2024-01-01"):
             allocation_with_carryover = self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2024-01-01',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': accrual_plan_1.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
             leave = self.env['hr.leave'].create({
                 'employee_id': logged_in_emp.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'request_date_from': '2025-12-01',
                 'request_date_to': '2025-12-05'
             })
@@ -287,15 +287,14 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2024-01-01',
                 'date_to': '2025-12-31',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': accrual_plan_2.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
 
             target_date = date(2025, 12, 30)
-            allocation_data = self.leave_type.get_allocation_data(logged_in_emp, target_date)
+            allocation_data = self.work_entry_type.get_allocation_data(logged_in_emp, target_date)
 
             # Assert the date of expiration
             self.assertEqual(allocation_data[logged_in_emp][0][1]['closest_allocation_expire'],
@@ -330,7 +329,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         """
 
         number_of_accrued_days = 10
-        accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -355,15 +354,14 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         allocation = self.env['hr.leave.allocation'].sudo().create({
             'date_from': date(date.today().year, 1, 1),
             'date_to': date(date.today().year + 1, 12, 31),
-            'allocation_type': 'accrual',
             'accrual_plan_id': accrual_plan.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'employee_id': logged_in_emp.id,
             'number_of_days': 0,
         })
 
         target_date = date(date.today().year + 1, 12, 30)
-        allocation_data = self.leave_type.get_allocation_data(
+        allocation_data = self.work_entry_type.get_allocation_data(
             allocation.employee_id, target_date)
 
         # Assert the date of expiration
@@ -398,7 +396,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         accrued on 01/01/2025 will expire on 01/01/2026.
         """
         with freeze_time('2024-01-01'):
-            accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+            accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
                 'name': 'Test Accrual Plan',
                 'can_be_carryover': True,
                 'carryover_date': 'year_start',
@@ -422,15 +420,14 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             logged_in_emp = self.env.user.employee_id
             allocation = self.env['hr.leave.allocation'].sudo().create({
                 'date_from': date(2024, 1, 1),
-                'allocation_type': 'accrual',
                 'accrual_plan_id': accrual_plan.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
 
             target_date = date(2025, 1, 1)
-            allocation_data = self.leave_type.get_allocation_data(allocation.employee_id, target_date)
+            allocation_data = self.work_entry_type.get_allocation_data(allocation.employee_id, target_date)
             # Assert the date of expiration
             self.assertEqual(allocation_data[logged_in_emp][0][1]['closest_allocation_expire'],
                         (target_date + relativedelta(years=1)).strftime('%m/%d/%Y'),
@@ -457,7 +454,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
           and no days will expire.
         """
 
-        accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -485,9 +482,8 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             # Allocation 1
             self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2023-01-01',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': accrual_plan.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
@@ -495,9 +491,8 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2023-01-01',
                 'date_to': '2024-10-01',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': accrual_plan.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
@@ -506,7 +501,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             self.env['hr.leave.allocation'].with_user(self.user_hruser)._update_accrual()
 
         target_date = date(2024, 1, 1)
-        allocation_data = self.leave_type.get_allocation_data(logged_in_emp, target_date)
+        allocation_data = self.work_entry_type.get_allocation_data(logged_in_emp, target_date)
         # Assert the date of expiration
         self.assertEqual(allocation_data[logged_in_emp][0][1]['closest_allocation_expire'],
                     (target_date + relativedelta(month=10)).strftime('%m/%d/%Y'),
@@ -532,7 +527,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         to None, so no leaves will be carriedover. The remaining days of the allocation will expire.
         """
         number_of_accrued_days = 10
-        accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -553,22 +548,17 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             ],
         })
 
-        self.flex_40h_calendar = self.env['resource.calendar'].sudo().create({
-            'name': 'Flexible 40h/week',
-            'tz': 'UTC',
-            'hours_per_day': 8.0,
-            'hours_per_week': 80.0,
-            'full_time_required_hours': 80.0,
-            'flexible_hours': True,
-        })
         logged_in_emp = self.env.user.employee_id
-        logged_in_emp.resource_calendar_id = self.flex_40h_calendar
+        logged_in_emp.write({
+            'resource_calendar_id': False,
+            'hours_per_week': 40,
+            'hours_per_day': 8.0,
+        })
 
         allocation = self.env['hr.leave.allocation'].sudo().create({
             'date_from': date(date.today().year, 1, 1),
-            'allocation_type': 'accrual',
             'accrual_plan_id': accrual_plan.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'employee_id': logged_in_emp.id,
             'number_of_days': 0,
         })
@@ -576,12 +566,12 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         target_date = date(date.today().year + 1, 12, 30)
         leave = self.env['hr.leave'].create({
             'employee_id': logged_in_emp.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'request_date_from': target_date + relativedelta(month=12, day=1),
             'request_date_to': target_date + relativedelta(month=12, day=7)
         })
 
-        allocation_data = self.leave_type.get_allocation_data(
+        allocation_data = self.work_entry_type.get_allocation_data(
             allocation.employee_id, target_date)
 
         # Assert the date of expiration
@@ -615,7 +605,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         to None, so no leaves will be carriedover. The remaining days of the allocation will expire.
         """
         number_of_accrued_days = 10
-        accrual_plan = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'can_be_carryover': True,
             'carryover_date': 'other',
@@ -641,9 +631,8 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
 
         allocation = self.env['hr.leave.allocation'].sudo().create({
             'date_from': date(date.today().year, 1, 1),
-            'allocation_type': 'accrual',
             'accrual_plan_id': accrual_plan.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'employee_id': logged_in_emp.id,
             'number_of_days': 0,
         })
@@ -651,12 +640,12 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         target_date = date(date.today().year + 1, 12, 30)
         leave = self.env['hr.leave'].create({
             'employee_id': logged_in_emp.id,
-            'holiday_status_id': self.leave_type.id,
+            'work_entry_type_id': self.work_entry_type.id,
             'request_date_from': target_date + relativedelta(month=12, day=1),
             'request_date_to': target_date + relativedelta(month=12, day=7)
         })
 
-        allocation_data = self.leave_type.get_allocation_data(
+        allocation_data = self.work_entry_type.get_allocation_data(
             allocation.employee_id, target_date)
 
         # Assert the date of expiration
@@ -699,7 +688,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         - If target date is 01/04/2024, then the expiration date should be 01/7/2024 because on 01/04/2024, 3 days will carryover for
           the second allocation and these 3 days will expire in 3 months.
         """
-        accrual_plan_without_accrual_validity = self.env['hr.leave.accrual.plan'].with_context(tracking_disable=True).sudo().create({
+        accrual_plan_without_accrual_validity = self.env['hr.leave.accrual.plan'].sudo().create({
             'name': 'Test Accrual Plan',
             'carryover_date': 'other',
             'carryover_day': 1,
@@ -727,18 +716,16 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2023-01-01',
                 'date_to': '2024-10-01',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': accrual_plan_without_accrual_validity.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
             # Allocation 2
             self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2023-01-01',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': self.accrual_plan_with_accrual_validity.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
@@ -747,7 +734,7 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             self.env['hr.leave.allocation'].with_user(self.user_hruser)._update_accrual()
 
         target_date = date(2024, 4, 1)
-        allocation_data = self.leave_type.get_allocation_data(logged_in_emp, target_date)
+        allocation_data = self.work_entry_type.get_allocation_data(logged_in_emp, target_date)
         # Assert the date of expiration
         self.assertEqual(allocation_data[logged_in_emp][0][1]['closest_allocation_expire'],
                     (target_date + relativedelta(month=7)).strftime('%m/%d/%Y'),
@@ -783,9 +770,8 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
         with freeze_time("2023-01-01"):
             self.env['hr.leave.allocation'].sudo().create({
                 'date_from': '2023-01-01',
-                'allocation_type': 'accrual',
                 'accrual_plan_id': self.accrual_plan_with_accrual_validity.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'employee_id': logged_in_emp.id,
                 'number_of_days': 0,
             })
@@ -795,14 +781,14 @@ class TestExpiringLeaves(HttpCase, TestHrHolidaysCommon):
             leave = self.env['hr.leave'].create({
                 'name': 'leave',
                 'employee_id': logged_in_emp.id,
-                'holiday_status_id': self.leave_type.id,
+                'work_entry_type_id': self.work_entry_type.id,
                 'request_date_from': '2024-04-03',
                 'request_date_to': '2024-04-04',
             })
             leave.sudo().action_approve()
 
         target_date = date(2024, 5, 1)
-        allocation_data = self.leave_type.get_allocation_data(logged_in_emp, target_date)
+        allocation_data = self.work_entry_type.get_allocation_data(logged_in_emp, target_date)
         # Assert the date of expiration
         self.assertEqual(allocation_data[logged_in_emp][0][1]['closest_allocation_expire'],
                     (target_date + relativedelta(month=7)).strftime('%m/%d/%Y'),

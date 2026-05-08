@@ -1,4 +1,5 @@
-import { onWillStart, useState } from "@odoo/owl";
+import { useState } from "@web/owl2/utils";
+import { onWillStart } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { usePopover } from "@web/core/popover/popover_hook";
 import { FloatTimeSelectionPopover } from "./float_time_selection_popover";
@@ -44,9 +45,21 @@ export class FloatTimeSelectionField extends FloatTimeField {
 
     get formattedValue() {
         const unitAmount = super.formattedValue;
-        return DateTime
-            .fromFormat(unitAmount, 'hh:mm', { numberingSystem: 'latn', zone: 'default'})
-            .toLocaleString({ hour: 'numeric', minute: 'numeric'});
+        let hours = 0;
+        let minutes = 0;
+
+        unitAmount.split(" ").forEach((data) => {
+            if (data.endsWith("h")) {
+                hours = parseInt(data);
+            } else if (data.endsWith("m")) {
+                minutes = parseInt(data);
+            }
+        });
+
+        return DateTime.fromObject(
+            { hour: hours, minute: minutes },
+            { numberingSystem: "latn", zone: "default" }
+        ).toFormat("h:mm a");
     }
 
     onCharHoursClick(ev) {
@@ -85,6 +98,9 @@ export class FloatTimeSelectionField extends FloatTimeField {
     onClose() {
         this.props.record.update({ [this.props.name]: this.timeValues.floatValue });
     }
+
+    // Remove the tooltip that shows up in the float time selection widget
+    openPopover() {}
 }
 
 export const charHours = {

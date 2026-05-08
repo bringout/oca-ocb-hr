@@ -38,7 +38,7 @@ export class VersionsTimeline extends StatusBarField {
     getFieldNames() {
         const fieldNames = super.getFieldNames();
         fieldNames.push([
-            "contract_type_id",
+            "employee_type_id",
             "contract_date_start",
             "contract_date_end",
         ]);
@@ -46,7 +46,7 @@ export class VersionsTimeline extends StatusBarField {
     }
 
     displayContractLines() {
-        return ["contract_type_id", "contract_date_start", "contract_date_end"].every(
+        return ["employee_type_id", "contract_date_start", "contract_date_end"].every(
             (fieldName) => fieldName in this.props.record.fields
         );
     }
@@ -105,9 +105,9 @@ export class VersionsTimeline extends StatusBarField {
             const contractDateStart = itemSpecialData.contract_date_start;
             let contractDateEnd = itemSpecialData.contract_date_end;
             contractDateEnd = contractDateEnd ? format(contractDateEnd) : _t("Indefinite");
-            const contractType = itemSpecialData.contract_type_id?.[1] ?? _t("Contract");
+            const employeeType = itemSpecialData.employee_type_id?.[1] ?? _t("Contract");
             const toolTip = contractDateStart
-                ? `${contractType}: ${format(contractDateStart)} - ${contractDateEnd}`
+                ? `${employeeType}: ${format(contractDateStart)} - ${contractDateEnd}`
                 : _t("No contract");
 
             return {

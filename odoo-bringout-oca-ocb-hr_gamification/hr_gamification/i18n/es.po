@@ -6,14 +6,13 @@
 # Martin Trigaux, 2022
 #
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
-# "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-01-09 15:55+0000\n"
-"Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
+"POT-Creation-Date: 2026-02-04 18:36+0000\n"
+"PO-Revision-Date: 2025-09-14 21:20+0000\n"
+"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
 "hr_gamification/es/>\n"
 "Language: es\n"
@@ -22,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
 "0) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: hr_gamification
 #: model_terms:ir.actions.act_window,help:hr_gamification.goals_menu_groupby_action2
@@ -46,7 +45,7 @@ msgstr ""
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Are you sure you want to delete this granted badge?"
-msgstr "¿Estás seguro de que deseas eliminar la insignia otorgada?"
+msgstr ""
 
 #. module: hr_gamification
 #: model_terms:ir.actions.act_window,help:hr_gamification.challenge_list_action2
@@ -71,7 +70,7 @@ msgstr "Insignia"
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Badge Name"
-msgstr "Nombre de la insignia"
+msgstr ""
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_res_users__badge_ids
@@ -106,7 +105,7 @@ msgstr "Crear una nueva meta"
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Delete"
-msgstr "Eliminar"
+msgstr ""
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
@@ -117,18 +116,12 @@ msgstr "Describa qué hizo y por qué es importante (será público)"
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Description"
-msgstr "Descripción"
+msgstr ""
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__direct_badge_ids
 msgid "Direct Badge"
 msgstr "Insignia directa"
-
-#. module: hr_gamification
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
-#: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
-msgid "Discard"
-msgstr "Descartar"
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge__display_name
@@ -193,7 +186,7 @@ msgstr "Otorgar una insignia"
 #: model:ir.actions.act_window,name:hr_gamification.action_reward_wizard
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
 msgid "Grant a badge"
-msgstr "Otorgar una insignia"
+msgstr ""
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.hr_badge_form_view
@@ -208,7 +201,7 @@ msgstr "Número de empleados a los que se ha otorgado"
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Granted by"
-msgstr "Otorgada por"
+msgstr ""
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_hr_employee__has_badges
@@ -219,7 +212,7 @@ msgstr "Tiene insignias"
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user__has_edit_delete_access
 msgid "Has Edit Delete Access"
-msgstr "Tiene acceso para editar y eliminar"
+msgstr ""
 
 #. module: hr_gamification
 #: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge__id
@@ -240,7 +233,7 @@ msgstr "Empleado público"
 #. odoo-python
 #: code:addons/hr_gamification/models/gamification.py:0
 msgid "Received Badge"
-msgstr "Insignia recibida"
+msgstr ""
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
@@ -250,7 +243,7 @@ msgstr "Recompensar al empleado con"
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "Save"
-msgstr "Guardar"
+msgstr ""
 
 #. module: hr_gamification
 #. odoo-python
@@ -278,7 +271,7 @@ msgstr "Usuario"
 #. odoo-python
 #: code:addons/hr_gamification/models/gamification.py:0
 msgid "View Your Badge"
-msgstr "Ver tu insignia"
+msgstr ""
 
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
@@ -294,35 +287,4 @@ msgstr "No puede enviarse una insignia a si mismo."
 #. module: hr_gamification
 #: model_terms:ir.ui.view,arch_db:hr_gamification.view_current_badge_form
 msgid "on"
-msgstr "el"
-
-#~ msgid ""
-#~ "Badges are rewards of good work. Give them to people you believe deserve "
-#~ "it."
-#~ msgstr ""
-#~ "Las insignias son premios al buen trabajo. Delas a aquellas personas que "
-#~ "cree que las merecen."
-
-#~ msgid "Basic Employee"
-#~ msgstr "Empleado Básico"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgid "Grant this employee his first badge"
-#~ msgstr "Otorga a este empleado su primera insignia"
-
-#~ msgid "Received Badges"
-#~ msgstr "Insignias recibidas"
-
-#~ msgid "Related user name for the resource to manage its access."
-#~ msgstr "Usuario relacionado con el recurso para gestionar su acceso."
-
-#~ msgid "Reward Employee"
-#~ msgstr "Recompensar al empleado"
-
-#~ msgid "You can send badges only to employees linked to a user."
-#~ msgstr "Sólo puede enviar insignias a empleados enlazados con un usuario"
-
-#~ msgid "to reward this employee for a good action"
-#~ msgstr "para recompensar a este empleado por una buena acción"
+msgstr ""

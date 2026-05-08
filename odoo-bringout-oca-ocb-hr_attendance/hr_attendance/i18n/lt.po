@@ -18,14 +18,13 @@
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # Vytenis Viruišis <vytenis@users.noreply.translate.odoo.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# Odoo Translation Bot <c3p@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:36+0000\n"
-"PO-Revision-Date: 2026-04-09 11:20+0000\n"
-"Last-Translator: Odoo Translation Bot <c3p@odoo.com>\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
+"PO-Revision-Date: 2025-11-08 21:52+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Lithuanian <https://translate.odoo.com/projects/odoo-19/"
 "hr_attendance/lt/>\n"
 "Language: lt\n"
@@ -33,9 +32,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
-"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 "
-": n % 1 != 0 ? 2: 3);\n"
-"X-Generator: Weblate 5.16.2\n"
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: hr_attendance
 #. odoo-python
@@ -55,6 +54,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
 msgid "%(worked_hours)s (%(check_in)s-%(check_out)s)"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance_overtime_ruleset.py:0
+msgid "%s (copy)"
 msgstr ""
 
 #. module: hr_attendance
@@ -148,6 +153,14 @@ msgid ""
 msgstr ""
 
 #. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
+msgid ""
+"<span class=\"o_stat_value\">Add</span>\n"
+"                                    <span class=\"o_stat_text\">Employees</"
+"span>"
+msgstr ""
+
+#. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid ""
 "<span colspan=\"2\" class=\"mb-3 fw-bold\">The hours will be considered "
@@ -196,6 +209,16 @@ msgstr "Aktyvus"
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Active Employees"
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_list_view_enhanced_hr_attendance_add
+msgid "Add"
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_list_view_enhanced_hr_attendance
+msgid "Add Employees"
 msgstr ""
 
 #. module: hr_attendance
@@ -324,7 +347,6 @@ msgstr "Lankomumas"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_manager_id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__attendance_manager_id
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_search_view
 msgid "Attendance Approver"
 msgstr ""
 
@@ -396,6 +418,7 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_attendance_reporting
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_root
 #: model:res.groups.privilege,name:hr_attendance.res_groups_privilege_attendances
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_calendar_view
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_department_view_kanban
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Attendances"
@@ -524,15 +547,14 @@ msgid "Based on GPS-Coordinates if available or on IP Address"
 msgstr ""
 
 #. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Before"
-msgstr "Prieš"
-
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_browser
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "Browser"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__can_edit
+msgid "Can Edit"
 msgstr ""
 
 #. module: hr_attendance
@@ -658,10 +680,6 @@ msgstr "Spalva"
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_company
-msgid "Companies"
-msgstr "Įmonės"
-
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__company_id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__company_id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__company_id
@@ -842,6 +860,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_version__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_ir_http__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_websocket__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_res_users__display_name
@@ -919,7 +938,10 @@ msgstr ""
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_employee_attendance_action_kanban
+#: model:ir.actions.act_window,name:hr_attendance.hr_version_list_view
+#: model:ir.actions.act_window,name:hr_attendance.hr_version_list_view_add
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_employee
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Employees"
 msgstr "Darbuotojai"
 
@@ -958,9 +980,13 @@ msgid "Errors"
 msgstr ""
 
 #. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__expected_hours
+msgid "Expected Hours"
+msgstr ""
+
+#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__validated_overtime_hours
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__duration
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
@@ -982,6 +1008,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_overtime_validation
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Extra Hours Validation"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_calendar/attendance_calendar_overview.xml:0
+msgid "Extra Time"
 msgstr ""
 
 #. module: hr_attendance
@@ -1071,6 +1103,13 @@ msgid "Goodbye"
 msgstr "Viso gero"
 
 #. module: hr_attendance
+#: model:res.groups,comment:hr_attendance.group_hr_attendance_own
+msgid ""
+"Grants users permission to modify their own attendance entries that are "
+"pending approval."
+msgstr ""
+
+#. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_ir_http
 msgid "HTTP Routing"
 msgstr "HTTP nukreipimas"
@@ -1079,6 +1118,12 @@ msgstr "HTTP nukreipimas"
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__has_message
 msgid "Has Message"
 msgstr "Turi žinutę"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_calendar/attendance_calendar_overview.xml:0
+msgid "Hours"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_last_month
@@ -1139,6 +1184,7 @@ msgstr "Personalo lankomumo paieška"
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_version__id
 #: model:ir.model.fields,field_description:hr_attendance.field_ir_http__id
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_websocket__id
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__id
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__id
 #: model:ir.model.fields,field_description:hr_attendance.field_res_users__id
@@ -1212,14 +1258,6 @@ msgid "Install"
 msgstr "Diegti"
 
 #. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/controllers/main.py:0
-msgid ""
-"Invalid domain, use 'name' and/or 'department_id' fields with '=' and/or "
-"'ilike' operators."
-msgstr ""
-
-#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Invalid request"
@@ -1234,6 +1272,11 @@ msgstr "Yra sekėjas"
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__is_manager
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__is_manager
 msgid "Is Manager"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__is_own
+msgid "Is Own"
 msgstr ""
 
 #. module: hr_attendance
@@ -1459,6 +1502,12 @@ msgid "New Set-up (Employee/Badge)"
 msgstr ""
 
 #. module: hr_attendance
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view_add
+msgid "No Records."
+msgstr ""
+
+#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_management_action
@@ -1476,6 +1525,12 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.js:0
 msgid "No employee corresponding to Badge ID '%(barcode)s.'"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Now"
 msgstr ""
 
 #. module: hr_attendance
@@ -1511,6 +1566,12 @@ msgid "Odoo Logo"
 msgstr "\"Odoo\" logotipas"
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hr_presence_status/hr_attendance_presence_status.js:0
+msgid "Off-Hours"
+msgstr ""
+
+#. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_user
 msgid "Officer: Manage all attendances"
 msgstr ""
@@ -1518,6 +1579,11 @@ msgstr ""
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_officer
 msgid "Officer: Manage attendances"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__public_leave
+msgid "On a Public holiday"
 msgstr ""
 
 #. module: hr_attendance
@@ -1682,6 +1748,24 @@ msgstr "Sukurta Naudojant"
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hr_presence_status/hr_attendance_presence_status.js:0
+msgid "Present (untracked)"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Print"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Print It"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid "Proceed Anyway"
 msgstr ""
@@ -1786,6 +1870,11 @@ msgstr ""
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
 msgid "Regenerate overtimes for this ruleset"
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_list_view_enhanced_hr_attendance
+msgid "Remove"
 msgstr ""
 
 #. module: hr_attendance
@@ -1909,6 +1998,11 @@ msgid "Select on Tablet"
 msgstr ""
 
 #. module: hr_attendance
+#: model:res.groups,name:hr_attendance.group_hr_attendance_own
+msgid "Self Attendance Edit"
+msgstr ""
+
+#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__sequence
 msgid "Sequence"
 msgstr "Seka"
@@ -1945,12 +2039,6 @@ msgid "Sign out"
 msgstr "Išsiregistruoti"
 
 #. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Since"
-msgstr ""
-
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__time_start
 msgid "Start"
 msgstr "Pradėti"
@@ -1962,7 +2050,6 @@ msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__status
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
 msgid "Status"
 msgstr "Būsena"
 
@@ -2044,8 +2131,13 @@ msgid ""
 msgstr ""
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__expected_hours
-msgid "Theoretical Hours"
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view
+msgid "There are no employees assigned to this overtime ruleset."
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.actions.act_window,help:hr_attendance.hr_version_list_view_add
+msgid "There are no employees without an overtime ruleset."
 msgstr ""
 
 #. module: hr_attendance
@@ -2098,9 +2190,15 @@ msgstr "Reikia patvirtinti"
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Today"
 msgstr "Šiandien"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__today_attendance_ids
+msgid "Today Attendance"
+msgstr ""
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__overtime_company_threshold
@@ -2126,12 +2224,6 @@ msgstr "Suma"
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__total_overtime
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__total_overtime
 msgid "Total Overtime"
-msgstr ""
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Total today"
 msgstr ""
 
 #. module: hr_attendance
@@ -2203,6 +2295,16 @@ msgid "Validation Error"
 msgstr "Patvirtinimo klaida"
 
 #. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__version_ids
+msgid "Version"
+msgstr ""
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__versions_count
+msgid "Versions Count"
+msgstr ""
+
+#. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "View on Maps"
 msgstr ""
@@ -2229,6 +2331,18 @@ msgid "Welcome"
 msgstr "Sveiki"
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Welcome back"
+msgstr ""
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Welcome,"
+msgstr ""
+
+#. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__leave
 msgid "When employee is off"
 msgstr ""
@@ -2242,11 +2356,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
 msgid "With a tolerance in favor of the employer of"
 msgstr ""
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
-msgid "Work Hours"
-msgstr "Darbo valandos"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
@@ -2264,6 +2373,8 @@ msgid "Worked Hours"
 msgstr "Išdirbtos valandos"
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_calendar/attendance_calendar_overview.xml:0
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Worked Time"
@@ -2273,6 +2384,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_public_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Worked hours this month"
+msgstr ""
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_search_view_enhanced_hr_attendance
+msgid "Working Hours"
 msgstr ""
 
 #. module: hr_attendance
@@ -2365,6 +2481,11 @@ msgid "or"
 msgstr "arba"
 
 #. module: hr_attendance
+#: model:ir.model,name:hr_attendance.model_ir_websocket
+msgid "websocket message handling"
+msgstr ""
+
+#. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
 msgid "week"
@@ -2380,141 +2501,3 @@ msgstr ""
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "with optional PIN code"
 msgstr ""
-
-#~ msgid "Location"
-#~ msgstr "Vieta"
-
-#~ msgid "Warning"
-#~ msgstr "Įspėjimas"
-
-#~ msgid "%(empl_name)s from %(check_in)s"
-#~ msgstr "%(empl_name)s iš %(check_in)s"
-
-#~ msgid "%(empl_name)s from %(check_in)s to %(check_out)s"
-#~ msgstr "%(empl_name)s iš %(check_in)s į%(check_out)s"
-
-#~ msgid ""
-#~ "<span class=\"o_stat_text\">\n"
-#~ "                            Last Month\n"
-#~ "                        </span>"
-#~ msgstr ""
-#~ "<span class=\"o_stat_text\">\n"
-#~ "                            Paskutinis mėnesis\n"
-#~ "                        </span>"
-
-#~ msgid "<span>Time Period </span>"
-#~ msgstr "<span>Laiko rėžis </span>"
-
-#~ msgid "Adjustment"
-#~ msgstr "Korekcija"
-
-#~ msgid "An apple a day keeps the doctor away"
-#~ msgstr ""
-#~ "Jei kiekvieną dieną suvalgai po obuolį, gali užmiršti kelią pas gydytojus."
-
-#~ msgid "Another good day's work! See you soon!"
-#~ msgstr "Dar viena puiki darbo diena! Iki greito!"
-
-#~ msgid "Attendance Analysis"
-#~ msgstr "Lankomumo analizė"
-
-#~ msgid "Barcode"
-#~ msgstr "Brūkšninis kodas"
-
-#~ msgid "Check In / Check Out"
-#~ msgstr "Įsiregistruoti / Išsiregistruoti"
-
-#~ msgid ""
-#~ "Early to bed and early to rise, makes a man healthy, wealthy and wise"
-#~ msgstr "Anksti kelsi, vėlai gulsi, gyvenime neprapulsi"
-
-#~ msgid "Eat breakfast as a king, lunch as a merchant and supper as a beggar"
-#~ msgstr ""
-#~ "Pusryčiauk kaip karalius, pietauk kaip pirklys ir vakarieniauk kaip "
-#~ "vargšas"
-
-#~ msgid "Employee PIN"
-#~ msgstr "Darbuotojo PIN"
-
-#~ msgid "Enable PIN use"
-#~ msgstr "Įjungti PIN naudojimą"
-
-#~ msgid "First come, first served"
-#~ msgstr "Aptarnaujamas pirmasis atėjęs"
-
-#~ msgid "Glad to have you back, it's been a while!"
-#~ msgstr "Džiugu, kad sugrįžote, seniai nesimatėme!"
-
-#~ msgid "Good afternoon"
-#~ msgstr "Laba diena"
-
-#~ msgid "Good evening"
-#~ msgstr "Labas vakaras"
-
-#~ msgid "Good morning"
-#~ msgstr "Labas rytas"
-
-#~ msgid "Good night"
-#~ msgstr "Labos nakties"
-
-#~ msgid "Group By"
-#~ msgstr "Grupuoti pagal"
-
-#~ msgid "Have a good afternoon"
-#~ msgstr "Gražios popietės"
-
-#~ msgid "Have a good day!"
-#~ msgstr "Gražios dienos!"
-
-#~ msgid "Have a good evening"
-#~ msgstr "Gero vakaro"
-
-#~ msgid "Have a nice lunch!"
-#~ msgstr "Skanių pietų!"
-
-#~ msgid "Hours"
-#~ msgstr "Valandos"
-
-#~ msgid "If a job is worth doing, it is worth doing well!"
-#~ msgstr "Jei darbą verta atlikti, jį verta atlikti gerai!"
-
-#~ msgid "Menu"
-#~ msgstr "Meniu"
-
-#~ msgid "No Check Out"
-#~ msgstr "Išsiregistravimo nėra"
-
-#~ msgid "No attendance records to display"
-#~ msgstr "Nėra atvaizduotinų lankomumo įrašų"
-
-#~ msgid "Start from"
-#~ msgstr "Pradžia nuo"
-
-#~ msgid "The early bird catches the worm"
-#~ msgstr "Ankstyvas paukštis pagauna riebiausią kirminą"
-
-#~ msgid ""
-#~ "The user will gain access to the human resources attendance menu, "
-#~ "enabling him to manage his own attendance."
-#~ msgstr ""
-#~ "Vartotojas gaus prieigą prieš žmogiškųjų išteklių lankomumo meniu, "
-#~ "leidžiančio jam valdyti savo lankomumą."
-
-#~ msgid ""
-#~ "The user will have to enter his PIN to check in and out manually at the "
-#~ "company screen."
-#~ msgstr ""
-#~ "Norėdamas įsiregistruoti ar išsiregistruoti rankiniu būdu, vartotojas "
-#~ "turės ekrane įvesti savo PIN."
-
-#~ msgid "Want to check out?"
-#~ msgstr "Norite patikrinti?"
-
-#~ msgid "Welcome to"
-#~ msgstr "Sveiki atvykę į"
-
-#~ msgid "Welcome!"
-#~ msgstr "Sveiki atvykę!"
-
-#~ msgid "Wrong PIN"
-#~ msgstr "Neteisingas PIN"
