@@ -709,7 +709,7 @@ msgstr "Odaberite kako bilježiti prisustva"
 # code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml
 #, []
 msgid "Close"
-msgstr "Amortizovano"
+msgstr "Zatvori"
 
 # model:
 # model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__color
