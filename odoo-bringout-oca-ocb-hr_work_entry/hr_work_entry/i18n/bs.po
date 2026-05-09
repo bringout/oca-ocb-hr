@@ -1,2381 +1,2673 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# * hr_work_entry
 #
-# Odoo Translation Bot <c3p@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server master (hr_work_entry)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 18:36+0000\n"
-"PO-Revision-Date: 2025-10-08 18:37+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Language-Team: Bosnian\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_employee__work_entry_source
-#: model:ir.model.fields,help:hr_work_entry.field_hr_version__work_entry_source
+# model: code:addons/hr_work_entry/models/hr_work_entry_type.py
+#, []
 msgid ""
 "\n"
-"            Defines the source for work entries generation\n"
+"Cannot insert \"%(insert_name)s\":\n"
+"Time type \"%(name)s\" of code \"%(code)s\" already exists for country \"%(country)s\".\n"
+"                    "
+msgstr ""
 "\n"
-"            Working Schedule: Work entries will be generated from the "
-"working hours below.\n"
-"            Attendances: Work entries will be generated from the employee's "
-"attendances. (requires Attendance app)\n"
-"        "
-msgstr ""
+"Nije moguće umetnuti \"%(insert_name)s\":\n"
+"Tip vremena \"%(name)s\" sa kodom \"%(code)s\" već postoji za zemlju \"%(country)s\".\n"
+"                    "
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_adoption_company
+# model: code:addons/hr_work_entry/models/hr_work_entry_type.py
+#, []
+msgid ""
+"\n"
+"Cannot insert \"%(insert_name)s\":\n"
+"Time type \"%(name)s\" of code \"%(code)s\", with no country assigned, already exists.\n"
+"                    "
+msgstr ""
+"\n"
+"Nije moguće umetnuti \"%(insert_name)s\":\n"
+"Tip vremena \"%(name)s\" sa kodom \"%(code)s\", bez dodijeljene zemlje, već postoji.\n"
+"                    "
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_attendance
+#, []
+msgid "A"
+msgstr "A"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_adoption_company
+#, []
 msgid "AFP"
-msgstr ""
+msgstr "AFP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_adoption_legal
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_adoption_legal
+#, []
 msgid "AFU"
-msgstr ""
+msgstr "AFU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_ami
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_ami
+#, []
 msgid "AMI"
-msgstr ""
+msgstr "AMI"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_additional_paid
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_additional_paid
+#, []
 msgid "ATP"
-msgstr ""
+msgstr "ATP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_available_not_working
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_available_not_working
+#, []
 msgid "AVL"
-msgstr ""
+msgstr "AVL"
 
-#. module: hr_work_entry
-#: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry_type__count_as__absence
+# model:
+# model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry_type__count_as__absence
+#, []
 msgid "Absence"
-msgstr ""
+msgstr "Odsustvo"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+#, []
 msgid "Absence Time"
-msgstr ""
+msgstr "Vrijeme odsustva"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__active
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__active
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_needaction
+#, []
+msgid "Action Needed"
+msgstr "Potrebna akcija"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__active
+#, []
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__is_extra_hours
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_ids
+#, []
+msgid "Activities"
+msgstr "Aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_exception_decoration
+#, []
+msgid "Activity Exception Decoration"
+msgstr "Dekoracija izuzetka aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_plans_ids
+#, []
+msgid "Activity Plans"
+msgstr "Planovi aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_state
+#, []
+msgid "Activity State"
+msgstr "Stanje aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_type_icon
+#, []
+msgid "Activity Type Icon"
+msgstr "Ikona vrste aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__is_extra_hours
+#, []
 msgid "Added to Monthly Pay"
-msgstr ""
+msgstr "Dodato mjesečnoj plati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_additional_paid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_additional_paid
+#, []
 msgid "Additional Time (Paid)"
-msgstr ""
+msgstr "Dodatno vrijeme (plaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_adoption_legal
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_adoption_legal
+#, []
 msgid "Adoption leave and foster parent leave not paid by the employer"
 msgstr ""
+"Odsustvo za usvajanje i odsustvo za hranitelja koje ne plaća poslodavac"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model: code:addons/hr_work_entry/models/hr_work_entry_type.py
+#, []
+msgid "All"
+msgstr "Sve"
+
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "All Countries"
-msgstr ""
+msgstr "Sve zemlje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_defence
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_res_company__allowed_work_entry_type_ids
+#, []
+msgid "Allowed Work Entry Type"
+msgstr "Dozvoljeni tip radnog unosa"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_defence
+#, []
 msgid "Ancillary and Defence Leave"
-msgstr ""
+msgstr "Pomoćno i odbrambeno odsustvo"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_attendance
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_attendance
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_attachment_count
+#, []
+msgid "Attachment Count"
+msgstr "Broj priloga"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_attendance
+#, []
 msgid "Attendance"
-msgstr ""
+msgstr "Prisutnost"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_available_not_working
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_available_not_working
+#, []
 msgid "Availability time not considered as working time"
-msgstr ""
+msgstr "Vrijeme dostupnosti koje se ne smatra radnim vremenom"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_tr_work_entry_type_bereavement_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_tr_work_entry_type_bereavement_leave
+#, []
 msgid "BER"
-msgstr ""
+msgstr "BER"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_breast_feeding
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_breast_feeding
+#, []
 msgid "BFB"
-msgstr ""
+msgstr "BFB"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_small_unemployment_birth
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_small_unemployment_birth
+#, []
 msgid "BHB"
-msgstr ""
+msgstr "BHB"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_bereavement_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_tr_work_entry_type_bereavement_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_bereavement_leave
+#, []
 msgid "Bereavement Leave"
-msgstr ""
+msgstr "Žalosno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_breast_feeding
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paternity_legal
+#, []
+msgid "Birth Leave (Father / Co-parent)"
+msgstr "Porodiljsko odsustvo (otac / suroditelj)"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_breast_feeding
+#, []
 msgid "Breastfeeding Break"
-msgstr ""
+msgstr "Pauza za dojenje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_small_unemployment_birth
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_small_unemployment_birth
+#, []
 msgid "Brief Holiday (Birth)"
-msgstr ""
+msgstr "Kratko odsustvo (rođenje)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_non_provided_service_childminders
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_non_provided_service_childminders
+#, []
 msgid "CHI"
-msgstr ""
+msgstr "CHI"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paid_recovered_compensatory_rest
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paid_recovered_compensatory_rest
+#, []
 msgid "CHP"
-msgstr ""
+msgstr "CHP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unpaid_recovered_compensatory_rest
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unpaid_recovered_compensatory_rest
+#, []
 msgid "CHU"
-msgstr ""
+msgstr "CHU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_civic_duty_unpaid
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_civic_duty_unpaid
+#, []
 msgid "CIV"
-msgstr ""
+msgstr "CIV"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_non_attributable_to_worker
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_non_attributable_to_worker
+#, []
 msgid "CL1"
-msgstr ""
+msgstr "CL1"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_attributable_to_worker
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_attributable_to_worker
+#, []
 msgid "CL2"
-msgstr ""
+msgstr "CL2"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_after_legal_period
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_common_law_illness_after_legal_period
+#, []
 msgid "CLA"
-msgstr ""
+msgstr "CLA"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_corona
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.iq_work_entry_type_compassionate_leave
+#, []
+msgid "COM"
+msgstr "COM"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_corona
+#, []
 msgid "COV"
-msgstr ""
+msgstr "COV"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paid_compensatory_rest
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paid_compensatory_rest
+#, []
 msgid "CRP"
-msgstr ""
+msgstr "CRP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_credit_time
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_credit_time
+#, []
 msgid "CRT"
-msgstr ""
+msgstr "CRT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unpaid_compensatory_rest
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unpaid_compensatory_rest
+#, []
 msgid "CRU"
-msgstr ""
+msgstr "CRU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_compensatory
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_compensatory
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_compensatory
+#, []
 msgid "CTO"
-msgstr ""
+msgstr "CTO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_caring_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_caring_leave
+#, []
 msgid "Caring Leave"
-msgstr ""
+msgstr "Odsustvo zbog njege"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_cash_out
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_cash_out
+#, []
 msgid "Cash Out of Leave in Service"
-msgstr ""
+msgstr "Isplata neiskorištenog odsustva u toku radnog odnosa"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__is_extra_hours
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__is_extra_hours
+#, []
 msgid ""
 "Check this setting if you want the hours to be considered as extra time and "
 "added as a bonus to the basic salary."
 msgstr ""
+"Označite ovu postavku ako želite da se sati smatraju dodatnim vremenom i "
+"dodaju kao bonus osnovnoj plati."
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_civic_duty_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_child_adoption
+#, []
+msgid "Child Adoption / Long-Term Foster Care"
+msgstr "Usvajanje djeteta / Dugoročno hraniteljstvo"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_child_ceremony
+#, []
+msgid "Child Ceremony (Communion / Secular Youth)"
+msgstr "Dječja ceremonija (krštenje / svjetovna mladež)"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_civic_duty_unpaid
+#, []
 msgid "Civic duty (Unpaid)"
-msgstr ""
+msgstr "Građanska dužnost (neplaćeno)"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_tree
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_civic_duty
+#, []
+msgid "Civic or Judicial Duty"
+msgstr "Građanska ili sudska dužnost"
+
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Code used in manual exports"
-msgstr ""
+msgstr "Kod koji se koristi u ručnim izvozima"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__color
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__color
+#, []
 msgid "Color"
-msgstr ""
+msgstr "Boja"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_res_company
+# model: model:ir.model,name:hr_work_entry.model_res_company
+#, []
 msgid "Company"
-msgstr ""
+msgstr "Kompanija"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_compassionate_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_compassionate_leave
+#, []
 msgid "Compassionate Leave"
-msgstr ""
+msgstr "Saosjećajno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_compensatory
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_compensatory
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_compassionate_leave
+#, []
+msgid "Compassionate leave"
+msgstr "Odsustvo zbog saosjećanja"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_compensatory
+#, []
 msgid "Compensatory Time Off"
-msgstr ""
+msgstr "Kompenzacijsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpaid_compensatory_rest
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpaid_compensatory_rest
+#, []
 msgid ""
 "Compensatory rest as part of a reduction in unpaid working time at the time "
 "of recovery"
 msgstr ""
+"Kompenzatorni odmor kao dio smanjenja neplaćenog radnog vremena u vrijeme "
+"oporavka"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paid_compensatory_rest
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paid_compensatory_rest
+#, []
 msgid ""
-"Compensatory rest as part of a reduction in working time paid at the time of "
-"recovery"
+"Compensatory rest as part of a reduction in working time paid at the time of"
+" recovery"
 msgstr ""
+"Kompenzatorni odmor kao dio smanjenja radnog vremena plaćenog u vrijeme "
+"oporavka"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_sectoral_compensatory_rest
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_sectoral_compensatory_rest
+#, []
 msgid ""
 "Compensatory rest granted under a sectoral collective agreement on the "
 "reduction of working time paid by third parties"
 msgstr ""
+"Kompenzatorni odmor odobren prema sektorskom kolektivnom ugovoru o smanjenju"
+" radnog vremena koje plaćaju treće strane"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paid_recovered_compensatory_rest
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paid_recovered_compensatory_rest
+#, []
 msgid ""
 "Compensatory rest paid at the time of recovery due to hours worked at "
 "another time"
 msgstr ""
+"Kompenzatorni odmor plaćen u vrijeme oporavka zbog sati odrađenih u drugo "
+"vrijeme"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Computation"
-msgstr ""
+msgstr "Obračun"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_res_config_settings
+# model: model:ir.model,name:hr_work_entry.model_res_config_settings
+#, []
 msgid "Config Settings"
-msgstr ""
+msgstr "Postavke konfiguracije"
 
-#. module: hr_work_entry
-#: model:ir.ui.menu,name:hr_work_entry.menu_hr_payroll_configuration
+# model: model:ir.ui.menu,name:hr_work_entry.menu_hr_payroll_configuration
+#, []
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguracija"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Considered as"
-msgstr ""
+msgstr "Smatra se kao"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_corona
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_corona
+#, []
 msgid "Corona Unemployment"
-msgstr ""
+msgstr "Corona nezaposlenost"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__count_as
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__count_as
+#, []
 msgid "Count As"
-msgstr ""
+msgstr "Računa se kao"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__country_id
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__country_id
+#, []
 msgid "Country"
-msgstr ""
+msgstr "Država"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__country_code
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__country_code
+#, []
 msgid "Country Code"
-msgstr ""
+msgstr "Kôd zemlje"
 
-#. module: hr_work_entry
-#: model_terms:ir.actions.act_window,help:hr_work_entry.hr_work_entry_type_action
-msgid "Create a new work entry type"
-msgstr ""
+# model:
+# model_terms:ir.actions.act_window,help:hr_work_entry.hr_work_entry_type_action
+#, []
+msgid "Create a new Time type"
+msgstr "Kreiraj novi tip vremena"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__create_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__create_uid
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__create_uid
+#, []
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__create_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__create_date
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__create_date
+#, []
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_credit_time
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_credit_time
+#, []
 msgid "Credit Time"
-msgstr ""
+msgstr "Kreditno vrijeme"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_death
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_day_overtime
+#, []
+msgid "Day time Overtime Hours"
+msgstr "Prekovremeni sati u dnevno vrijeme"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_death_one_day
+#, []
+msgid "Death (One Day Leave)"
+msgstr "Smrt (odsustvo jedan dan)"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_death
+#, []
 msgid "Death Leave"
-msgstr ""
+msgstr "Odsustvo zbog smrtnog slučaja"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_config_settings__work_entry_source
-msgid "Default Tracking"
-msgstr ""
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_death_extended_family
+#, []
+msgid "Death of Extended Family Member"
+msgstr "Smrt člana šire porodice"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.resource_calendar_attendance_view_tree
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_death_parents
+#, []
+msgid "Death of Parent or In-law"
+msgstr "Smrt roditelja ili rodbine po braku"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_death_close_family
+#, []
+msgid "Death of Partner or Child"
+msgstr "Smrt partnera ili djeteta"
+
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.resource_calendar_attendance_view_tree
+#, []
 msgid "Default: Attendance"
-msgstr ""
+msgstr "Podrazumijevano: Prisustvo"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__description
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__description
+#, []
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__count_as
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__count_as
+#, []
 msgid "Determines if the entry counts as working time or absence."
-msgstr ""
+msgstr "Određuje da li se unos računa kao radno vrijeme ili odsustvo."
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_disability_due_to_illness_imss
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_disability_due_to_illness_imss
+#, []
 msgid "Disability due to illness (IMSS)"
-msgstr ""
+msgstr "Invaliditet zbog bolesti (IMSS)"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_tree
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Display"
-msgstr ""
+msgstr "Prikaz"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__display_code
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__display_code
+#, []
 msgid "Display Code"
-msgstr ""
+msgstr "Prikazni kod"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_company__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__display_name
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_leaves__display_name
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__display_name
+#, []
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_double
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_double
+#, []
 msgid "Double Time Hours"
-msgstr ""
+msgstr "Dvostruki sati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_economic_unemployment
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_economic_unemployment
+#, []
 msgid "ECO"
-msgstr ""
+msgstr "ECO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_training_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_training_time_off
+#, []
 msgid "EDU"
-msgstr ""
+msgstr "EDU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_european
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_european
+#, []
 msgid "EUR"
-msgstr ""
+msgstr "EUR"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_end_of_carreer_exemption
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_tr_work_entry_type_excuse_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_end_of_carreer_exemption
+#, []
 msgid "EXC"
-msgstr ""
+msgstr "EXC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_economic_unemployment
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_economic_unemployment
+#, []
 msgid "Economic Unemployment"
-msgstr ""
+msgstr "Ekonomska nezaposlenost"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training_time_off
+#, []
 msgid "Educational Time Off"
-msgstr ""
+msgstr "Obrazovno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_emergency
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_emergency
+#, []
 msgid "Emergency Leave"
-msgstr ""
+msgstr "Hitno odsustvo"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_hr_employee
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__employee_id
+# model: model:ir.model,name:hr_work_entry.model_hr_employee
+#, []
 msgid "Employee"
-msgstr ""
+msgstr "Zaposlenik"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_hr_version
+# model: model:ir.model,name:hr_work_entry.model_hr_version
+#, []
 msgid "Employee Contract"
-msgstr ""
+msgstr "Ugovor zaposlenog"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_adoption_company
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_adoption_company
+#, []
 msgid "Employer-paid adoption and foster parent leave"
-msgstr ""
+msgstr "Odsustvo za usvajanje i hranitelja koje plaća poslodavac"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_european
-msgid "European Time Off"
-msgstr ""
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_european
+#, []
+msgid "European Time Off (Employee)"
+msgstr "Evropsko odsustvo (zaposleni)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_examination_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_european_worker
+#, []
+msgid "European Time Off (Worker)"
+msgstr "Evropsko odsustvo (radnik)"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_examination_leave
+#, []
 msgid "Examination Leave"
-msgstr ""
+msgstr "Ispitno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_tr_work_entry_type_excuse_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_tr_work_entry_type_excuse_leave
+#, []
 msgid "Excuse Leave"
-msgstr ""
+msgstr "Opravdano odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_end_of_carreer_exemption
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_end_of_carreer_exemption
+#, []
 msgid "Exemption from end-of-career benefits"
-msgstr ""
+msgstr "Izuzeće od beneficija na kraju karijere"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "Exports Code"
-msgstr ""
+msgstr "Kod izvoza"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "External"
-msgstr ""
+msgstr "Eksterno"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__external_code
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__external_code
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_company__external_code
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_config_settings__external_code
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__external_code
+#, []
 msgid "External Code"
-msgstr ""
+msgstr "Eksterni kod"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_extra_hours
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.work_entry_type_extra_hours
+#, []
 msgid "Extra Hours"
-msgstr ""
+msgstr "Dodatni sati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal
+#, []
 msgid "Extra Legal Time Off"
-msgstr ""
+msgstr "Dodatno zakonsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal_public_holiday
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal_public_holiday
+#, []
 msgid "Extra-legal Public Holiday"
-msgstr ""
+msgstr "Vanzakonski državni praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal_sectoral_holiday
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_extra_legal_sectoral_holiday
+#, []
 msgid "Extra-legal sectoral holidays"
-msgstr ""
+msgstr "Vanzakonski sektorski praznici"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_construction_bad_weather_first_day
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_construction_bad_weather_first_day
+#, []
 msgid "FDB"
-msgstr ""
+msgstr "FDB"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_flemish_training_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_flemish_training_time_off
+#, []
 msgid "FED"
-msgstr ""
+msgstr "FED"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_foster_care
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_foster_care
+#, []
 msgid "FOS"
-msgstr ""
+msgstr "FOS"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_social_judge
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_social_judge
+#, []
 msgid "FSJ"
-msgstr ""
+msgstr "FSJ"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_simple_holiday_pay_variable_salary
-msgid "FVS"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_family_reason_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_family_reason_leave
+#, []
 msgid "Family Reason Time Off"
-msgstr ""
+msgstr "Odsustvo iz porodičnih razloga"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_simple_holiday_pay_variable_salary
-msgid "Fictitious Variable Salary"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_construction_bad_weather_first_day
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_construction_bad_weather_first_day
+#, []
 msgid "First day of absence due to bad weather in the construction site"
-msgstr ""
+msgstr "Prvi dan odsustva zbog lošeg vremena na gradilištu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_flemish_training_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_flemish_training_time_off
+#, []
 msgid "Flemish Educational Time Off"
-msgstr ""
+msgstr "Flamansko obrazovno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_foster_care
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_follower_ids
+#, []
+msgid "Followers"
+msgstr "Pratioci"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_partner_ids
+#, []
+msgid "Followers (Partners)"
+msgstr "Pratioci (Partneri)"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__activity_type_icon
+#, []
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome ikona npr. fa-tasks"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_foster_care
+#, []
 msgid "Foster care"
-msgstr ""
+msgstr "Hraniteljstvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_social_judge
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_social_judge
+#, []
 msgid "Function of social judge"
-msgstr ""
+msgstr "Funkcija socijalnog sudije"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_leave
+#, []
 msgid "GTO"
-msgstr ""
+msgstr "GTO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_leave
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_leave
+# model: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_leave
+#, []
 msgid "Generic Time Off"
-msgstr ""
+msgstr "Generičko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_home_working
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_home_working
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_home_working
+#, []
 msgid "HW"
-msgstr ""
+msgstr "HW"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_hajj
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_hajj
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_hajj
+#, []
 msgid "Hajj Leave"
-msgstr ""
+msgstr "Hadž odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_home_working
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_home_working
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__has_message
+#, []
+msgid "Has Message"
+msgstr "Ima poruku"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_home_working
+#, []
 msgid "Home Working"
-msgstr ""
+msgstr "Rad od kuće"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_hourly_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_hourly_wt
+#, []
 msgid "Hourly Salary"
-msgstr ""
+msgstr "Plata po satu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_accident_wt_hourly
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_accident_wt_hourly
+#, []
 msgid "Hourly Salary in case of Accident"
-msgstr ""
+msgstr "Plata po satu u slučaju nezgode"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_illness_wt_hourly
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_illness_wt_hourly
+#, []
 msgid "Hourly Salary in case of Illness"
-msgstr ""
+msgstr "Plata po satu u slučaju bolesti"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_maternity_wt_hourly
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_maternity_wt_hourly
+#, []
 msgid "Hourly Salary in case of Maternity / Paternity Leave"
-msgstr ""
+msgstr "Plata po satu u slučaju porodiljskog / očinskog odsustva"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_military_wt_hourly
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_military_wt_hourly
+#, []
 msgid "Hourly Salary in case of Military Leave"
-msgstr ""
+msgstr "Plata po satu u slučaju vojnog odsustva"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.res_config_settings_view_form
-msgid "How do employee record their attendances"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_company__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_config_settings__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_leaves__id
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__id
+#, []
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_construction_imperative_maintained_salary
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.iq_work_entry_type_iddah_leave
+#, []
+msgid "IDD"
+msgstr "IDD"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_construction_imperative_maintained_salary
+#, []
 msgid "IMS"
-msgstr ""
+msgstr "IMS"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_sickness_credit
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_sickness_credit
+#, []
 msgid "ISC"
-msgstr ""
+msgstr "ISC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_after_second_week
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_after_second_week
+#, []
 msgid "ISS"
-msgstr ""
+msgstr "ISS"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_first_week
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_first_week
+#, []
 msgid "IW1"
-msgstr ""
+msgstr "IW1"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_second_week
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_second_week
+#, []
 msgid "IW2"
-msgstr ""
+msgstr "IW2"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_incapacity
+#, []
 msgid "IWM"
-msgstr ""
+msgstr "IWM"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_iddah
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_exception_icon
+#, []
+msgid "Icon"
+msgstr "Ikona"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__activity_exception_icon
+#, []
+msgid "Icon to indicate an exception activity."
+msgstr "Ikona za označavanje aktivnosti izuzetka."
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_iddah
+#, []
 msgid "Iddah Leave"
-msgstr ""
+msgstr "Iddah odsustvo"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__active
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_iddah_leave
+#, []
+msgid "Iddah leave"
+msgstr "Iddah odsustvo"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__message_needaction
+#, []
+msgid "If checked, new messages require your attention."
+msgstr "Ako je označeno, nove poruke zahtijevaju vašu pažnju."
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__message_has_error
+#, []
+msgid "If checked, some messages have a delivery error."
+msgstr "Ako je označeno, neke poruke imaju grešku u dostavi."
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__active
+#, []
 msgid ""
-"If the active field is set to false, it will allow you to hide the work "
-"entry type without removing it."
+"If the active field is set to false, it will allow you to hide the time type"
+" without removing it."
 msgstr ""
+"Ako je aktivno polje postavljeno na false, omogućit će vam da sakrijete tip "
+"vremena bez njegovog uklanjanja."
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__amount_rate
-msgid "If you want the hours should be paid double, the rate should be 200%."
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__amount_rate
+#, []
+msgid ""
+"If you want the hours to be paid double, the rate should be set to 200%."
 msgstr ""
+"Ako želite da se sati plaćaju duplo, stopa treba biti postavljena na 200%."
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_ami
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_ami
+#, []
 msgid ""
 "Illness or accident under common law within the framework of an adapted AMI "
 "work regime"
 msgstr ""
+"Bolest ili nesreća pod opštim pravom u okviru prilagođenog AMI radnog režima"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_after_legal_period
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_after_legal_period
+#, []
 msgid ""
 "Illness or accident under common law, not covered by salary, after the "
 "theoretical legal period of guaranteed salary"
 msgstr ""
+"Bolest ili nesreća pod opštim pravom, neobuhvaćena platom, nakon teoretskog "
+"zakonskog perioda zagarantovane plate"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_attributable_to_worker
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_non_attributable_to_worker
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_common_law_illness_attributable_to_worker
+#, []
 msgid ""
 "Illness or accident under common law, not covered by the guaranteed salary, "
 "during the theoretical legal period of guaranteed salary for reasons not "
 "attributable to the worker"
 msgstr ""
+"Bolest ili nesreća pod opštim pravom, neobuhvaćena zagarantovanom platom, "
+"tokom teoretskog zakonskog perioda zagarantovane plate iz razloga koji se ne"
+" pripisuju radniku"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_construction_imperative_maintained_salary
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_construction_imperative_maintained_salary
+#, []
 msgid "Imperative leave with maintained salary"
-msgstr ""
+msgstr "Obavezno odsustvo uz zadržanu platu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_sickness_credit
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_sickness_credit
+#, []
 msgid ""
 "Incapacity for work paid by the employer until the sickness credit is "
 "exhausted (education and public sector)"
 msgstr ""
+"Nesposobnost za rad koju plaća poslodavac dok se ne iscrpi bolesnički kredit"
+" (obrazovanje i javni sektor)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity
+#, []
 msgid "Incapacity for work with guaranteed monthly salary"
-msgstr ""
+msgstr "Nesposobnost za rad sa zagarantovanom mjesečnom platom"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_first_week
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_first_week
+#, []
 msgid "Incapacity for work with guaranteed salary - 1st week"
-msgstr ""
+msgstr "Nesposobnost za rad sa zagarantovanom platom - 1. sedmica"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_second_week
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_second_week
+#, []
 msgid ""
 "Incapacity for work with guaranteed salary system for workers - 2nd week"
 msgstr ""
+"Nesposobnost za rad sa sistemom zagarantovane plate za radnike - 2. sedmica"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_after_second_week
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_incapacity_worker_after_second_week
+#, []
 msgid ""
 "Incapacity for work with salary supplement for workers - after the 2nd week "
 "CCT 12bis/13bis"
 msgstr ""
+"Nesposobnost za rad sa dodatkom na platu za radnike - nakon 2. sedmice CCT "
+"12bis/13bis"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_interruption_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_interruption_wt
+#, []
 msgid "Interruption of Work"
-msgstr ""
+msgstr "Prekid rada"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__is_checked
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__is_checked
+#, []
 msgid "Is Checked"
-msgstr ""
+msgstr "Je označeno"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_justified_reason_paid
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_is_follower
+#, []
+msgid "Is Follower"
+msgstr "Je pratilac"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_justified_reason_paid
+#, []
 msgid "JRP"
-msgstr ""
+msgstr "JRP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_justified_reason_unpaid
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_justified_reason_unpaid
+#, []
 msgid "JRU"
-msgstr ""
+msgstr "JRU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_justified_reason_paid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_justified_reason_paid
+#, []
 msgid "Justified Reason (Paid)"
-msgstr ""
+msgstr "Opravdani razlog (plaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_justified_reason_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_justified_reason_unpaid
+#, []
 msgid "Justified Reason (Unpaid)"
-msgstr ""
+msgstr "Opravdani razlog (neplaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_long_sick
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_long_sick
+#, []
 msgid "LTS"
-msgstr ""
+msgstr "LTS"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__write_uid
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__write_uid
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__write_uid
+#, []
 msgid "Last Updated by"
-msgstr ""
+msgstr "Posljednji put ažurirao"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__write_date
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__write_date
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__write_date
+#, []
 msgid "Last Updated on"
-msgstr ""
+msgstr "Posljednji put ažurirano"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_lesson_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_lesson_wt
+#, []
 msgid "Lesson Salary"
-msgstr ""
+msgstr "Plata za lekciju"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_long_service_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_long_service_leave
+#, []
 msgid "Long Service Leave"
-msgstr ""
+msgstr "Odsustvo dugog radnog staža"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_long_sick
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_long_sick
+#, []
 msgid "Long Term Sick"
-msgstr ""
+msgstr "Dugotrajno bolovanje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_long_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.work_entry_type_long_leave
+#, []
 msgid "Long Term Time Off"
-msgstr ""
+msgstr "Dugotrajno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_sick_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_sick_leave
+#, []
 msgid "Luxembourg Sick Time Off"
-msgstr ""
+msgstr "Luksemburško bolovanje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_maternity
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_maternity
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_tr_work_entry_type_maternity_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_maternity
+#, []
 msgid "MAT"
-msgstr ""
+msgstr "MAT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_medical_assistance
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_medical_assistance
+#, []
 msgid "MED"
-msgstr ""
+msgstr "MED"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_militia_obligation
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_militia_obligation
+#, []
 msgid "MIL"
-msgstr ""
+msgstr "MIL"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_maternity_time_off_converted
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_maternity_time_off_converted
+#, []
 msgid "MLC"
-msgstr ""
+msgstr "MLC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_marriage
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_marriage_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_marriage_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_marriage
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.iq_work_entry_type_maternity_leave
+#, []
+msgid "MTY"
+msgstr "MTY"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_marriage_employee
+#, []
+msgid "Marriage (Employee)"
+msgstr "Brak (zaposleni)"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_marriage
+#, []
 msgid "Marriage Leave"
-msgstr ""
+msgstr "Svadbeno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_maternity_imss
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_marriage_family
+#, []
+msgid "Marriage of a Family Member"
+msgstr "Brak člana porodice"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_maternity_imss
+#, []
 msgid "Maternity (IMSS)"
-msgstr ""
+msgstr "Porodiljsko (IMSS)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_maternity
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_maternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_maternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_maternity
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_maternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_maternity
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_tr_work_entry_type_maternity_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_maternity
+#, []
 msgid "Maternity Leave"
-msgstr ""
+msgstr "Porodiljsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_maternity_leave_80
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_maternity_leave_80
+#, []
 msgid "Maternity Leave 80%"
-msgstr ""
+msgstr "Porodiljsko odsustvo 80%"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_maternity
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_maternity
+#, []
 msgid "Maternity Time Off"
-msgstr ""
+msgstr "Porodiljsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_maternity
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_maternity
+#, []
 msgid "Maternity Time Off (Paid at 75%)"
-msgstr ""
+msgstr "Porodiljsko odsustvo (plaćeno 75%)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_maternity_time_off_converted
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_maternity_leave
+#, []
+msgid "Maternity leave"
+msgstr "Porodiljsko odsustvo"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_maternity_time_off_converted
+#, []
 msgid ""
 "Maternity leave or maternity leave converted in the event of death or "
 "hospitalization of the mother"
 msgstr ""
+"Porodiljsko odsustvo ili porodiljsko odsustvo pretvoreno u slučaju smrti ili"
+" hospitalizacije majke"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__user_id
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_user_work_entry_employee__user_id
+#, []
 msgid "Me"
-msgstr ""
+msgstr "Ja"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_medical_assistance
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_medical_assistance
+#, []
 msgid "Medical Assistance"
-msgstr ""
+msgstr "Medicinska pomoć"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_care_children_with_cancer_imss
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_care_children_with_cancer_imss
+#, []
 msgid "Medical Leave for Care of Children Diagnosed with Cancer (IMSS)"
-msgstr ""
+msgstr "Medicinsko odsustvo za njegu djece sa dijagnozom raka (IMSS)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_militia_obligation
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_has_error
+#, []
+msgid "Message Delivery error"
+msgstr "Greška u dostavi poruke"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_ids
+#, []
+msgid "Messages"
+msgstr "Poruke"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_militia_obligation
+#, []
 msgid "Militia obligation (Unpaid)"
-msgstr ""
+msgstr "Obaveza milicije (neplaćeno)"
 
-#. module: hr_work_entry
-#. odoo-python
-#: code:addons/hr_work_entry/models/hr_version.py:0
+# model: code:addons/hr_work_entry/models/hr_version.py
+#, []
 msgid "Missing date or duration on work entry"
-msgstr ""
+msgstr "Nedostaje datum ili trajanje na unosu rada"
 
-#. module: hr_work_entry
-#. odoo-python
-#: code:addons/hr_work_entry/models/hr_version.py:0
+# model: code:addons/hr_work_entry/models/hr_version.py
+#, []
 msgid "Missing timezone for work entries generation."
-msgstr ""
+msgstr "Nedostaje vremenska zona za generisanje unosa rada."
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_monthly_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_monthly_wt
+#, []
 msgid "Monthly Salary"
-msgstr ""
+msgstr "Mjesečna plata"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_normal_inactivity
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__my_activity_date_deadline
+#, []
+msgid "My Activity Deadline"
+msgstr "Rok za moju aktivnost"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_normal_inactivity
+#, []
 msgid "NDI"
-msgstr ""
+msgstr "NDI"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_notice
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_notice
+#, []
 msgid "NTC"
-msgstr ""
+msgstr "NTC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_non_taxable_political_service
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_non_taxable_political_service
+#, []
 msgid "NTS"
-msgstr ""
+msgstr "NTS"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__name
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__name
+#, []
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_non_taxable_political_service
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_calendar_event_id
+#, []
+msgid "Next Activity Calendar Event"
+msgstr "Kalendarski događaj sljedeće aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_date_deadline
+#, []
+msgid "Next Activity Deadline"
+msgstr "Krajnji rok za sljedeću aktivnost"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_summary
+#, []
+msgid "Next Activity Summary"
+msgstr "Sažetak sljedeće aktivnosti"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_type_id
+#, []
+msgid "Next Activity Type"
+msgstr "Tip sljedeće aktivnosti"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_night_overtime
+#, []
+msgid "Night time Overtime Hours"
+msgstr "Prekovremeni sati u noćno vrijeme"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_non_taxable_political_service
+#, []
 msgid "Non-taxable service for political representatives"
-msgstr ""
+msgstr "Neoporeziva služba za političke predstavnike"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_normal_inactivity
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_normal_inactivity
+#, []
 msgid "Normal days of inactivity in the employment schedule"
-msgstr ""
+msgstr "Normalni dani neaktivnosti u rasporedu zaposlenja"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_notice
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_notice
+#, []
 msgid "Notice (Unprovided)"
-msgstr ""
+msgstr "Otkazni rok (neostvaren)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_occupational_disease_unpaid
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_needaction_counter
+#, []
+msgid "Number of Actions"
+msgstr "Broj akcija"
+
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_has_error_counter
+#, []
+msgid "Number of errors"
+msgstr "Broj grešaka"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__message_needaction_counter
+#, []
+msgid "Number of messages requiring action"
+msgstr "Broj poruka koje zahtijevaju akciju"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__message_has_error_counter
+#, []
+msgid "Number of messages with delivery error"
+msgstr "Broj poruka sa greškom u dostavi"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_occupational_disease_unpaid
+#, []
 msgid "ODU"
-msgstr ""
+msgstr "ODU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_other_presence
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_other_presence
+#, []
 msgid "OSC"
-msgstr ""
+msgstr "OSC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_overtime
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_overtime
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_overtime
+#, []
 msgid "OT"
-msgstr ""
+msgstr "OT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_occupational_disease_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_occupational_disease_unpaid
+#, []
 msgid "Occupational Disease (Unpaid)"
-msgstr ""
+msgstr "Profesionalna bolest (neplaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_hr_work_entry_type_out_of_contract
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_hr_work_entry_type_out_of_contract
+#, []
 msgid "OoC"
-msgstr ""
+msgstr "OoC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_other
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_other
+#, []
 msgid "Other Paid Leave"
-msgstr ""
+msgstr "Drugo plaćeno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_other_presence
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_other_presence
+#, []
 msgid "Other services not declared under another code"
-msgstr ""
+msgstr "Druge usluge koje nisu prijavljene pod drugim kodom"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.bd_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.be_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.ch_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.eg_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.fr_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.generic_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.hk_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.id_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.in_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.it_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.jo_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.ke_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.lt_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.lu_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.ma_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.mx_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.my_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.nl_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.pk_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.pl_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.ro_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.sa_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.sk_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.tr_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.uae_hr_work_entry_type_out_of_contract
-#: model:hr.work.entry.type,name:hr_work_entry.us_hr_work_entry_type_out_of_contract
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_hr_work_entry_type_out_of_contract
+#, []
 msgid "Out of Contract"
-msgstr ""
+msgstr "Van ugovora"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_overtime
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_overtime
+#, []
 msgid "Overtime"
-msgstr ""
+msgstr "Prekovremeni"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_overtime_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_overtime_wt
+#, []
 msgid "Overtime 100%"
-msgstr ""
+msgstr "Prekovremeni 100%"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_overtime_125_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_overtime_125_wt
+#, []
 msgid "Overtime 125%"
-msgstr ""
+msgstr "Prekovremeni 125%"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_overtime
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_overtime
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_overtime
+#, []
 msgid "Overtime Hours"
-msgstr ""
+msgstr "Prekovremeni sati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_overtime
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_overtime
+#, []
 msgid "Overtime Hours (Paid at 150%)"
-msgstr ""
+msgstr "Prekovremeni sati (plaćeno 150%)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_overtime_no_onss
-msgid "Overtime Hours not suject to social security contribution"
-msgstr ""
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_overtime_no_onss
+#, []
+msgid "Overtime Hours not subject to social security contribution"
+msgstr "Prekovremeni sati koji ne podliježu doprinosu za socijalno osiguranje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_rest_days
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_overtime_off_days
+#, []
+msgid "Overtime Off-days"
+msgstr "Prekovremeni rad u dane odmora"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_public_holiday
+#, []
+msgid "Overtime Public Holiday"
+msgstr "Prekovremeni rad na državni praznik"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_rest_days
+#, []
 msgid "Overtime Restday"
-msgstr ""
+msgstr "Prekovremeni rad u dan odmora"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_work_days_daytime
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_overtime_work_days_daytime
+#, []
+msgid "Overtime Weekdays Daytime"
+msgstr "Prekovremeni rad radnim danima u dnevno vrijeme"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_overtime_work_days_nighttime
+#, []
+msgid "Overtime Weekdays Nighttime"
+msgstr "Prekovremeni rad radnim danima u noćno vrijeme"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_work_days_daytime
+#, []
 msgid "Overtime Workday Daytime"
-msgstr ""
+msgstr "Prekovremeni rad u radni dan dnevno"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_work_days_nighttime
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_overtime_work_days_nighttime
+#, []
 msgid "Overtime Workday Nighttime"
-msgstr ""
+msgstr "Prekovremeni rad u radni dan noću"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_overtime_no_onss_horeca
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_overtime_no_onss_horeca
+#, []
 msgid ""
 "Overtime not subject to contributions in the horeca sector (hotel, "
 "restaurant, catering)"
 msgstr ""
+"Prekovremeni rad koji ne podliježe doprinosima u horeca sektoru (hotel, "
+"restoran, ugostiteljstvo)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_pto
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_pto
+#, []
 msgid "Overtime: Public Time Off"
-msgstr ""
+msgstr "Prekovremeni: Državni praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_regular
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_regular
+#, []
 msgid "Overtime: Regular"
-msgstr ""
+msgstr "Prekovremeni: Redovni"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_saturday
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_saturday
+#, []
 msgid "Overtime: Saturday"
-msgstr ""
+msgstr "Prekovremeni: Subota"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_saturday_pto
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_saturday_pto
+#, []
 msgid "Overtime: Saturday & Public Time Off"
-msgstr ""
+msgstr "Prekovremeni: Subota i državni praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_sunday
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_sunday
+#, []
 msgid "Overtime: Sunday"
-msgstr ""
+msgstr "Prekovremeni: Nedjelja"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_sunday_pto
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_overtime_sunday_pto
+#, []
 msgid "Overtime: Sunday & Public Time Off"
-msgstr ""
+msgstr "Prekovremeni: Nedjelja i državni praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_parental_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_parental_time_off
+#, []
 msgid "PAR"
-msgstr ""
+msgstr "PAR"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_paternity
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_tr_work_entry_type_paternity_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_paternity
+#, []
 msgid "PAT"
-msgstr ""
+msgstr "PAT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_bank_holiday
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.iq_work_entry_type_public_duty
+#, []
+msgid "PDU"
+msgstr "PDU"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_bank_holiday
+#, []
 msgid "PH"
-msgstr ""
+msgstr "PH"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_phc
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_phc
+#, []
 msgid "PHC"
-msgstr ""
+msgstr "PHC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_pilgrimage
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_pilgrimage
+#, []
 msgid "PIL"
-msgstr ""
+msgstr "PIL"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_partial_incapacity
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_partial_incapacity
+#, []
 msgid "PIN"
-msgstr ""
+msgstr "PIN"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_public_mandate_unpaid
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_public_mandate_unpaid
+#, []
 msgid "PMU"
-msgstr ""
+msgstr "PMU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_prophylactic_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_postponed_paid_time_off_n1
+#, []
+msgid "PN1"
+msgstr "PN1"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_postponed_paid_time_off_n2
+#, []
+msgid "PN2"
+msgstr "PN2"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_prophylactic_time_off
+#, []
 msgid "PRO"
-msgstr ""
+msgstr "PRO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paternity_company
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paternity_company
+#, []
 msgid "PTC"
-msgstr ""
+msgstr "PTC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paternity_legal
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_paternity_legal
+#, []
 msgid "PTL"
-msgstr ""
+msgstr "PTL"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_hk_work_entry_type_annual_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_id_work_entry_type_annual_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_legal_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_legal_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_legal_leave
+#, []
 msgid "PTO"
-msgstr ""
+msgstr "PTO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_public_holiday_temporary_unemployment
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_public_holiday_temporary_unemployment
+#, []
 msgid "PUT"
-msgstr ""
+msgstr "PUT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_parental
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_parental
+#, []
 msgid "Paid Parental Leave"
-msgstr ""
+msgstr "Plaćeno roditeljsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_paid_sick_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_paid_sick_leave
+#, []
 msgid "Paid Sick Time off"
-msgstr ""
+msgstr "Plaćeno bolovanje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_paid_time_off
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_annual_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_annual_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_legal_leave
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_legal_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_legal_leave
+#, []
 msgid "Paid Time Off"
-msgstr ""
+msgstr "Plaćeno odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.hr_work_entry_type_dv
+# model: model:hr.work.entry.type,name:hr_work_entry.hr_work_entry_type_dv
+#, []
 msgid "Parental Leaves"
-msgstr ""
+msgstr "Bolovanja"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_parental_time_off
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_parental_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_parental_time_off
+#, []
 msgid "Parental Time Off"
-msgstr ""
+msgstr "Roditeljsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_partial_incapacity
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_partial_incapacity
+#, []
 msgid "Partial Incapacity (due to illness)"
-msgstr ""
+msgstr "Djelimična nesposobnost (zbog bolesti)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_paternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_paternity_leave
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_paternity
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_paternity
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_tr_work_entry_type_paternity_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_paternity_leave
+#, []
 msgid "Paternity Leave"
-msgstr ""
+msgstr "Očinsko odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_paternity_leave_80
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_paternity_leave_80
+#, []
 msgid "Paternity Leave 80%"
-msgstr ""
+msgstr "Očinsko odsustvo 80%"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paternity_legal
-msgid "Paternity Time Off (Legal)"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paternity_company
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_paternity_company
+#, []
 msgid "Paternity Time Off (Paid by Company)"
-msgstr ""
+msgstr "Očinsko odsustvo (plaćeno od strane firme)"
 
-#. module: hr_work_entry
-#: model:ir.ui.menu,name:hr_work_entry.menu_hr_payroll_root
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model: model:ir.ui.menu,name:hr_work_entry.menu_hr_payroll_root
+#, []
 msgid "Payroll"
-msgstr ""
+msgstr "Obračun plaće"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__code
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__code
+#, []
 msgid "Payroll Code"
-msgstr ""
+msgstr "Platni kod"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_personal_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_personal_leave
+#, []
 msgid "Personal Leave"
-msgstr ""
+msgstr "Lično odsustvo"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_pilgrimage
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_pilgrimage
+#, []
 msgid "Pilgrimage Leave"
-msgstr ""
+msgstr "Odsustvo zbog hodočašća"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_prophylactic_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_postponed_paid_time_off_n1
+#, []
+msgid "Postponed Paid Time Off N-1"
+msgstr "Odgođeno plaćeno odsustvo N-1"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_postponed_paid_time_off_n2
+#, []
+msgid "Postponed Paid Time Off N-2"
+msgstr "Odgođeno plaćeno odsustvo N-2"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_prophylactic_time_off
+#, []
 msgid "Prophylactic Time Off"
-msgstr ""
+msgstr "Profilaktičko odsustvo"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid ""
-"Provide a description of the Work Entry Type, in which case should it be used"
-msgstr ""
+"Provide a description of the Time Type, in which case should it be used"
+msgstr "Navedite opis tipa vremena, u kojem slučaju ga treba koristiti"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_bank_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_work_entry_type_bank_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_public_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_id_work_entry_type_public_holiday
-#: model:hr.work.entry.type,name:hr_work_entry.uae_public_holiday_entry_type
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_bank_holiday
+#, []
 msgid "Public Holiday"
-msgstr ""
+msgstr "Državni praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_phc
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_phc
+#, []
 msgid "Public Holiday Compensation"
-msgstr ""
+msgstr "Naknada za državni praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_public_holiday_temporary_unemployment
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_public_holidays_overtime
+#, []
+msgid "Public Holidays Overtime"
+msgstr "Prekovremeni rad na državne praznike"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_public_duty
+#, []
+msgid "Public duty"
+msgstr "Javna dužnost"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_public_holiday_temporary_unemployment
+#, []
 msgid "Public holiday during periods of temporary unemployment"
-msgstr ""
+msgstr "Državni praznik u periodu privremene nezaposlenosti"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_public_mandate_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_public_mandate_unpaid
+#, []
 msgid "Public mandate (Unpaid)"
-msgstr ""
+msgstr "Javni mandat (neplaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_recovery_additional
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_recovery_additional
+#, []
 msgid "RAT"
-msgstr ""
+msgstr "RAT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_recovery
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_recovery
+#, []
 msgid "RBH"
-msgstr ""
+msgstr "RBH"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__amount_rate
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__amount_rate
+#, []
 msgid "Rate"
-msgstr ""
+msgstr "Stopa"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_recovery_additional
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__rating_ids
+#, []
+msgid "Ratings"
+msgstr "Ocjene"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_recovery_additional
+#, []
 msgid "Recovery Additional Time"
-msgstr ""
+msgstr "Dodatno vrijeme za oporavak"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_recovery
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_recovery
+#, []
 msgid "Recovery Bank Holiday"
-msgstr ""
+msgstr "Praznik za nadoknadu"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_resource_calendar_leaves
+# model: model:ir.model,name:hr_work_entry.model_resource_calendar_leaves
+#, []
 msgid "Resource Time Off Detail"
-msgstr ""
+msgstr "Detalji odsustva"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_resource_calendar
+# model: model:ir.model,name:hr_work_entry.model_resource_calendar
+#, []
 msgid "Resource Working Time"
-msgstr ""
+msgstr "Radno vrijeme resursa"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_rest_days_overtime
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__activity_user_id
+#, []
+msgid "Responsible User"
+msgstr "Odgovorni korisnik"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_rest_days_overtime
+#, []
 msgid "Rest Days Overtime"
-msgstr ""
+msgstr "Prekovremeni rad u dane odmora"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_retro_overtime
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_retro_overtime
+#, []
 msgid "Retro Overtime Hours"
-msgstr ""
+msgstr "Retro prekovremeni sati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_retro_regular
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_us_work_entry_type_retro_regular
+#, []
 msgid "Retro Regular Pay Hours"
-msgstr ""
+msgstr "Retro redovni plaćeni sati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_sectoral_compensatory_rest
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_sectoral_compensatory_rest
+#, []
 msgid "SCT"
-msgstr ""
+msgstr "SCT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_sailor_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_sailor_time_off
+#, []
 msgid "SEA"
-msgstr ""
+msgstr "SEA"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_part_sick
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_part_sick
+#, []
 msgid "SGS"
-msgstr ""
+msgstr "SGS"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_solicitation_time_off
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__message_has_sms_error
+#, []
+msgid "SMS Delivery error"
+msgstr "Greška u dostavi SMS-a"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_solicitation_time_off
+#, []
 msgid "SOL"
-msgstr ""
+msgstr "SOL"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_training_social_promotion
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_training_social_promotion
+#, []
 msgid "SPT"
-msgstr ""
+msgstr "SPT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_sick_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_sick_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_sick_leave
+#, []
 msgid "STO"
-msgstr ""
+msgstr "STO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_strike
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_strike
+#, []
 msgid "STR"
-msgstr ""
+msgstr "STR"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_study
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_jo_work_entry_type_study
+#, []
 msgid "STU"
-msgstr ""
+msgstr "STU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_small_unemployment
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_small_unemployment
+#, []
 msgid "SUH"
-msgstr ""
+msgstr "SUH"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_sailor_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_sailor_time_off
+#, []
 msgid "Sailors Time Off"
-msgstr ""
+msgstr "Odsustvo mornara"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_accident_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_accident_wt
+#, []
 msgid "Salary in case of Accident"
-msgstr ""
+msgstr "Plata u slučaju nezgode"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_illness_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_illness_wt
+#, []
 msgid "Salary in case of Illness"
-msgstr ""
+msgstr "Plata u slučaju bolesti"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_maternity_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_maternity_wt
+#, []
 msgid "Salary in case of Maternity / Paternity Leave"
-msgstr ""
+msgstr "Plata u slučaju porodiljskog / očinskog odsustva"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_military_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_military_wt
+#, []
 msgid "Salary in case of Military Leave"
-msgstr ""
+msgstr "Plata u slučaju vojnog odsustva"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
-msgid "Search Work Entry Type"
-msgstr ""
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+#, []
+msgid "Search Time Type"
+msgstr "Pretraži tip vremena"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__sequence
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__sequence
+#, []
 msgid "Sequence"
-msgstr ""
+msgstr "Redoslijed"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_non_provided_service_childminders
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_non_provided_service_childminders
+#, []
 msgid ""
 "Service planned but not provided by childminders due to the absence of "
 "children for reasons beyond the control of the childminder"
 msgstr ""
+"Usluga planirana ali nepružena od strane dadilja zbog odsustva djece iz "
+"razloga van kontrole dadilje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_sick_leave_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_sick_leave_unpaid
+#, []
 msgid "Sick Leave (Unpaid)"
-msgstr ""
+msgstr "Bolovanje (neplaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_sick_leave_80
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_sick_leave_80
+#, []
 msgid "Sick Leave 80%"
-msgstr ""
+msgstr "Bolovanje 80%"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_sick_leave
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_sick_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_sick_leave
+#, []
 msgid "Sick Time Off"
-msgstr ""
+msgstr "Bolovanje"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_pl_work_entry_type_sick_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_pl_work_entry_type_sick_leave
+#, []
 msgid "Sick Time Off (Paid at 80%)"
-msgstr ""
+msgstr "Bolovanje (plaćeno 80%)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_part_sick
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_part_sick
+#, []
 msgid "Sick Time Off (Without Guaranteed Salary)"
-msgstr ""
+msgstr "Bolovanje (bez garantovane plate)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_25
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_25
+#, []
 msgid "Sick Time Off Day 1-3 (Paid at 25%)"
-msgstr ""
+msgstr "Bolovanje dan 1-3 (plaćeno 25%)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_55
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_55
+#, []
 msgid "Sick Time Off Day 4-10 (Paid at 55%)"
-msgstr ""
+msgstr "Bolovanje dan 4-10 (plaćeno 55%)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_0
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_sk_work_entry_type_sick_0
+#, []
 msgid "Sick Time Off Day up to 52 weeks (Paid at 55% by social security)"
-msgstr ""
+msgstr "Bolovanje do 52 sedmice (plaćeno 55% od socijalnog osiguranja)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_sick_leave_75
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_sick_leave_without_certificate
+#, []
+msgid "Sick Time Off Without Certificate"
+msgstr "Bolovanje bez potvrde"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_sick_leave_75
+#, []
 msgid "Sick Time off (75% Paid)"
-msgstr ""
+msgstr "Bolovanje (75% plaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_sick_leave_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_eg_work_entry_type_sick_leave_unpaid
+#, []
 msgid "Sick Time off (Unpaid)"
-msgstr ""
+msgstr "Bolovanje (neplaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_situational_unemployment
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_situational_unemployment
+#, []
 msgid "Situational Unemployment"
-msgstr ""
+msgstr "Situaciona nezaposlenost"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_small_unemployment
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_small_unemployment
+#, []
 msgid "Small Unemployment (Brief Holiday)"
-msgstr ""
+msgstr "Mala nezaposlenost (kratki praznik)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training_social_promotion
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training_social_promotion
+#, []
 msgid "Social promotion training with suspension of the employment contract"
-msgstr ""
+msgstr "Obuka socijalne promocije uz suspenziju ugovora o radu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_solicitation_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_solicitation_time_off
+#, []
 msgid "Solicitation Time Off"
-msgstr ""
+msgstr "Odsustvo za molbu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_statutory_holiday
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__activity_state
+#, []
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status po aktivnostima\n"
+"U kašnjenju: Datum aktivnosti je već prošao\n"
+"Danas: Datum aktivnosti je danas\n"
+"Planirano: Buduće aktivnosti."
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_statutory_holiday
+#, []
 msgid "Statutory Holiday"
-msgstr ""
+msgstr "Zakonski praznik"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_strike
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_strike
+#, []
 msgid "Strike / Lock-out"
-msgstr ""
+msgstr "Štrajk / Lokaut"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_study
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_sa_work_entry_type_study
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_study
+#, []
 msgid "Study Leave"
-msgstr ""
+msgstr "Odsustvo zbog studija"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_environmental_protection
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_environmental_protection
+#, []
 msgid "TME"
-msgstr ""
+msgstr "TME"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_training
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_training
+#, []
 msgid "TRN"
-msgstr ""
+msgstr "TRN"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_other_training
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_other_training
+#, []
 msgid "TRX"
-msgstr ""
+msgstr "TRX"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure
+#, []
 msgid "TUA"
-msgstr ""
+msgstr "TUA"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_bad_weather
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_bad_weather
+#, []
 msgid "TUB"
-msgstr ""
+msgstr "TUB"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_agreeement
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_agreeement
+#, []
 msgid "TUC"
-msgstr ""
+msgstr "TUC"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.iq_work_entry_type_trade_union_duty
+#, []
+msgid "TUD"
+msgstr "TUD"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure
+#, []
 msgid "TUH"
-msgstr ""
+msgstr "TUH"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure_medical
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure_medical
+#, []
 msgid "TUM"
-msgstr ""
+msgstr "TUM"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_dismissal
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_dismissal
+#, []
 msgid "TUP"
-msgstr ""
+msgstr "TUP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_reduction
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_reduction
+#, []
 msgid "TUR"
-msgstr ""
+msgstr "TUR"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_strike
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_strike
+#, []
 msgid "TUS"
-msgstr ""
+msgstr "TUS"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_incident
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_incident
+#, []
 msgid "TUT"
-msgstr ""
+msgstr "TUT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_environmental_protection
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_environmental_protection
+#, []
 msgid ""
 "Technical malfunction in the company or closure of the company for "
 "environmental protection purposes"
 msgstr ""
+"Tehnički kvar u kompaniji ili zatvaranje kompanije u svrhu zaštite okoliša"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_bad_weather
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_bad_weather
+#, []
 msgid "Temporary unemployment due to bad weather"
-msgstr ""
+msgstr "Privremena nezaposlenost zbog lošeg vremena"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure
+#, []
 msgid ""
 "Temporary unemployment due to collective closure of the company due to "
 "annual holidays"
 msgstr ""
+"Privremena nezaposlenost zbog kolektivnog zatvaranja kompanije zbog "
+"godišnjih odmora"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_agreeement
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_agreeement
+#, []
 msgid ""
 "Temporary unemployment due to collective closure of the company due to "
 "compulsory leave under a collective labor agreement"
 msgstr ""
+"Privremena nezaposlenost zbog kolektivnog zatvaranja kompanije zbog "
+"obaveznog odsustva po kolektivnom ugovoru o radu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_reduction
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_collective_closure_reduction
+#, []
 msgid ""
 "Temporary unemployment due to collective closure of the company for "
 "compensatory rest as part of a reduction in working hours"
 msgstr ""
+"Privremena nezaposlenost zbog kolektivnog zatvaranja kompanije za "
+"kompenzatorni odmor kao dio smanjenja radnih sati"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure_medical
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure_medical
+#, []
 msgid "Temporary unemployment due to force majeure for medical reasons"
-msgstr ""
+msgstr "Privremena nezaposlenost zbog više sile iz medicinskih razloga"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_strike
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_strike
+#, []
 msgid "Temporary unemployment due to strike or lockout"
-msgstr ""
+msgstr "Privremena nezaposlenost zbog štrajka ili lokauta"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_incident
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_force_majeure
+#, []
 msgid "Temporary unemployment due to technical incident"
-msgstr ""
+msgstr "Privremena nezaposlenost zbog tehničkog incidenta"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_dismissal
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_temporary_unemployment_dismissal
+#, []
 msgid "Temporary unemployment in the event of dismissal of a protected worker"
-msgstr ""
+msgstr "Privremena nezaposlenost u slučaju otkaza zaštićenog radnika"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__country_code
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__country_code
+#, []
 msgid ""
 "The ISO country code in two chars. \n"
 "You can use this field for quick search."
 msgstr ""
+"ISO kod države sa dva znaka. \n"
+"Možete koristiti ovo polje za brzu pretragu."
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__code
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__code
+#, []
 msgid ""
 "The code is used as a reference in salary rules. Careful, changing an "
 "existing code can lead to unwanted behaviors."
 msgstr ""
+"Kod se koristi kao referenca u pravilima plata. Oprezno, promjena postojećeg"
+" koda može dovesti do neželjenog ponašanja."
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__color
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__color
+#, []
 msgid ""
-"The color selected here will be used in every screen with the time off type."
+"The color selected here will be used in every screen with the time type."
 msgstr ""
+"Ovdje odabrana boja će se koristiti na svakom ekranu sa tipom vremena."
 
-#. module: hr_work_entry
-#. odoo-python
-#: code:addons/hr_work_entry/models/hr_work_entry_type.py:0
-msgid ""
-"The same code cannot be associated to multiple work entry types for the same "
-"company (%s)"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__display_code
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__display_code
+#, []
 msgid ""
 "This code can be changed, it is only for a display purpose (3 letters max)"
 msgstr ""
+"Ovaj kod se može promijeniti, samo je za potrebe prikaza (maksimalno 3 "
+"slova)"
 
-#. module: hr_work_entry
-#: model:ir.model.fields.selection,name:hr_work_entry.selection__res_company__work_entry_source__calendar
+# model: model:ir.ui.menu,name:hr_work_entry.menu_hr_work_entry_configuration
+#, []
 msgid "Time"
-msgstr ""
+msgstr "Vrijeme"
 
-#. module: hr_work_entry
-#: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_version__work_entry_source__calendar
-msgid "Time Off"
-msgstr ""
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__work_entry_type_id
+#, []
+msgid "Time Type"
+msgstr "Tip vremena"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_employee__work_entry_source
-#: model:ir.model.fields,field_description:hr_work_entry.field_hr_version__work_entry_source
-#: model:ir.model.fields,field_description:hr_work_entry.field_res_company__work_entry_source
-msgid "Tracking Method"
-msgstr ""
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
+msgid "Time Type Name"
+msgstr "Naziv tipa vremena"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training
+# model:
+# model:ir.actions.act_window,name:hr_work_entry.hr_work_entry_type_action
+#, []
+msgid "Time Types"
+msgstr "Tipovi vremena"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_trade_union_duty
+#, []
+msgid "Trade union duty"
+msgstr "Sindikalna dužnost"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_training
+#, []
 msgid "Training"
-msgstr ""
+msgstr "Obuka"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_training
+# model: model:hr.work.entry.type,name:hr_work_entry.work_entry_type_training
+#, []
 msgid "Training Time Off"
-msgstr ""
+msgstr "Plaćeni odmor 2018"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_other_training
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_other_training
+#, []
 msgid "Training with the exception of social promotion and educational leave"
-msgstr ""
+msgstr "Obuka uz izuzeće socijalne promocije i obrazovnog odsustva"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_tree
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+#, []
 msgid "Type of Work"
-msgstr ""
+msgstr "Vrsta posla"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unjustified_reason
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__activity_exception_decoration
+#, []
+msgid "Type of the exception activity on record."
+msgstr "Vrsta izuzetka aktivnosti na zapisu."
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unjustified_reason
+#, []
 msgid "UJR"
-msgstr ""
+msgstr "UJR"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_union_mission
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_union_mission
+#, []
 msgid "UMP"
-msgstr ""
+msgstr "UMP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_union_mission_unpaid
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_union_mission_unpaid
+#, []
 msgid "UMU"
-msgstr ""
+msgstr "UMU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.bd_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.be_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ch_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.eg_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.fr_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.generic_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.hk_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.id_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.in_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.it_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.jo_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ke_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lt_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.lu_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ma_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.mx_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.my_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.nl_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pk_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.pl_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.ro_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sa_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.sk_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.tr_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.uae_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,display_code:hr_work_entry.us_work_entry_type_unpaid_leave
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.au_work_entry_type_unpaid_leave
+#, []
 msgid "UN"
-msgstr ""
+msgstr "UN"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unpredictable
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_upcomming_public_holiday
+#, []
+msgid "UPH"
+msgstr "UPH"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_unpredictable
+#, []
 msgid "URU"
-msgstr ""
+msgstr "URU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_union_mission
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_union_mission
+#, []
 msgid "Union mission paid by the employer"
-msgstr ""
+msgstr "Sindikalna misija plaćena od strane poslodavca"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_union_mission_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_union_mission_unpaid
+#, []
 msgid "Union mission unpaid by the employer"
-msgstr ""
+msgstr "Sindikalna misija neplaćena od strane poslodavca"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unjustified_reason
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unjustified_reason
+#, []
 msgid "Unjustified Reason"
-msgstr ""
+msgstr "Neopravdani razlog"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.bd_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.be_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ch_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.eg_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.fr_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.generic_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.hk_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.id_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.in_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.it_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.jo_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ke_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lt_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.lu_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ma_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.mx_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.my_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.nl_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pk_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.pl_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.ro_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sa_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.sk_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.tr_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.uae_work_entry_type_unpaid_leave
-#: model:hr.work.entry.type,name:hr_work_entry.us_work_entry_type_unpaid_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.au_work_entry_type_unpaid_leave
+#, []
 msgid "Unpaid"
-msgstr ""
+msgstr "Neplaćeno"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_unpaid_wt
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_ch_swissdec_unpaid_wt
+#, []
 msgid "Unpaid Salary"
-msgstr ""
+msgstr "Neplaćena plata"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpaid_recovered_compensatory_rest
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpaid_recovered_compensatory_rest
+#, []
 msgid ""
 "Unpaid compensatory rest at the time of recovery following hours worked at "
 "another time"
 msgstr ""
+"Neplaćen kompenzatorni odmor u vrijeme oporavka nakon sati odrađenih u drugo"
+" vrijeme"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpredictable
-msgid "Unpredictable Reason (Unpaid)"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_termination
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_termination
+#, []
 msgid "Unused Leave on Termination"
-msgstr ""
+msgstr "Neiskorišteno odsustvo pri prekidu"
 
-#. module: hr_work_entry
-#: model:ir.model.fields,help:hr_work_entry.field_hr_employee__external_code
-#: model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__external_code
-#: model:ir.model.fields,help:hr_work_entry.field_res_company__external_code
-#: model:ir.model.fields,help:hr_work_entry.field_res_config_settings__external_code
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_upcomming_public_holiday
+#, []
+msgid "Upcoming Public Holiday"
+msgstr "Predstojeći državni praznik"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_unpredictable
+#, []
+msgid "Urgent Family or Social Reason (Unpaid)"
+msgstr "Hitan porodični ili društveni razlog (neplaćeno)"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_employee__external_code
+#, []
 msgid "Use this code to export your data to a third party"
-msgstr ""
+msgstr "Koristite ovaj kod za izvoz vaših podataka trećoj strani"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_first_year
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_first_year
+#, []
 msgid "VY1"
-msgstr ""
+msgstr "VY1"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_second_year
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_second_year
+#, []
 msgid "VY2"
-msgstr ""
+msgstr "VY2"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_first_year
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_first_year
+#, []
 msgid ""
 "Vacation that a worker was unable to take due to certain suspensions and "
 "which is taken during the first year following the vacation year"
 msgstr ""
+"Odmor koji radnik nije mogao iskoristiti zbog određenih suspenzija i koji se"
+" uzima tokom prve godine nakon godine odmora"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_second_year
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_untaken_time_off_second_year
+#, []
 msgid ""
 "Vacation that a worker was unable to take due to certain suspensions and "
 "which is taken during the second year following the vacation year"
 msgstr ""
+"Odmor koji radnik nije mogao iskoristiti zbog određenih suspenzija i koji se"
+" uzima tokom druge godine nakon godine odmora"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_first_week
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_first_week
+#, []
 msgid "WA1"
-msgstr ""
+msgstr "WA1"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_guaranteed_monthly
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_guaranteed_monthly
+#, []
 msgid "WAM"
-msgstr ""
+msgstr "WAM"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident
+#, []
 msgid "WAP"
-msgstr ""
+msgstr "WAP"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_second_week
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_second_week
+#, []
 msgid "WAS"
-msgstr ""
+msgstr "WAS"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_unpaid
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_work_accident_unpaid
+#, []
 msgid "WAU"
-msgstr ""
+msgstr "WAU"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_worker_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.iq_work_entry_type_wedding_leave
+#, []
+msgid "WED"
+msgstr "WED"
+
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_worker_time_off
+#, []
 msgid "WTO"
-msgstr ""
+msgstr "WTO"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_week_days_overtime
+# model:
+# model:ir.model.fields,field_description:hr_work_entry.field_hr_work_entry_type__website_message_ids
+#, []
+msgid "Website Messages"
+msgstr "Poruke web stranice"
+
+# model:
+# model:ir.model.fields,help:hr_work_entry.field_hr_work_entry_type__website_message_ids
+#, []
+msgid "Website communication history"
+msgstr "Historija komunikacije web stranice"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.iq_work_entry_type_wedding_leave
+#, []
+msgid "Wedding leave"
+msgstr "Odsustvo zbog vjenčanja"
+
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_jo_work_entry_type_week_days_overtime
+#, []
 msgid "Week Days Overtime"
-msgstr ""
+msgstr "Prekovremeni rad radnim danima"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_weekend
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_hk_work_entry_type_weekend
+#, []
 msgid "Weekend"
-msgstr ""
+msgstr "Vikend"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_welcome_leave
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_lu_work_entry_type_welcome_leave
+#, []
 msgid "Welcome Leave"
-msgstr ""
+msgstr "Odsustvo dobrodošlice"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_unpaid
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_unpaid
+#, []
 msgid "Work Accident (Unpaid)"
-msgstr ""
+msgstr "Povreda na radu (neplaćeno)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident
+#, []
 msgid "Work Accident / Occupational Disease (Paid)"
-msgstr ""
+msgstr "Povreda na radu / Profesionalna bolest (plaćeno)"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_resource_calendar_attendance
+# model: model:ir.model,name:hr_work_entry.model_resource_calendar_attendance
+#, []
 msgid "Work Detail"
-msgstr ""
+msgstr "Detalj posla"
 
-#. module: hr_work_entry
-#: model:ir.ui.menu,name:hr_work_entry.menu_hr_work_entry_configuration
-msgid "Work Entries"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_hr_user_work_entry_employee
+# model: model:ir.model,name:hr_work_entry.model_hr_user_work_entry_employee
+#, []
 msgid "Work Entries Employee"
-msgstr ""
+msgstr "Zaposleni za radne unose"
 
-#. module: hr_work_entry
-#: model:ir.model,name:hr_work_entry.model_hr_work_entry_type
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_attendance__work_entry_type_id
-#: model:ir.model.fields,field_description:hr_work_entry.field_resource_calendar_leaves__work_entry_type_id
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.resource_calendar_leaves_view_search_inherit
+# model: model:ir.model,name:hr_work_entry.model_hr_work_entry_type
+#, []
 msgid "Work Entry Type"
-msgstr ""
+msgstr "Vrsta radnih sati"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
-msgid "Work Entry Type Name"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:ir.actions.act_window,name:hr_work_entry.hr_work_entry_type_action
-#: model:ir.ui.menu,name:hr_work_entry.menu_hr_work_entry_type_view
-#: model:ir.ui.menu,name:hr_work_entry.menu_hr_work_entry_type_view_employee
-msgid "Work Entry Types"
-msgstr ""
-
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_second_week
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_second_week
+#, []
 msgid ""
 "Work accident or occupational illness with employer supplement from the 2nd "
 "week of CCT 12bis/13bis"
 msgstr ""
+"Povreda na radu ili profesionalna bolest sa dodatkom poslodavca od 2. "
+"sedmice CCT 12bis/13bis"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_guaranteed_monthly
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_guaranteed_monthly
+#, []
 msgid "Work accident or occupational illness with guaranteed monthly salary"
 msgstr ""
+"Povreda na radu ili profesionalna bolest sa zagarantovanom mjesečnom platom"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_first_week
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_work_accident_first_week
+#, []
 msgid ""
 "Work accident or occupational illness with normal daily pay at 100% for the "
 "first week"
 msgstr ""
+"Povreda na radu ili profesionalna bolest sa normalnom dnevnom platom od 100%"
+" za prvu sedmicu"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_work_risk_imss
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_mx_work_entry_type_work_risk_imss
+#, []
 msgid "Work risk (IMSS)"
-msgstr ""
+msgstr "Rizik na radu (IMSS)"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_worker_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_worker_time_off
+#, []
 msgid "Worker Time Off"
-msgstr ""
+msgstr "Odsustvo radnika"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_compensation
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_au_work_entry_type_compensation
+#, []
 msgid "Workers Compensation"
-msgstr ""
+msgstr "Naknada radnicima"
 
-#. module: hr_work_entry
-#: model:ir.ui.menu,name:hr_work_entry.menu_resource_calendar_view
+# model: model:ir.ui.menu,name:hr_work_entry.menu_resource_calendar_view
+#, []
 msgid "Working Schedules"
-msgstr ""
+msgstr "Radni rasporedi"
 
-#. module: hr_work_entry
-#: model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry_type__count_as__working_time
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_search
+# model:
+# model:ir.model.fields.selection,name:hr_work_entry.selection__hr_work_entry_type__count_as__working_time
+#, []
 msgid "Working Time"
-msgstr ""
+msgstr "Radno vrijeme"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_extra_legal
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_extra_legal
+#, []
 msgid "XLT"
-msgstr ""
+msgstr "XLT"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_extra_legal_public_holiday
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_extra_legal_public_holiday
+#, []
 msgid "XPH"
-msgstr ""
+msgstr "XPH"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_extra_legal_sectoral_holiday
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_extra_legal_sectoral_holiday
+#, []
 msgid "XSH"
-msgstr ""
+msgstr "XSH"
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_youth_time_off
+# model:
+# model:hr.work.entry.type,display_code:hr_work_entry.l10n_be_work_entry_type_youth_time_off
+#, []
 msgid "YSO"
-msgstr ""
+msgstr "YSO"
 
-#. module: hr_work_entry
-#: model:ir.model.constraint,message:hr_work_entry.constraint_hr_user_work_entry_employee_user_id_employee_id_unique
+# model: code:addons/hr_work_entry/models/hr_work_entry_type.py
+#, []
+msgid ""
+"You cannot create more than one time type of code \"%(code)s\" for the same "
+"country (%(country)s)"
+msgstr ""
+"Ne možete kreirati više od jednog tipa vremena sa kodom \"%(code)s\" za istu"
+" zemlju (%(country)s)"
+
+# model:
+# model:ir.model.constraint,message:hr_work_entry.constraint_hr_user_work_entry_employee_user_id_employee_id_unique
+#, []
 msgid "You cannot have the same employee twice."
-msgstr ""
+msgstr "Ne možete istog zaposlenika imati 2 puta."
 
-#. module: hr_work_entry
-#: model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_youth_time_off
+# model:
+# model:hr.work.entry.type,name:hr_work_entry.l10n_be_work_entry_type_youth_time_off
+#, []
 msgid "Youth / Senior Time Off"
-msgstr ""
+msgstr "Odsustvo mladih / Senior odsustvo"
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "e.g. ATT, PTO, STO, OT, RW, ..."
-msgstr ""
+msgstr "npr. ATT, PTO, STO, OT, RW, ..."
 
-#. module: hr_work_entry
-#: model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+# model:
+# model_terms:ir.ui.view,arch_db:hr_work_entry.hr_work_entry_type_view_form
+#, []
 msgid "e.g. WORK100, LEAVE210, OUT, ..."
-msgstr ""
+msgstr "npr. WORK100, LEAVE210, OUT, ..."
