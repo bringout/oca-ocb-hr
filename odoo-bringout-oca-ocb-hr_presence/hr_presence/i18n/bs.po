@@ -59,7 +59,7 @@ msgstr "Obični zaposlenik"
 #. module: hr_presence
 #: model:ir.model,name:hr_presence.model_res_company
 msgid "Companies"
-msgstr "Tvrtke"
+msgstr "Kompanije"
 
 # taken from hr.po
 #. module: hr_presence
@@ -392,3 +392,8 @@ msgstr ""
 "Nadamo se da vas ova poruka zatiče dobro. Primijetili smo da trenutno niste prisutni na poslu, a nema zapisa o vašem zahtjevu za odsustvo. Ako je ovo odsustvo posljedica naše greške, iskreno se izvinjavamo.\n"
 "Molimo poduzmite potrebne korake da riješite ovu neplaniranu odsutnost. Ako imate bilo kakvih pitanja ili trebate pomoć, slobodno se obratite svom menadžeru ili HR odjelu u najkraćem mogućem roku.\n"
 "Hvala vam na brzom odgovoru."
+
+#. module: hr_presence
+#: model:ir.model,name:hr_presence.model_res_company
+msgid "Company"
+msgstr ""

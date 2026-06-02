@@ -261,3 +261,43 @@ msgid ""
 msgstr ""
 "Vozilo zaposlenog %(employee)s nije povezano sa menadžerom voznog parka, "
 "dodjeljuje se vama."
+
+#. module: hr_fleet
+#: model:ir.model,name:hr_fleet.model_hr_employee_departure
+msgid "Employee Departure"
+msgstr "Odlazak zaposlenog"
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/hr_employee_departure.py:0
+msgid "Employee has been removed from %(car)s future driver list"
+msgstr ""
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/fleet_vehicle_assignation_log.py:0
+msgid "Ongoing"
+msgstr ""
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/hr_employee_departure.py:0
+msgid ""
+"The future driver has been removed due to the end of collaboration with "
+"%(employee)s"
+msgstr ""
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/hr_employee_departure.py:0
+msgid "The vehicle %(car)s has been freed"
+msgstr ""
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/hr_employee_departure.py:0
+msgid ""
+"The vehicle has been freed due to the end of collaboration with %(employee)s"
+msgstr ""
+
+#. module: hr_fleet
+#: code:addons/hr_fleet/models/fleet_vehicle_assignation_log.py:0
+msgid ""
+"This assignment overlaps with an existing assignment for %(vehicle)s "
+"(Driver: %(driver)s, Period: %(start)s to %(end)s)"
+msgstr ""

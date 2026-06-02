@@ -717,7 +717,7 @@ msgstr "Može uređivati"
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.view_bank_account_allocation_wizard
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Odustani"
 
 # taken from hr.po
 #. module: hr
@@ -842,7 +842,7 @@ msgstr "Puni naziv"
 #. module: hr
 #: model:ir.model,name:hr.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: hr
@@ -1100,7 +1100,7 @@ msgstr "Kanal rasprave"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_discuss_channel__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: hr
@@ -1700,19 +1700,19 @@ msgstr "Vrijeme posljednje aktivnosti"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee__last_modified_date
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_bank_account_allocation_wizard__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_bank_account_allocation_wizard__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 # taken from hr.po
 #. module: hr
@@ -1966,7 +1966,7 @@ msgstr "Zabilješka"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee__notes
 msgid "Notes"
-msgstr "Zabilješke"
+msgstr "Napomene"
 
 # taken from hr.po
 #. module: hr
@@ -2524,7 +2524,7 @@ msgstr "SSN broj"
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.view_bank_account_allocation_wizard
 msgid "Save"
-msgstr "Spremi"
+msgstr "Snimi"
 
 # taken from hr.po
 #. module: hr
@@ -5950,3 +5950,1161 @@ msgstr "udovac"
 #: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_form
 msgid "work"
 msgstr "rad"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__eligible_employee_count
+msgid "#Employees"
+msgstr "#Zaposlenici"
+
+#. module: hr
+#: code:addons/hr/models/mail_activity_plan_template.py:0
+msgid "%(employee_name)s has no manager."
+msgstr "%(employee_name)s nema menadžera."
+
+#. module: hr
+#: code:addons/hr/models/mail_activity_plan_template.py:0
+msgid "%(employee_name)s has no user."
+msgstr "%(employee_name)s nema korisnika."
+
+#. module: hr
+#: code:addons/hr/models/mail_activity_plan_template.py:0
+msgid "%(employee_name)s's manager (%(manager_name)s) has no user."
+msgstr ""
+"Menadžer (%(manager_name)s) zaposlenika %(employee_name)s nema korisnika."
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "/ day"
+msgstr "/ dan"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "/ week"
+msgstr "/ sedmica"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_form
+msgid "<i class=\"d-none d-md-block fa fa-envelope\" title=\"Work Email\"/>"
+msgstr "<i class=\"d-none d-md-block fa fa-envelope\" title=\"Poslovni e-mail\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_form
+msgid "<i class=\"d-none d-md-block fa fa-mobile\" title=\"Work Mobile\"/>"
+msgstr "<i class=\"d-none d-md-block fa fa-mobile\" title=\"Poslovni mobilni\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_form
+msgid "<i class=\"d-none d-md-block fa fa-phone\" title=\"Work Phone\"/>"
+msgstr "<i class=\"d-none d-md-block fa fa-phone\" title=\"Poslovni telefon\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form
+msgid ""
+"<i class=\"d-none d-md-inline-flex fa fa-envelope fa-fw\" title=\"Work "
+"Email\"/>"
+msgstr ""
+"<i class=\"d-none d-md-inline-flex fa fa-envelope fa-fw\" title=\"Poslovni "
+"e-mail\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form_preferences
+msgid "<i class=\"d-none d-md-inline-flex fa fa-envelope\" title=\"Work Email\"/>"
+msgstr ""
+"<i class=\"d-none d-md-inline-flex fa fa-envelope\" title=\"Poslovni "
+"e-mail\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form
+msgid ""
+"<i class=\"d-none d-md-inline-flex fa fa-mobile fa-fw\" title=\"Work "
+"Mobile\"/>"
+msgstr ""
+"<i class=\"d-none d-md-inline-flex fa fa-mobile fa-fw\" title=\"Poslovni "
+"mobilni\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form_preferences
+msgid "<i class=\"d-none d-md-inline-flex fa fa-mobile\" title=\"Work Mobile\"/>"
+msgstr ""
+"<i class=\"d-none d-md-inline-flex fa fa-mobile\" title=\"Poslovni "
+"mobilni\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form
+msgid "<i class=\"d-none d-md-inline-flex fa fa-phone fa-fw\" title=\"Work Phone\"/>"
+msgstr ""
+"<i class=\"d-none d-md-inline-flex fa fa-phone fa-fw\" title=\"Poslovni "
+"telefon\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form_preferences
+msgid "<i class=\"d-none d-md-inline-flex fa fa-phone\" title=\"Work Phone\"/>"
+msgstr "<i class=\"d-none d-md-inline-flex fa fa-phone\" title=\"Poslovni telefon\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "<i class=\"d-none d-md-inline-flex fa fa-tags\" title=\"Tags\"/>"
+msgstr "<i class=\"d-none d-md-inline-flex fa fa-tags\" title=\"Oznake\"/>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid ""
+"<i class=\"fa fa-share-alt fa-rotate-90 ms-1 mt-1\" role=\"img\" aria-label=\"Full Chart\"/>\n"
+"                                                Full Chart"
+msgstr ""
+"<i class=\"fa fa-share-alt fa-rotate-90 ms-1 mt-1\" role=\"img\" aria-label=\"Cijeli grafikon\"/>\n"
+"                                                Cijeli grafikon"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_form
+msgid ""
+"<i class=\"fa fa-sitemap me-1 mt-1\"/>\n"
+"                                                        <span class=\"fw-bolder\">Zoom</span>"
+msgstr ""
+"<i class=\"fa fa-sitemap me-1 mt-1\"/>\n"
+"                                                        <span class=\"fw-bolder\">Zumiraj</span>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid ""
+"<i class=\"oi oi-arrow-right ms-1\"/>\n"
+"                                            Cancel Departure"
+msgstr ""
+"<i class=\"oi oi-arrow-right ms-1\"/>\n"
+"                                            Otkaži odlazak"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_export_mixin_form_view
+msgid "<span class=\"o_stat_text\">Eligible Employees</span>"
+msgstr "<span class=\"o_stat_text\">Podobni zaposlenici</span>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_form
+msgid ""
+"<span class=\"text-uppercase fw-bolder\" style=\"font-size: "
+"13px\">Organization Chart</span>"
+msgstr ""
+"<span class=\"text-uppercase fw-bolder\" style=\"font-size: "
+"13px\">Organizaciona šema</span>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_hr_job_form
+msgid "<span>employees</span>"
+msgstr "<span>zaposlenici</span>"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_version_search_view
+msgid "Active Employees"
+msgstr "Aktivni zaposlenici"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department__activity_plans_ids
+msgid "Activity Plans"
+msgstr "Planovi aktivnosti"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_departure_view_form
+msgid "Additional information"
+msgstr "Dodatne informacije"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__departure_apply_date
+msgid "Apply Date"
+msgstr "Datum primjene"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__departure_apply_immediately
+msgid "Apply Immediately"
+msgstr "Primijeni odmah"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__4
+msgid "April"
+msgstr "Travanj"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__departure_action_date
+msgid "Archive Employee On"
+msgstr "Arhiviraj zaposlenika dana"
+
+#. module: hr
+#: code:addons/hr/static/src/core/web/avatar_card/avatar_card_patch.xml:0
+msgid "At Home"
+msgstr "Kod kuće"
+
+#. module: hr
+#: code:addons/hr/static/src/core/web/avatar_card/avatar_card_patch.xml:0
+msgid "At Home - Present"
+msgstr "Kod kuće - Prisutan"
+
+#. module: hr
+#: code:addons/hr/static/src/core/web/avatar_card/avatar_card_patch.xml:0
+msgid "At Office"
+msgstr "U uredu"
+
+#. module: hr
+#: code:addons/hr/static/src/core/web/avatar_card/avatar_card_patch.xml:0
+msgid "At Office - Present"
+msgstr "U uredu - Prisutan"
+
+#. module: hr
+#: code:addons/hr/static/src/core/web/avatar_card/avatar_card_patch.xml:0
+msgid "At Other"
+msgstr "Na drugoj lokaciji"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__8
+msgid "August"
+msgstr "Kolovoz"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Average Hours"
+msgstr "Prosječni sati"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__birthday_month
+msgid "Birthday Month"
+msgstr "Mjesec rođenja"
+
+#. module: hr
+#: code:addons/hr/static/src/js/departure_conflict_dialog.js:0
+msgid "Cancel Departure"
+msgstr "Otkaži odlazak"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Cancel End of Collaboration"
+msgstr "Otkaži kraj saradnje"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "Cannot search or group by hr_presence state: too many employees (%s)"
+msgstr ""
+"Nije moguće pretraživati ili grupirati po hr_presence stanju: previše "
+"zaposlenih (%s)"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__child_all_count
+msgid "Child All Count"
+msgstr "Ukupan broj podrejenih"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__child_count
+msgid "Child Count"
+msgstr "Broj podrejenih"
+
+#. module: hr
+#: model:hr.employee.type,name:hr.contract_type_company_executive
+msgid "Company Executive"
+msgstr "Direktor kompanije"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_config_settings__company_tz
+msgid "Company Timezone"
+msgstr "Vremenska zona kompanije"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_filter
+msgid "Contract End"
+msgstr "Kraj ugovora"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_version_list_view_enhanced
+msgid "Contract Period"
+msgstr "Period ugovora"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_filter
+msgid "Contract Start"
+msgstr "Početak ugovora"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__create_uid
+msgid "Create Uid"
+msgstr "Kreirao (UID)"
+
+#. module: hr
+#: model_terms:ir.actions.act_window,help:hr.hr_contract_type_action
+msgid "Create a new employee type"
+msgstr "Kreiraj novi tip zaposlenog"
+
+#. module: hr
+#: model_terms:ir.actions.act_window,help:hr.action_hr_employee_org_chart
+msgid "Create an employee."
+msgstr "Kreiraj zaposlenog."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__creation_date
+msgid "Creation Date"
+msgstr "Datum kreiranja"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__exceptional_location_id
+msgid "Current"
+msgstr "Trenutno"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__current_date_version
+msgid "Current Date Employee Record"
+msgstr "Zapis zaposlenog za trenutni datum"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__current_version_id
+msgid "Current Employee Record"
+msgstr "Trenutni zapis zaposlenog"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_location__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__departure_action_date
+msgid "Date at which the departure actually takes place."
+msgstr "Datum kada se odlazak zaista događa."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__dismissal_date
+msgid ""
+"Date at which the departure process starts. Differs from the actual "
+"departure date in case of a notice period."
+msgstr ""
+"Datum kada započinje proces odlaska. Razlikuje se od stvarnog datuma odlaska"
+" u slučaju otkaznog roka."
+
+#. module: hr
+#: code:addons/hr/static/src/js/DynamicMinDateTimeField.js:0
+msgid "Date with Dynamic Minimum Value"
+msgstr "Datum sa dinamičkom minimalnom vrijednošću"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_location__day_week_string
+msgid "Day Week String"
+msgstr "Niz dan/sedmica"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__12
+msgid "December"
+msgstr "Prosinac"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/boolean_radio.js:0
+msgid "Defines which values comes first."
+msgstr "Definira koje vrijednosti dolaze prve."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__department_color
+msgid "Department Color"
+msgstr "Boja odjela"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "Departure already configured"
+msgstr "Odlazak je već konfigurisan"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee_departure.py:0
+msgid ""
+"Departure date is earlier than the start date of the current contract(s) of "
+"%s."
+msgstr ""
+"Datum odlaska je raniji od datuma početka trenutnog ugovora/ugovora od %s."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__child_count
+msgid "Direct Subordinates Count"
+msgstr "Broj direktnih podrejenih"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__subordinate_ids
+msgid "Direct and indirect subordinates"
+msgstr "Direktni i indirektni podređeni"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__dismissal_date
+msgid "Dismissal Date"
+msgstr "Datum otpuštanja"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__driving_license_name
+msgid "Driving License Name"
+msgstr "Naziv vozačke dozvole"
+
+#. module: hr
+#: code:addons/hr/models/hr_export_mixin.py:0
+msgid "Eligible Employees"
+msgstr "Prihvatljivi zaposleni"
+
+#. module: hr
+#: model:ir.model,name:hr.model_mail_alias
+msgid "Email Alias"
+msgstr "Email alias"
+
+#. module: hr
+#: model:ir.model,name:hr.model_hr_employee_departure
+msgid "Employee Departure"
+msgstr "Odlazak zaposlenog"
+
+#. module: hr
+#: model:ir.model,name:hr.model_hr_employee_location
+msgid "Employee Location"
+msgstr "Lokacija zaposlenog"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__version_id
+msgid "Employee Record"
+msgstr "Zapis zaposlenog"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__versions_count
+msgid "Employee Records Count"
+msgstr "Broj zapisa zaposlenih"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.hr_contract_type_action
+msgid "Employee Types"
+msgstr "Tipovi zaposlenih"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid ""
+"Employee is already configured in a Departure process. \n"
+"Cancel it before configurating a new End of Collaboration."
+msgstr ""
+"Zaposleni je već konfigurisan u procesu odlaska. \n"
+"Otkažite ga prije konfigurisanja novog kraja saradnje."
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Employee's Name (e.g. John Doe, ...)"
+msgstr "Ime zaposlenog (npr. John Doe, ...)"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__departure_reason_id
+msgid "End Reason"
+msgstr "Razlog završetka"
+
+#. module: hr
+#: model:ir.actions.server,name:hr.action_hr_employee_departure
+msgid "End of Collaboration"
+msgstr "Kraj saradnje"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "End of collaboration"
+msgstr "Kraj saradnje"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__mail_activity__technical_usage__hr_expiring_contract
+msgid "Expiring Contract"
+msgstr "Ugovor koji ističe"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__mail_activity__technical_usage__hr_expiring_work_permit
+msgid "Expiring Work Permit"
+msgstr "Radna dozvola koja ističe"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_employee_mixin__export_id
+msgid "Export"
+msgstr "Izvoz"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_export_mixin_list_view
+msgid "Export Employee"
+msgstr "Izvoz zaposlenog"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__export_file
+msgid "Export File"
+msgstr "Izvozna datoteka"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__export_filename
+msgid "Export Filename"
+msgstr "Naziv izvozne datoteke"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__2
+msgid "February"
+msgstr "Veljača"
+
+#. module: hr
+#: model_terms:ir.actions.act_window,help:hr.action_hr_employee_org_chart
+msgid "Find all the information on employees."
+msgstr "Pronađi sve informacije o zaposlenima."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__first_contract_date
+msgid "First Contract Date"
+msgstr "Datum prvog ugovora"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/boolean_radio.js:0
+msgid "First Element"
+msgstr "Prvi element"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__fixed_term
+msgid "Fixed Term"
+msgstr "Određeno vrijeme"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Flexible"
+msgstr "Fleksibilno"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__friday_location_id
+msgid "Friday"
+msgstr "Petak"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__friday_location_id
+msgid "Fridays"
+msgstr "Petkom"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_export_mixin_form_view
+msgid "Generate Export File"
+msgstr "Generiši izvoznu datoteku"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_export_mixin_form_view
+msgid "HR Export"
+msgstr "HR izvoz"
+
+#. module: hr
+#: model:ir.model,name:hr.model_hr_export_employee_mixin
+msgid "HR Export Employee"
+msgstr "HR izvoz zaposlenog"
+
+#. module: hr
+#: model:ir.model,name:hr.model_hr_export_mixin
+msgid "HR Export Mixin"
+msgstr "HR izvoz Mixin"
+
+#. module: hr
+#: model:ir.actions.server,name:hr.ir_cron_apply_departure_ir_actions_server
+msgid "HR: Apply employee departures"
+msgstr "HR: Primijeni odlaske zaposlenih"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__hourly_cost
+msgid "Hourly Cost"
+msgstr "Trošak po satu rada"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__hours_per_day
+msgid "Hours Per Day"
+msgstr "Sati po danu"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__hours_per_week
+msgid "Hours Per Week"
+msgstr "Sati po sedmici"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__hours_per_day
+msgid "Hours per Day"
+msgstr "Sati po danu"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__hours_per_week
+msgid "Hours per Week"
+msgstr "Sati po sedmici"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__id_card_name
+msgid "Id Card Name"
+msgstr "Naziv lične karte"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__child_all_count
+msgid "Indirect Subordinates Count"
+msgstr "Broj indirektnih podređenih"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hr_org_chart.xml:0
+msgid "Indirect subordinates"
+msgstr "Indirektni podrejeni"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__is_subordinate
+msgid "Is Subordinate"
+msgstr "Je podrejeni"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Issued by Government"
+msgstr "Izdato od strane vlade"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__1
+msgid "January"
+msgstr "Siječanj"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__7
+msgid "July"
+msgstr "Srpanj"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__6
+msgid "June"
+msgstr "Lipanj"
+
+#. module: hr
+#: code:addons/hr/static/src/xml/contract_template_button.xml:0
+msgid "Load Contract Template"
+msgstr "Učitaj predložak ugovora"
+
+#. module: hr
+#: code:addons/hr/static/src/xml/contract_template_button.xml:0
+msgid "Load Template"
+msgstr "Učitaj predložak"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_location__work_location_type
+msgid "Location Type"
+msgstr "Tip lokacije"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_location__work_location_name
+msgid "Location name"
+msgstr "Lokacija name"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__3
+msgid "March"
+msgstr "Ožujak"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__5
+msgid "May"
+msgstr "Svibanj"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__member_of_department
+msgid "Member of Department"
+msgstr "Član odjela"
+
+#. module: hr
+#: code:addons/hr/static/src/js/DynamicMinDateTimeField.js:0
+msgid "Minimum Date Field"
+msgstr "Polje minimalnog datuma"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "Modified"
+msgstr "Izmijenjeno"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "Modified from %(start)s to %(end)s"
+msgstr "Izmijenjeno od %(start)s do %(end)s"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "Modified from %s"
+msgstr "Izmijenjeno od %s"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__monday_location_id
+msgid "Monday"
+msgstr "Ponedjeljak"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__monday_location_id
+msgid "Mondays"
+msgstr "Ponedjeljkom"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hr_org_chart.xml:0
+msgid "More managers"
+msgstr "Više voditelja"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__nationality_country_code
+msgid "Nationality"
+msgstr "Nacionalnost"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Not limited"
+msgstr "Neograničeno"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__0
+msgid "Not specified"
+msgstr "Nije navedeno"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_filter
+msgid "Notice Period"
+msgstr "Otkazni rok"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__11
+msgid "November"
+msgstr "Studeni"
+
+#. module: hr
+#: model:hr.employee.type,name:hr.contract_type_seasonal
+msgid "Occasional / Seasonal"
+msgstr "Povremeno / Sezonsko"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__10
+msgid "October"
+msgstr "Listopad"
+
+#. module: hr
+#: model:ir.model.constraint,message:hr.constraint_hr_employee_location_uniq_exceptional_per_day
+msgid ""
+"Only one default work location and one exceptional work location per day per"
+" employee."
+msgstr ""
+"Samo jedna podrazumijevana radna lokacija i jedna izuzetna radna lokacija po"
+" danu po zaposlenom."
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.action_hr_employee_org_chart
+msgid "Org Chart"
+msgstr "Organigram"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Organization Chart"
+msgstr "Organizaciona šema"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__period_start
+msgid "Period Start"
+msgstr "Početak perioda"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_export_mixin__period_stop
+msgid "Period Stop"
+msgstr "Kraj perioda"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_export_mixin_form_view
+msgid "Populate"
+msgstr "Popuni"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form_preferences
+msgid "Private Address & Contact"
+msgstr "Privatna adresa i kontakt"
+
+#. module: hr
+#: code:addons/hr/static/src/js/DynamicMinDateTimeField.js:0
+msgid "Reference another date/datetime field to use as minimum date"
+msgstr ""
+"Referencirajte drugo polje datum/datum-vrijeme za korištenje kao minimalni "
+"datum"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__employee_public_ids
+msgid "Related employee (public)"
+msgstr "Povezani zaposleni (javno)"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__saturday_location_id
+msgid "Saturday"
+msgstr "Subota"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__saturday_location_id
+msgid "Saturdays"
+msgstr "Subotom"
+
+#. module: hr
+#: code:addons/hr/static/src/views/fields/many2many_avatar_employee_field/many2many_avatar_employee_field.js:0
+msgid "Search employee..."
+msgstr "Pretraži zaposlenog..."
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hr_org_chart.xml:0
+msgid "See All"
+msgstr "Pogledaj sve"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_contract_template_form_view
+msgid "Select employee type"
+msgstr "Odaberi tip zaposlenog"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.action_partner_mass_mail
+msgid "Send Email"
+msgstr "Pošalji e-poštu"
+
+#. module: hr
+#: model:ir.model.fields.selection,name:hr.selection__hr_employee__birthday_month__9
+msgid "September"
+msgstr "Rujan"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hr_org_chart.xml:0
+msgid "Set a manager or reports to show in org chart."
+msgstr "Postavite menadžera ili podređene za prikaz u organigramu."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__sex
+msgid "Sex"
+msgstr "Spol"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__birthday_public_display
+msgid "Show Birthday To Employees"
+msgstr "Prikaži rođendane zaposlenima"
+
+#. module: hr
+#: code:addons/hr/static/src/views/hr_employee_hierarchy/hr_employee_hierarchy_renderer.xml:0
+msgid ""
+"Some employees are present in a loop.\n"
+"                Click"
+msgstr ""
+"Neki zaposleni se pojavljuju u petlji.\n"
+"                Kliknite"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__subordinate_ids
+msgid "Subordinates"
+msgstr "Podređeni djelatnici"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__sunday_location_id
+msgid "Sunday"
+msgstr "Nedjelja"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__sunday_location_id
+msgid "Sundays"
+msgstr "Nedjeljom"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hooks.js:0
+msgid "Team"
+msgstr "Tim"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_mail_activity__technical_usage
+msgid "Technical Usage"
+msgstr "Tehnička upotreba"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_mail_activity__technical_usage
+msgid "Technical identifier"
+msgstr "Tehnički identifikator"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "Template for Employees"
+msgstr "Predložak za zaposlene"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee_departure.py:0
+msgid "The apply date isn't reached yet for the departure of %(emp)s."
+msgstr "Datum primjene još nije dostignut za odlazak %(emp)s."
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "The contract of %(employee_name)s is about to expire."
+msgstr "Ugovor zaposlenog %(employee_name)s uskoro ističe."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__first_contract_date
+msgid "The date of the first contract of the employee in the company."
+msgstr "Datum prvog ugovora zaposlenog u kompaniji."
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_departure_view_form
+msgid "The day after departure"
+msgstr "Dan nakon odlaska"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "The departure process has been completed on"
+msgstr "Proces odlaska je završen dana"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__legal_name
+msgid ""
+"The employee's official name as per government-issued or legal documents."
+msgstr "Službeno ime zaposlenog prema državnim ili pravnim dokumentima."
+
+#. module: hr
+#: model:ir.model.constraint,message:hr.constraint_hr_version_check_wage_positive
+msgid "The wage must be a positive value."
+msgstr "Plata mora biti pozitivna vrijednost."
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid "The work permit of %(employee_name)s is about to expire."
+msgstr "Radna dozvola zaposlenog %(employee_name)s uskoro ističe."
+
+#. module: hr
+#: code:addons/hr/models/hr_employee_departure.py:0
+msgid "There is no valid version starting before the departure date for %s."
+msgstr "Ne postoji važeća verzija koja počinje prije datuma odlaska za %s."
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid ""
+"This action will delete the departure entirely. Are you sure you want to "
+"proceed?"
+msgstr ""
+"Ova radnja će u potpunosti obrisati odlazak. Jeste li sigurni da želite "
+"nastaviti?"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee_type.py:0
+msgid ""
+"This employee type is used in another company, you can't modify the country where it's applicable for now.\n"
+"Change the employee type on the employees of the other company to be able to modify this."
+msgstr ""
+"Ovaj tip zaposlenog se koristi u drugoj kompaniji, trenutno ne možete promijeniti zemlju u kojoj je primjenljiv.\n"
+"Promijenite tip zaposlenog na zaposlenima druge kompanije da biste ovo mogli izmijeniti."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__exceptional_location_id
+msgid "This is the exceptional, non-weekly, location set for today."
+msgstr "Ovo je izuzetna, nesedmična, lokacija postavljena za danas."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee__sex
+msgid ""
+"This is the legal sex as recognized by the state, used for official and "
+"statutory purposes."
+msgstr ""
+"Ovo je pravni spol kako ga prepoznaje država, koristi se u službene i "
+"zakonske svrhe."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__thursday_location_id
+msgid "Thursday"
+msgstr "Četvrtak"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__thursday_location_id
+msgid "Thursdays"
+msgstr "Četvrtkom"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__today_location_name
+msgid "Today Location Name"
+msgstr "Naziv današnje lokacije"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hr_org_chart.xml:0
+msgid "Total"
+msgstr "Ukupno"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__tuesday_location_id
+msgid "Tuesday"
+msgstr "Utorak"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__tuesday_location_id
+msgid "Tuesdays"
+msgstr "Utorkom"
+
+#. module: hr
+#: code:addons/hr/static/src/components/hr_presence_status/hr_presence_status.js:0
+msgid "Unspecified"
+msgstr "Nedefinisano"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "User Timezone"
+msgstr "Vremenska zona korisnika"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at home"
+msgstr "Korisnik je kod kuće"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at home and busy"
+msgstr "Korisnik je kod kuće i zauzet"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at home and idle"
+msgstr "Korisnik je kod kuće i neaktivan"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at home and offline"
+msgstr "Korisnik je kod kuće i offline"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at home and online"
+msgstr "Korisnik je kod kuće i online"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at other location"
+msgstr "Korisnik je na drugoj lokaciji"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at other location and busy"
+msgstr "Korisnik je na drugoj lokaciji i zauzet"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at other location and idle"
+msgstr "Korisnik je na drugoj lokaciji i neaktivan"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at other location and offline"
+msgstr "Korisnik je na drugoj lokaciji i offline"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at other location and online"
+msgstr "Korisnik je na drugoj lokaciji i online"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at the office"
+msgstr "Korisnik je u uredu"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at the office and busy"
+msgstr "Korisnik je u uredu i zauzet"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at the office and idle"
+msgstr "Korisnik je u uredu i neaktivan"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at the office and offline"
+msgstr "Korisnik je u uredu i offline"
+
+#. module: hr
+#: code:addons/hr/static/src/core/common/im_status_patch.js:0
+msgid "User is at the office and online"
+msgstr "Korisnik je u uredu i online"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Usual Work Location"
+msgstr "Uobičajena radna lokacija"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Variable Hours"
+msgstr "Varijabilni sati"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_version_list_view
+msgid "View"
+msgstr "Pogledaj"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_contract_type_view_tree
+msgid "View Employees"
+msgstr "Pregled zaposlenih"
+
+#. module: hr
+#: code:addons/hr/static/src/core/web/thread_actions.js:0
+msgid "View Profile"
+msgstr "Pogledaj profil"
+
+#. module: hr
+#: code:addons/hr/static/src/fields/hr_org_chart.xml:0
+msgid "View employee"
+msgstr "Pregled zaposlenog"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__wednesday_location_id
+msgid "Wednesday"
+msgstr "Srijeda"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users__wednesday_location_id
+msgid "Wednesdays"
+msgstr "Srijedom"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_filter
+msgid "Work location"
+msgstr "Radna lokacija"
+
+#. module: hr
+#: model:ir.ui.menu,name:hr.menu_config_working_times
+msgid "Working Times"
+msgstr "Radno vrijeme"
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid ""
+"You are not allowed to access \"Employee\" (hr.employee) records.\n"
+"    We can redirect you to the public employee list."
+msgstr ""
+"Nemate dozvolu za pristup zapisima \"Zaposleni\" (hr.employee).\n"
+"    Možemo vas preusmjeriti na javnu listu zaposlenih."
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid ""
+"You can't end the collaboration of an employee without contract, archive it "
+"instead."
+msgstr ""
+"Ne možete završiti saradnju zaposlenog bez ugovora, umjesto toga ga "
+"arhivirajte."
+
+#. module: hr
+#: code:addons/hr/models/hr_employee.py:0
+msgid ""
+"You can't modify the departure of an employee that has already departed."
+msgstr "Ne možete izmijeniti odlazak zaposlenog koji je već otišao."
+
+#. module: hr
+#: code:addons/hr/models/hr_work_location.py:0
+msgid "You cannot delete locations that are being used by your employees"
+msgstr "Ne možete obrisati lokacije koje koriste vaši zaposleni"
+
+#. module: hr
+#: code:addons/hr/models/hr_export_mixin.py:0
+msgid "You must be logged in a %(country_code)s company to use this feature"
+msgstr ""
+"Morate biti prijavljeni u kompaniji %(country_code)s da biste koristili ovu "
+"funkciju"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "e.g. 1234"
+msgstr "npr. 1234"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+msgid "e.g. Engineering, Commerce, Business Administration, ..."
+msgstr "npr. Inženjerstvo, Trgovina, Poslovna administracija, ..."
+
+#. module: hr
+#: code:addons/hr/static/src/views/hr_employee_hierarchy/hr_employee_hierarchy_renderer.xml:0
+msgid "here"
+msgstr "ovdje"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_hierarchy_view
+msgid "people"
+msgstr "osoba"
+
+#. module: hr
+#: code:addons/hr/static/src/views/hr_employee_hierarchy/hr_employee_hierarchy_renderer.xml:0
+msgid "to see those employees."
+msgstr "za pregled tih zaposlenih."
