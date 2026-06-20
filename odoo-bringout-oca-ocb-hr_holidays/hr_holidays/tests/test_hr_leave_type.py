@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from datetime import datetime
+from datetime import date
 from dateutil.relativedelta import relativedelta
 
 from odoo.exceptions import AccessError
+from odoo.tools import date_utils
 
 from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
@@ -18,13 +19,13 @@ class TestHrLeaveType(TestHrHolidaysCommon):
             'requires_allocation': 'no',
         })
 
+        leave_date = date_utils.start_of((date.today() - relativedelta(days=1)), 'week')
         leave_1 = self.env['hr.leave'].create({
             'name': 'Doctor Appointment',
             'employee_id': self.employee_hruser_id,
             'holiday_status_id': leave_type.id,
-            'date_from': (datetime.today() - relativedelta(days=1)),
-            'date_to': datetime.today(),
-            'number_of_days': 1,
+            'request_date_from': leave_date,
+            'request_date_to': leave_date,
         })
         leave_1.action_approve()
 
@@ -71,3 +72,28 @@ class TestHrLeaveType(TestHrHolidaysCommon):
             ).search([('has_valid_allocation', '=', True)], limit=1)
 
         self.assertFalse(leave_types, "Got valid leaves outside vaild period")
+
+    def test_allocation_stats_with_duplicate_leave_type_names(self):
+        """ Test that allocation stats do not clash when multiple leave types share the same name """
+        employee_id = self.employee_emp_id
+        leave_type_no_comp, leave_type_comp = self.env['hr.leave.type'].create([
+            {
+                'name': 'Generic Leave',
+                'company_id': False,
+                'requires_allocation': 'yes',
+            },
+            {
+                'name': 'Generic Leave',
+                'company_id': self.company.id,
+                'requires_allocation': 'yes',
+            }
+        ])
+        self.env['hr.leave.allocation'].create({
+            'state': 'confirm',
+            'holiday_status_id': leave_type_no_comp.id,
+            'employee_id': employee_id,
+            'number_of_days': 10,
+            'date_from': date.today(),
+        }).action_validate()
+        self.assertEqual(leave_type_comp.with_context(employee_id=employee_id).max_leaves, 0)
+        self.assertEqual(leave_type_no_comp.with_context(employee_id=employee_id).max_leaves, 10)

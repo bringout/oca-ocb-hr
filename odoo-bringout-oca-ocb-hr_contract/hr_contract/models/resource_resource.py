@@ -5,7 +5,7 @@ from datetime import datetime
 from pytz import timezone
 
 from odoo import models
-from odoo.addons.resource.models.resource import Intervals
+from odoo.addons.resource.models.utils import Intervals
 
 class ResourceResource(models.Model):
     _inherit = 'resource.resource'
@@ -17,7 +17,7 @@ class ResourceResource(models.Model):
         calendars_within_period_per_resource = defaultdict(lambda: defaultdict(Intervals))  # keys are [resource id:integer][calendar:self.env['resource.calendar']]
         # Employees that have ever had an active contract
         employee_ids_with_active_contracts = {
-            contract['employee_id'][0] for contract in
+            employee.id for [employee] in
             self.env['hr.contract']._read_group(
                 domain=[
                     ('employee_id', 'in', self.employee_id.ids),
@@ -25,7 +25,7 @@ class ResourceResource(models.Model):
                     '|', ('state', '=', 'close'),
                          '&', ('state', '=', 'draft'), ('kanban_state', '=', 'done')
                 ],
-                fields=['employee_id'], groupby=['employee_id']
+                groupby=['employee_id'],
             )
         }
         resource_without_contract = self.filtered(
@@ -54,3 +54,11 @@ class ResourceResource(models.Model):
                 self.env['resource.calendar.attendance']
             )])
         return calendars_within_period_per_resource
+
+    def _get_calendar_at(self, date_target, tz=False):
+        result = super()._get_calendar_at(date_target)
+        resources_with_employee = self.filtered(lambda r: r.employee_id)
+        employee_calendars = resources_with_employee.employee_id._get_calendars(date_target.astimezone(tz))
+        for resource in resources_with_employee:
+            result[resource] = employee_calendars[resource.employee_id.id]
+        return result

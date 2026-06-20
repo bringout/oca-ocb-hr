@@ -1,36 +1,34 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* hr_timesheet_attendance
-# 
-# Translators:
-# Martin Trigaux, 2023
-# sackda chanthasombath, 2023
-# Phoxaysy Sengchanthanouvong <phoxaysy@gmail.com>, 2023
-# ສີສຸວັນ ສັງບົວບຸລົມ <sisouvan@gmail.com>, 2023
-# 
+# * hr_timesheet_attendance
+#
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
+# Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-20 09:02+0000\n"
-"PO-Revision-Date: 2022-09-22 05:52+0000\n"
-"Last-Translator: ສີສຸວັນ ສັງບົວບຸລົມ <sisouvan@gmail.com>, 2023\n"
-"Language-Team: Lao (https://app.transifex.com/odoo/teams/41243/lo/)\n"
+"POT-Creation-Date: 2023-05-16 13:49+0000\n"
+"PO-Revision-Date: 2026-06-06 12:19+0000\n"
+"Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-18/"
+"hr_timesheet_attendance/lo/>\n"
+"Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: lo\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__attendance_cost
 msgid "Attendance Cost"
-msgstr ""
+msgstr "ຕົ້ນທຶນການລົງເວລາ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__total_attendance
 msgid "Attendance Hours"
-msgstr ""
+msgstr "ຊົ່ວໂມງການລົງເວລາ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__company_id
@@ -40,12 +38,12 @@ msgstr "ບໍລິສັດ"
 #. module: hr_timesheet_attendance
 #: model_terms:ir.actions.act_window,help:hr_timesheet_attendance.action_hr_timesheet_attendance_report
 msgid "Compare the time recorded by your employees with their attendance."
-msgstr ""
+msgstr "ສົມທຽບເວລາທີ່ພະນັກງານຂອງທ່ານບັນທຶກໄວ້ ກັບການລົງເວລາຕົວຈິງຂອງພວກເຂົາ."
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__cost_difference
 msgid "Cost Difference"
-msgstr ""
+msgstr "ສ່ວນຕ່າງຕົ້ນທຶນ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__date
@@ -56,7 +54,7 @@ msgstr "ວັນທີ"
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__display_name
 msgid "Display Name"
-msgstr "ຊື່ເຕັມ"
+msgstr "ຊື່ທີ່ສະແດງ"
 
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
@@ -66,48 +64,47 @@ msgstr "ພະນັກງານ"
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__total_difference
 msgid "Hours Difference"
-msgstr ""
+msgstr "ສ່ວນຕ່າງຊົ່ວໂມງ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__id
 msgid "ID"
-msgstr "ເລກລຳດັບ"
-
-#. module: hr_timesheet_attendance
-#: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report____last_update
-msgid "Last Modified on"
-msgstr "ແກ້ໄຂລ້າສຸດເມື່ອ"
+msgstr "ລະຫັດ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model,name:hr_timesheet_attendance.model_ir_ui_menu
 msgid "Menu"
-msgstr "ລາຍການຄຳສັ່ງ"
+msgstr "ເມນູ"
+
+#. module: hr_timesheet_attendance
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
+msgid "My Department"
+msgstr "ພະແນກຂອງຂ້ອຍ"
+
+#. module: hr_timesheet_attendance
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
+msgid "My Team"
+msgstr "ທີມຂອງຂ້ອຍ"
 
 #. module: hr_timesheet_attendance
 #: model_terms:ir.actions.act_window,help:hr_timesheet_attendance.action_hr_timesheet_attendance_report
 msgid "No data yet!"
-msgstr ""
+msgstr "ຍັງບໍ່ມີຂໍ້ມູນ!"
 
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
 msgid "Sum of Total Attendance"
-msgstr ""
+msgstr "ຜົນລວມການລົງເວລາທັງໝົດ"
 
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
 msgid "Sum of Total Difference"
-msgstr ""
+msgstr "ຜົນລວມສ່ວນຕ່າງທັງໝົດ"
 
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_tree
 msgid "Sum of Total Timesheet"
-msgstr ""
-
-#. module: hr_timesheet_attendance
-#: model:ir.actions.act_window,name:hr_timesheet_attendance.action_hr_timesheet_attendance_report
-#: model:ir.ui.menu,name:hr_timesheet_attendance.menu_hr_timesheet_attendance_report
-msgid "Timesheet / Attendance"
-msgstr ""
+msgstr "ຜົນລວມໃບບັນທຶກເວລາທັງໝົດ"
 
 #. module: hr_timesheet_attendance
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.hr_timesheet_attendance_report_view_graph
@@ -115,22 +112,28 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_pivot
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance.view_hr_timesheet_attendance_report_search
 msgid "Timesheet Attendance"
-msgstr ""
+msgstr "ການລົງເວລາໃນໃບບັນທຶກເວລາ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model,name:hr_timesheet_attendance.model_hr_timesheet_attendance_report
 msgid "Timesheet Attendance Report"
-msgstr ""
+msgstr "ລາຍງານການລົງເວລາໃນໃບບັນທຶກເວລາ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__timesheets_cost
 msgid "Timesheet Cost"
-msgstr ""
+msgstr "ຕົ້ນທຶນໃບບັນທຶກເວລາ"
+
+#. module: hr_timesheet_attendance
+#: model:ir.actions.act_window,name:hr_timesheet_attendance.action_hr_timesheet_attendance_report
+#: model:ir.ui.menu,name:hr_timesheet_attendance.menu_hr_timesheet_attendance_report
+msgid "Timesheets / Attendance Analysis"
+msgstr "ການວິເຄາະ ໃບບັນທຶກເວລາ / ການລົງເວລາ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__total_timesheet
 msgid "Timesheets Hours"
-msgstr ""
+msgstr "ຊົ່ວໂມງໃບບັນທຶກເວລາ"
 
 #. module: hr_timesheet_attendance
 #: model:ir.model.fields,field_description:hr_timesheet_attendance.field_hr_timesheet_attendance_report__user_id

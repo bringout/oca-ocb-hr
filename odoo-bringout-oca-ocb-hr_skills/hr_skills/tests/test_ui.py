@@ -1,9 +1,12 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import odoo.tests
+from odoo.tools import mute_logger
 
 @odoo.tests.tagged('-at_install', 'post_install')
 class SkillsTestUI(odoo.tests.HttpCase):
+
+    @mute_logger('odoo.http', 'odoo.sql_db')
     def test_ui(self):
         levels = self.env['hr.skill.level'].create([{
             'name': f'Level {x}',
@@ -21,4 +24,4 @@ class SkillsTestUI(odoo.tests.HttpCase):
             'skill_type_id': skill_type.id,
         }])
 
-        self.start_tour("/web", 'hr_skills_tour', login='admin')
+        self.start_tour("/odoo", 'hr_skills_tour', login='admin')
