@@ -1,28 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* hr_work_entry_contract
-# 
+#
 # Translators:
 # Hamed Mohammadi <hamed@dehongi.com>, 2023
 # سید محمد آذربرا <mohammadazarbara98@gmail.com>, 2023
+# Martin Trigaux, 2023
 # Hamid Darabi, 2023
+# Yousef Shadmanesh <y.shadmanesh@gmail.com>, 2023
 # F Hariri <fhari1234@gmail.com>, 2023
 # Hanna Kheradroosta, 2023
-# Martin Trigaux, 2023
 # Mostafa Barmshory <mostafa.barmshory@gmail.com>, 2024
-# 
+# Dynamic Business Group, 2024
+# Naser mars, 2025
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 05:51+0000\n"
-"PO-Revision-Date: 2022-09-22 05:52+0000\n"
-"Last-Translator: Mostafa Barmshory <mostafa.barmshory@gmail.com>, 2024\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
+"Last-Translator: Naser mars, 2025\n"
 "Language-Team: Persian (https://app.transifex.com/odoo/teams/41243/fa/)\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_work_entry_contract
@@ -32,16 +35,21 @@ msgid ""
 "\n"
 "        Defines the source for work entries generation\n"
 "\n"
-"        Working Schedule: Work entries will be generated from the working hours below.\n"
-"        Attendances: Work entries will be generated from the employee's attendances. (requires Attendance app)\n"
-"        Planning: Work entries will be generated from the employee's planning. (requires Planning app)\n"
+"        Working Schedule: Work entries will be generated from the working "
+"hours below.\n"
+"        Attendances: Work entries will be generated from the employee's "
+"attendances. (requires Attendance app)\n"
+"        Planning: Work entries will be generated from the employee's "
+"planning. (requires Planning app)\n"
 "    "
 msgstr ""
 "تشریح منبع ایجاد ورودی‌های کار\n"
 "\n"
 "برنامه زمانی کاری: ورودی‌های کار از ساعات کاری زیر تولید می‌شوند.\n"
-"حضور و غیاب: ورودی‌های کار از حضور و غیاب کارمند تولید خواهند شد. (نیازمند برنامه حضور و غیاب)\n"
-"برنامه‌ریزی: ورودی‌های کار از برنامه‌ریزی کارمند تولید خواهند شد. (نیازمند برنامه برنامه‌ریزی)"
+"حضور و غیاب: ورودی‌های کار از حضور و غیاب کارمند تولید خواهند شد. (نیازمند "
+"برنامه حضور و غیاب)\n"
+"برنامه‌ریزی: ورودی‌های کار از برنامه‌ریزی کارمند تولید خواهند شد. (نیازمند "
+"برنامه برنامه‌ریزی)"
 
 #. module: hr_work_entry_contract
 #. odoo-python
@@ -67,17 +75,13 @@ msgid ""
 "<i class=\"fa fa-exclamation-triangle me-1\" title=\"Warning\"/>You are not "
 "allowed to regenerate validated work entries"
 msgstr ""
-"```html\n"
-"<i class=\"fa fa-exclamation-triangle me-1\" title=\"هشدار\"/>شما مجاز به بازسازی مجدد ورودی‌های کاری تایید شده نیستید\n"
-"```"
+"<i class=\"fa fa-exclamation-triangle me-1\" title=\"Warning\"/>شما مجاز به "
+"بازسازی مجدد ورودی‌های کاری تایید شده نیستید"
 
 #. module: hr_work_entry_contract
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_contract.hr_work_entry_regeneration_wizard
 msgid "<i class=\"fa fa-info-circle me-1\" title=\"Hint\"/>"
-msgstr ""
-"```html\n"
-"<i class=\"fa fa-info-circle me-1\" title=\"راهنما\"/>\n"
-"```"
+msgstr "<i class=\"fa fa-info-circle me-1\" title=\"راهنما\"/>"
 
 #. module: hr_work_entry_contract
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_contract.hr_work_entry_regeneration_wizard
@@ -121,7 +125,7 @@ msgstr "ایجادشده در"
 #. module: hr_work_entry_contract
 #: model:ir.model.fields,field_description:hr_work_entry_contract.field_hr_work_entry_regeneration_wizard__display_name
 msgid "Display Name"
-msgstr "نام نمایشی"
+msgstr "نام نمایش داده شده"
 
 #. module: hr_work_entry_contract
 #: model:ir.model.fields,field_description:hr_work_entry_contract.field_hr_work_entry_regeneration_wizard__earliest_available_date_message
@@ -168,7 +172,6 @@ msgstr "از"
 
 #. module: hr_work_entry_contract
 #: model:ir.actions.server,name:hr_work_entry_contract.ir_cron_generate_missing_work_entries_ir_actions_server
-#: model:ir.cron,cron_name:hr_work_entry_contract.ir_cron_generate_missing_work_entries
 msgid "Generate Missing Work Entries"
 msgstr "ورودی‌های کاری از دست‌رفته را تولید کن"
 
@@ -212,8 +215,8 @@ msgstr "شناسه"
 #: code:addons/hr_work_entry_contract/wizard/hr_work_entry_regeneration_wizard.py:0
 #, python-format
 msgid ""
-"In order to regenerate the work entries, you need to provide the wizard with"
-" an employee_id, a date_from and a date_to. In addition to that, the time "
+"In order to regenerate the work entries, you need to provide the wizard with "
+"an employee_id, a date_from and a date_to. In addition to that, the time "
 "interval defined by date_from and date_to must not contain any validated "
 "work entries."
 msgstr ""
@@ -227,14 +230,9 @@ msgid "Last Generation Date"
 msgstr "تاریخ تولید آخرین"
 
 #. module: hr_work_entry_contract
-#: model:ir.model.fields,field_description:hr_work_entry_contract.field_hr_work_entry_regeneration_wizard____last_update
-msgid "Last Modified on"
-msgstr "آخرین اصلاح در"
-
-#. module: hr_work_entry_contract
 #: model:ir.model.fields,field_description:hr_work_entry_contract.field_hr_work_entry_regeneration_wizard__write_uid
 msgid "Last Updated by"
-msgstr "آخرین تغییر توسط"
+msgstr "آخرین بروز رسانی توسط"
 
 #. module: hr_work_entry_contract
 #: model:ir.model.fields,field_description:hr_work_entry_contract.field_hr_work_entry_regeneration_wizard__write_date
@@ -269,12 +267,16 @@ msgstr "بازسازی سندهای کارکرد کارمند"
 
 #. module: hr_work_entry_contract
 #. odoo-javascript
-#: code:addons/hr_work_entry_contract/static/src/js/work_entries_controller_mixin.js:0
 #: code:addons/hr_work_entry_contract/static/src/views/work_entry_calendar/work_entry_calendar.xml:0
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_contract.hr_work_entry_regeneration_wizard
 #, python-format
 msgid "Regenerate Work Entries"
 msgstr "بازسازی سند کارکرد"
+
+#. module: hr_work_entry_contract
+#: model:ir.model,name:hr_work_entry_contract.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "زمان کار منابع"
 
 #. module: hr_work_entry_contract
 #: model:ir.model.fields,field_description:hr_work_entry_contract.field_hr_work_entry_regeneration_wizard__search_criteria_completed
@@ -290,8 +292,7 @@ msgstr "مرخصی استعلاجی"
 #. odoo-python
 #: code:addons/hr_work_entry_contract/models/hr_contract.py:0
 #, python-format
-msgid ""
-"Sorry, generating work entries from cancelled contracts is not allowed."
+msgid "Sorry, generating work entries from cancelled contracts is not allowed."
 msgstr "متأسفیم، ایجاد ورودی‌های کار از قراردادهای لغو شده مجاز نیست."
 
 #. module: hr_work_entry_contract

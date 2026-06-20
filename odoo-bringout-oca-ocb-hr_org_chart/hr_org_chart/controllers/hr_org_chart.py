@@ -12,8 +12,9 @@ class HrOrgChartController(http.Controller):
     def _check_employee(self, employee_id, **kw):
         employee_id = int(employee_id) if employee_id else False
 
-        if 'allowed_company_ids' in request.env.context:
-            cids = request.env.context['allowed_company_ids']
+        context = kw.get('context', request.env.context)
+        if 'allowed_company_ids' in context:
+            cids = context['allowed_company_ids']
         else:
             cids = [request.env.company.id]
 
@@ -50,7 +51,7 @@ class HrOrgChartController(http.Controller):
     @http.route('/hr/get_org_chart', type='json', auth='user')
     def get_org_chart(self, employee_id, **kw):
         employee = self._check_employee(employee_id, **kw)
-        new_parent_id = request.env.context.get('new_parent_id', None)
+        new_parent_id = kw.get('context')['new_parent_id']
         new_parent = self._check_employee(new_parent_id, **kw)
         if not employee:  # to check
             return {
@@ -61,7 +62,7 @@ class HrOrgChartController(http.Controller):
         # compute employee data for org chart
         ancestors, current = request.env['hr.employee.public'].sudo(), employee.sudo()
         current_parent = new_parent if new_parent_id is not None else current.parent_id
-        max_level = (request.env.context.get('max_level', None) or self._managers_level) + 1
+        max_level = (kw.get('context')['max_level'] or self._managers_level) + 1
         while current_parent and current != current_parent and employee.sudo() != current_parent and len(ancestors) < max_level:
             current = current_parent
             current_parent = current.parent_id if current != employee or not new_parent else new_parent

@@ -1,27 +1,29 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* hr_holidays_attendance
-# 
+#
 # Translators:
-# Foldi Robert <foldirobert@nexterp.ro>, 2022
-# Dorin Hongu <dhongu@gmail.com>, 2023
 # Martin Trigaux, 2024
+# Foldi Robert <foldirobert@nexterp.ro>, 2024
+# Cozmin Candea <office@terrabit.ro>, 2024
+# Dorin Hongu <dhongu@gmail.com>, 2024
 # Betty Keresztesi, 2024
 # Larisa_nexterp, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 09:16+0000\n"
-"PO-Revision-Date: 2022-09-22 05:46+0000\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Larisa_nexterp, 2025\n"
 "Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
 
 #. module: hr_holidays_attendance
 #. odoo-python
@@ -31,9 +33,19 @@ msgid "%s hours available"
 msgstr "%s ore disponibile"
 
 #. module: hr_holidays_attendance
+#: model:ir.model,name:hr_holidays_attendance.model_hr_leave_accrual_level
+msgid "Accrual Plan Level"
+msgstr "Nivel plan acumulat"
+
+#. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_attendance
 msgid "Attendance"
 msgstr "Prezență"
+
+#. module: hr_holidays_attendance
+#: model:ir.model.fields.selection,name:hr_holidays_attendance.selection__hr_leave_accrual_level__frequency_hourly_source__attendance
+msgid "Attendances"
+msgstr "Prezențe"
 
 #. module: hr_holidays_attendance
 #. odoo-javascript
@@ -41,6 +53,11 @@ msgstr "Prezență"
 #, python-format
 msgid "Available"
 msgstr "Disponibil"
+
+#. module: hr_holidays_attendance
+#: model:ir.model.fields.selection,name:hr_holidays_attendance.selection__hr_leave_accrual_level__frequency_hourly_source__calendar
+msgid "Calendar"
+msgstr "Calendar"
 
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_res_company
@@ -85,6 +102,11 @@ msgid "Extra Hours Available"
 msgstr "Ore suplimentare disponibile"
 
 #. module: hr_holidays_attendance
+#: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave_accrual_level__frequency_hourly_source
+msgid "Frequency Hourly Source"
+msgstr "Sursă frecvență orară"
+
+#. module: hr_holidays_attendance
 #. odoo-javascript
 #: code:addons/hr_holidays_attendance/static/src/xml/time_off_calendar.xml:0
 #, python-format
@@ -97,6 +119,19 @@ msgid "Hr Attendance Overtime"
 msgstr "Hr Prezență Ore suplimentare"
 
 #. module: hr_holidays_attendance
+#: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_accrual_level__frequency_hourly_source
+msgid ""
+"If the source is set to Calendar, the amount of worked hours will be "
+"computed from employee calendar and time off (if the plan is based on worked "
+"time). Otherwise, the amount of worked hours will be based on Attendance "
+"records."
+msgstr ""
+"Dacă sursa este setată la Calendar, numărul de ore lucrate va fi calculat "
+"din calendarul și timpul liber al angajatului (dacă planul se bazează pe "
+"timpul lucrat). În caz contrar, cantitatea de ore lucrate se va calcula pe "
+"baza înregistrărilor de prezență."
+
+#. module: hr_holidays_attendance
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_allocation_overtime_action
 #: model:ir.actions.act_window,name:hr_holidays_attendance.hr_leave_allocation_overtime_manager_action
 msgid "New Allocation Request"
@@ -105,8 +140,8 @@ msgstr "Cerere Alocare Nouă"
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,help:hr_holidays_attendance.field_hr_leave_type__overtime_deductible
 msgid ""
-"Once a time off of this type is approved, extra hours in attendances will be"
-" deducted."
+"Once a time off of this type is approved, extra hours in attendances will be "
+"deducted."
 msgstr ""
 "Odată ce un astfel de timp liber este aprobat, orele suplimentare de "
 "prezență vor fi deduse."
@@ -139,6 +174,11 @@ msgid "Save"
 msgstr "Salvează"
 
 #. module: hr_holidays_attendance
+#: model_terms:ir.ui.view,arch_db:hr_holidays_attendance.hr_leave_accrual_level_view_form
+msgid "Source"
+msgstr "Sursa"
+
+#. module: hr_holidays_attendance
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
 #, python-format
@@ -159,14 +199,6 @@ msgstr ""
 
 #. module: hr_holidays_attendance
 #. odoo-python
-#: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
-#, python-format
-msgid ""
-"The employee does not have enough extra hours to request this allocation."
-msgstr ""
-
-#. module: hr_holidays_attendance
-#. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave.py:0
 #, python-format
 msgid "The employee does not have enough extra hours to request this leave."
@@ -178,8 +210,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/hr_holidays_attendance/models/hr_leave_allocation.py:0
 #, python-format
-msgid ""
-"The employee does not have enough overtime hours to request this leave."
+msgid "The employee does not have enough overtime hours to request this leave."
 msgstr ""
 "Angajatul nu are suficiente ore suplimentare pentru a solicita acest "
 "concediu."
@@ -197,7 +228,7 @@ msgstr "Alocare Concediu"
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_hr_leave_type
 msgid "Time Off Type"
-msgstr "Tip Conediu"
+msgstr "Tip Concediu"
 
 #. module: hr_holidays_attendance
 #: model:ir.model.fields,field_description:hr_holidays_attendance.field_hr_leave__employee_overtime
@@ -208,7 +239,7 @@ msgstr "Timp suplimentar total"
 #. module: hr_holidays_attendance
 #: model:ir.model,name:hr_holidays_attendance.model_res_users
 msgid "User"
-msgstr "Operator"
+msgstr "Utilizator"
 
 #. module: hr_holidays_attendance
 #. odoo-python

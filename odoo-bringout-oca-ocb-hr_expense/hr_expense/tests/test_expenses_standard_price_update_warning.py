@@ -73,7 +73,4 @@ class TestExpenseStandardPriceUpdateWarning(TestExpenseCommon):
             'total_amount': 1,
         })
 
-        # Having expensed and not expensed product in a recordset can cause a key error in the compute
-        # as it looks for the product's origin id in the mapp dict, wich doesn't exists if the product
-        # wasn't expensed.
         (self.product_expensed | self.product_not_expensed)._compute_standard_price_update_warning()

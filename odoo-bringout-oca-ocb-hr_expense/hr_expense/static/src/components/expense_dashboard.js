@@ -2,8 +2,7 @@
 
 import { useService } from '@web/core/utils/hooks';
 import { formatMonetary } from "@web/views/fields/formatters";
-
-const { Component, onWillStart, useState } = owl;
+import { Component, onWillStart, useState } from "@odoo/owl";
 
 export class ExpenseDashboard extends Component {
 

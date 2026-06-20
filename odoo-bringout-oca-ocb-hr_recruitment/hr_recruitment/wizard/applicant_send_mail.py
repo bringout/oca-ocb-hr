@@ -8,7 +8,7 @@ class ApplicantSendMail(models.TransientModel):
     _inherit = 'mail.composer.mixin'
     _description = 'Send mails to applicants'
 
-    applicant_ids = fields.Many2many('hr.applicant', string='Applications', required=True)
+    applicant_ids = fields.Many2many('hr.applicant', string='Applications', required=True, context={'active_test': False})
     author_id = fields.Many2one('res.partner', 'Author', required=True, default=lambda self: self.env.user.partner_id.id)
 
     @api.depends('subject')
@@ -40,7 +40,6 @@ class ApplicantSendMail(models.TransientModel):
             if not applicant.partner_id:
                 applicant.partner_id = self.env['res.partner'].create({
                     'is_company': False,
-                    'type': 'private',
                     'name': applicant.partner_name,
                     'email': applicant.email_from,
                     'phone': applicant.partner_phone,
@@ -48,10 +47,10 @@ class ApplicantSendMail(models.TransientModel):
                 })
 
             applicant.message_post(
-                subject=subjects[applicant.id],
+                author_id=self.author_id.id,
                 body=bodies[applicant.id],
-                message_type='comment',
-                email_from=self.author_id.email,
                 email_layout_xmlid='mail.mail_notification_light',
+                message_type='comment',
                 partner_ids=applicant.partner_id.ids,
+                subject=subjects[applicant.id],
             )

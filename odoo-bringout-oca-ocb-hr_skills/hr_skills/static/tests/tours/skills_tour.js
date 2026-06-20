@@ -1,12 +1,13 @@
 /** @odoo-module **/
 
-import tour from 'web_tour.tour';
+import { registry } from "@web/core/registry";
+import { stepUtils } from "@web_tour/tour_service/tour_utils";
 
-tour.register('hr_skills_tour', {
+registry.category("web_tour.tours").add('hr_skills_tour', {
     test: true,
     url: '/web',
-}, [
-    tour.stepUtils.showAppsMenuItem(),
+    steps: () => [
+    stepUtils.showAppsMenuItem(),
     {
         content: "Open Employees app",
         trigger: ".o_app[data-menu-xmlid='hr.menu_hr_root']",
@@ -23,6 +24,11 @@ tour.register('hr_skills_tour', {
     {
         content: "Save",
         trigger: ".o_form_button_save",
+    },
+    {
+        content: "Open the Resume tab",
+        trigger: ".o_notebook_headers a.nav-link[name='skills_resume']",
+        run: "click",
     },
     {
         content: "Add a new Resume experience",
@@ -72,7 +78,7 @@ tour.register('hr_skills_tour', {
     },
     {
         content: "Add a new Skill",
-        trigger: ".o_field_skills_one2many button:contains('Create a new entry')",
+        trigger: ".o_field_skills_one2many button:contains('Pick a skill from the list')",
     },
     {
         content: "Select Music",
@@ -106,6 +112,11 @@ tour.register('hr_skills_tour', {
         run: "click",
     },
     {
+        content: "Check if item is added",
+        trigger: ".o_data_row td.o_data_cell:contains('Fortunate Son')",
+        run: () => {},
+    },
+    {
         content: "Add a new Skill",
         trigger: ".o_field_skills_one2many button:contains('ADD')",
     },
@@ -135,13 +146,49 @@ tour.register('hr_skills_tour', {
         in_modal: true,
         run: "click",
     },
-    ...tour.stepUtils.saveForm({
-        content: "save Form",
-        extra_trigger: 'td:containsExact("Oh Mary")',
-    }),
     {
-        content: "Go back to employees",
-        trigger: 'a[data-menu-xmlid="hr.menu_hr_root"]',
+        content: "Check if item is added",
+        trigger: ".o_data_row td.o_data_cell:contains('Oh Mary')",
+        run: () => {},
+    },
+    {
+        content: "Add a new Skill",
+        trigger: ".o_field_skills_one2many button:contains('ADD')",
+    },
+    {
+        content: "Select a song",
+        trigger: ".o_field_widget[name='skill_id'] input",
+        run: "text Mary",
+    },
+    {
+        content: "Choose the song",
+        trigger: '.ui-autocomplete .ui-menu-item a:contains("Oh Mary")',
         run: "click",
-    }
-]);
+    },
+    {
+        content: "Save new skill",
+        trigger: ".o_form_button_save",
+        in_modal: true,
+        run: "click",
+    },
+    {
+        content: "Close validation error popup",
+        trigger: ".o_error_dialog .modal-footer .btn-primary",
+        run: "click",
+    },
+    {
+        content: "Close skill dialog",
+        trigger: ".modal-header .btn-close",
+        run: "click",
+    },
+    {
+        content: "Check that no duplicate skill was added",
+        trigger: ".o_data_row td.o_data_cell:contains('Oh Mary')",
+        run: function() {
+            if ($(".o_data_row td.o_data_cell:contains('Fortunate Son')").length !== 1) {
+                console.error("Duplicate skill was added while having validation error");
+            }
+        },
+    },
+    ...stepUtils.saveForm(),
+]});

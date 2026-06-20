@@ -1,46 +1,49 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* hr_presence
-# 
+#
 # Translators:
-# Martin Trigaux, 2022
-# Tim Siu Lai <tl@roomsfor.hk>, 2022
-# Andy Yiu, 2022
-# Ryoko Tsuda <ryoko@quartile.co>, 2023
-# Junko Augias, 2023
+# Ryoko Tsuda <ryoko@quartile.co>, 2024
 # Wil Odoo, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 18:35+0000\n"
-"PO-Revision-Date: 2022-09-22 05:52+0000\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Wil Odoo, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: hr_presence
 #: model:mail.template,body_html:hr_presence.mail_template_presence
 msgid ""
 "<div>\n"
-"                    Dear <t t-out=\"object.name or ''\">Abigail Peterson</t>,<br><br>\n"
-"                    Exception made if there was a mistake of ours, it seems that you are not at your office and there is not request of time off from you.<br>\n"
-"                    Please, take appropriate measures in order to carry out this work absence.<br>\n"
-"                    Do not hesitate to contact your manager or the human resource department.\n"
+"                    Dear <t t-out=\"object.name or ''\">Abigail Peterson</t>,"
+"<br><br>\n"
+"                    Exception made if there was a mistake of ours, it seems "
+"that you are not at your office and there is not request of time off from "
+"you.<br>\n"
+"                    Please, take appropriate measures in order to carry out "
+"this work absence.<br>\n"
+"                    Do not hesitate to contact your manager or the human "
+"resource department.\n"
 "                    <br>Best Regards,<br><br>\n"
 "                </div>\n"
 "            "
 msgstr ""
 "<div>\n"
-"                     <t t-out=\"object.name or ''\">Abigail Peterson</t>様、<br><br>\n"
-"                    こちらの間違いである場合を除き、あなたは出勤しておらず、休暇申請もされていません。<br>\n"
+"                     <t t-out=\"object.name or ''\">Abigail Peterson</t>様、"
+"<br><br>\n"
+"                    こちらの間違いである場合を除き、あなたは出勤しておらず、"
+"休暇申請もされていません。<br>\n"
 "                    この欠勤に対して、必要な処理をして下さい。<br>\n"
-"                    必要な場合は、マネージャーまたは人事部にお問合せ下さい。\n"
+"                    必要な場合は、マネージャーまたは人事部にご連絡下さい。\n"
 "                    <br>宜しくお願い致します。<br><br>\n"
 "                </div>\n"
 "            "
@@ -48,7 +51,7 @@ msgstr ""
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_presence_search
 msgid "Absence/Presence"
-msgstr "不在 / 出社"
+msgstr "不在 / 出勤"
 
 #. module: hr_presence
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__absent
@@ -114,17 +117,18 @@ msgstr "従業員"
 #: model:sms.template,body:hr_presence.sms_template_data_hr_presence
 #, python-format
 msgid ""
-"Exception made if there was a mistake of ours, it seems that you are not at your office and there is not request of time off from you.\n"
+"Exception made if there was a mistake of ours, it seems that you are not at "
+"your office and there is not request of time off from you.\n"
 "Please, take appropriate measures in order to carry out this work absence.\n"
 "Do not hesitate to contact your manager or the human resource department."
 msgstr ""
-" こちらの間違いである場合を除き、あなたは出勤しておらず、休暇申請もされていません。\n"
+" こちらの間違いである場合を除き、あなたは出勤しておらず、休暇申請もされていま"
+"せん。\n"
 "この欠勤に対して、必要な処理をして下さい。\n"
 "必要な場合は、マネージャーまたは人事部にご連絡下さい。"
 
 #. module: hr_presence
 #: model:ir.actions.server,name:hr_presence.ir_cron_presence_control_ir_actions_server
-#: model:ir.cron,cron_name:hr_presence.ir_cron_presence_control
 msgid "HR Presence: cron"
 msgstr "HR 出勤: cron"
 
@@ -174,14 +178,14 @@ msgstr "手動設定出勤"
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_presence_search
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_search
 msgid "Presence"
-msgstr "在席"
+msgstr "出勤"
 
 #. module: hr_presence
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee__hr_presence_state_display__present
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_base__hr_presence_state_display__present
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__present
 msgid "Present"
-msgstr "在席"
+msgstr "出勤"
 
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_kanban
@@ -198,9 +202,11 @@ msgstr "SMSテキストメッセージを送信"
 #. module: hr_presence
 #: model:mail.template,description:hr_presence.mail_template_presence
 msgid ""
-"Sent manually in presence module when an employee wasn't working despite not"
-" being off"
-msgstr "従業員が休暇でないにもかかわらず勤務していない場合、出勤モジュールに手動で送信されます。"
+"Sent manually in presence module when an employee wasn't working despite not "
+"being off"
+msgstr ""
+"従業員が休暇でないにもかかわらず勤務していない場合、出勤モジュールに手動で送"
+"信されます。"
 
 #. module: hr_presence
 #: model_terms:ir.ui.view,arch_db:hr_presence.hr_employee_view_kanban
@@ -236,7 +242,7 @@ msgstr "休暇"
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_base__hr_presence_state_display__to_define
 #: model:ir.model.fields.selection,name:hr_presence.selection__hr_employee_public__hr_presence_state_display__to_define
 msgid "To Define"
-msgstr "定義する"
+msgstr "未定義"
 
 #. module: hr_presence
 #: model:mail.template,subject:hr_presence.mail_template_presence
@@ -250,8 +256,6 @@ msgstr "ユーザログ"
 
 #. module: hr_presence
 #. odoo-python
-#: code:addons/hr_presence/models/hr_employee.py:0
-#: code:addons/hr_presence/models/hr_employee.py:0
 #: code:addons/hr_presence/models/hr_employee.py:0
 #, python-format
 msgid "You don't have the right to do this. Please contact an Administrator."

@@ -2,6 +2,7 @@
 
 import pytz
 from datetime import datetime
+from freezegun import freeze_time
 from unittest.mock import patch
 
 from odoo import fields
@@ -16,7 +17,7 @@ class TestHrAttendance(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestHrAttendance, cls).setUpClass()
-        cls.user = new_test_user(cls.env, login='fru', groups='base.group_user,hr_attendance.group_hr_attendance_use_pin')
+        cls.user = new_test_user(cls.env, login='fru', groups='base.group_user')
         cls.user_no_pin = new_test_user(cls.env, login='gru', groups='base.group_user')
         cls.test_employee = cls.env['hr.employee'].create({
             'name': "François Russie",
@@ -26,6 +27,14 @@ class TestHrAttendance(TransactionCase):
         cls.employee_kiosk = cls.env['hr.employee'].create({
             'name': "Machiavel",
             'pin': '5678',
+        })
+        cls.hr_user = cls.env['res.users'].create({
+            'name': 'HR Officer',
+            'login': 'hr_officer',
+            'groups_id': [(6, 0, [
+                cls.env.ref('hr.group_hr_user').id,
+                # Explicitly NOT adding: hr_attendance.group_hr_attendance_user
+            ])]
         })
 
     def setUp(self):
@@ -40,57 +49,6 @@ class TestHrAttendance(TransactionCase):
         assert self.test_employee.attendance_state == 'checked_in'
         self.test_employee._attendance_action_change()
         assert self.test_employee.attendance_state == 'checked_out'
-
-    def test_checkin_self_without_pin(self):
-        """ Employee can check in/out without pin with his own account """
-        employee = self.test_employee.with_user(self.user)
-        employee.with_user(self.user).attendance_manual({}, entered_pin=None)
-        self.assertEqual(employee.attendance_state, 'checked_in', "He should be able to check in without pin")
-        employee.attendance_manual({}, entered_pin=None)
-        self.assertEqual(employee.attendance_state, 'checked_out', "He should be able to check out without pin")
-
-    def test_checkin_self_with_pin(self):
-        """ Employee can check in/out with pin with his own account """
-        employee = self.test_employee.with_user(self.user)
-        employee.attendance_manual({}, entered_pin='1234')
-        self.assertEqual(employee.attendance_state, 'checked_in', "He should be able to check in with his pin")
-        employee.attendance_manual({}, entered_pin='1234')
-        self.assertEqual(employee.attendance_state, 'checked_out', "He should be able to check out with his pin")
-
-    def test_checkin_self_wrong_pin(self):
-        """ Employee cannot check in/out with wrong pin with his own account """
-        employee = self.test_employee.with_user(self.user)
-        action = employee.attendance_manual({}, entered_pin='9999')
-        self.assertNotEqual(employee.attendance_state, 'checked_in', "He should not be able to check in with a wrong pin")
-        self.assertTrue(action.get('warning'))
-
-    def test_checkin_kiosk_with_pin(self):
-        """ Employee can check in/out with his pin in kiosk """
-        employee = self.employee_kiosk.with_user(self.user)
-        employee.attendance_manual({}, entered_pin='5678')
-        self.assertEqual(employee.attendance_state, 'checked_in', "He should be able to check in with his pin")
-        employee.attendance_manual({}, entered_pin='5678')
-        self.assertEqual(employee.attendance_state, 'checked_out', "He should be able to check out with his pin")
-
-    def test_checkin_kiosk_with_wrong_pin(self):
-        """ Employee cannot check in/out with wrong pin in kiosk """
-        employee = self.employee_kiosk.with_user(self.user)
-        action = employee.attendance_manual({}, entered_pin='8888')
-        self.assertNotEqual(employee.attendance_state, 'checked_in', "He should not be able to check in with a wrong pin")
-        self.assertTrue(action.get('warning'))
-
-    def test_checkin_kiosk_without_pin(self):
-        """ Employee cannot check in/out without his pin in kiosk """
-        employee = self.employee_kiosk.with_user(self.user)
-        action = employee.attendance_manual({}, entered_pin=None)
-        self.assertNotEqual(employee.attendance_state, 'checked_in', "He should not be able to check in with no pin")
-        self.assertTrue(action.get('warning'))
-
-    def test_checkin_kiosk_no_pin_mode(self):
-        """ Employee cannot check in/out without pin in kiosk when user has not group `use_pin` """
-        employee = self.employee_kiosk.with_user(self.user_no_pin)
-        employee.attendance_manual({}, entered_pin=None)
-        self.assertEqual(employee.attendance_state, 'checked_out', "He shouldn't be able to check in without")
 
     def test_hours_today(self):
         """ Test day start is correctly computed according to the employee's timezone """
@@ -113,3 +71,28 @@ class TestHrAttendance(TransactionCase):
         # now = 2019/3/2 14:00 in the employee's timezone
         with patch.object(fields.Datetime, 'now', lambda: tz_datetime(2019, 3, 2, 14, 0).astimezone(pytz.utc).replace(tzinfo=None)):
             self.assertEqual(employee.hours_today, 5, "It should have counted 5 hours")
+
+    def test_attendance_checkout_while_employee_archived(self):
+        """An employee should be checked out by the system, if employee is getting archive."""
+        test_attendance = self.env['hr.attendance'].create({
+            'check_in': datetime(2024, 1, 1, 8, 0),
+            'employee_id': self.test_employee.id,
+        })
+
+        with freeze_time("2024-01-01 17:00:00"):
+            self.test_employee.action_archive()
+            self.assertEqual(test_attendance.check_out, fields.Datetime.now())
+            self.assertEqual(test_attendance.worked_hours, 8.0)
+
+    def test_attendance_checkout_while_employee_archived_without_rights(self):
+        """Test that archiving employee by HR user closes attendance even if lacks of attendance permissions"""
+
+        test_attendance = self.env['hr.attendance'].create({
+            'employee_id': self.test_employee.id,
+            'check_in': '2024-01-15 08:00:00',
+        })
+
+        with freeze_time("2024-01-15 17:00:00"):
+            self.test_employee.with_user(self.hr_user).action_archive()
+            self.assertTrue(not self.test_employee.active, "Employee should be archived successfully with sudo()")
+            self.assertEqual(test_attendance.check_out, fields.Datetime.now(), "Attendance should be checked out at the time of archiving")

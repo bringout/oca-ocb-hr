@@ -8,28 +8,24 @@ from odoo.tools.misc import frozendict
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    expense_id = fields.Many2one('hr.expense', string='Expense', copy=True)
+    expense_id = fields.Many2one('hr.expense', string='Expense', copy=True) # copy=True, else we don't know price is tax incl.
 
     @api.constrains('account_id', 'display_type')
     def _check_payable_receivable(self):
         super(AccountMoveLine, self.filtered(lambda line: line.move_id.expense_sheet_id.payment_mode != 'company_account'))._check_payable_receivable()
 
-    def reconcile(self):
-        # OVERRIDE
-        not_paid_expenses = self.move_id.expense_sheet_id.expense_line_ids.filtered(lambda expense: expense.state != 'done')
-        res = super().reconcile()
-        # Do not update expense or expense sheet states when reversing journal entries
-        not_paid_expense_sheets = not_paid_expenses.sheet_id.filtered(lambda sheet: sheet.account_move_id.payment_state != 'reversed')
-        paid_expenses = not_paid_expenses.filtered(lambda expense: expense.currency_id.is_zero(expense.amount_residual))
-        paid_expenses.write({'state': 'done'})
-        not_paid_expense_sheets.filtered(lambda sheet: all(expense.state == 'done' for expense in sheet.expense_line_ids)).set_to_paid()
-        return res
-
     def _get_attachment_domains(self):
         attachment_domains = super(AccountMoveLine, self)._get_attachment_domains()
         if self.expense_id:
-            attachment_domains.append([('res_model', '=', 'hr.expense'), ('res_id', '=', self.expense_id.id)])
+            attachment_domains.append([('res_model', '=', 'hr.expense'), ('res_id', 'in', self.expense_id.ids)])
         return attachment_domains
+
+    @api.model
+    def _get_attachment_by_record(self, id_model2attachments, move_line):
+        return (
+            super()._get_attachment_by_record(id_model2attachments, move_line)
+            or id_model2attachments.get(('hr.expense', move_line.expense_id.id))
+        )
 
     def _compute_tax_key(self):
         super()._compute_tax_key()

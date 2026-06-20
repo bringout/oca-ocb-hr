@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from datetime import datetime
+from datetime import date
 from dateutil.relativedelta import relativedelta
 
 from odoo.exceptions import AccessError
+from odoo.tools import date_utils
 
 from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
@@ -18,13 +19,13 @@ class TestHrLeaveType(TestHrHolidaysCommon):
             'requires_allocation': 'no',
         })
 
+        leave_date = date_utils.start_of((date.today() - relativedelta(days=1)), 'week')
         leave_1 = self.env['hr.leave'].create({
             'name': 'Doctor Appointment',
             'employee_id': self.employee_hruser_id,
             'holiday_status_id': leave_type.id,
-            'date_from': (datetime.today() - relativedelta(days=1)),
-            'date_to': datetime.today(),
-            'number_of_days': 1,
+            'request_date_from': leave_date,
+            'request_date_to': leave_date,
         })
         leave_1.action_approve()
 
@@ -71,3 +72,18 @@ class TestHrLeaveType(TestHrHolidaysCommon):
             ).search([('has_valid_allocation', '=', True)], limit=1)
 
         self.assertFalse(leave_types, "Got valid leaves outside vaild period")
+
+    def test_duplicate_leave(self):
+        employee = self.env['hr.employee'].create({'name': 'Test Employee'})
+        leave_type = self.env['hr.leave.type'].create({'name': 'Sick', 'requires_allocation': 'no'})
+        leave_1 = self.env['hr.leave'].create({
+            'employee_id': employee.id,
+            'holiday_status_id': leave_type.id,
+            'request_date_from': date(2021, 11, 24),
+            'request_date_to': date(2021, 11, 24),
+        })
+        leave_1.action_refuse()
+        leave_2 = leave_1.copy()
+        self.assertEqual(leave_2.employee_id.id, employee.id)
+        self.assertEqual(len(leave_2.employee_ids), 1)
+        self.assertEqual(leave_2.employee_ids[0].id, employee.id)

@@ -30,7 +30,7 @@ class Job(models.Model):
     address_id = fields.Many2one(
         'res.partner', "Job Location", default=_default_address_id,
         domain=lambda self: self._address_id_domain(),
-        help="Address where employees are working")
+        help="Select the location where the applicant will work. Addresses listed here are defined on the company's contact information.")
     application_ids = fields.One2many('hr.applicant', 'job_id', "Job Applications")
     application_count = fields.Integer(compute='_compute_application_count', string="Application Count")
     all_application_count = fields.Integer(compute='_compute_all_application_count', string="All Application Count")
@@ -43,23 +43,32 @@ class Job(models.Model):
     manager_id = fields.Many2one(
         'hr.employee', related='department_id.manager_id', string="Department Manager",
         readonly=True, store=True)
-    user_id = fields.Many2one('res.users', "Recruiter", domain="[('share', '=', False), ('company_ids', 'in', company_id)]", tracking=True, help="The Recruiter will be the default value for all Applicants Recruiter's field in this job position. The Recruiter is automatically added to all meetings with the Applicant.")
-    hr_responsible_id = fields.Many2one(
-        'res.users', "HR Responsible", tracking=True,
-        help="Person responsible of validating the employee's contracts.")
+    user_id = fields.Many2one(
+        "res.users",
+        "Recruiter",
+        domain="[('id', 'in', allowed_user_ids)]",
+        tracking=True,
+        help="The Recruiter will be the default value for all Applicants Recruiter's field in this job position. The Recruiter is automatically added to all meetings with the Applicant.",
+    )
+    allowed_user_ids = fields.Many2many('res.users', compute='_compute_allowed_user_ids', readonly=True)
     document_ids = fields.One2many('ir.attachment', compute='_compute_document_ids', string="Documents", readonly=True)
     documents_count = fields.Integer(compute='_compute_document_ids', string="Document Count")
-    alias_id = fields.Many2one(
-        'mail.alias', "Alias", ondelete="restrict", required=True,
-        help="Email alias for this job position. New emails will automatically create new applicants for this job position.")
+    alias_id = fields.Many2one(help="Email alias for this job position. New emails will automatically create new applicants for this job position.")
     color = fields.Integer("Color Index")
     is_favorite = fields.Boolean(compute='_compute_is_favorite', inverse='_inverse_is_favorite')
     favorite_user_ids = fields.Many2many('res.users', 'job_favorite_user_rel', 'job_id', 'user_id', default=_get_default_favorite_user_ids)
-    interviewer_ids = fields.Many2many('res.users', string='Interviewers', domain="[('share', '=', False), ('company_ids', 'in', company_id)]", help="The Interviewers set on the job position can see all Applicants in it. They have access to the information, the attachments, the meeting management and they can refuse him. You don't need to have Recruitment rights to be set as an interviewer.")
+    interviewer_ids = fields.Many2many(
+        "res.users",
+        domain="[('id', 'in', allowed_user_ids)]",
+        string="Interviewers",
+        help="The Interviewers set on the job position can see all Applicants in it. They have access to the information, the attachments, the meeting management and they can refuse him. You don't need to have Recruitment rights to be set as an interviewer.",
+    )
     extended_interviewer_ids = fields.Many2many('res.users', 'hr_job_extended_interviewer_res_users', compute='_compute_extended_interviewer_ids', store=True)
 
     activities_overdue = fields.Integer(compute='_compute_activities')
     activities_today = fields.Integer(compute='_compute_activities')
+
+    applicant_properties_definition = fields.PropertiesDefinition('Applicant Properties')
 
     @api.depends_context('uid')
     def _compute_activities(self):
@@ -104,6 +113,28 @@ class Job(models.Model):
         for job in self:
             job.extended_interviewer_ids = [(6, 0, list(interviewers_by_job[job.id]))]
 
+    @api.depends("company_id")
+    def _compute_allowed_user_ids(self):
+        company_ids = self.company_id.ids
+        domain = [("share", "=", False)]
+        if company_ids:
+            domain += [("company_ids", "in", company_ids)]
+
+        users_by_company = dict(
+            self.env["res.users"]._read_group(
+                domain=domain,
+                groupby=["company_id"],
+                aggregates=["id:recordset"],
+            ),
+        )
+
+        all_users = self.env["res.users"]
+        for users in users_by_company.values():
+            all_users |= users
+
+        for job in self:
+            job.allowed_user_ids = users_by_company.get(job.company_id, all_users)
+
     def _compute_is_favorite(self):
         for job in self:
             job.is_favorite = self.env.user in job.favorite_user_ids
@@ -143,14 +174,14 @@ class Job(models.Model):
                 ('active', '=', True),
                 '&',
                 ('active', '=', False), ('refuse_reason_id', '!=', False),
-        ], ['job_id'], ['job_id'])
-        result = dict((data['job_id'][0], data['job_id_count']) for data in read_group_result)
+        ], ['job_id'], ['__count'])
+        result = {job.id: count for job, count in read_group_result}
         for job in self:
             job.all_application_count = result.get(job.id, 0)
 
     def _compute_application_count(self):
-        read_group_result = self.env['hr.applicant']._read_group([('job_id', 'in', self.ids)], ['job_id'], ['job_id'])
-        result = dict((data['job_id'][0], data['job_id_count']) for data in read_group_result)
+        read_group_result = self.env['hr.applicant']._read_group([('job_id', 'in', self.ids)], ['job_id'], ['__count'])
+        result = {job.id: count for job, count in read_group_result}
         for job in self:
             job.application_count = result.get(job.id, 0)
 
@@ -199,8 +230,8 @@ class Job(models.Model):
         hired_data = self.env['hr.applicant']._read_group([
             ('job_id', 'in', self.ids),
             ('stage_id', 'in', hired_stages.ids),
-        ], ['job_id'], ['job_id'])
-        job_hires = {data['job_id'][0]: data['job_id_count'] for data in hired_data}
+        ], ['job_id'], ['__count'])
+        job_hires = {job.id: count for job, count in hired_data}
         for job in self:
             job.applicant_hired = job_hires.get(job.id, 0)
 
@@ -226,8 +257,6 @@ class Job(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             vals['favorite_user_ids'] = vals.get('favorite_user_ids', []) + [(4, self.env.uid)]
-            if vals.get('alias_name'):
-                vals['alias_user_id'] = False
         jobs = super().create(vals_list)
         utm_linkedin = self.env.ref("utm.utm_source_linkedin", raise_if_not_found=False)
         if utm_linkedin:

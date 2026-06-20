@@ -1,18 +1,24 @@
 /** @odoo-module **/
-import tour from 'web_tour.tour';
-import { _t } from 'web.core';
+
+import { _t } from "@web/core/l10n/translation";
+import { registry } from "@web/core/registry";
+import { stepUtils } from "@web_tour/tour_service/tour_utils";
 
 const leaveType = "NotLimitedHR";
 const leaveDateFrom = "01/17/2022";
 const leaveDateTo = "01/17/2022";
 const description = 'Days off';
+const todayDate = () => {
+    return new Date().toISOString().slice(0, 10);
+};
 
-tour.register('hr_holidays_tour', {
+
+registry.category("web_tour.tours").add('hr_holidays_tour', {
     url: '/web',
     rainbowManMessage: _t("Congrats, we can see that your request has been validated."),
-    test: false
-}, [
-    tour.stepUtils.showAppsMenuItem(), 
+    test: false,
+    steps: () => [
+    stepUtils.showAppsMenuItem(),
     {
         trigger: '.o_app[data-menu-xmlid="hr_holidays.menu_hr_holidays_root"]',
         content: _t("Let's discover the Time Off application"),
@@ -26,7 +32,7 @@ tour.register('hr_holidays_tour', {
     {
         trigger: 'div[name="holiday_status_id"] input',
         content: _t("Let's try to create a Sick Time Off, select it in the list"),
-        run: `text ${leaveType}`,
+        run: `text ${leaveType.slice(0, leaveType.length - 1)}`,
     },
     {
         trigger: `.ui-autocomplete .ui-menu-item a:contains("${leaveType}")`,
@@ -35,13 +41,14 @@ tour.register('hr_holidays_tour', {
         in_modal: false,
     },
     {
-        trigger: '.o_field_widget[name="request_date_from"] input',
+        trigger: 'input[data-field=request_date_from]',
+        extra_trigger: `.o_field_widget[name='holiday_status_id'] input:propValue("${leaveType}")`,
         content: _t("You can select the period you need to take off, from start date to end date"),
         position: 'right',
         run: `text ${leaveDateFrom}`,
     },
     {
-        trigger: '.o_field_widget[name="request_date_to"] input',
+        trigger: 'input[data-field=request_date_to]',
         content: _t("You can select the period you need to take off, from start date to end date"),
         position: 'right',
         run: `text ${leaveDateTo}`,
@@ -58,7 +65,7 @@ tour.register('hr_holidays_tour', {
         position: 'bottom',
     },
     {
-        trigger: 'button[data-menu-xmlid="hr_holidays.menu_hr_holidays_approvals"]',
+        trigger: 'button[data-menu-xmlid="hr_holidays.menu_hr_holidays_management"]',
         content: _t("Let's go validate it"),
         position: 'bottom'
     },
@@ -79,11 +86,50 @@ tour.register('hr_holidays_tour', {
     {
         trigger: 'button[name="action_approve"]',
         content: _t("Let's approve it"),
-        position: 'bottom'
+        position: 'bottom',
     },
     {
-        trigger: 'a[data-menu-xmlid="hr_holidays.menu_hr_holidays_root"]',
-        content: _t("State is now confirmed. We can go back to the calendar"),
-        position: 'bottom'
+        trigger: `tr.o_data_row:first:not(:has(button[name="action_approve"])),table tbody:not(tr.o_data_row)`,
+        content: "Verify leave is approved",
+        auto: true,
+        isCheck: true,
     }
-]);
+]});
+
+registry.category("web_tour.tours").add('hr_holidays_launch', {
+    url: '/web',
+    steps: () => [
+        stepUtils.showAppsMenuItem(),
+        {
+            trigger: '.o_app[data-menu-xmlid="hr_holidays.menu_hr_holidays_root"]',
+            run: "click",
+        },
+        {
+            trigger: '.o_calendar_container',
+            run: ()=>{},
+        },
+    ]
+});
+
+registry.category("web_tour.tours").add("hr_leave_mandatory_days_hebrew_tour", {
+    url: "/web",
+    steps: () => [
+        stepUtils.showAppsMenuItem(),
+        {
+            trigger: '.o_app[data-menu-xmlid="hr_holidays.menu_hr_holidays_root"]',
+            run: "click",
+        },
+        {
+            trigger: '.o_calendar_renderer',
+            content: "Verify that the today has the hr_mandatory_day class.",
+            run: () => {
+                const td = document.querySelector(`td[data-date="${todayDate()}"]`);
+                if (!td?.classList.contains("hr_mandatory_day")) {
+                    console.error(
+                        `Today ${todayDate()} does not have the hr_mandatory_day class.`
+                    );
+                }
+            },
+        },
+    ],
+});
