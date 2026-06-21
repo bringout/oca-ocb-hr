@@ -56,6 +56,16 @@
                                                 <img alt="Google Chrome Store" class="img img-fluid align-middle mt-1" style="height: 85% !important;" src="project/static/src/img/chrome_store.png"/>
                                             </a>
                                         </div>
+                                        <div class="col-lg-3 pe-0">
+                                            <a href="https://apps.apple.com/be/app/awesome-timesheet/id1078657549" class="align-middle" target="_blank">
+                                                <img alt="Apple App Store" class="img img-fluid h-100 o_config_app_store" src="project/static/src/img/app_store.png"/>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-3 pe-0">
+                                            <a href="https://play.google.com/store/apps/details?id=com.odoo.OdooTimesheets" class="align-middle" target="_blank">
+                                                <img alt="Google Play Store" class="img img-fluid h-100 o_config_play_store" src="project/static/src/img/play_store.png"/>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
